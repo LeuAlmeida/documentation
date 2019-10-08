@@ -1,0 +1,5 @@
+      <![CDATA[test CDATA content with some special chars such as @, ä, Ö and Ü as well as an ambiguous one: > ]]>
+@@ COMPACT @@
+<![CDATA[test CDATA content with some special chars such as @, ä, Ö and Ü as well as an ambiguous one: > ]]>
+@@ DEFAULT @@
+<![CDATA[test CDATA content with some special chars such as @, ä, Ö and Ü as well as an ambiguous one: > ]]>

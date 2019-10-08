@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\extension\ios\iOSPlatform.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/extension/ios/</a> iOSPlatform.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/106</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/63</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/104</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as Q from "q";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import * as semver from "semver";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import {ChildProcess} from "../../common/node/childProcess";
+<span class="cstat-no" title="statement not covered" ></span>import {CommandExecutor} from "../../common/commandExecutor";
+<span class="cstat-no" title="statement not covered" ></span>import {GeneralMobilePlatform, MobilePlatformDeps, TargetType} from "../generalMobilePlatform";
+import {IIOSRunOptions} from "../launchArgs";
+<span class="cstat-no" title="statement not covered" ></span>import {PlistBuddy} from "./plistBuddy";
+<span class="cstat-no" title="statement not covered" ></span>import {IOSDebugModeManager} from "./iOSDebugModeManager";
+<span class="cstat-no" title="statement not covered" ></span>import {OutputVerifier, PatternToFailure} from "../../common/outputVerifier";
+<span class="cstat-no" title="statement not covered" ></span>import {SettingsHelper} from "../settingsHelper";
+<span class="cstat-no" title="statement not covered" ></span>import {RemoteExtension} from "../../common/remoteExtension";
+<span class="cstat-no" title="statement not covered" ></span>import {ReactNativeProjectHelper} from "../../common/reactNativeProjectHelper";
+<span class="cstat-no" title="statement not covered" ></span>import {TelemetryHelper} from "../../common/telemetryHelper";
+<span class="cstat-no" title="statement not covered" ></span>import { InternalErrorCode } from "../../common/error/internalErrorCode";
+<span class="cstat-no" title="statement not covered" ></span>import * as nls from "vscode-nls";
+<span class="cstat-no" title="statement not covered" ></span>const localize = nls.loadMessageBundle();
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class IOSPlatform extends GeneralMobilePlatform {
+    public static <span class="cstat-no" title="statement not covered" ></span>DEFAULT_IOS_PROJECT_RELATIVE_PATH = "ios";
+    private static remoteExtension: RemoteExtension;
+&nbsp;
+    private <span class="cstat-no" title="statement not covered" ></span>plistBuddy = new PlistBuddy();
+    private <span class="cstat-no" title="statement not covered" ></span>targetType: TargetType = "simulator";
+    private iosProjectRoot: string;
+    private iosDebugModeManager: IOSDebugModeManager;
+&nbsp;
+    private <span class="cstat-no" title="statement not covered" ></span>defaultConfiguration: string = "Debug";
+    private <span class="cstat-no" title="statement not covered" ></span>configurationArgumentName: string = "--configuration";
+&nbsp;
+    // We should add the common iOS build/run errors we find to this list
+    private static <span class="cstat-no" title="statement not covered" ></span>RUN_IOS_FAILURE_PATTERNS: PatternToFailure[] = [{
+        pattern: "No devices are booted",
+        errorCode: InternalErrorCode.IOSSimulatorNotLaunchable,
+    }, {
+        pattern: "FBSOpenApplicationErrorDomain",
+        errorCode: InternalErrorCode.IOSSimulatorNotLaunchable,
+    }, {
+        pattern: "ios-deploy",
+        errorCode: InternalErrorCode.IOSDeployNotFound,
+    }];
+&nbsp;
+    private static readonly <span class="cstat-no" title="statement not covered" ></span>RUN_IOS_SUCCESS_PATTERNS = ["BUILD SUCCEEDED"];
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >showDevMenu(deviceId?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return IOSPlatform.remote(this.runOptions.projectRoot).showDevMenu(deviceId);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >reloadApp(deviceId?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return IOSPlatform.remote(this.runOptions.projectRoot).reloadApp(deviceId);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(protected <span class="cstat-no" title="statement not covered" ></span>runOptions: IIOSRunOptions, platformDeps: MobilePlatformDeps = {})</span> {
+<span class="cstat-no" title="statement not covered" ></span>        super(runOptions, platformDeps);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.runOptions.configuration = this.getConfiguration();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.runOptions.iosRelativeProjectPath) { // Deprecated option</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.logger.warning(localize("iosRelativeProjectPathOptionIsDeprecatedUseRunArgumentsInstead", "'iosRelativeProjectPath' option is deprecated. Please use 'runArguments' instead."));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.iosProjectRoot = path.join(this.projectPath, this.runOptions.iosRelativeProjectPath || IOSPlatform.DEFAULT_IOS_PROJECT_RELATIVE_PATH);
+<span class="cstat-no" title="statement not covered" ></span>        const schemeFromArgs = IOSPlatform.getOptFromRunArgs(this.runArguments, "--scheme", false);
+<span class="cstat-no" title="statement not covered" ></span>        this.iosDebugModeManager  = new IOSDebugModeManager(this.iosProjectRoot, schemeFromArgs ? schemeFromArgs : this.runOptions.scheme);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.runArguments &amp;&amp; this.runArguments.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.targetType = (this.runArguments.indexOf(`--${IOSPlatform.deviceString}`) &gt;= 0) ?
+                IOSPlatform.deviceString : IOSPlatform.simulatorString;
+<span class="cstat-no" title="statement not covered" ></span>            return;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.runOptions.target &amp;&amp; (this.runOptions.target !== IOSPlatform.simulatorString &amp;&amp;</span>
+                this.runOptions.target !== IOSPlatform.deviceString)) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>            this.targetType = IOSPlatform.simulatorString;
+<span class="cstat-no" title="statement not covered" ></span>            return;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.targetType = this.runOptions.target || IOSPlatform.simulatorString;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >runApp(</span>): Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        const extProps = {
+            platform: {
+                value: "ios",
+                isPii: false,
+            },
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return TelemetryHelper.generate("iOSPlatform.runApp", extProps, () =&gt; {
+            // Compile, deploy, and launch the app on either a simulator or a device
+<span class="cstat-no" title="statement not covered" ></span>            const env = this.getEnvArgument();
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>            return ReactNativeProjectHelper.getReactNativeVersion(this.runOptions.projectRoot)
+                .then(version =&gt; {
+<span class="cstat-no" title="statement not covered" >                    if (!semver.valid(version) /*Custom RN implementations should support this flag*/ || semver.gte(version, IOSPlatform.NO_PACKAGER_VERSION)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                        this.runArguments.push("--no-packager");
+                    }
+                    // Since @react-native-community/cli@2.1.0 build output are hidden by default
+                    // we are using `--verbose` to show it as it contains `BUILD SUCCESSFUL` and other patterns
+<span class="cstat-no" title="statement not covered" >                    if (semver.gte(version, "0.60.0")) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                        this.runArguments.push("--verbose");
+                    }
+<span class="cstat-no" title="statement not covered" ></span>                    const runIosSpawn = new CommandExecutor(this.projectPath, this.logger).spawnReactCommand("run-ios", this.runArguments, {env});
+<span class="cstat-no" title="statement not covered" ></span>                    return n</span></span>ew OutputVerifier(() =&gt; <span class="cstat-no" title="statement not covered" >this.generateSuccessPatterns(version), () =&gt; <span class="cstat-no" title="statement not covered" >Q(IOSPlatform.RUN_IOS_FAILURE_PATTERNS), "ios")
+                        .process(runIosSpawn);
+                });
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >enableJSDebuggingMode(</span>): Q.Promise&lt;void&gt; {
+        // Configure the app for debugging
+<span class="cstat-no" title="statement not covered" >        if (this.targetType === IOSPlatform.deviceString) {</span>
+            // Note that currently we cannot automatically switch the device into debug mode.
+<span class="cstat-no" title="statement not covered" ></span>            this.logger.info("Application is running on a device, please shake device and select 'Debug JS Remotely' to enable debugging.");
+<span class="cstat-no" title="statement not covered" ></span>            return Q.resolve&lt;void&gt;(void 0);
+        }
+&nbsp;
+        // Wait until the configuration file exists, and check to see if debugging is enabled
+<span class="cstat-no" title="statement not covered" ></span>        return Q.all&lt;boolean | string&gt;([
+            this.iosDebugModeManager.getSimulatorRemoteDebuggingSetting(this.runOptions.configuration, this.runOptions.productName),
+            this.getBundleId(),
+        ])
+            .spread((debugModeEnabled: boolean, bundleId: string) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (debugModeEnabled) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    return Q.resolve(void 0);
+                }
+&nbsp;
+                // Debugging must still be enabled
+                // We enable debugging by writing to a plist file that backs a NSUserDefaults object,
+                // but that file is written to by the app on occasion. To avoid races, we shut the app
+                // down before writing to the file.
+<span class="cstat-no" title="statement not covered" ></span>                const childProcess = new ChildProcess();
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>                return childProcess.execToString("xcrun simctl spawn booted launchctl list")
+                    .then((output: string) =&gt; {
+                        // Try to find an entry that looks like UIKitApplication:com.example.myApp[0x4f37]
+<span class="cstat-no" title="statement not covered" ></span>                        const regex = new RegExp(`(\\S+${bundleId}\\S+)`);
+<span class="cstat-no" title="statement not covered" ></span>                        const match = regex.exec(output);
+&nbsp;
+                        // If we don't find a match, the app must not be running and so we do not need to close it
+<span class="cstat-no" title="statement not covered" ></span>                        return match ? childProcess.exec(`xcrun simctl spawn booted launchctl stop ${match[1]}`) : null;
+                    })
+                    .then(() =&gt; {
+                        // Write to the settings file while the app is not running to avoid races
+<span class="cstat-no" title="statement not covered" ></span>                        return this.iosDebugModeManager.setSimulatorRemoteDebuggingSetting(/*enable=*/ true, this.runOptions.configuration, this.runOptions.productName);
+                    })
+                    .then(() =&gt; {
+                        // Relaunch the app
+<span class="cstat-no" title="statement not covered" ></span>                        return this.runApp();
+                    });
+            });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >disableJSDebuggingMode(</span>): Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.iosDebugModeManager.setSimulatorRemoteDebuggingSetting(/*enable=*/ false, this.runOptions.configuration, this.runOptions.productName);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >prewarmBundleCache(</span>): Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.packager.prewarmBundleCache("ios");
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >getRunArguments(</span>): string[] {
+<span class="cstat-no" title="statement not covered" ></span>        let runArguments: string[] = [];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.runOptions.runArguments &amp;&amp; this.runOptions.runArguments.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            runArguments = this.runOptions.runArguments;
+<span class="cstat-no" title="statement not covered" >            if (this.runOptions.scheme) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                const schemeFromArgs = IOSPlatform.getOptFromRunArgs(runArguments, "--scheme", false);
+<span class="cstat-no" title="statement not covered" >                if (!schemeFromArgs) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    runArguments.push("--scheme", this.runOptions.scheme);
+                } else {
+<span class="cstat-no" title="statement not covered" ></span>                    this.logger.warning(localize("iosSchemeParameterAlreadySetInRunArguments", "'--scheme' is set as 'runArguments' configuration parameter value, 'scheme' configuration parameter value will be omitted"));
+                }
+            }
+        } else {
+<span class="cstat-no" title="statement not covered" >            if (this.runOptions.target) {</span>
+<span class="cstat-no" title="statement not covered" >                if (this.runOptions.target === IOSPlatform.deviceString ||</span>
+                    this.runOptions.target === IOSPlatform.simulatorString) {
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>                    runArguments.push(`--${this.runOptions.target}`);
+                } else {
+<span class="cstat-no" title="statement not covered" ></span>                    runArguments.push("--simulator", `${this.runOptions.target}`);
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (this.runOptions.iosRelativeProjectPath) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                runArguments.push("--project-path", this.runOptions.iosRelativeProjectPath);
+            }
+&nbsp;
+            // provide any defined scheme
+<span class="cstat-no" title="statement not covered" >            if (this.runOptions.scheme) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                runArguments.push("--scheme", this.runOptions.scheme);
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return runArguments;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >generateSuccessPatterns(version: string)</span>: Q.Promise&lt;string[]&gt; {
+        // Clone RUN_IOS_SUCCESS_PATTERNS to avoid its runtime mutation
+<span class="cstat-no" title="statement not covered" ></span>        let successPatterns = [...IOSPlatform.RUN_IOS_SUCCESS_PATTERNS];
+<span class="cstat-no" title="statement not covered" >        if (this.targetType === IOSPlatform.deviceString) {</span>
+<span class="cstat-no" title="statement not covered" >            if (semver.gte(version, "0.60.0")) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                successPatterns.push("success Installed the app on the device");
+            } else {
+<span class="cstat-no" title="statement not covered" ></span>                successPatterns.push("INSTALLATION SUCCEEDED");
+            }
+<span class="cstat-no" title="statement not covered" ></span>            return Q(successPatterns);
+        } else {
+<span class="cstat-no" title="statement not covered" ></span>            return this.getBundleId()
+            .then(bundleId =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (semver.gte(version, "0.60.0")) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    successPatterns.push(`Launching "${bundleId}"\nsuccess Successfully launched the app `);
+                } else {
+<span class="cstat-no" title="statement not covered" ></span>                    successPatterns.push(`Launching ${bundleId}\n${bundleId}: `);
+                }
+<span class="cstat-no" title="statement not covered" ></span>                return successPatterns;
+            });
+        }
+&nbsp;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >getConfiguration(</span>): string {
+<span class="cstat-no" title="statement not covered" ></span>        return IOSPlatform.getOptFromRunArgs(this.runArguments, this.configurationArgumentName) || this.defaultConfiguration;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >getBundleId(</span>): Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let scheme = this.runOptions.scheme;
+<span class="cstat-no" title="statement not covered" >        if (!scheme) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            const schemeFromArgs = IOSPlatform.getOptFromRunArgs(this.runArguments, "--scheme", false);
+<span class="cstat-no" title="statement not covered" >            if (schemeFromArgs) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                scheme = schemeFromArgs;
+            }
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return this.plistBuddy.getBundleId(this.iosProjectRoot, true, this.runOptions.configuration, this.runOptions.productName, scheme);
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >static remote(fsPath: string)</span>: RemoteExtension {
+<span class="cstat-no" title="statement not covered" >        if (this.remoteExtension) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return this.remoteExtension;
+        } else {
+<span class="cstat-no" title="statement not covered" ></span>            return this.remoteExtension = RemoteExtension.atProjectRootPath(SettingsHelper.getReactNativeProjectRoot(fsPath));
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 26 2019 09:04:01 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

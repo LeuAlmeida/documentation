@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\common\error\internalErrorCode.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/common/error/</a> internalErrorCode.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/72</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/1</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/72</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>export enum InternalErrorCode </span>{
+        // Command Executor errors
+<span class="cstat-no" title="statement not covered" ></span>        CommandFailed = 101,
+<span class="cstat-no" title="statement not covered" ></span>        CommandFailedWithErrorCode = 102,
+<span class="cstat-no" title="statement not covered" ></span>        PackagerStartFailed = 103,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToRunOnAndroid = 104,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToRunOnIos = 105,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToStartPackager = 106,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToStopPackager = 107,
+<span class="cstat-no" title="statement not covered" ></span>        PackagerRunningInDifferentPort = 108,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToRestartPackager = 109,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToRunExponent = 110,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToPublishToExpHost = 111,
+<span class="cstat-no" title="statement not covered" ></span>        UnsupportedCommandStatus = 112,
+&nbsp;
+        // Device Deployer errors
+<span class="cstat-no" title="statement not covered" ></span>        IOSDeployNotFound = 201,
+&nbsp;
+        // Device Runner errors
+<span class="cstat-no" title="statement not covered" ></span>        DeviceNotPluggedIn = 301,
+<span class="cstat-no" title="statement not covered" ></span>        DeveloperDiskImgNotMountable = 302,
+<span class="cstat-no" title="statement not covered" ></span>        UnableToLaunchApplication = 303,
+<span class="cstat-no" title="statement not covered" ></span>        ApplicationLaunchTimedOut = 304,
+&nbsp;
+        // iOS Platform errors
+<span class="cstat-no" title="statement not covered" ></span>        IOSSimulatorNotLaunchable = 401,
+<span class="cstat-no" title="statement not covered" ></span>        IOSFoundMoreThanOneExecutablesCleanupBuildFolder = 402,
+<span class="cstat-no" title="statement not covered" ></span>        IOSCouldNotFoundExecutableInFolder = 403,
+&nbsp;
+        // Packager errors
+<span class="cstat-no" title="statement not covered" ></span>        OpnPackagerLocationNotFound = 501,
+<span class="cstat-no" title="statement not covered" ></span>        OpnPackagerNotFound = 502,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToStopPackagerOnExit = 503,
+<span class="cstat-no" title="statement not covered" ></span>        CannotAttachToPackagerCheckPackagerRunningOnPort = 504,
+<span class="cstat-no" title="statement not covered" ></span>        AnotherDebuggerConnectedToPackager = 505,
+&nbsp;
+        // React Native Project errors
+<span class="cstat-no" title="statement not covered" ></span>        ProjectVersionNotParsable = 601,
+<span class="cstat-no" title="statement not covered" ></span>        ProjectVersionUnsupported = 602,
+<span class="cstat-no" title="statement not covered" ></span>        ProjectVersionNotReadable = 603,
+<span class="cstat-no" title="statement not covered" ></span>        NotInReactNativeFolderError = 604,
+<span class="cstat-no" title="statement not covered" ></span>        CouldNotFindProjectVersion = 605,
+&nbsp;
+        // Miscellaneous errors
+<span class="cstat-no" title="statement not covered" ></span>        TelemetryInitializationFailed = 701,
+<span class="cstat-no" title="statement not covered" ></span>        ExtensionActivationFailed = 702,
+<span class="cstat-no" title="statement not covered" ></span>        DebuggerStubLauncherFailed = 703,
+<span class="cstat-no" title="statement not covered" ></span>        IntellisenseSetupFailed = 704,
+<span class="cstat-no" title="statement not covered" ></span>        NodeDebuggerConfigurationFailed = 705,
+<span class="cstat-no" title="statement not covered" ></span>        DebuggingFailed = 706,
+<span class="cstat-no" title="statement not covered" ></span>        RNTempFolderDeletionFailed = 707,
+<span class="cstat-no" title="statement not covered" ></span>        DebuggingFailedInNodeWrapper = 708,
+<span class="cstat-no" title="statement not covered" ></span>        PlatformNotSupported = 709,
+<span class="cstat-no" title="statement not covered" ></span>        WorkspaceNotFound = 710,
+<span class="cstat-no" title="statement not covered" ></span>        ExpectedExponentTunnelPath = 711,
+<span class="cstat-no" title="statement not covered" ></span>        NotAllSuccessPatternsMatched = 712,
+<span class="cstat-no" title="statement not covered" ></span>        CouldNotParsePackageVersion = 713,
+<span class="cstat-no" title="statement not covered" ></span>        PackageNotFound = 714,
+<span class="cstat-no" title="statement not covered" ></span>        ReactDevtoolsIsNotInstalled = 715,
+&nbsp;
+        // Activation errors
+<span class="cstat-no" title="statement not covered" ></span>        CouldNotFindLocationOfNodeDebugger = 801,
+<span class="cstat-no" title="statement not covered" ></span>        CouldNotFindWorkspace = 802,
+&nbsp;
+        // Inter Process Communication errors
+<span class="cstat-no" title="statement not covered" ></span>        ErrorWhileProcessingMessageInIPMSServer = 901,
+<span class="cstat-no" title="statement not covered" ></span>        ErrorNoPipeFound = 902,
+&nbsp;
+        // Validating user input errors
+<span class="cstat-no" title="statement not covered" ></span>        ExpectedIntegerValue = 1001,
+<span class="cstat-no" title="statement not covered" ></span>        ExpectedStringValue = 1002,
+<span class="cstat-no" title="statement not covered" ></span>        ExpectedBooleanValue = 1003,
+<span class="cstat-no" title="statement not covered" ></span>        ExpectedArrayValue = 1004,
+<span class="cstat-no" title="statement not covered" ></span>        ExpectedObjectValue = 1005,
+&nbsp;
+        // Exponent errors
+<span class="cstat-no" title="statement not covered" ></span>        RNVersionNotSupportedByExponent = 1101,
+<span class="cstat-no" title="statement not covered" ></span>        UserCancelledExpoLogin = 1102,
+&nbsp;
+        // Android errors
+<span class="cstat-no" title="statement not covered" ></span>        AndroidCouldNotInstallTheAppOnAnyAvailibleDevice = 1201,
+<span class="cstat-no" title="statement not covered" ></span>        AndroidShellCommandTimedOut = 1202,
+<span class="cstat-no" title="statement not covered" ></span>        AndroidProjectNotFound = 1203,
+<span class="cstat-no" title="statement not covered" ></span>        AndroidMoreThanOneDeviceOrEmulator = 1204,
+<span class="cstat-no" title="statement not covered" ></span>        AndroidFailedToLaunchTheSpecifiedActivity = 1205,
+&nbsp;
+        // Windows Phone errors
+<span class="cstat-no" title="statement not covered" ></span>        WinRNMPPluginIsNotInstalled = 1301,
+&nbsp;
+        // Debugger errors
+<span class="cstat-no" title="statement not covered" ></span>        SourcesStoragePathIsNullOrEmpty = 1401,
+<span class="cstat-no" title="statement not covered" ></span>        DebuggingWontWorkReloadJSAndReconnect = 1402,
+<span class="cstat-no" title="statement not covered" ></span>        ReconnectionToPackagerFailedCheckForErrorsOrRestartReactNative = 1403,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToProcessMessageFromReactNativeApp = 1404,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToPrepareJSRuntimeEnvironment = 1405,
+<span class="cstat-no" title="statement not covered" ></span>        FailedToSendMessageToTheReactNativeApp = 1406,
+<span class="cstat-no" title="statement not covered" ></span>        ReactNativeWorkerProcessThrownAnError = 1407,
+<span class="cstat-no" title="statement not covered" ></span>        CouldntImportScriptAt = 1408,
+<span class="cstat-no" title="statement not covered" ></span>        RNMessageWithMethodExecuteApplicationScriptDoesntHaveURLProperty = 1409,
+&nbsp;
+    }
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

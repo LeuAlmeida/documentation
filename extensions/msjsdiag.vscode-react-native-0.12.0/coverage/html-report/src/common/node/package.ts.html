@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\common\node\package.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/common/node/</a> package.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/24</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as pathModule from "path";
+<span class="cstat-no" title="statement not covered" ></span>import * as Q from "q";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import {FileSystem} from "./fileSystem";
+<span class="cstat-no" title="statement not covered" ></span>import { ErrorHelper } from "../error/errorHelper";
+<span class="cstat-no" title="statement not covered" ></span>import { InternalErrorCode } from "../error/internalErrorCode";
+&nbsp;
+interface IPackageDependencyDict {
+    [packageName: string]: string;
+}
+&nbsp;
+export interface IPackageInformation {
+    name: string;
+    version: string;
+    dependencies?: IPackageDependencyDict;
+    main?: string;
+    [key: string]: any;
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class Package {
+    private <span class="cstat-no" title="statement not covered" ></span>INFORMATION_PACKAGE_FILENAME = "package.json";
+    private <span class="cstat-no" title="statement not covered" ></span>DEPENDENCIES_SUBFOLDER = "node_modules";
+&nbsp;
+    private fileSystem: FileSystem;
+&nbsp;
+    private _path: string;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(path: string, { fileSystem = new FileSystem() } = {})</span> {
+<span class="cstat-no" title="statement not covered" ></span>        this._path = path;
+<span class="cstat-no" title="statement not covered" ></span>        this.fileSystem = fileSystem;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >parsePackageInformation(</span>): Q.Promise&lt;IPackageInformation&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.fileSystem.readFile(this.informationJsonFilePath(), "utf8")
+            .then(data =&gt;
+                &lt;IPackageInformation&gt;<span class="cstat-no" title="statement not covered" >JSON.parse(data));</span>
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >name(</span>): Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.parseProperty("name");
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >dependencies(</span>): Q.Promise&lt;IPackageDependencyDict&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.parseProperty("dependencies");
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >version(</span>): Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.parseProperty("version").then(version =&gt;
+<span class="cstat-no" title="statement not covered" >            typeof version === "string"</span>
+                ? version
+                : Q.reject&lt;string&gt;(ErrorHelper.getInternalError(InternalErrorCode.CouldNotParsePackageVersion, this.informationJsonFilePath(), version)));
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >setMainFile(value: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.parsePackageInformation()
+            .then(packageInformation =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                packageInformation.main = value;
+<span class="cstat-no" title="statement not covered" ></span>                return this.fileSystem.writeFile(this.informationJsonFilePath(), JSON.stringify(&lt;Object&gt;packageInformation));
+            });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >dependencyPath(dependencyName: string)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        return pathModule.resolve(this._path, this.DEPENDENCIES_SUBFOLDER, dependencyName);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >dependencyPackage(dependencyName: string)</span>: Package {
+<span class="cstat-no" title="statement not covered" ></span>        return new Package(this.dependencyPath(dependencyName), { fileSystem: this.fileSystem});
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >informationJsonFilePath(</span>): string {
+<span class="cstat-no" title="statement not covered" ></span>        return pathModule.resolve(this._path, this.INFORMATION_PACKAGE_FILENAME);
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >parseProperty(name: string)</span>: Q.Promise&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.parsePackageInformation()
+            .then(packageInformation =&gt;
+<span class="cstat-no" title="statement not covered" >                packageInformation[name]);</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

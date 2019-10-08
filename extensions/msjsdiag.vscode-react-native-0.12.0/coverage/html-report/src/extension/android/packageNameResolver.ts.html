@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\extension\android\packageNameResolver.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/extension/android/</a> packageNameResolver.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/26</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import {FileSystem} from "../../common/node/fileSystem";
+<span class="cstat-no" title="statement not covered" ></span>import Q = require("q");
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class PackageNameResolver {
+&nbsp;
+    private static <span class="cstat-no" title="statement not covered" ></span>PackageNameRegexp: RegExp = /package="(.+?)"/;
+    private static <span class="cstat-no" title="statement not covered" ></span>ManifestName = "AndroidManifest.xml";
+    private static <span class="cstat-no" title="statement not covered" ></span>DefaultPackagePrefix = "com.";
+    private static <span class="cstat-no" title="statement not covered" ></span>SourceRootRelPath: string[] = ["android", "app", "src", "main"];
+    private static <span class="cstat-no" title="statement not covered" ></span>DefaultManifestLocation: string[] = PackageNameResolver.SourceRootRelPath.concat(PackageNameResolver.ManifestName);
+    private applicationName: string;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(applicationName: string)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        this.applicationName = applicationName;
+    }
+&nbsp;
+    /**
+     * Tries to find the package name in AndroidManifest.xml. If not found, it returns the default package name,
+     * which is the application name prefixed with the default prefix.
+     */
+    public <span class="fstat-no" title="function not covered" >resolvePackageName(projectRoot: string)</span>: Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let expectedAndroidManifestPath = path.join.apply(this, [projectRoot].concat(PackageNameResolver.DefaultManifestLocation));
+<span class="cstat-no" title="statement not covered" ></span>        return this.readPackageName(expectedAndroidManifestPath);
+    }
+&nbsp;
+    /**
+     * Given a manifest file path, it parses the file and returns the package name.
+     * If the package name cannot be parsed, the default packge name is returned.
+     */
+    private <span class="fstat-no" title="function not covered" >readPackageName(manifestPath: string)</span>: Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" >        if (manifestPath) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            let fs = new FileSystem();
+<span class="cstat-no" title="statement not covered" ></span>            return fs.exists(manifestPath).then(exists =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (exists) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    return fs.readFile(manifestPath)
+                        .then(manifestContent =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                            let packageName = this.parsePackageName(manifestContent);
+<span class="cstat-no" title="statement not covered" >                            if (!packageName) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                                packageName = this.getDefaultPackageName(this.applicationName);
+                            }
+<span class="cstat-no" title="statement not covered" ></span>                            return packageName;
+                        });
+                } else {
+<span class="cstat-no" title="statement not covered" ></span>                    return this.getDefaultPackageName(this.applicationName);
+                }
+            });
+        } else {
+<span class="cstat-no" title="statement not covered" ></span>            return Q.resolve(this.getDefaultPackageName(this.applicationName));
+        }
+    }
+&nbsp;
+    /**
+     * Gets the default package name, based on the application name.
+     */
+    private <span class="fstat-no" title="function not covered" >getDefaultPackageName(applicationName: string)</span>: string {
+<span class="cstat-no" title="statement not covered" ></span>        return (PackageNameResolver.DefaultPackagePrefix + applicationName).toLowerCase();
+    }
+&nbsp;
+    /**
+     * Parses the application package name from the contents of an Android manifest file.
+     * If a match was found, it is returned. Otherwise null is returned.
+     */
+    private <span class="fstat-no" title="function not covered" >parsePackageName(manifestContents: string)</span> {
+        // first we remove all the comments from the file
+<span class="cstat-no" title="statement not covered" ></span>        let match = manifestContents.match(PackageNameResolver.PackageNameRegexp);
+<span class="cstat-no" title="statement not covered" ></span>        return match ? match[1] : null;
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

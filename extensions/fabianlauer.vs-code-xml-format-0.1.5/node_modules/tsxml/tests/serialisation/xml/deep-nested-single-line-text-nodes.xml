@@ -1,0 +1,17 @@
+<example>
+<text>
+Some test content on a single line.
+</text>
+<text>Some more content on a single line, only this time with special characters such as \\, @, äöü, and some\ttabs 	between words.</text>
+</example>
+@@ COMPACT @@
+<example><text>Some test content on a single line.</text><text>Some more content on a single line, only this time with special characters such as \\, @, äöü, and some\ttabs 	between words.</text></example>
+@@ DEFAULT @@
+<example>
+	<text>
+		Some test content on a single line.
+	</text>
+	<text>
+		Some more content on a single line, only this time with special characters such as \\, @, äöü, and some\ttabs 	between words.
+	</text>
+</example>

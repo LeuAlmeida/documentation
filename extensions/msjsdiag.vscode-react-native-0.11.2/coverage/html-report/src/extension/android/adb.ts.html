@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\extension\android\adb.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/extension/android/</a> adb.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/96</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/96</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as Q from "q";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import { ChildProcess, ISpawnResult } from "../../common/node/childProcess";
+<span class="cstat-no" title="statement not covered" ></span>import { CommandExecutor } from "../../common/commandExecutor";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import * as fs from "fs";
+import { ILogger } from "../log/LogHelper";
+<span class="cstat-no" title="statement not covered" ></span>import * as os from "os";
+<span class="cstat-no" title="statement not covered" ></span>import * as nls from "vscode-nls";
+<span class="cstat-no" title="statement not covered" ></span>const localize = nls.loadMessageBundle();
+&nbsp;
+// See android versions usage at: http://developer.android.com/about/dashboards/index.html
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>export enum AndroidAPILevel </span>{
+<span class="cstat-no" title="statement not covered" ></span>    Marshmallow = 23,
+<span class="cstat-no" title="statement not covered" ></span>    LOLLIPOP_MR1 = 22,
+<span class="cstat-no" title="statement not covered" ></span>    LOLLIPOP = 21, /* Supports adb reverse */
+<span class="cstat-no" title="statement not covered" ></span>    KITKAT = 19,
+<span class="cstat-no" title="statement not covered" ></span>    JELLY_BEAN_MR2 = 18,
+<span class="cstat-no" title="statement not covered" ></span>    JELLY_BEAN_MR1 = 17,
+<span class="cstat-no" title="statement not covered" ></span>    JELLY_BEAN = 16,
+<span class="cstat-no" title="statement not covered" ></span>    ICE_CREAM_SANDWICH_MR1 = 15,
+<span class="cstat-no" title="statement not covered" ></span>    GINGERBREAD_MR1 = 10,
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>enum KeyEvents </span>{
+<span class="cstat-no" title="statement not covered" ></span>    KEYCODE_BACK = 4,
+<span class="cstat-no" title="statement not covered" ></span>    KEYCODE_DPAD_UP = 19,
+<span class="cstat-no" title="statement not covered" ></span>    KEYCODE_DPAD_DOWN = 20,
+<span class="cstat-no" title="statement not covered" ></span>    KEYCODE_DPAD_CENTER = 23,
+<span class="cstat-no" title="statement not covered" ></span>    KEYCODE_MENU = 82,
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>export enum DeviceType </span>{
+<span class="cstat-no" title="statement not covered" ></span>    AndroidSdkEmulator, // These seem to have emulator-&lt;port&gt; ids
+<span class="cstat-no" title="statement not covered" ></span>    Other,
+}
+&nbsp;
+export interface IDevice {
+    id: string;
+    isOnline: boolean;
+    type: DeviceType;
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>const AndroidSDKEmulatorPattern = /^emulator-\d{1,5}$/;
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class AdbHelper {
+    private <span class="cstat-no" title="statement not covered" ></span>childProcess: ChildProcess = new ChildProcess();
+    private <span class="cstat-no" title="statement not covered" ></span>commandExecutor: CommandExecutor = new CommandExecutor();
+    private <span class="cstat-no" title="statement not covered" ></span>adbExecutable: string = "";
+    private launchActivity: string;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(projectRoot: string, logger?: ILogger, launchActivity: string = "MainActivity")</span> {
+&nbsp;
+        // Trying to read sdk location from local.properties file and if we succueded then
+        // we would run adb from inside it, otherwise we would rely to PATH
+<span class="cstat-no" title="statement not covered" ></span>        const sdkLocation = this.getSdkLocationFromLocalPropertiesFile(projectRoot, logger);
+<span class="cstat-no" title="statement not covered" ></span>        this.adbExecutable = sdkLocation ? `${path.join(sdkLocation, "platform-tools", "adb")}` : "adb";
+<span class="cstat-no" title="statement not covered" ></span>        this.launchActivity = launchActivity;
+    }
+&nbsp;
+    /**
+     * Gets the list of Android connected devices and emulators.
+     */
+    public <span class="fstat-no" title="function not covered" >getConnectedDevices(</span>): Q.Promise&lt;IDevice[]&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.childProcess.execToString(`${this.adbExecutable} devices`)
+            .then(output =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                return this.parseConnectedDevices(output);
+            });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >setLaunchActivity(launchActivity: string)</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>        this.launchActivity = launchActivity;
+    }
+&nbsp;
+    /**
+     * Broadcasts an intent to reload the application in debug mode.
+     */
+    public <span class="fstat-no" title="function not covered" >switchDebugMode(projectRoot: string, packageName: string, enable: boolean, debugTarget?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let enableDebugCommand = `${this.adbExecutable} ${debugTarget ? "-s " + debugTarget : ""} shell am broadcast -a "${packageName}.RELOAD_APP_ACTION" --ez jsproxy ${enable}`;
+<span class="cstat-no" title="statement not covered" ></span>        return new CommandExecutor(projectRoot).execute(enableDebugCommand)
+            .then(() =&gt; { // We should stop and start application again after RELOAD_APP_ACTION, otherwise app going to hangs up
+<span class="cstat-no" title="statement not covered" ></span>                let deferred = Q.defer();
+<span class="cstat-no" title="statement not covered" >                setTimeout(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    this.stopApp(projectRoot, packageName, debugTarget)
+                        .then(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                            return deferred.resolve({});
+                        });
+                }, 200); // We need a little delay after broadcast command
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>                return deferred.promise;
+            })
+            .then(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                return this.launchApp(projectRoot, packageName, debugTarget);
+            });
+    }
+&nbsp;
+    /**
+     * Sends an intent which launches the main activity of the application.
+     */
+    public <span class="fstat-no" title="function not covered" >launchApp(projectRoot: string, packageName: string, debugTarget?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let launchAppCommand = `${this.adbExecutable} ${debugTarget ? "-s " + debugTarget : ""} shell am start -n ${packageName}/.${this.launchActivity}`;
+<span class="cstat-no" title="statement not covered" ></span>        return new CommandExecutor(projectRoot).execute(launchAppCommand);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >stopApp(projectRoot: string, packageName: string, debugTarget?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let stopAppCommand = `${this.adbExecutable} ${debugTarget ? "-s " + debugTarget : ""} shell am force-stop ${packageName}`;
+<span class="cstat-no" title="statement not covered" ></span>        return new CommandExecutor(projectRoot).execute(stopAppCommand);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >apiVersion(deviceId: string)</span>: Q.Promise&lt;AndroidAPILevel&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.executeQuery(deviceId, "shell getprop ro.build.version.sdk").then(output =&gt;
+<span class="cstat-no" title="statement not covered" >            parseInt(output, 10));</span>
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >reverseAdb(deviceId: string, packagerPort: number)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.execute(deviceId, `reverse tcp:${packagerPort} tcp:${packagerPort}`);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >showDevMenu(deviceId?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let command = `${this.adbExecutable} ${deviceId ? "-s " + deviceId : ""} shell input keyevent ${KeyEvents.KEYCODE_MENU}`;
+<span class="cstat-no" title="statement not covered" ></span>        return this.commandExecutor.execute(command);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >reloadApp(deviceId?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let command = `${this.adbExecutable} ${deviceId ? "-s " + deviceId : ""} shell input text "RR"`;
+<span class="cstat-no" title="statement not covered" ></span>        return this.commandExecutor.execute(command);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >getOnlineDevices(</span>): Q.Promise&lt;IDevice[]&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.getConnectedDevices().then(devices =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            return devices.filter(device =&gt;
+<span class="cstat-no" title="statement not covered" >                device.isOnline);</span>
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >startLogCat(adbParameters: string[])</span>: ISpawnResult {
+<span class="cstat-no" title="statement not covered" ></span>        return new ChildProcess().spawn(`${this.adbExecutable}`, adbParameters);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >parseSdkLocation(fileContent: string, logger?: ILogger)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        const matches = fileContent.match(/^sdk\.dir=(.+)$/m);
+<span class="cstat-no" title="statement not covered" >        if (!matches || !matches[1]) {</span>
+<span class="cstat-no" title="statement not covered" >            if (logger) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                logger.info(localize("NoSdkDirFoundInLocalPropertiesFile", "No sdk.dir value found in local.properties file. Using Android SDK location from PATH."));
+            }
+<span class="cstat-no" title="statement not covered" ></span>            return null;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        let sdkLocation = matches[1].trim();
+<span class="cstat-no" title="statement not covered" >        if (os.platform() === "win32") {</span>
+            // For Windows we need to unescape files separators and drive letter separators
+<span class="cstat-no" title="statement not covered" ></span>            sdkLocation = sdkLocation.replace(/\\\\/g, "\\").replace("\\:", ":");
+        }
+<span class="cstat-no" title="statement not covered" >        if (logger) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            logger.info(localize("UsindAndroidSDKLocationDefinedInLocalPropertiesFile", "Using Android SDK location defined in android/local.properties file: {0}.", sdkLocation));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return sdkLocation;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >parseConnectedDevices(input: string)</span>: IDevice[] {
+<span class="cstat-no" title="statement not covered" ></span>        let result: IDevice[] = [];
+<span class="cstat-no" title="statement not covered" ></span>        let regex = new RegExp("^(\\S+)\\t(\\S+)$", "mg");
+<span class="cstat-no" title="statement not covered" ></span>        let match = regex.exec(input);
+<span class="cstat-no" title="statement not covered" >        while (match != null) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            result.push({ id: match[1], isOnline: match[2] === "device", type: this.extractDeviceType(match[1]) });
+<span class="cstat-no" title="statement not covered" ></span>            match = regex.exec(input);
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return result;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >extractDeviceType(id: string)</span>: DeviceType {
+<span class="cstat-no" title="statement not covered" ></span>        return id.match(AndroidSDKEmulatorPattern)
+            ? DeviceType.AndroidSdkEmulator
+            : DeviceType.Other;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >executeQuery(deviceId: string, command: string)</span>: Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.childProcess.execToString(this.generateCommandForDevice(deviceId, command));
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >execute(deviceId: string, command: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.commandExecutor.execute(this.generateCommandForDevice(deviceId, command));
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >generateCommandForDevice(deviceId: string, adbCommand: string)</span>: string {
+<span class="cstat-no" title="statement not covered" ></span>        return `${this.adbExecutable} -s "${deviceId}" ${adbCommand}`;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >getSdkLocationFromLocalPropertiesFile(projectRoot: string, logger?: ILogger)</span>: string | null {
+<span class="cstat-no" title="statement not covered" ></span>        const localPropertiesFilePath = path.join(projectRoot, "android", "local.properties");
+<span class="cstat-no" title="statement not covered" >        if (!fs.existsSync(localPropertiesFilePath)) {</span>
+<span class="cstat-no" title="statement not covered" >            if (logger) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                logger.info(localize("LocalPropertiesFileDoesNotExist", "local.properties file doesn't exist. Using Android SDK location from PATH."));
+            }
+<span class="cstat-no" title="statement not covered" ></span>            return null;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        let fileContent: string;
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" ></span>            fileContent = fs.readFileSync(localPropertiesFilePath).toString();
+        } catch (e) {
+<span class="cstat-no" title="statement not covered" >            if (logger) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                logger.error(localize("CouldNotReadFrom", "Couldn't read from {0}.", localPropertiesFilePath), e, e.stack);
+<span class="cstat-no" title="statement not covered" ></span>                logger.info(localize("UsingAndroidSDKLocationFromPATH", "Using Android SDK location from PATH."));
+            }
+<span class="cstat-no" title="statement not covered" ></span>            return null;
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return this.parseSdkLocation(fileContent, logger);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 26 2019 09:04:01 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

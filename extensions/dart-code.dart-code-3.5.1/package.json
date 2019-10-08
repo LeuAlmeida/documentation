@@ -1,0 +1,1701 @@
+{
+	"name": "dart-code",
+	"displayName": "Dart",
+	"description": "Dart language support and debugger for Visual Studio Code.",
+	"version": "3.5.1",
+	"publisher": "Dart-Code",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"extensionKind": "workspace",
+	"license": "SEE LICENSE IN LICENSE",
+	"bugs": {
+		"url": "https://github.com/Dart-Code/Dart-Code/issues"
+	},
+	"homepage": "https://dartcode.org/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Dart-Code/Dart-Code.git"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets",
+		"Linters",
+		"Formatters",
+		"Debuggers"
+	],
+	"keywords": [
+		"dart",
+		"flutter",
+		"fuchsia",
+		"multi-root ready"
+	],
+	"icon": "media/dart.png",
+	"activationEvents": [
+		"onLanguage:dart",
+		"workspaceContains:**/pubspec.yaml",
+		"workspaceContains:**/*.dart",
+		"workspaceContains:dart.sh.create",
+		"workspaceContains:flutter.sh.create",
+		"workspaceContains:flutter.create",
+		"onCommand:flutter.createProject",
+		"onCommand:dart.createProject",
+		"onCommand:_dart.flutter.createSampleProject",
+		"onCommand:flutter.doctor",
+		"onCommand:flutter.upgrade",
+		"onUri"
+	],
+	"main": "./out/dist/extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "dart",
+				"extensions": [
+					".dart"
+				],
+				"aliases": [
+					"Dart"
+				],
+				"configuration": "./syntaxes/dart-language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "dart",
+				"scopeName": "source.dart",
+				"path": "./syntaxes/dart.json"
+			}
+		],
+		"colors": [
+			{
+				"id": "dart.closingLabels",
+				"description": "The color of the 'closing label' annotations shown against constructor, method invocations and lists that span multiple lines. If not supplied, the color for 'tab.inactiveForeground' will be used.",
+				"defaults": {
+					"dark": "tab.inactiveForeground",
+					"light": "tab.inactiveForeground",
+					"highContrast": "tab.inactiveForeground"
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "flutter.createProject",
+				"title": "New Project",
+				"category": "Flutter"
+			},
+			{
+				"command": "dart.createProject",
+				"title": "New Project",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.writeRecommendedSettings",
+				"title": "Use Recommended Settings",
+				"category": "Dart"
+			},
+			{
+				"command": "pub.get",
+				"title": "Get Packages",
+				"category": "Pub",
+				"icon": {
+					"light": "./media/commands/pull.svg",
+					"dark": "./media/commands/pull-inverse.svg"
+				}
+			},
+			{
+				"command": "pub.upgrade",
+				"title": "Upgrade Packages",
+				"category": "Pub",
+				"icon": {
+					"light": "./media/commands/pull.svg",
+					"dark": "./media/commands/pull-inverse.svg"
+				}
+			},
+			{
+				"command": "dart.attach",
+				"title": "Attach to Dart Process",
+				"category": "Debug"
+			},
+			{
+				"command": "flutter.attach",
+				"title": "Attach to Flutter on Device",
+				"category": "Debug"
+			},
+			{
+				"command": "flutter.attachProcess",
+				"title": "Attach to Flutter Process",
+				"category": "Debug"
+			},
+			{
+				"command": "dart.goToSuper",
+				"title": "Go to Super Class/Method",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.runAllTestsWithoutDebugging",
+				"title": "Run All Tests",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.rerunLastDebugSession",
+				"title": "Rerun Last Debug Session",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.runTestAtCursor",
+				"title": "Run Test At Cursor",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.debugTestAtCursor",
+				"title": "Debug Test At Cursor",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.startDebugging",
+				"title": "Start Debugging",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.startWithoutDebugging",
+				"title": "Start Without Debugging",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.startDebuggingTest",
+				"title": "Start Debugging",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.startWithoutDebuggingTest",
+				"title": "Start Without Debugging",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.sortMembers",
+				"title": "Sort Members",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.startLogging",
+				"title": "Capture Logs",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.stopLogging",
+				"title": "Stop Capturing Logs",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.completeStatement",
+				"title": "Complete Statement",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.showTypeHierarchy",
+				"title": "Show Type Hierarchy",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.openObservatory",
+				"title": "Open Observatory",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.openAnalyzerDiagnostics",
+				"title": "Open Analyzer Diagnostics",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.changeSdk",
+				"title": "Change SDK",
+				"category": "Dart"
+			},
+			{
+				"command": "dart.changeFlutterSdk",
+				"title": "Change SDK",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.packages.get",
+				"title": "Get Packages",
+				"category": "Flutter",
+				"icon": {
+					"light": "./media/commands/pull.svg",
+					"dark": "./media/commands/pull-inverse.svg"
+				}
+			},
+			{
+				"command": "flutter.packages.upgrade",
+				"title": "Upgrade Packages",
+				"category": "Flutter",
+				"icon": {
+					"light": "./media/commands/pull.svg",
+					"dark": "./media/commands/pull-inverse.svg"
+				}
+			},
+			{
+				"command": "flutter.clean",
+				"title": "Clean Project",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.doctor",
+				"title": "Run Flutter Doctor",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.upgrade",
+				"title": "Run Flutter Upgrade",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.toggleDebugPainting",
+				"title": "Toggle Debug Painting",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.togglePerformanceOverlay",
+				"title": "Toggle Performance Overlay",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.togglePlatform",
+				"title": "Toggle Platform",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.toggleRepaintRainbow",
+				"title": "Toggle Repaint Rainbow",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.toggleSlowAnimations",
+				"title": "Toggle Slow Animations",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.toggleDebugModeBanner",
+				"title": "Toggle Debug-Mode Banner",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.toggleCheckElevations",
+				"title": "Toggle Check Elevations",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.togglePaintBaselines",
+				"title": "Toggle Baseline Painting",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.inspectWidget",
+				"title": "Inspect Widget",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.cancelInspectWidget",
+				"title": "Cancel Widget Inspection",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.screenshot",
+				"title": "Save Screenshot",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.screenshot.touchBar",
+				"title": "Screenshot",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.hotRestart",
+				"title": "Hot Restart",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.hotReload",
+				"title": "Hot Reload",
+				"category": "Flutter",
+				"icon": {
+					"dark": "media/commands/hot-reload.svg",
+					"light": "media/commands/hot-reload.svg"
+				}
+			},
+			{
+				"command": "_flutter.hotReload.touchBar",
+				"title": "Hot Reload",
+				"category": "Flutter",
+				"icon": {
+					"dark": "media/commands/hot-reload-tb.png",
+					"light": "media/commands/hot-reload-tb.png"
+				}
+			},
+			{
+				"command": "flutter.openTimeline",
+				"title": "Open Observatory Timeline",
+				"category": "Flutter"
+			},
+			{
+				"command": "dart.openDevTools",
+				"title": "Open DevTools",
+				"category": "Dart"
+			},
+			{
+				"command": "_dart.openDevTools.touchBar",
+				"title": "DevTools",
+				"category": "Dart"
+			},
+			{
+				"command": "flutter.selectDevice",
+				"title": "Select Device",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.launchEmulator",
+				"title": "Launch Emulator",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.openInAndroidStudio",
+				"title": "Open in Android Studio",
+				"category": "Flutter"
+			},
+			{
+				"command": "flutter.openInXcode",
+				"title": "Open in Xcode",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.wrap.center",
+				"title": "Wrap with Center",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.wrap.padding",
+				"title": "Wrap with Padding",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.wrap.column",
+				"title": "Wrap with Column",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.wrap.row",
+				"title": "Wrap with Row",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.move.up",
+				"title": "Move widget up",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.move.down",
+				"title": "Move widget down",
+				"category": "Flutter"
+			},
+			{
+				"command": "_flutter.outline.refactor.flutter.removeWidget",
+				"title": "Remove this widget",
+				"category": "Flutter"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "dart.showTypeHierarchy",
+				"key": "f4",
+				"mac": "f4",
+				"when": "editorLangId == dart"
+			},
+			{
+				"command": "flutter.hotReload",
+				"when": "dart-code:anyFlutterProjectLoaded && inDebugMode && dart-code:service.reloadSources",
+				"key": "ctrl+f5"
+			},
+			{
+				"command": "dart.rerunLastDebugSession",
+				"when": "dart-code:dartProjectLoaded && dart-code:hasLastDebugConfig && !inDebugMode",
+				"key": "cmd+shift+f5",
+				"win": "ctrl+shift+f5"
+			},
+			{
+				"command": "dart.openDevTools",
+				"when": "dart-code:dartProjectLoaded && inDebugMode",
+				"key": "ctrl+alt+d",
+				"win": "ctrl+alt+d"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "flutter.createProject"
+				},
+				{
+					"command": "dart.createProject"
+				},
+				{
+					"command": "dart.startLogging",
+					"when": "dart-code:dartProjectLoaded"
+				},
+				{
+					"command": "dart.stopLogging",
+					"when": "dart-code:dartProjectLoaded && dart-code:isCapturingLogs"
+				},
+				{
+					"command": "pub.get",
+					"when": "dart-code:dartProjectLoaded"
+				},
+				{
+					"command": "pub.upgrade",
+					"when": "dart-code:dartProjectLoaded"
+				},
+				{
+					"command": "dart.startDebugging",
+					"when": "false"
+				},
+				{
+					"command": "dart.runAllTestsWithoutDebugging",
+					"when": "dart-code:dartProjectLoaded && !inDebugMode"
+				},
+				{
+					"command": "dart.rerunLastDebugSession",
+					"when": "dart-code:dartProjectLoaded && dart-code:hasLastDebugConfig && !inDebugMode"
+				},
+				{
+					"command": "dart.runTestAtCursor",
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && dart-code:cursorIsInTest"
+				},
+				{
+					"command": "dart.debugTestAtCursor",
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && dart-code:cursorIsInTest"
+				},
+				{
+					"command": "dart.startWithoutDebugging",
+					"when": "false"
+				},
+				{
+					"command": "dart.startDebuggingTest",
+					"when": "false"
+				},
+				{
+					"command": "dart.startWithoutDebuggingTest",
+					"when": "false"
+				},
+				{
+					"command": "dart.goToSuper",
+					"when": "dart-code:dartProjectLoaded && editorLangId == dart"
+				},
+				{
+					"command": "dart.attach",
+					"when": "dart-code:dartProjectLoaded && !inDebugMode"
+				},
+				{
+					"command": "flutter.attach",
+					"when": "dart-code:anyFlutterProjectLoaded && !inDebugMode && dart-code:flutterSupportsAttach"
+				},
+				{
+					"command": "flutter.attachProcess",
+					"when": "dart-code:anyFlutterProjectLoaded && !inDebugMode && dart-code:flutterSupportsAttach"
+				},
+				{
+					"command": "dart.sortMembers",
+					"when": "dart-code:dartProjectLoaded && editorLangId == dart"
+				},
+				{
+					"command": "dart.completeStatement",
+					"when": "dart-code:dartProjectLoaded && editorLangId == dart"
+				},
+				{
+					"command": "dart.showTypeHierarchy",
+					"when": "dart-code:dartProjectLoaded && editorLangId == dart"
+				},
+				{
+					"command": "dart.openObservatory",
+					"when": "dart-code:dartProjectLoaded && inDebugMode"
+				},
+				{
+					"command": "dart.openAnalyzerDiagnostics",
+					"when": "dart-code:dartProjectLoaded"
+				},
+				{
+					"command": "dart.changeSdk",
+					"when": "dart-code:dartProjectLoaded"
+				},
+				{
+					"command": "dart.changeFlutterSdk",
+					"when": "dart-code:anyFlutterProjectLoaded"
+				},
+				{
+					"command": "flutter.packages.get",
+					"when": "dart-code:anyFlutterProjectLoaded"
+				},
+				{
+					"command": "flutter.packages.upgrade",
+					"when": "dart-code:anyFlutterProjectLoaded"
+				},
+				{
+					"command": "flutter.clean",
+					"when": "dart-code:flutterMobileProjectLoaded"
+				},
+				{
+					"command": "flutter.doctor"
+				},
+				{
+					"command": "flutter.upgrade"
+				},
+				{
+					"command": "flutter.toggleDebugPainting",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.debugPaint"
+				},
+				{
+					"command": "flutter.togglePerformanceOverlay",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.showPerformanceOverlay"
+				},
+				{
+					"command": "flutter.togglePlatform",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.platformOverride"
+				},
+				{
+					"command": "flutter.toggleRepaintRainbow",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.repaintRainbow"
+				},
+				{
+					"command": "flutter.toggleSlowAnimations",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.timeDilation"
+				},
+				{
+					"command": "flutter.toggleDebugModeBanner",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.debugAllowBanner"
+				},
+				{
+					"command": "flutter.toggleCheckElevations",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.debugCheckElevationsEnabled"
+				},
+				{
+					"command": "flutter.togglePaintBaselines",
+					"when": "inDebugMode && dart-code:serviceExtension.ext.flutter.debugPaintBaselinesEnabled"
+				},
+				{
+					"command": "flutter.inspectWidget",
+					"when": "inDebugMode && dart-code:trackWidgetCreationEnabled"
+				},
+				{
+					"command": "flutter.cancelInspectWidget",
+					"when": "inDebugMode && dart-code:trackWidgetCreationEnabled && dart-code:flutter.isInspectingWidget"
+				},
+				{
+					"command": "flutter.hotRestart",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode && dart-code:service.hotRestart"
+				},
+				{
+					"command": "flutter.hotReload",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode && dart-code:service.reloadSources"
+				},
+				{
+					"command": "_flutter.hotReload.touchBar",
+					"when": "false"
+				},
+				{
+					"command": "flutter.openTimeline",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode"
+				},
+				{
+					"command": "dart.openDevTools",
+					"when": "dart-code:dartProjectLoaded && inDebugMode"
+				},
+				{
+					"command": "_dart.openDevTools.touchBar",
+					"when": "false"
+				},
+				{
+					"command": "flutter.selectDevice",
+					"when": "dart-code:anyFlutterProjectLoaded"
+				},
+				{
+					"command": "flutter.launchEmulator",
+					"when": "dart-code:anyFlutterProjectLoaded && dart-code:isRunningLocally"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.wrap.center"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.wrap.padding"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.wrap.column"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.wrap.row"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.move.up"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.move.down"
+				},
+				{
+					"when": "false",
+					"command": "_flutter.outline.refactor.flutter.removeWidget"
+				},
+				{
+					"command": "flutter.openInAndroidStudio",
+					"when": "false"
+				},
+				{
+					"command": "flutter.openInXcode",
+					"when": "false"
+				},
+				{
+					"command": "flutter.screenshot",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode"
+				},
+				{
+					"command": "_flutter.screenshot.touchBar",
+					"when": "false"
+				}
+			],
+			"debug/toolBar": [
+				{
+					"command": "flutter.hotReload",
+					"group": "navigation@59",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode && debugType == dart && dart-code:flutterMobileProjectLoaded && dart-code:isInDebugSessionThatProbablySupportsHotReload"
+				}
+			],
+			"touchBar": [
+				{
+					"command": "_flutter.hotReload.touchBar",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode && debugType == dart && dart-code:flutterMobileProjectLoaded && dart-code:isInDebugSessionThatProbablySupportsHotReload",
+					"group": "9_debug@4"
+				},
+				{
+					"command": "_dart.openDevTools.touchBar",
+					"when": "inDebugMode && debugType == dart",
+					"group": "92_debug_tools"
+				},
+				{
+					"command": "_flutter.screenshot.touchBar",
+					"when": "dart-code:anyFlutterProjectLoaded && inDebugMode && debugType == dart",
+					"group": "93_utils"
+				}
+			],
+			"editor/title": [
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:dartProjectLoaded && !dart-code:anyFlutterProjectLoaded",
+					"command": "pub.get",
+					"alt": "pub.upgrade",
+					"group": "navigation"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:anyFlutterProjectLoaded",
+					"command": "flutter.packages.get",
+					"alt": "flutter.packages.upgrade",
+					"group": "navigation"
+				}
+			],
+			"editor/context": [
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:dartProjectLoaded && !dart-code:anyFlutterProjectLoaded",
+					"command": "pub.get"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:dartProjectLoaded && !dart-code:anyFlutterProjectLoaded",
+					"command": "pub.upgrade"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:anyFlutterProjectLoaded",
+					"command": "flutter.packages.get"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:anyFlutterProjectLoaded",
+					"command": "flutter.packages.upgrade"
+				}
+			],
+			"explorer/context": [
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:dartProjectLoaded && !dart-code:anyFlutterProjectLoaded",
+					"command": "pub.get"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:dartProjectLoaded && !dart-code:anyFlutterProjectLoaded",
+					"command": "pub.upgrade"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:anyFlutterProjectLoaded",
+					"command": "flutter.packages.get"
+				},
+				{
+					"when": "resourceFilename == pubspec.yaml && dart-code:anyFlutterProjectLoaded",
+					"command": "flutter.packages.upgrade"
+				},
+				{
+					"when": "resourceLangId == dart && dart-code:dartProjectLoaded && !inDebugMode",
+					"command": "dart.startDebugging",
+					"group": "4.5_exec@1"
+				},
+				{
+					"when": "resourceLangId == dart && dart-code:dartProjectLoaded && !inDebugMode",
+					"command": "dart.startWithoutDebugging",
+					"group": "4.5_exec@1"
+				},
+				{
+					"command": "flutter.openInAndroidStudio",
+					"when": "explorerResourceIsFolder && resourceFilename == android && dart-code:anyFlutterProjectLoaded && dart-code:isRunningLocally",
+					"group": "1.5_open_ext@1"
+				},
+				{
+					"command": "flutter.openInXcode",
+					"when": "explorerResourceIsFolder && resourceFilename == ios && dart-code:anyFlutterProjectLoaded && dart-code:dartPlatformName == mac && dart-code:isRunningLocally",
+					"group": "1.5_open_ext@1"
+				}
+			],
+			"view/title": [
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.wrap.center",
+					"command": "_flutter.outline.refactor.flutter.wrap.center"
+				},
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.wrap.padding",
+					"command": "_flutter.outline.refactor.flutter.wrap.padding"
+				},
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.wrap.column",
+					"command": "_flutter.outline.refactor.flutter.wrap.column"
+				},
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.wrap.row",
+					"command": "_flutter.outline.refactor.flutter.wrap.row"
+				},
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.move.up",
+					"command": "_flutter.outline.refactor.flutter.move.up"
+				},
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.move.down",
+					"command": "_flutter.outline.refactor.flutter.move.down"
+				},
+				{
+					"when": "view == dartFlutterOutline && dart-code:widgetSupports:refactor.flutter.removeWidget",
+					"command": "_flutter.outline.refactor.flutter.removeWidget"
+				}
+			],
+			"view/item/context": [
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.wrap.center",
+					"command": "_flutter.outline.refactor.flutter.wrap.center"
+				},
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.wrap.padding",
+					"command": "_flutter.outline.refactor.flutter.wrap.padding"
+				},
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.wrap.column",
+					"command": "_flutter.outline.refactor.flutter.wrap.column"
+				},
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.wrap.row",
+					"command": "_flutter.outline.refactor.flutter.wrap.row"
+				},
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.move.up",
+					"command": "_flutter.outline.refactor.flutter.move.up"
+				},
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.move.down",
+					"command": "_flutter.outline.refactor.flutter.move.down"
+				},
+				{
+					"when": "view == dartFlutterOutline && viewItem == dart-code:isSelectedWidget && dart-code:widgetSupports:refactor.flutter.removeWidget",
+					"command": "_flutter.outline.refactor.flutter.removeWidget"
+				},
+				{
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && viewItem == dart-code:testSuiteNode",
+					"command": "dart.startDebuggingTest",
+					"group": "4.5_exec@1"
+				},
+				{
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && viewItem == dart-code:testSuiteNode",
+					"command": "dart.startWithoutDebuggingTest",
+					"group": "4.5_exec@1"
+				},
+				{
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && viewItem == dart-code:testGroupNode",
+					"command": "dart.startDebuggingTest",
+					"group": "4.5_exec@1"
+				},
+				{
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && viewItem == dart-code:testGroupNode",
+					"command": "dart.startWithoutDebuggingTest",
+					"group": "4.5_exec@1"
+				},
+				{
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && viewItem == dart-code:testTestNode",
+					"command": "dart.startDebuggingTest",
+					"group": "4.5_exec@1"
+				},
+				{
+					"when": "dart-code:dartProjectLoaded && !inDebugMode && viewItem == dart-code:testTestNode",
+					"command": "dart.startWithoutDebuggingTest",
+					"group": "4.5_exec@1"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "flutter",
+					"title": "Flutter",
+					"icon": "media/icons/flutter_activity_bar.svg"
+				}
+			]
+		},
+		"views": {
+			"explorer": [
+				{
+					"id": "dartPackages",
+					"name": "Dependencies",
+					"when": "dart-code:dartProjectLoaded"
+				}
+			],
+			"flutter": [
+				{
+					"id": "dartFlutterOutline",
+					"name": "Outline",
+					"when": "dart-code:anyFlutterProjectLoaded && dart-code:showFlutterOutline"
+				}
+			],
+			"test": [
+				{
+					"id": "dartTestTree",
+					"name": "Dart & Flutter",
+					"when": "dart-code:dartProjectLoaded"
+				}
+			]
+		},
+		"configurationDefaults": {
+			"[dart]": {
+				"editor.tabSize": 2,
+				"editor.insertSpaces": true,
+				"editor.detectIndentation": false
+			}
+		},
+		"configuration": {
+			"type": "object",
+			"title": "Dart & Flutter",
+			"properties": {
+				"dart.additionalAnalyzerFileExtensions": {
+					"type": "array",
+					"default": [],
+					"description": "Additional file extensions that should be analyzed (usually used in combination with analyzer plugins).",
+					"items": {
+						"type": "string"
+					},
+					"scope": "window"
+				},
+				"dart.enableSdkFormatter": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to enable the dart_style formatter included with the Dart SDK.",
+					"scope": "window"
+				},
+				"dart.env": {
+					"type": "object",
+					"default": {},
+					"description": "Additional environment variables to be added to all Dart/Flutter processes spawned by the Dart and Flutter extensions.",
+					"scope": "window"
+				},
+				"dart.closingLabels": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to show annotations against constructor, method invocations and lists that span multiple lines.",
+					"scope": "window"
+				},
+				"dart.analysisServerFolding": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to use folding data from the Dart analysis server instead of the built-in VS Code indent-based folding.",
+					"scope": "window"
+				},
+				"dart.analysisExcludedFolders": {
+					"type": "array",
+					"default": [],
+					"description": "An array of paths to be excluded from Dart analysis. This option should usually be set at the Workspace level.",
+					"items": {
+						"type": "string"
+					},
+					"scope": "resource"
+				},
+				"dart.debugSdkLibraries": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to mark SDK libraries as debuggable, enabling stepping into them while debugging.",
+					"scope": "resource"
+				},
+				"dart.debugExternalLibraries": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to mark external pub package libraries as debuggable, enabling stepping into them while debugging.",
+					"scope": "resource"
+				},
+				"dart.showDartDeveloperLogs": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to show logs from dart:developer's log() function in the debug console.",
+					"scope": "resource"
+				},
+				"dart.flutterStructuredErrors": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to use Flutter's structured error support for improve error display.",
+					"scope": "resource"
+				},
+				"dart.flutterAndroidX": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to pass the --androidx flag when running the 'Flutter: New Project' command.",
+					"scope": "window"
+				},
+				"dart.enableCompletionCommitCharacters": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to automatically commit the selected completion item when pressing certain keys such as . , ( and [.",
+					"scope": "resource"
+				},
+				"dart.triggerSignatureHelpAutomatically": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to automatically trigger signature help when pressing keys such as , and (.",
+					"scope": "window"
+				},
+				"dart.flutterAdbConnectOnChromeOs": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to automatically run 'adb connect 100.115.92.2:5555' when spawning the Flutter Daemon when running on Chrome OS.",
+					"scope": "window"
+				},
+				"dart.flutterTrackWidgetCreation": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to pass --track-widget-creation to Flutter apps (required to support 'Inspect Widget'). This setting is always ignored when running in Profile or Release mode.",
+					"scope": "resource"
+				},
+				"dart.flutterAdditionalArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Additional args to pass to all flutter commands.",
+					"scope": "resource",
+					"items": {
+						"type": "string"
+					}
+				},
+				"dart.evaluateGettersInDebugViews": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to evaluate getters in order to display them in debug views (such as the Variables, Watch and Hovers views).",
+					"scope": "resource"
+				},
+				"dart.sdkPath": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The location of the Dart SDK to use for analyzing and executing code. If blank, Dart Code will attempt to find it from the PATH environment variable. When editing a Flutter project, the version of Dart included in the Flutter SDK is used in preference.",
+					"scope": "machine-overridable"
+				},
+				"dart.sdkPaths": {
+					"type": "array",
+					"default": [],
+					"description": "An array of strings that are either Dart SDKs or folders that contains multiple Dart SDKs in sub-folders. When set, the version number in the status bar will be clickable to quickly switch between SDKs.",
+					"items": {
+						"type": "string"
+					},
+					"scope": "machine-overridable"
+				},
+				"dart.devToolsTheme": {
+					"enum": [
+						"dark",
+						"light"
+					],
+					"default": "dark",
+					"description": "The theme to use for Dart DevTools.",
+					"scope": "window"
+				},
+				"dart.doNotFormat": {
+					"type": "array",
+					"default": [],
+					"description": "An array of glob patterns that should be excluded for formatting. The pattern is matched against the absolute path of the file. Use **/test/** to skip formatting for all test folders.",
+					"items": {
+						"type": "string"
+					},
+					"scope": "resource"
+				},
+				"dart.lineLength": {
+					"type": "integer",
+					"default": 80,
+					"description": "The maximum length of a line of code. This is used by the document formatter.",
+					"scope": "resource"
+				},
+				"dart.maxLogLineLength": {
+					"type": "number",
+					"default": 2000,
+					"description": "The maximum length of a line in the log file. Lines longer than this will be truncated and suffixed with an ellipsis.",
+					"scope": "window"
+				},
+				"dart.insertArgumentPlaceholders": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to insert argument placeholders during code completions. This feature is automatically disabled when enableCompletionCommitCharacters is enabled.",
+					"scope": "resource"
+				},
+				"dart.showTestCodeLens": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to show Code Lens actions in the editor for quick running/debugging tests.",
+					"scope": "window"
+				},
+				"dart.showTodos": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to show TODOs in the Problems list.",
+					"scope": "window"
+				},
+				"dart.openTestView": {
+					"type": "array",
+					"items": {
+						"enum": [
+							"testRunStart",
+							"testFailure"
+						]
+					},
+					"default": [
+						"testRunStart"
+					],
+					"description": "When to automatically switch focus to the test list (array to support multiple values).",
+					"scope": "window"
+				},
+				"dart.reportAnalyzerErrors": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to offer to report analysis server exceptions when they occur.",
+					"scope": "window"
+				},
+				"dart.allowAnalytics": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to send analytics such as startup timings, frequency of use of features and analysis server crashes.",
+					"scope": "window"
+				},
+				"dart.checkForSdkUpdates": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to check you are using the latest version of the Dart SDK at startup.",
+					"scope": "window"
+				},
+				"dart.pubAdditionalArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Additional args to pass to all pub commands.",
+					"scope": "resource",
+					"items": {
+						"type": "string"
+					}
+				},
+				"dart.runPubGetOnPubspecChanges": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to automatically run 'pub get' whenever pubspec.yaml is saved.",
+					"scope": "resource"
+				},
+				"dart.promptToGetPackages": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to prompt to get packages when opening a project with out of date packages.",
+					"scope": "resource"
+				},
+				"dart.flutterScreenshotPath": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a directory to save Flutter screenshots.",
+					"scope": "machine-overridable"
+				},
+				"dart.flutterSdkPath": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The location of the Flutter SDK to use. If blank, Dart Code will attempt to find it from the project folder, FLUTTER_ROOT environment variable and the PATH environment variable.",
+					"scope": "machine-overridable"
+				},
+				"dart.flutterSdkPaths": {
+					"type": "array",
+					"default": [],
+					"description": "An array of strings that are either Flutter SDKs or folders that contains multiple Flutter SDKs in sub-folders. When set, the version number in the status bar will be clickable to quickly switch between SDKs.",
+					"items": {
+						"type": "string"
+					},
+					"scope": "machine-overridable"
+				},
+				"dart.flutterHotReloadOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to automatically send a Hot Reload request during a Flutter debug session when saving files.",
+					"scope": "window"
+				},
+				"dart.flutterHotRestartOnSave": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to automatically send a Hot Restart request during a Flutter debug session when saving files if Hot Reload is not available.",
+					"scope": "window"
+				},
+				"dart.flutterCreateOrganization": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The organization responsible for your new Flutter project, in reverse domain name notation. This string is used in Java package names and as prefix in the iOS bundle identifier when creating new projects using the 'Flutter: New Project' command.",
+					"scope": "window"
+				},
+				"dart.flutterCreateIOSLanguage": {
+					"enum": [
+						"objc",
+						"swift"
+					],
+					"default": "swift",
+					"description": "The programming language to use for IOS apps when creating new projects using the 'Flutter: New Project' command.",
+					"scope": "window"
+				},
+				"dart.flutterCreateAndroidLanguage": {
+					"enum": [
+						"java",
+						"kotlin"
+					],
+					"default": "kotlin",
+					"description": "The programming language to use for Android apps when creating new projects using the 'Flutter: New Project' command.",
+					"scope": "window"
+				},
+				"dart.analyzeAngularTemplates": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to enable analysis for AngularDart templates (requires the angular_analyzer_plugin).",
+					"scope": "window"
+				},
+				"dart.flutterOutline": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to show the Flutter Outline tree in the side bar.",
+					"scope": "window"
+				},
+				"dart.analyzerAdditionalArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Additional arguments to pass to the Dart analysis server.",
+					"scope": "window",
+					"items": {
+						"type": "string"
+					}
+				},
+				"dart.analyzerDiagnosticsPort": {
+					"type": [
+						"null",
+						"number"
+					],
+					"default": null,
+					"description": "The port number to be used for the Dart analysis server diagnostic server.",
+					"scope": "window"
+				},
+				"dart.analyzerInstrumentationLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for very detailed logging in the Dart analysis server that may be useful when trying to diagnose analysis server issues.",
+					"scope": "window"
+				},
+				"dart.analyzerSshHost": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "An SSH host to run the analysis server.\nThis can be useful when modifying code on a remote machine using SSHFS.",
+					"scope": "window"
+				},
+				"dart.extensionLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a low-traffic log file for basic extension and editor issues.",
+					"scope": "window"
+				},
+				"dart.devToolsLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a low-traffic log file for the Dart DevTools service.",
+					"scope": "window"
+				},
+				"dart.analyzerLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for communication between Dart Code and the analysis server.",
+					"scope": "window"
+				},
+				"dart.analyzerObservatoryPort": {
+					"type": [
+						"null",
+						"number"
+					],
+					"default": null,
+					"description": "The port number to be used for the Dart analysis server observatory.",
+					"scope": "window"
+				},
+				"dart.analyzerPath": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a custom Dart analysis server.",
+					"scope": "machine-overridable"
+				},
+				"dart.devToolsPort": {
+					"type": [
+						"null",
+						"number"
+					],
+					"default": null,
+					"description": "The port number to be used for the Dart DevTools.",
+					"scope": "window"
+				},
+				"dart.flutterDaemonLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for the 'flutter daemon' communication which is the service that provides information about connected devices used to show in the status bar.",
+					"scope": "window"
+				},
+				"dart.flutterRunLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for 'flutter run' which is used to launch Flutter applications from VS Code. This is useful when trying to diagnose issues with applications launching (or failing to) on simulators and devices.",
+					"scope": "resource"
+				},
+				"dart.flutterTestLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for 'flutter test' which is used to run unit tests from VS Code. This is useful when trying to diagnose issues with unit test executions.",
+					"scope": "resource"
+				},
+				"dart.pubTestLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for 'pub run test' runs. This is useful when trying to diagnose issues with unit test executions.",
+					"scope": "resource"
+				},
+				"dart.observatoryLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for communication between Dart Code and Observatory (the VM debugger). This is useful when trying to diagnose issues with debugging such as missed breakpoints.",
+					"scope": "resource"
+				},
+				"dart.useKnownChromeOSPorts": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to use specific ports for Observatory and DevTools when running in Chrome OS. This is required to connect from the native Chrome OS browser but will prevent apps from launching if the ports are already in-use (for example if trying to run a second app).",
+					"scope": "window"
+				},
+				"dart.webDaemonLogFile": {
+					"type": [
+						"null",
+						"string"
+					],
+					"default": null,
+					"description": "The path to a log file for communication between Dart Code and the webdev daemon. This is useful when trying to diagnose issues with launching web applications.",
+					"scope": "resource"
+				},
+				"dart.vmAdditionalArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Additional args to pass to the Dart VM when running/debugging command line apps.",
+					"scope": "resource",
+					"items": {
+						"type": "string"
+					}
+				},
+				"dart.buildRunnerAdditionalArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Additional args to pass to the build_runner when building/watching/serving.",
+					"scope": "window",
+					"items": {
+						"type": "string"
+					}
+				},
+				"dart.flutterSelectDeviceWhenConnected": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to set newly connected devices as the current device in Flutter projects.",
+					"scope": "window"
+				},
+				"dart.warnWhenEditingFilesOutsideWorkspace": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to show a warning when modifying files outside of the workspace.",
+					"scope": "window"
+				},
+				"dart.showIgnoreQuickFixes": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to show quick fixes for ignoring hints and lints.",
+					"scope": "window"
+				},
+				"dart.previewBuildRunnerTasks": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to register Pub Build Runner tasks with VS Code.",
+					"scope": "window"
+				},
+				"dart.previewFlutterUiGuides": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to enable the Flutter UI Guides preview.",
+					"scope": "window"
+				},
+				"dart.previewFlutterUiGuidesCustomTracking": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to enable custom tracking of Flutter UI guidelines (to hide some latency of waiting for the next Flutter Outline).",
+					"scope": "window"
+				},
+				"dart.previewToStringInDebugViews": {
+					"type": "boolean",
+					"default": false,
+					"description": "Whether to call toString() on objects when rendering them in debug views (such as the Variables, Watch and Hovers views). Only applies to views of 15 or fewer values for performance reasons.",
+					"scope": "window"
+				},
+				"dart.autoImportCompletions": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to include symbols that have not been imported in the code completion list and automatically insert the required import when selecting them.",
+					"scope": "window"
+				},
+				"dart.promptToRunIfErrors": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to prompt before running if there are errors in your project. Test scripts will be excluded from the check unless they're the script being run.",
+					"scope": "window"
+				}
+			}
+		},
+		"breakpoints": [
+			{
+				"language": "dart"
+			}
+		],
+		"debuggers": [
+			{
+				"type": "dart",
+				"label": "Dart & Flutter",
+				"program": "./out/src/extension/debug/dart_debug_entry.js",
+				"runtime": "node",
+				"languages": [
+					"dart"
+				],
+				"configurationAttributes": {
+					"launch": {
+						"properties": {
+							"cwd": {
+								"type": "string",
+								"description": "Workspace root."
+							},
+							"deviceId": {
+								"type": "string",
+								"description": "The ID of the device to launch your Flutter app on. If not supplied, will use the selected device shown in the status bar."
+							},
+							"enableAsserts": {
+								"type": "boolean",
+								"description": "Run the VM with --asserts-enabled.",
+								"default": true
+							},
+							"program": {
+								"type": "string",
+								"description": "Path to the script to start (eg. bin/main.dart or lib/main.dart) or optionally a test folder to run a whole suite."
+							},
+							"showMemoryUsage": {
+								"type": "boolean",
+								"description": "Show memory usage for your Flutter app in the status bar during debug sessions (if not set, will automatically show for profile builds).\n\nNote: memory usage shown in debug builds may not be indicative of usage in release builds. Use profile builds for more accurate figures when testing memory usage."
+							},
+							"flutterMode": {
+								"description": "The mode for launching the Flutter application:\n\ndebug: Turns on all assertions, includes all debug information, enables all debugger aids and optimizes for fast dev cycles\n\nrelease: Turns off all assertions, strips as much debug information as possible, turns of debugger aids and optimises for fast startup, fast execution and small package sizes.\n\nprofile: Same as release mode exept profiling aids and tracing are enabled.",
+								"enum": [
+									"debug",
+									"release",
+									"profile"
+								],
+								"default": "debug"
+							},
+							"flutterPlatform": {
+								"description": "Passes the --target-platform option to the flutter run command. Ignored on iOS.",
+								"enum": [
+									"default",
+									"android-arm",
+									"android-arm64",
+									"android-x86",
+									"android-x64"
+								],
+								"default": "default"
+							},
+							"template": {
+								"description": "Uses this launch configuration as a template for launching tests.",
+								"enum": [
+									"run-test",
+									"debug-test"
+								]
+							},
+							"args": {
+								"type": "array",
+								"description": "Command line arguments to the application.",
+								"items": {
+									"type": "string"
+								}
+							},
+							"env": {
+								"description": "Environment variables passed to the Dart/Flutter process."
+							},
+							"vmAdditionalArgs": {
+								"type": "array",
+								"default": [],
+								"description": "Additional args to pass to the Dart VM when running/debugging command line apps.",
+								"items": {
+									"type": "string"
+								}
+							}
+						}
+					},
+					"attach": {
+						"properties": {
+							"cwd": {
+								"type": "string",
+								"description": "Workspace root."
+							},
+							"program": {
+								"type": "string",
+								"description": "Path to the entry script (eg. lib/main.dart). This is required when attaching to Flutter apps if the entry point is not lib/main.dart."
+							},
+							"deviceId": {
+								"type": "string",
+								"description": "The ID of the device to attach to. If not supplied, will use the selected device shown in the status bar."
+							},
+							"packages": {
+								"type": "string",
+								"description": "Path to the packages file (only required if cannot be discovered from the running process automatically)."
+							},
+							"observatoryUri": {
+								"type": "string",
+								"description": "URI of the Observatory instance to attach to."
+							}
+						}
+					}
+				},
+				"configurationSnippets": [
+					{
+						"label": "Dart: Launch",
+						"description": "Launch and debug Dart applications",
+						"body": {
+							"name": "Dart",
+							"type": "dart",
+							"request": "launch",
+							"program": "^\"bin/main.dart\""
+						}
+					},
+					{
+						"label": "Dart: Attach",
+						"description": "Debug an already-running Dart application",
+						"body": {
+							"name": "Dart: Attach to Process",
+							"type": "dart",
+							"request": "attach"
+						}
+					},
+					{
+						"label": "Dart: Run all Tests",
+						"description": "Run all tests in a Dart application",
+						"body": {
+							"name": "Dart: Run all Tests",
+							"type": "dart",
+							"request": "launch",
+							"program": "./test/"
+						}
+					},
+					{
+						"label": "Flutter: Launch",
+						"description": "Launch and debug Flutter applications",
+						"body": {
+							"name": "Flutter",
+							"type": "dart",
+							"request": "launch",
+							"program": "^\"lib/main.dart\""
+						}
+					},
+					{
+						"label": "Flutter: Attach to Device",
+						"description": "Attach to Flutter on a device.",
+						"body": {
+							"name": "Flutter: Attach to Device",
+							"type": "dart",
+							"request": "attach"
+						}
+					},
+					{
+						"label": "Flutter: Run all Tests",
+						"description": "Run all tests in a Flutter application",
+						"body": {
+							"name": "Flutter: Run all Tests",
+							"type": "dart",
+							"request": "launch",
+							"program": "./test/"
+						}
+					}
+				]
+			}
+		],
+		"taskDefinitions": [
+			{
+				"type": "pub",
+				"required": [],
+				"properties": {
+					"command": {
+						"type": "string"
+					}
+				}
+			},
+			{
+				"type": "flutter",
+				"required": [],
+				"properties": {
+					"command": {
+						"type": "string"
+					}
+				}
+			}
+		],
+		"problemMatchers": [
+			{
+				"name": "dart-pub-build_runner",
+				"label": "Pub: build_runner",
+				"source": "pub",
+				"pattern": [
+					{
+						"regexp": "^\\[SEVERE\\] \\w+ on (.*?)(?: \\(cached\\))?:$",
+						"file": 1
+					},
+					{
+						"regexp": "^Error running .*$"
+					},
+					{
+						"regexp": "^(.*)$",
+						"message": 1
+					},
+					{
+						"regexp": "^package:.*:(\\d+):(\\d+)$",
+						"line": 1,
+						"column": 2
+					}
+				],
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^\\[INFO\\] Starting Build",
+					"endsPattern": "^(\\[INFO\\] Succeeded|\\[SEVERE\\] Failed) after"
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+		"build": "webpack --mode development",
+		"build-with-instrumentation": "webpack --env.instrumentation --mode development",
+		"watch": "webpack --mode development --watch --info-verbosity verbose",
+		"build-tests": "tsc -p ./",
+		"watch-tests": "tsc -p ./ --watch",
+		"lint": "tslint 'src/**/*.ts' -t verbose",
+		"test": "npm run build-with-instrumentation && npm run build-tests && npm run instrument && npm run test-only && npm run remap_coverage && npm run report_lcov && npm run report_screen",
+		"instrument": "cd out/src && nyc instrument --compact false . . && cd ../..",
+		"remap_coverage": "cd out/src && node ../../out/src/test/remap_coverage.js && cd ../..",
+		"test-only": "node ./out/src/test/test_all.js",
+		"report_lcov": "nyc report -r lcovonly",
+		"report_screen": "nyc report"
+	},
+	"dependencies": {
+		"minimatch": "^3.0.4",
+		"semver": "^6.3.0",
+		"vscode-debugadapter": "^1.36.1",
+		"vscode-debugprotocol": "^1.36.0",
+		"ws": "^7.1.2"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/minimatch": "^3.0.3",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^10.14.15",
+		"@types/semver": "^6.0.1",
+		"@types/sinon": "5.0.5",
+		"@types/vscode": "^1.38.0",
+		"@types/ws": "^6.0.3",
+		"glob": "^7.1.4",
+		"istanbul-instrumenter-loader": "^3.0.1",
+		"mocha": "^5.2.0",
+		"nyc": "^13.3.0",
+		"remap-istanbul": "^0.13.0",
+		"signal-exit": "^3.0.2",
+		"sinon": "^7.3.2",
+		"source-map-support": "^0.5.13",
+		"ts-loader": "^6.1.0",
+		"tslint": "^5.20.0",
+		"typescript": "^3.6.2",
+		"vscode-debugadapter-testsupport": "^1.36.0",
+		"vscode-test": "^1.2.0",
+		"webpack": "^4.40.2",
+		"webpack-cli": "^3.3.9"
+	},
+	"__metadata": {
+		"id": "f57f68ea-9ee8-42b5-9a97-041d3e4278c4",
+		"publisherId": "a606ecbb-a8fb-4c35-b29a-5e8842d82af2",
+		"publisherDisplayName": "Dart Code"
+	}
+}

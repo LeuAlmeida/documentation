@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="react-native-react-redux" Version="2.0.3" Publisher="EQuimper"/>
+    <DisplayName>React-Native/React/Redux snippets for es6/es7</DisplayName>
+    <Description xml:space="preserve">Code snippets for React-Native/React/Redux es6/es7 and flowtype/typescript, Storybook</Description>
+    <Tags>vscode,snippets,react,redux,react-native,es6,es7,javascript,storybook,snippet</Tags>
+    <Categories>Snippets</Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Badges><Badge Link="https://marketplace.visualstudio.com/items?itemName=EQuimper.react-native-react-redux" ImgUri="https://vsmarketplacebadge.apphb.com/version-short/EQuimper.react-native-react-redux.svg" Description="Version" /><Badge Link="https://marketplace.visualstudio.com/items?itemName=EQuimper.react-native-react-redux" ImgUri="https://vsmarketplacebadge.apphb.com/installs-short/EQuimper.react-native-react-redux.svg" Description="Install Count" /><Badge Link="https://marketplace.visualstudio.com/items?itemName=EQuimper.react-native-react-redux" ImgUri="https://vsmarketplacebadge.apphb.com/rating-short/EQuimper.react-native-react-redux.svg" Description="Rating" /></Badges>
+    <Properties>
+      <Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.5.0" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+      <Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+      
+        <Property Id="Microsoft.VisualStudio.Services.Links.Source" Value="https://github.com/EQuimper/VSC-React-Native-React-Redux-Snippets" />
+        <Property Id="Microsoft.VisualStudio.Services.Links.Getstarted" Value="https://github.com/EQuimper/VSC-React-Native-React-Redux-Snippets" />
+        
+          <Property Id="Microsoft.VisualStudio.Services.Links.GitHub" Value="https://github.com/EQuimper/VSC-React-Native-React-Redux-Snippets" />
+        
+      
+      
+      
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Color" Value="#FFFFFF" />
+      <Property Id="Microsoft.VisualStudio.Services.Branding.Theme" Value="light" />
+      <Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+      
+      
+    </Properties>
+    
+    <Icon>extension/images/react-redux.jpg</Icon>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+  </Installation>
+  <Dependencies/>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+    <Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/CHANGELOG.md" Addressable="true" /><Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/images/react-redux.jpg" Addressable="true" />
+  </Assets>
+</PackageManifest>

@@ -1,0 +1,55 @@
+{
+	"name": "vscode-css-formatter",
+	"displayName": "CSS Formatter",
+	"description": "Formatter for CSS",
+	"version": "1.0.1",
+	"publisher": "aeschli",
+	"galleryBanner": {
+		"color": "#0000FF",
+		"theme": "dark"
+	},
+	"keywords": [
+		"multi-root ready"
+	],
+	"categories": [
+		"Formatters"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/aeschli/vscode-css-formatter/issues",
+		"email": "martinae@microsoft.com"
+	},
+	"homepage": "https://github.com/aeschli/vscode-css-formatter/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aeschli/vscode-css-formatter"
+	},
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"activationEvents": [
+		"onLanguage:css"
+	],
+	"main": "./out/extension",
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"dependencies": {
+		"js-beautify": "1.7.4"
+	},
+	"devDependencies": {
+		"typescript": "^2.5.3",
+		"vscode": "^1.1.6",
+		"@types/node": "^7.0.43",
+		"@types/mocha": "^2.2.42"
+	},
+	"__metadata": {
+		"id": "3f770365-3682-44ee-a63e-5ef1b16c74d2",
+		"publisherId": "6bd5de8d-53a3-478c-bbe8-fc70d945c8d4",
+		"publisherDisplayName": "Martin Aeschlimann"
+	}
+}

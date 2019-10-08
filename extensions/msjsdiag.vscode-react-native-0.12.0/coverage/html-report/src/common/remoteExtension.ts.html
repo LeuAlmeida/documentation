@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\common\remoteExtension.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/common/</a> remoteExtension.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/22</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import {MessagingHelper} from "./extensionMessaging";
+<span class="cstat-no" title="statement not covered" ></span>import * as WebSocket from "ws";
+<span class="cstat-no" title="statement not covered" ></span>import * as rpc from "noice-json-rpc";
+import {Telemetry} from "./telemetry";
+&nbsp;
+export interface ICommonApi {
+    expose(methods: any): void;
+}
+&nbsp;
+export interface OpenFileRequest {
+    filename: string;
+    lineNumber: number;
+}
+&nbsp;
+export interface IExtensionApi extends ICommonApi {
+    stopMonitoringLogcat(): Q.Promise&lt;void&gt;;
+    sendTelemetry(telemetryRequest: Telemetry.TelemetryRequest): Q.Promise&lt;any&gt;;
+    openFileAtLocation(openFileRequest: OpenFileRequest): Q.Promise&lt;void&gt;;
+    getPackagerPort(projectRoot: string): Q.Promise&lt;number&gt;;
+    showInformationMessage(infoMessage: string): Q.Promise&lt;void&gt;;
+    launch(request: any): Q.Promise&lt;any&gt;;
+    showDevMenu(deviceId?: string): Q.Promise&lt;any&gt;;
+    reloadApp(deviceId?: string): Q.Promise&lt;any&gt;;
+}
+&nbsp;
+export interface IDebuggerApi extends ICommonApi {
+    onShowDevMenu(handler: () =&gt; void): Q.Promise&lt;any&gt;;
+    onReloadApp(handler: () =&gt; void): Q.Promise&lt;any&gt;;
+    emitShowDevMenu(deviceId?: string): Q.Promise&lt;any&gt;;
+    emitReloadApp(deviceId?: string): Q.Promise&lt;any&gt;;
+}
+export interface IRemoteExtension {
+    Extension: IExtensionApi;
+    Debugger: IDebuggerApi;
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class RemoteExtension {
+    public <span class="fstat-no" title="function not covered" >static atProjectRootPath(projectRootPath: string)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        const pipePath = MessagingHelper.getPath(projectRootPath);
+<span class="cstat-no" title="statement not covered" ></span>        let ws = new WebSocket("ws+unix://" + pipePath);
+<span class="cstat-no" title="statement not covered" ></span>        ws.on("error", (err) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            console.error(err);
+        });
+<span class="cstat-no" title="statement not covered" ></span>        const _api: IRemoteExtension = new rpc.Client(ws).api();
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return new RemoteExtension(_api);
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(private <span class="cstat-no" title="statement not covered" ></span>_api: IRemoteExtension)</span> {}
+&nbsp;
+<span class="fstat-no" title="function not covered" >    public get api(</span>): IRemoteExtension {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >stopMonitoringLogcat(</span>): Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.stopMonitoringLogcat();
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >sendTelemetry(extensionId: string, extensionVersion: string, appInsightsKey: string, eventName: string,</span>
+                         properties: Telemetry.ITelemetryEventProperties = {}, measures: Telemetry.ITelemetryEventMeasures = {}): Q.Promise&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        const request: Telemetry.TelemetryRequest = {
+            extensionId,
+            extensionVersion,
+            appInsightsKey,
+            eventName,
+            properties,
+            measures,
+        };
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.sendTelemetry(request);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >openFileAtLocation(filename: string, lineNumber: number)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        const request: OpenFileRequest = {
+            filename,
+            lineNumber,
+        };
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.openFileAtLocation(request);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >getPackagerPort(projectRoot: string)</span>: Q.Promise&lt;number&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.getPackagerPort(projectRoot);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >showInformationMessage(infoMessage: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.showInformationMessage(infoMessage);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >launch(request: any)</span>: Q.Promise&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.launch(request);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >showDevMenu(deviceId?: string)</span>: Q.Promise&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.showDevMenu(deviceId);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >reloadApp(deviceId?: string)</span>: Q.Promise&lt;any&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this._api.Extension.reloadApp(deviceId);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

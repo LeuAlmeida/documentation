@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\extension\debugConfigurationProvider.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/extension/</a> debugConfigurationProvider.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as vscode from "vscode";
+<span class="cstat-no" title="statement not covered" ></span>import { TelemetryHelper } from "../common/telemetryHelper";
+<span class="cstat-no" title="statement not covered" ></span>import { Telemetry } from "../common/telemetry";
+<span class="cstat-no" title="statement not covered" ></span>import * as nls from "vscode-nls";
+<span class="cstat-no" title="statement not covered" ></span>const localize = nls.loadMessageBundle();
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>export class ReactNativeDebugConfigProvider implements vscode.DebugConfigurationProvider {</span>
+    private <span class="cstat-no" title="statement not covered" ></span>debugConfigurations = {
+        "Debug Android": {
+            "name": "Debug Android",
+            "cwd": "${workspaceFolder}",
+            "type": "reactnative",
+            "request": "launch",
+            "platform": "android",
+        },
+        "Debug iOS": {
+            "name": "Debug iOS",
+            "cwd": "${workspaceFolder}",
+            "type": "reactnative",
+            "request": "launch",
+            "platform": "ios",
+        },
+        "Attach to packager": {
+            "name": "Attach to packager",
+            "cwd": "${workspaceFolder}",
+            "type": "reactnative",
+            "request": "attach",
+        },
+        "Debug in Exponent": {
+            "name": "Debug in Exponent",
+            "cwd": "${workspaceFolder}",
+            "type": "reactnative",
+            "request": "launch",
+            "platform": "exponent",
+        },
+    };
+&nbsp;
+    private <span class="cstat-no" title="statement not covered" ></span>pickConfig: ReadonlyArray&lt;vscode.QuickPickItem&gt; = [
+        {
+            label: "Debug Android",
+            description: localize("DebugAndroidConfigDesc", "Run and debug Android application"),
+        },
+        {
+            label: "Debug iOS",
+            description: localize("DebugiOSConfigDesc", "Run and debug iOS application"),
+        },
+        {
+            label: "Attach to packager",
+            description: localize("AttachToPackagerConfigDesc", "Attach to already working application packager"),
+        },
+        {
+            label: "Debug in Exponent",
+            description: localize("DebugExpoConfigDesc", "Debug Expo application or React Native application in Expo"),
+        },
+    ];
+&nbsp;
+    public async <span class="fstat-no" title="function not covered" >provideDebugConfigurations(folder: vscode.WorkspaceFolder | undefined, token?: vscode.CancellationToken)</span>: Promise&lt;vscode.DebugConfiguration[]&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return new Promise&lt;vscode.DebugConfiguration[]&gt;((resolve) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            const configPicker = this.prepareDebugConfigPicker();
+<span class="cstat-no" title="statement not covered" ></span>            const disposables: vscode.Disposable[] = [];
+<span class="cstat-no" title="statement not covered" ></span>            const pickHandler = () =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                let chosenConfigsEvent = TelemetryHelper.createTelemetryEvent("chosenDebugConfigurations");
+<span class="cstat-no" title="statement not covered" ></span>                let selected: string[] = c</span>onfigPicker.selectedItems.map(element =&gt; <span class="cstat-no" title="statement not covered" >element.label);
+<span class="cstat-no" title="statement not covered" ></span>                chosenConfigsEvent.properties["selectedItems"] = selected;
+<span class="cstat-no" title="statement not covered" ></span>                Telemetry.send(chosenConfigsEvent);
+<span class="cstat-no" title="statement not covered" ></span>                const launchConfig = this.gatherDebugScenarios(selected);
+<span class="cstat-no" title="statement not covered" ></span>                d</span>isposables.forEach(d =&gt; <span class="cstat-no" title="statement not covered" >d.dispose());
+<span class="cstat-no" title="statement not covered" ></span>                resolve(launchConfig);
+            };
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>            disposables.push(
+                configPicker.onDidAccept(pickHandler),
+                configPicker.onDidHide(pickHandler),
+                configPicker
+            );
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>            configPicker.show();
+        });
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >gatherDebugScenarios(selectedItems: string[])</span>: vscode.DebugConfiguration[] {
+<span class="cstat-no" title="statement not covered" ></span>        let launchConfig: vscode.DebugConfiguration[] = s</span>electedItems.map(element =&gt; <span class="cstat-no" title="statement not covered" >this.debugConfigurations[element]);
+<span class="cstat-no" title="statement not covered" ></span>        return launchConfig;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >prepareDebugConfigPicker(</span>): vscode.QuickPick&lt;vscode.QuickPickItem&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        const debugConfigPicker = vscode.window.createQuickPick();
+<span class="cstat-no" title="statement not covered" ></span>        debugConfigPicker.canSelectMany = true;
+<span class="cstat-no" title="statement not covered" ></span>        debugConfigPicker.ignoreFocusOut = true;
+<span class="cstat-no" title="statement not covered" ></span>        debugConfigPicker.title = localize("DebugConfigQuickPickLabel", "Pick debug configurations");
+<span class="cstat-no" title="statement not covered" ></span>        debugConfigPicker.items = this.pickConfig;
+        // QuickPickItem property `picked` doesn't work, so this line will check first item in the list
+        // which is supposed to be Debug Android
+<span class="cstat-no" title="statement not covered" ></span>        debugConfigPicker.selectedItems = [this.pickConfig[0]];
+<span class="cstat-no" title="statement not covered" ></span>        return debugConfigPicker;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 26 2019 09:04:01 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

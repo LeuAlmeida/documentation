@@ -1,0 +1,9 @@
+<example>
+Test text content on a single line.
+</example>
+@@ COMPACT @@
+<example>Test text content on a single line.</example>
+@@ DEFAULT @@
+<example>
+	Test text content on a single line.
+</example>

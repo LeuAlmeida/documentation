@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\common\telemetryHelper.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/common/</a> telemetryHelper.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/47</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/23</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/45</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+import * as Q from "q";
+<span class="cstat-no" title="statement not covered" ></span>import {Telemetry} from "./telemetry";
+<span class="cstat-no" title="statement not covered" ></span>import {TelemetryGenerator, IHasErrorCode} from "./telemetryGenerators";
+&nbsp;
+export interface ITelemetryPropertyInfo {
+    value: any;
+    isPii: boolean;
+}
+&nbsp;
+export interface ICommandTelemetryProperties {
+    [propertyName: string]: ITelemetryPropertyInfo;
+}
+&nbsp;
+export interface IExternalTelemetryProvider {
+    sendTelemetry: (event: string, props: Telemetry.ITelemetryProperties, error?: Error) =&gt; void;
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class TelemetryHelper {
+    public <span class="fstat-no" title="function not covered" >static sendSimpleEvent(eventName: string, properties?: Telemetry.ITelemetryProperties)</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>        const event = TelemetryHelper.createTelemetryEvent(eventName, properties);
+<span class="cstat-no" title="statement not covered" ></span>        Telemetry.send(event);
+    }
+    public <span class="fstat-no" title="function not covered" >static createTelemetryEvent(eventName: string, properties?: Telemetry.ITelemetryProperties)</span>: Telemetry.TelemetryEvent {
+<span class="cstat-no" title="statement not covered" ></span>        return new Telemetry.TelemetryEvent(eventName, properties);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static telemetryProperty(propertyValue: any, pii?: boolean)</span>: ITelemetryPropertyInfo {
+<span class="cstat-no" title="statement not covered" ></span>        return { value: String(propertyValue), isPii: pii || false };
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static addTelemetryEventProperties(event: Telemetry.TelemetryEvent, properties: ICommandTelemetryProperties)</span>: void {
+<span class="cstat-no" title="statement not covered" >        if (!properties) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        Object.keys(properties).forEach(<span class="fstat-no" title="function not covered" >function (propertyName: string)</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>            TelemetryHelper.addTelemetryEventProperty(event, propertyName, properties[propertyName].value, properties[propertyName].isPii);
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static sendErrorEvent(eventName: string, error: Error, isPii: boolean = true)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        const event = TelemetryHelper.createTelemetryEvent(eventName);
+<span class="cstat-no" title="statement not covered" ></span>        let errorWithErrorCode: IHasErrorCode = &lt;IHasErrorCode&gt; &lt;Object&gt; error;
+<span class="cstat-no" title="statement not covered" >        if (errorWithErrorCode.errorCode) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.addTelemetryEventProperty(event, "error.code", errorWithErrorCode.errorCode, false);
+        } else {
+<span class="cstat-no" title="statement not covered" ></span>            this.addTelemetryEventProperty(event, "error.message", error.message, isPii);
+        }
+<span class="cstat-no" title="statement not covered" ></span>        Telemetry.send(event);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static sendCommandSuccessTelemetry(commandName: string, commandProperties: ICommandTelemetryProperties, args: string[] = [])</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>        let successEvent: Telemetry.TelemetryEvent = TelemetryHelper.createBasicCommandTelemetry(commandName, args);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        TelemetryHelper.addTelemetryEventProperties(successEvent, commandProperties);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        Telemetry.send(successEvent);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static addTelemetryEventProperty(event: Telemetry.TelemetryEvent, propertyName: string, propertyValue: any, isPii: boolean)</span>: void {
+<span class="cstat-no" title="statement not covered" >        if (Array.isArray(propertyValue)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            TelemetryHelper.addMultiValuedTelemetryEventProperty(event, propertyName, propertyValue, isPii);
+        } else {
+<span class="cstat-no" title="statement not covered" ></span>            TelemetryHelper.setTelemetryEventProperty(event, propertyName, propertyValue, isPii);
+        }
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static addPropertiesFromOptions(telemetryProperties: ICommandTelemetryProperties, knownOptions: any, commandOptions: { [flag: string]: any }, nonPiiOptions: string[] = [])</span>: ICommandTelemetryProperties {
+        // We parse only the known options, to avoid potential private information that may appear on the command line
+<span class="cstat-no" title="statement not covered" ></span>        let unknownOptionIndex: number = 1;
+<span class="cstat-no" title="statement not covered" ></span>        Object.keys(commandOptions).forEach((key: string) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            let value: any = commandOptions[key];
+<span class="cstat-no" title="statement not covered" >            if (Object.keys(knownOptions).indexOf(key) &gt;= 0) {</span>
+                // This is a known option. We"ll check the list to decide if it"s pii or not
+<span class="cstat-no" title="statement not covered" >                if (typeof (value) !== "undefined") {</span>
+                    // We encrypt all options values unless they are specifically marked as nonPii
+<span class="cstat-no" title="statement not covered" ></span>                    telemetryProperties["options." + key] = this.telemetryProperty(value, nonPiiOptions.indexOf(key) &lt; 0);
+                }
+            } else {
+                // This is a not known option. We"ll assume that both the option and the value are pii
+<span class="cstat-no" title="statement not covered" ></span>                telemetryProperties["unknownOption" + unknownOptionIndex + ".name"] = this.telemetryProperty(key, /*isPii*/ true);
+<span class="cstat-no" title="statement not covered" ></span>                telemetryProperties["unknownOption" + unknownOptionIndex++ + ".value"] = this.telemetryProperty(value, /*isPii*/ true);
+            }
+        });
+<span class="cstat-no" title="statement not covered" ></span>        return telemetryProperties;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static generate&lt;T&gt;(name: string, extendedParamsToSend: ICommandTelemetryProperties = {}, codeGeneratingTelemetry: { (telemetry: TelemetryGenerator): Q.Promise&lt;T&gt; | T })</span>: Q.Promise&lt;T&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let generator: TelemetryGenerator = new TelemetryGenerator(name, extendedParamsToSend);
+<span class="cstat-no" title="statement not covered" ></span>        return g</span></span>enerator.time("", () =&gt; <span class="cstat-no" title="statement not covered" >codeGeneratingTelemetry(generator)).finally(() =&gt; <span class="cstat-no" title="statement not covered" >generator.send());
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >static createBasicCommandTelemetry(commandName: string, args: string[] = [])</span>: Telemetry.TelemetryEvent {
+<span class="cstat-no" title="statement not covered" ></span>        let commandEvent: Telemetry.TelemetryEvent = new Telemetry.TelemetryEvent(commandName || "command");
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!commandName &amp;&amp; args &amp;&amp; args.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            commandEvent.setPiiProperty("command", args[0]);
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (args) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            TelemetryHelper.addTelemetryEventProperty(commandEvent, "argument", args, true);
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return commandEvent;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >static setTelemetryEventProperty(event: Telemetry.TelemetryEvent, propertyName: string, propertyValue: string, isPii: boolean)</span>: void {
+<span class="cstat-no" title="statement not covered" >        if (isPii) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            event.setPiiProperty(propertyName, String(propertyValue));
+        } else {
+<span class="cstat-no" title="statement not covered" ></span>            event.properties[propertyName] = String(propertyValue);
+        }
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >static addMultiValuedTelemetryEventProperty(event: Telemetry.TelemetryEvent, propertyName: string, propertyValue: any, isPii: boolean)</span>: void {
+<span class="cstat-no" title="statement not covered" >        for (let i: number = 0; i &lt; propertyValue.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            TelemetryHelper.setTelemetryEventProperty(event, propertyName + i, propertyValue[i], isPii);
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 26 2019 09:04:01 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\extension\rn-extension.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/extension/</a> rn-extension.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.05% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/156</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/140</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+<span class="cstat-no" title="statement not covered" ></span>// @ifdef DEBUG
+<span class="cstat-no" title="statement not covered" ></span>try {
+<span class="cstat-no" title="statement not covered" ></span>    /* tslint:disable:no-var-requires */
+<span class="cstat-no" title="statement not covered" ></span>    require("fs").statSync(`${__filename}.map`); // We check if source maps are available
+    require("source-map-support").install(); // If they are, we enable stack traces translation to typescript
+<span class="cstat-no" title="statement not covered" ></span>    /* tslint:enable:no-var-requires */
+<span class="cstat-no" title="statement not covered" ></span>} catch (exceptions) {
+<span class="cstat-no" title="statement not covered" ></span>    // If something goes wrong, we just ignore the errors
+<span class="cstat-no" title="statement not covered" ></span>}
+<span class="cstat-no" title="statement not covered" ></span>// @endif
+import * as Q from "q";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import * as vscode from "vscode";
+<span class="cstat-no" title="statement not covered" ></span>import * as semver from "semver";
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>import {FileSystem} from "../common/node/fileSystem";
+<span class="cstat-no" title="statement not covered" ></span>import {CommandPaletteHandler} from "./commandPaletteHandler";
+<span class="cstat-no" title="statement not covered" ></span>import {Packager} from "../common/packager";
+<span class="cstat-no" title="statement not covered" ></span>import {EntryPointHandler, ProcessType} from "../common/entryPointHandler";
+<span class="cstat-no" title="statement not covered" ></span>import {ErrorHelper} from "../common/error/errorHelper";
+<span class="cstat-no" title="statement not covered" ></span>import {InternalError} from "../common/error/internalError";
+<span class="cstat-no" title="statement not covered" ></span>import {InternalErrorCode} from "../common/error/internalErrorCode";
+<span class="cstat-no" title="statement not covered" ></span>import {SettingsHelper} from "./settingsHelper";
+<span class="cstat-no" title="statement not covered" ></span>import {PackagerStatusIndicator} from "./packagerStatusIndicator";
+import {ReactNativeProjectHelper} from "../common/reactNativeProjectHelper";
+import {ReactDirManager} from "./reactDirManager";
+<span class="cstat-no" title="statement not covered" ></span>import {Telemetry} from "../common/telemetry";
+<span class="cstat-no" title="statement not covered" ></span>import {TelemetryHelper, ICommandTelemetryProperties} from "../common/telemetryHelper";
+<span class="cstat-no" title="statement not covered" ></span>import {ExtensionServer} from "./extensionServer";
+<span class="cstat-no" title="statement not covered" ></span>import {OutputChannelLogger} from "./log/OutputChannelLogger";
+import {ExponentHelper} from "./exponent/exponentHelper";
+<span class="cstat-no" title="statement not covered" ></span>import {ReactNativeDebugConfigProvider} from "./debugConfigurationProvider";
+import * as nls from "vscode-nls";
+const localize = nls.loadMessageBundle();
+&nbsp;
+/* all components use the same packager instance */
+const outputChannelLogger = OutputChannelLogger.getMainChannel();
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>const entryPointHandler = new EntryPointHandler(ProcessTyp</span>e.Extension, outputChannelLogger);
+cons<span class="cstat-no" title="statement not covered" ></span>t fsUtil = new FileSystem();
+let <span class="cstat-no" title="statement not covered" ></span>debugConfigProvider: vscode.Disposable;
+<span class="cstat-no" title="statement not covered" ></span>
+cons<span class="cstat-no" title="statement not covered" ></span>t APP_NAME = "react-native-tools";
+<span class="cstat-no" title="statement not covered" ></span>
+inte<span class="cstat-no" title="statement not covered" ></span>rface ISetupableDisposable extends vscode.Disposable {
+<span class="cstat-no" title="statement not covered" ></span>    setup(): Q.Promise&lt;any&gt;;
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+export f<span class="cstat-no" title="statement not covered" ></span>unction activate(context: vscode.ExtensionContext): Q.Promise&lt;void&gt; {
+    outputChannelLogger.debug("Begin to activate...");
+    const appVersion = require(path.resolve(__dirname, "../../package.json")).version;
+    outputChannelLogger.debug(`Extension version: ${appVersion}`);
+    const ExtensionTelemetryReporter = require("vscode-extension-telemetry").default;
+<span class="cstat-no" title="statement not covered" ></span>    const reporter = new ExtensionTelemetryReporter(APP_NAME, appVersion, Telemetry.APPINSIGHTS_INSTRUMENTATIONKEY);<span class="fstat-no" title="function not covered" ></span>
+    cons<span class="cstat-no" title="statement not covered" ></span>t configProvider = new React</span>NativeDebugConfigProvider();<span class="cstat-no" title="statement not covered" >
+    cons<span class="cstat-no" title="statement not covered" ></span>t workspaceFolders: vscode.W</span>orkspaceFolder[] | undefined = vscode.workspace.work<span class="cstat-no" title="statement not covered" >spaceFolders;
+    let extProps: ICommandTelemetryProperties = {};
+    if (<span class="cstat-no" title="statement not covered" ></span>workspaceFolders) {
+<span class="cstat-no" title="statement not covered" ></span>        extProps = {
+<span class="cstat-no" title="statement not covered" ></span>            ["workspaceFoldersCount"]: {value: workspaceFolders.length, isPii: false},
+<span class="cstat-no" title="statement not covered" ></span>        };
+    }<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+    return e<span class="cstat-no" title="statement not covered" ></span>ntryPointHandler.runApp(APP_NAME, appVersion, ErrorHelper.getInternalError(InternalErrorCode.ExtensionActivationFailed), reporter, function activateRunApp() {
+        context.<span class="cstat-no" title="statement not covered" ></span>subscriptions.push(vscode.workspace.onDidChangeWorkspaceFolders((event) =&gt; onChangeWorkspaceFolders(context, event)));
+        context.subscriptions.push(vscode.workspace.onDidChangeConfiguration((event) =&gt; onChangeConfiguration(context)));
+&nbsp;
+        debu<span class="cstat-no" title="statement not covered" ></span>gConfigProvider = vscode.debug.registerDebugConfigurationProvider("reactnative", configProvider);
+        let <span class="cstat-no" title="statement not covered" ></span>activateExtensionEvent = TelemetryHelper.createTelemetryEvent("activate");
+        Telemetry.send(activateExtensionEvent);
+        let promises: any = [];
+        if (workspaceFolders) {
+            outputChannelLogger.debug(`Projects found: ${workspaceFolders.length}`);
+            workspaceFolders.forEach((folder: vscode.WorkspaceFolder) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                promises.push(onFolderAdded(context, folder));
+<span class="cstat-no" title="statement not covered" ></span>            });
+        } else {
+            outputChannelLogger.warning("Could not find workspace while activating");
+            TelemetryHelper.sendErrorEvent(
+                "ActivateCouldNotFindWorkspace",
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span>                ErrorHelper.getInternalError(InternalErrorCode.CouldNotFindWorkspace)</span>
+<span class="cstat-no" title="statement not covered" ></span>                );<span class="fstat-no" title="function not covered" ></span>
+        }
+<span class="cstat-no" title="statement not covered" ></span>
+        return Q.all(promises).then(() =&gt; {
+            return registerReactNativeCommands(context);
+        });<span class="cstat-no" title="statement not covered" ></span>
+    }, extProps)<span class="cstat-no" title="statement not covered" ></span>;
+}
+<span class="cstat-no" title="statement not covered" ></span>
+export function deactivate(): Q.Promise&lt;void&gt; {
+    return Q.Promise&lt;void&gt;(function (resolve) {
+        // Kill any packager processes that we spawned
+        entryPointHa<span class="cstat-no" title="statement not covered" ></span>ndler.runFunction("extension.deactivate",
+            ErrorHelper.getInternalError(InternalErrorCode.FailedToStopPackagerOnExit),
+            () =&gt; {
+                debugConfigProvider.dispose();
+                CommandPaletteHandler.stopAllPackagers()
+                .then(() =&gt; {
+<span class="fstat-no" title="function not covered" >                    return CommandPaletteHandler.stopElementInspector();</span>
+<span class="cstat-no" title="statement not covered" >                })</span>
+<span class="cstat-no" title="statement not covered" ></span>                .done(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                    // Tell vscode that we are done with deactivation
+                    resolve(void 0);
+                });
+            }, /*errorsAreFatal*/ true);
+<span class="cstat-no" title="statement not covered" >    });</span>
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function onChangeWorkspaceFolders(context: vscode.ExtensionContext, event: vscode.WorkspaceFoldersChangeEvent) {
+    if (event.removed.length) {
+        event.removed.forEach((folder) =&gt; {
+            onFolderRemoved(context, folder);
+<span class="fstat-no" title="function not covered" >        });</span>
+    }
+&nbsp;
+    if (event.added.length) {
+<span class="fstat-no" title="function not covered" >        event.added.forEach((folder) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" ></span>            onFolderAdded(context, folder);
+<span class="cstat-no" title="statement not covered" ></span>        });
+<span class="cstat-no" title="statement not covered" ></span>    }
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+function onC<span class="cstat-no" title="statement not covered" ></span>hangeConfiguration(context: vscode.ExtensionContext) {
+    // TODO <span class="cstat-no" title="statement not covered" ></span>implements
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function onFolde<span class="cstat-no" title="statement not covered" ></span>rAdded(context: vscode.ExtensionContext, folder: vscode.WorkspaceFolder): Q.Promise&lt;void&gt; {
+    let rootPath = folder.uri.fsPath;
+    let projectRootPath = SettingsHelper.getReactNativeProjectRoot(rootPath);
+    outputChannelLogger.debug(`Add project: ${projectRootPath}`);
+    return ReactNat<span class="cstat-no" title="statement not covered" >iveProjectHelper.getReactNativeVersion(projectRootPath)</span>
+        .then(ve<span class="cstat-no" title="statement not covered" ></span>rsion =&gt; {
+            outputCh<span class="cstat-no" title="statement not covered" ></span>annelLogger.debug(`React Native version: ${version}`);
+            let prom<span class="cstat-no" title="statement not covered" ></span>ises = [];
+            if (!version) {
+                outputChanne<span class="cstat-no" title="statement not covered" ></span>lLogger.debug("react-native version is empty");
+                TelemetryHel<span class="cstat-no" title="statement not covered" ></span>per.sendErrorEvent(
+                    "AddProj<span class="cstat-no" title="statement not covered" ></span>ectReactNativeVersionIsEmpty",
+                    ErrorHel<span class="cstat-no" title="statement not covered" ></span>per.getInternalError(InternalErrorCode.CouldNotFindProjectVersion)
+                );
+            } else if (isSup<span class="cstat-no" title="statement not covered" ></span>portedVersion(version)) {
+                promises.push(entryPointHandler.runFunction("debugger.setupLauncherStub", ErrorHelper.getInternalError(InternalErrorCode.DebuggerStubLauncherFailed), () =&gt; {
+                    let reactDirManager = new ReactDirManager(rootPath);
+                    return setupAndDispose(reactDirManager, context)
+                        .then(() =&gt; {
+                            let exponentHelper: ExponentHelper = new ExponentHelper(rootPath, projectRootPath);
+                            let packagerStatusIndicator: PackagerStatusIndicator = new PackagerStatusIndicator();
+<span class="cstat-no" title="statement not covered" ></span>                            let packager: Packager = new Packager(rootPath, projectRootPath, SettingsHelper.getPackagerPort(folder.uri.fsPath), packagerStatusIndicator);
+                            let extensionServer: ExtensionServer = new ExtensionServer(projectRootPath, packager);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>                            CommandPaletteHandler.addFolder(folder, {
+                                packager,
+<span class="cstat-no" title="statement not covered" ></span>                                exponentHelper,
+                                reactDirManager,
+                                extensionServer,
+<span class="cstat-no" title="statement not covered" ></span>                            });
+&nbsp;
+                            return setupAndDispose(extensionServer, context).then(() =&gt; { });
+<span class="cstat-no" title="statement not covered" ></span>                        });
+                }));
+                promises.push(entryPointHandler.runFunction("debugger.setupNodeDebuggerLocation",
+                    ErrorHelper.getInternalError(InternalErrorCode.NodeDebuggerConfigurationFailed), () =&gt; {
+<span class="fstat-no" title="function not covered" >                        return configureNodeDebuggerLocation();</span>
+<span class="cstat-no" title="statement not covered" ></span>                    }));
+<span class="cstat-no" title="statement not covered" ></span>            } else {
+<span class="cstat-no" title="statement not covered" >                outputChannelLogger.debug(`react-native@${version} isn't supported`);</span>
+<span class="cstat-no" title="statement not covered" ></span>            }
+&nbsp;
+            return Q.all(promises).then(() =&gt; {});
+<span class="cstat-no" title="statement not covered" ></span>        });
+}<span class="cstat-no" title="statement not covered" ></span>
+&nbsp;
+func<span class="cstat-no" title="statement not covered" >tion onFolderRemoved(context: vscode.ExtensionContext, folder: vscode.WorkspaceFolder): void {</span>
+    let <span class="cstat-no" title="statement not covered" ></span>project = CommandPaletteHandler.getFolder(folder);
+    Object.k<span class="cstat-no" title="statement not covered" >eys(project).forEach((key) =&gt; {</span>
+        if (proj<span class="cstat-no" title="statement not covered" >ect[key].dispose) {</span>
+            project[key].dispose();
+        }
+    });
+    outputChannelLogger.debug(`Delete project: ${folder.uri.fsPath}`);
+    CommandPaletteHandler.delFolder(folder);
+&nbsp;
+    try { // Preventing memory leaks
+<span class="fstat-no" title="function not covered" >        context.subscriptions.forEach((element: any, index: number) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" ></span>            if (element.isDisposed) {
+<span class="cstat-no" title="statement not covered" >                context.subscriptions.splice(index, 1); // Array.prototype.filter doesn't work, "context.subscriptions" is read only</span>
+<span class="cstat-no" title="statement not covered" ></span>            }
+        });
+<span class="cstat-no" title="statement not covered" ></span>    } catch (err) {
+<span class="cstat-no" title="statement not covered" ></span>        // Ignore
+    }
+}
+<span class="fstat-no" title="function not covered" ></span>
+func<span class="cstat-no" title="statement not covered" ></span>tion configureNodeDebuggerLocation(): Q.Promise&lt;void&gt; {
+    const nodeDebugExtension = vscode.extensions.getExtension("ms-vscode.node-debug2");
+    if (!nod<span class="cstat-no" title="statement not covered" ></span>eDebugExtension) {
+        retu<span class="cstat-no" title="statement not covered" ></span>rn Q.reject&lt;void&gt;(ErrorHelper.getInternalError(InternalErrorCode.CouldNotFindLocationOfNodeDebugger));
+    }
+    const nodeDebugPath = nodeDebugExtension.extensionPath;
+    return fsUtil.writeFile(path.resolve(__dirname, "../", "debugger", "nodeDebugLocation.json"), JSON.stringify({ nodeDebugPath }));
+<span class="fstat-no" title="function not covered" >}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+function<span class="cstat-no" title="statement not covered" ></span> setupAndDispose&lt;T extends ISetupableDisposable&gt;(setuptableDisposable: T, context: vscode.ExtensionContext): Q.Promise&lt;T&gt; {
+    retu<span class="cstat-no" title="statement not covered" ></span>rn setuptableDisposable.setup()
+<span class="cstat-no" title="statement not covered" ></span>        .then(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            context.subscriptions.push(setuptableDisposable);
+<span class="cstat-no" title="statement not covered" ></span>            return setuptableDisposable;
+<span class="cstat-no" title="statement not covered" ></span>        });
+}
+&nbsp;
+function<span class="cstat-no" title="statement not covered" ></span> isSupportedVersion(version: string): boolean {
+    if (!!semver.valid(version) &amp;&amp; !semver.gte(version, "0.19.0")) {
+        TelemetryHelper.sendSimpleEvent("unsupportedRNVersion", { rnVersion: version });
+        const shortMessage = localize("ReactNativeToolsRequiresMoreRecentVersionThan019", "React Native Tools need React Native version 0.19.0 or later to be installed in &lt;PROJECT_ROOT&gt;/node_modules/");
+<span class="fstat-no" title="function not covered" >        const longMessage = `${shortMessage}: ${version}`;</span>
+<span class="cstat-no" title="statement not covered" ></span></span>        vscode.window.showWarningMessage(shortMessage);<span class="cstat-no" title="statement not covered" >
+<span class="cstat-no" title="statement not covered" ></span></span>        outputChannelLogger.warning(longMessage);<span class="cstat-no" title="statement not covered" >
+<span class="cstat-no" title="statement not covered" ></span></span>        return false;<span class="cstat-no" title="statement not covered" >
+<span class="cstat-no" title="statement not covered" ></span>    }</span> else {<span class="cstat-no" title="statement not covered" >
+<span class="cstat-no" title="statement not covered" ></span></span>        // !!semver.valid(version) === false is OK for us, someone can use custom RN implementation with custom version e.g. <span class="cstat-no" title="statement not covered" >-&gt; "0.2018.0107-v1"
+<span class="cstat-no" title="statement not covered" ></span></span>        return true;<span class="cstat-no" title="statement not covered" >
+<span class="cstat-no" title="statement not covered" ></span>    }<span class="cstat-no" title="statement not covered" ></span>
+}<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+func<span class="cstat-no" title="statement not covered" ></span>t</span>ion registerReactNativeCommands(context: vscode.ExtensionContext): void {<span class="cstat-no" title="statement not covered" >
+<span class="cstat-no" title="statement not covered" ></span>    r</span>egisterVSCodeCommand(context, "runAndroidSimulator", ErrorHelper.getInternalError(InternalErrorCode.FailedToRunOnAndroid), () =&gt; CommandPaletteHandler.runAndroid("simulator")<span class="cstat-no" title="statement not covered" >);
+<span class="cstat-no" title="statement not covered" ></span>    r</span>egisterVSCodeCommand(context, "runAndroidDevice", ErrorHelper.getInternalError(InternalErrorCode.FailedToRunOnAndroid), () =&gt; CommandPaletteHandler.runAndroid("device"));<span class="cstat-no" title="statement not covered" >
+    registerVSCodeCommand(context, "runIosSimulator", ErrorHelper.getInternalError(InternalErrorCode.FailedToRunOnIos), () =&gt; CommandPaletteHandler.runIos("simulator"));
+    registerVSCodeCommand(context, "runIosDevice", ErrorHelper.getInternalError(InternalErrorCode.FailedToRunOnIos), () =&gt; CommandPaletteHandler.runIos("device"));
+<span class="fstat-no" title="function not covered" >    registerVSCodeCommand(context, "runExponent", ErrorHelper.getInternalError(InternalErrorCode.FailedToRunExponent), () =&gt; CommandPaletteHandler</span>.runExponent());
+<span class="cstat-no" title="statement not covered" ></span>    registerVSCodeCommand(context, "startPackager", ErrorHelper.getInternalError(InternalErrorCode.FailedToStartPackager), () =&gt; CommandPaletteHandler.startPackager());
+    regi<span class="cstat-no" title="statement not covered" ></span>sterVSCodeCommand(context, "stopPackager", ErrorHelper.getInternalError(InternalErrorCode.FailedToStopPackager), () =&gt; CommandPaletteHandler.stopPackager());
+    registerVSCodeCommand(context, "restartPackager", ErrorHelper.getInternalError(InternalErrorCode.FailedToRestartPackager), () =&gt; CommandPaletteHandler.restartPackager());
+    registerVSCodeCommand(context, "publishToExpHost", ErrorHelper.getInternalError(InternalErrorCode.FailedToPublishToExpHost), () =&gt; CommandPaletteHandler.publishToExpHost());
+    registerVSCodeCommand(context, "showDevMenu", ErrorHelper.getInternalError(InternalErrorCode.CommandFailed, localize("ReactNativeShowDevMenu", "React Native: Show Developer Menu for app")), () =&gt; CommandPaletteHandler.showDevMenu());
+    registerVSCodeCommand(context, "reloadApp", ErrorHelper.getInternalError(InternalErrorCode.CommandFailed, localize("ReactNativeReloadApp", "React Native: Reload App")), () =&gt; CommandPaletteHandler.reloadApp());
+    registerVSCodeCommand(context, "runInspector", ErrorHelper.getInternalError(InternalErrorCode.CommandFailed, localize("ReactNativeRunElementInspector", "React Native: Run Element Inspector")), () =&gt; CommandPaletteHandler.runElementInspector());
+}<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" ></span>
+function registerVSCodeCommand(context: vscode.ExtensionContext, commandName: string, error: InternalError, commandHandler: () =&gt; Q.Promise&lt;void&gt;): void {
+    context.subscriptions.push(vscode.commands.registerCommand(`reactNative.${commandName}`, () =&gt; {
+        const extProps = {
+            platform: {
+                value: CommandPaletteHandler.getPlatformByCommandName(commandName),
+                isPii: false,
+            },
+        };
+        outputChannelLogger.debug(`Run command: ${commandName}`);
+        return entryPointHandler.runFunctionWExtProps(`commandPalette.${commandName}`, extProps, error, commandHandler);
+    }));
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 26 2019 09:04:01 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

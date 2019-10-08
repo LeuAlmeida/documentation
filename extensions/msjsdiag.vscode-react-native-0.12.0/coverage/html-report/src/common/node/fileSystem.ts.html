@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\common\node\fileSystem.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/common/node/</a> fileSystem.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/85</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/84</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as nodeFs from "fs";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import * as Q from "q";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class FileSystem {
+    private fs: typeof nodeFs;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor({ fs = nodeFs } = {})</span> {
+<span class="cstat-no" title="statement not covered" ></span>        this.fs = fs;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >ensureDirectory(dir: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall(this.fs.stat, dir).then((stat: nodeFs.Stats): void =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (stat.isDirectory()) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return;
+            }
+<span class="cstat-no" title="statement not covered" ></span>            throw new Error(`Expected ${dir} to be a directory`);
+        }, (err: Error &amp; { code?: string }): Q.Promise&lt;any&gt; =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (err &amp;&amp; err.code === "ENOENT") {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return Q.nfcall(this.fs.mkdir, dir);
+            }
+<span class="cstat-no" title="statement not covered" ></span>            throw err;
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >ensureFileWithContents(file: string, contents: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall(this.fs.stat, file).then((stat: nodeFs.Stats) =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (!stat.isFile()) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                throw new Error(`Expected ${file} to be a file`);
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>            return this.readFile(file).then(existingContents =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (contents !== existingContents) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    return this.writeFile(file, contents);
+                }
+<span class="cstat-no" title="statement not covered" ></span>                return Q.resolve(void 0);
+            });
+        }, (err: Error &amp; { code?: string }): Q.Promise&lt;any&gt; =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (err &amp;&amp; err.code === "ENOENT") {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return Q.nfcall(this.fs.writeFile, file, contents);
+            }
+<span class="cstat-no" title="statement not covered" ></span>            throw err;
+        });
+    }
+&nbsp;
+    /**
+     *  Helper function to check if a file or directory exists
+     */
+    public <span class="fstat-no" title="function not covered" >existsSync(filename: string)</span> {
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.fs.statSync(filename);
+<span class="cstat-no" title="statement not covered" ></span>            return true;
+        } catch (error) {
+<span class="cstat-no" title="statement not covered" ></span>            return false;
+        }
+    }
+&nbsp;
+    /**
+     *  Helper (asynchronous) function to check if a file or directory exists
+     */
+    public <span class="fstat-no" title="function not covered" >exists(filename: string)</span>: Q.Promise&lt;boolean&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall(this.fs.stat, filename)
+            .then(<span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return Q.resolve(true);
+            })
+            .catch(<span class="fstat-no" title="function not covered" >function(err)</span> {
+<span class="cstat-no" title="statement not covered" ></span>                return Q.resolve(false);
+            });
+    }
+&nbsp;
+    /**
+     *  Helper async function to read the contents of a directory
+     */
+    public <span class="fstat-no" title="function not covered" >readDir(directory: string)</span>: Q.Promise&lt;string[]&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;string[]&gt;(this.fs.readdir, directory);
+    }
+&nbsp;
+    /**
+     *  Helper (synchronous) function to create a directory recursively
+     */
+    public <span class="fstat-no" title="function not covered" >makeDirectoryRecursiveSync(dirPath: string)</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>        let parentPath = path.dirname(dirPath);
+<span class="cstat-no" title="statement not covered" >        if (!this.existsSync(parentPath)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.makeDirectoryRecursiveSync(parentPath);
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.fs.mkdirSync(dirPath);
+    }
+&nbsp;
+    /**
+     *  Helper function to asynchronously copy a file
+     */
+    public <span class="fstat-no" title="function not covered" >copyFile(from: string, to: string, encoding?: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let deferred: Q.Deferred&lt;void&gt; = Q.defer&lt;void&gt;();
+<span class="cstat-no" title="statement not covered" ></span>        let destFile: nodeFs.WriteStream = this.fs.createWriteStream(to, { encoding: encoding });
+<span class="cstat-no" title="statement not covered" ></span>        let srcFile: nodeFs.ReadStream = this.fs.createReadStream(from, { encoding: encoding });
+<span class="cstat-no" title="statement not covered" ></span>        destFile.on("finish", <span class="fstat-no" title="function not covered" >function(): void {</span>
+<span class="cstat-no" title="statement not covered" ></span>            deferred.resolve(void 0);
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        destFile.on("error", <span class="fstat-no" title="function not covered" >function(e: Error)</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>            deferred.reject(e);
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        srcFile.on("error", <span class="fstat-no" title="function not covered" >function(e: Error)</span>: void {
+<span class="cstat-no" title="statement not covered" ></span>            deferred.reject(e);
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        srcFile.pipe(destFile);
+<span class="cstat-no" title="statement not covered" ></span>        return deferred.promise;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >deleteFileIfExistsSync(filename: string)</span> {
+<span class="cstat-no" title="statement not covered" >        if (this.existsSync(filename)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.fs.unlinkSync(filename);
+        }
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >readFile(filename: string, encoding: string = "utf8")</span>: Q.Promise&lt;string&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;string&gt;(this.fs.readFile, filename, encoding);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >writeFile(filename: string, data: any)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;void&gt;(this.fs.writeFile, filename, data);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >unlink(filename: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;void&gt;(this.fs.unlink, filename);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >mkDir(p: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;void&gt;(this.fs.mkdir, p);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >stat(fsPath: string)</span>: Q.Promise&lt;nodeFs.Stats&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;nodeFs.Stats&gt;(this.fs.stat, fsPath);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >directoryExists(directoryPath: string)</span>: Q.Promise&lt;boolean&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.stat(directoryPath).then(stats =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            return stats.isDirectory();
+        }).catch(reason =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            return reason.code === "ENOENT"
+                ? false
+                : Q.reject&lt;boolean&gt;(reason);
+        });
+    }
+&nbsp;
+&nbsp;
+    /**
+     * Delete 'dirPath' if it's an empty folder. If not fail.
+     *
+     * @param {dirPath} path to the folder
+     * @returns {void} Nothing
+     */
+    public <span class="fstat-no" title="function not covered" >rmdir(dirPath: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;void&gt;(this.fs.rmdir, dirPath);
+    }
+&nbsp;
+    /**
+     * Recursively copy 'source' to 'target' asynchronously
+     *
+     * @param {string} source Location to copy from
+     * @param {string} target Location to copy to
+     * @returns {Q.Promise} A promise which is fulfilled when the copy completes, and is rejected on error
+     */
+    public <span class="fstat-no" title="function not covered" >copyRecursive(source: string, target: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return Q.nfcall&lt;nodeFs.Stats&gt;(this.fs.stat, source).then(stats =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (stats.isDirectory()) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return this.exists(target)
+                    .then(exists =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                        return exists ? void 0 : Q.nfcall&lt;void&gt;(this.fs.mkdir, target);
+                    })
+                    .then(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                        return Q.nfcall&lt;string[]&gt;(this.fs.readdir, source);
+                    })
+                    .then(contents =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                        Q.all(contents.map((childPath: string): Q.Promise&lt;void&gt; =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                            return this.copyRecursive(path.join(source, childPath), path.join(target, childPath));
+                        }));
+                    });
+            } else {
+<span class="cstat-no" title="statement not covered" ></span>                return this.copyFile(source, target);
+            }
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >removePathRecursivelyAsync(p: string)</span>: Q.Promise&lt;void&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        return this.exists(p).then(exists =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (exists) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return Q.nfcall&lt;nodeFs.Stats&gt;(this.fs.stat, p).then((stats: nodeFs.Stats) =&gt; {
+<span class="cstat-no" title="statement not covered" >                    if (stats.isDirectory()) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                        return Q.nfcall&lt;string[]&gt;(this.fs.readdir, p).then((childPaths: string[]) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                            let result = Q&lt;void&gt;(void 0);
+<span class="cstat-no" title="statement not covered" ></span>                            childPaths.forEach(childPath =&gt;
+<span class="cstat-no" title="statement not covered" >                                result = r</span>esult.then&lt;void&gt;(() =&gt; <span class="cstat-no" title="statement not covered" >this.removePathRecursivelyAsync(path.join(p, childPath))));</span>
+<span class="cstat-no" title="statement not covered" ></span>                            return result;
+                        }).then(() =&gt;
+<span class="cstat-no" title="statement not covered" >                            Q.nfcall&lt;void&gt;(this.fs.rmdir, p));</span>
+                    } else {
+                        /* file */
+<span class="cstat-no" title="statement not covered" ></span>                        return Q.nfcall&lt;void&gt;(this.fs.unlink, p);
+                    }
+                });
+            }
+<span class="cstat-no" title="statement not covered" ></span>            return Q.resolve(void 0);
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >removePathRecursivelySync(p: string)</span>: void {
+<span class="cstat-no" title="statement not covered" >        if (this.fs.existsSync(p)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            let stats = this.fs.statSync(p);
+<span class="cstat-no" title="statement not covered" >            if (stats.isDirectory()) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                let contents = this.fs.readdirSync(p);
+<span class="cstat-no" title="statement not covered" ></span>                contents.forEach(childPath =&gt;
+<span class="cstat-no" title="statement not covered" >                    this.removePathRecursivelySync(path.join(p, childPath)));</span>
+<span class="cstat-no" title="statement not covered" ></span>                this.fs.rmdirSync(p);
+            } else {
+                /* file */
+<span class="cstat-no" title="statement not covered" ></span>                this.fs.unlinkSync(p);
+            }
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

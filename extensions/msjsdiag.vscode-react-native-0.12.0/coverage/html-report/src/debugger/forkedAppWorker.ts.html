@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\debugger\forkedAppWorker.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/debugger/</a> forkedAppWorker.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>1/75</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as Q from "q";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import * as url from "url";
+<span class="cstat-no" title="statement not covered" ></span>import * as child_process from "child_process";
+<span class="cstat-no" title="statement not covered" ></span>import * as fs from "fs";
+<span class="cstat-no" title="statement not covered" ></span>import {ScriptImporter, DownloadedScript}  from "./scriptImporter";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import { logger } from "vscode-chrome-debug-core";
+<span class="cstat-no" title="statement not covered" ></span>import { ErrorHelper } from "../common/error/errorHelper";
+import { IDebuggeeWorker, RNAppMessage } from "./appWorker";
+<span class="cstat-no" title="statement not covered" ></span>import { RemoteExtension } from "../common/remoteExtension";
+<span class="cstat-no" title="statement not covered" ></span>import { InternalErrorCode } from "../common/error/internalErrorCode";
+<span class="cstat-no" title="statement not covered" ></span>import { getLoggingDirectory } from "../extension/log/LogHelper";
+&nbsp;
+<span class="fstat-no" title="function not covered" >function printDebuggingError(error: Error, reason: any)</span> {
+<span class="cstat-no" title="statement not covered" ></span>    const nestedError = ErrorHelper.getNestedError(error, InternalErrorCode.DebuggingWontWorkReloadJSAndReconnect, reason);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>    logger.error(nestedError.message);
+}
+&nbsp;
+/** This class will run the RN App logic inside a forked Node process. The framework to run the logic is provided by the file
+ * debuggerWorker.js (designed to run on a WebWorker). We add a couple of tweaks (mostly to polyfill WebWorker API) to that
+ * file and load it inside of a process.
+ * On this side we listen to IPC messages and either respond to them or redirect them to packager via MultipleLifetimeAppWorker's
+ * instance. We also intercept packager's signal to load the bundle's code and mutate the message with path to file we've downloaded
+ * to let importScripts function take this file.
+ */
+<span class="cstat-no" title="statement not covered" ></span>export class ForkedAppWorker implements IDebuggeeWorker {
+&nbsp;
+    protected scriptImporter: ScriptImporter;
+    protected <span class="cstat-no" title="statement not covered" ></span>debuggeeProcess: child_process.ChildProcess | null = null;
+    /** A deferred that we use to make sure that worker has been loaded completely defore start sending IPC messages */
+    protected <span class="cstat-no" title="statement not covered" ></span>workerLoaded = Q.defer&lt;void&gt;();
+    private bundleLoaded: Q.Deferred&lt;void&gt;;
+    private remoteExtension: RemoteExtension;
+    private logWriteStream: fs.WriteStream;
+    private logDirectory: string | null;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(</span>
+        private <span class="cstat-no" title="statement not covered" ></span>packagerAddress: string,
+        private <span class="cstat-no" title="statement not covered" ></span>packagerPort: number,
+        private <span class="cstat-no" title="statement not covered" ></span>sourcesStoragePath: string,
+        private <span class="cstat-no" title="statement not covered" ></span>projectRootPath: string,
+        private <span class="cstat-no" title="statement not covered" ></span>postReplyToApp: (message: any) =&gt; void,
+        private <span class="cstat-no" title="statement not covered" ></span>packagerRemoteRoot?: string,
+        private <span class="cstat-no" title="statement not covered" ></span>packagerLocalRoot?: string
+    ) {
+<span class="cstat-no" title="statement not covered" ></span>        this.scriptImporter = new ScriptImporter(this.packagerAddress, this.packagerPort, this.sourcesStoragePath, this.packagerRemoteRoot, this.packagerLocalRoot);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.remoteExtension = RemoteExtension.atProjectRootPath(this.projectRootPath);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.remoteExtension.api.Debugger.onShowDevMenu(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            this.postMessage({
+                method: "vscode_showDevMenu",
+            });
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        this.remoteExtension.api.Debugger.onReloadApp(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            this.postMessage({
+                method: "vscode_reloadApp",
+            });
+        });
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >stop(</span>) {
+<span class="cstat-no" title="statement not covered" >        if (this.debuggeeProcess) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            logger.verbose(`About to kill debuggee with pid ${this.debuggeeProcess.pid}`);
+<span class="cstat-no" title="statement not covered" ></span>            this.debuggeeProcess.kill();
+<span class="cstat-no" title="statement not covered" ></span>            this.debuggeeProcess = null;
+        }
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >start(</span>): Q.Promise&lt;number&gt; {
+<span class="cstat-no" title="statement not covered" ></span>        let scriptToRunPath = path.resolve(this.sourcesStoragePath, ScriptImporter.DEBUGGER_WORKER_FILENAME);
+<span class="cstat-no" title="statement not covered" ></span>        const port = Math.round(Math.random() * 40000 + 3000);
+&nbsp;
+        // Note that we set --inspect-brk flag to pause the process on the first line - this is
+        // required for debug adapter to set the breakpoints BEFORE the debuggee has started.
+        // The adapter will continue execution once it's done with breakpoints.
+        // --no-deprecation flag disables deprecation warnings like "[DEP0005] DeprecationWarning: Buffer() is deprecated..." and so on that leads to errors in native app
+        // https://nodejs.org/dist/latest-v7.x/docs/api/cli.html
+<span class="cstat-no" title="statement not covered" ></span>        const nodeArgs = [`--inspect-brk=${port}`, "--no-deprecation", scriptToRunPath];
+        // Start child Node process in debugging mode
+        // Using fork instead of spawn causes breakage of piping between app worker and VS Code debug console, e.g. console.log() in application
+        // wouldn't work. Please see https://github.com/Microsoft/vscode-react-native/issues/758
+<span class="cstat-no" title="statement not covered" ></span>        this.debuggeeProcess = child_process.spawn("node", nodeArgs, {
+            stdio: ["pipe", "pipe", "pipe", "ipc"],
+        })
+        .on("message", (message: any) =&gt; {
+            // 'workerLoaded' is a special message that indicates that worker is done with loading.
+            // We need to wait for it before doing any IPC because process.send doesn't seems to care
+            // about whether the message has been received or not and the first messages are often get
+            // discarded by spawned process
+<span class="cstat-no" title="statement not covered" >            if (message &amp;&amp; message.workerLoaded) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                this.workerLoaded.resolve(void 0);
+<span class="cstat-no" title="statement not covered" ></span>                return;
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>            this.postReplyToApp(message);
+        })
+        .on("error", (error: Error) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            printDebuggingError(ErrorHelper.getInternalError(InternalErrorCode.ReactNativeWorkerProcessThrownAnError), error);
+        });
+&nbsp;
+        // If special env variables are defined, then write process outputs to file
+<span class="cstat-no" title="statement not covered" ></span>        this.logDirectory = getLoggingDirectory();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.logDirectory) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            this.logWriteStream = fs.createWriteStream(path.join(this.logDirectory, "nodeProcessLog.txt"));
+<span class="cstat-no" title="statement not covered" ></span>            this.logWriteStream.on("error", err =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                logger.error(`Error creating log file at path: ${this.logDirectory}. Error: ${err.toString()}\n`);
+            });
+<span class="cstat-no" title="statement not covered" ></span>            this.debuggeeProcess.stdout.pipe(this.logWriteStream);
+<span class="cstat-no" title="statement not covered" ></span>            this.debuggeeProcess.stderr.pipe(this.logWriteStream);
+<span class="cstat-no" title="statement not covered" ></span>            this.debuggeeProcess.on("close", () =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                this.logWriteStream.end();
+            });
+        }
+&nbsp;
+        // Resolve with port debugger server is listening on
+        // This will be sent to subscribers of MLAppWorker in "connected" event
+<span class="cstat-no" title="statement not covered" ></span>        logger.verbose(`Spawned debuggee process with pid ${this.debuggeeProcess.pid} listening to ${port}`);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return Q.resolve(port);
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >postMessage(rnMessage: RNAppMessage)</span>: Q.Promise&lt;RNAppMessage&gt; {
+        // Before sending messages, make sure that the worker is loaded
+<span class="cstat-no" title="statement not covered" ></span>        const promise = this.workerLoaded.promise
+            .then(() =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (rnMessage.method !== "executeApplicationScript") {</span>
+                    // Before sending messages, make sure that the app script executed
+<span class="cstat-no" title="statement not covered" >                    if (this.bundleLoaded) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                        return this.bundleLoaded.promise.then(() =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                            return rnMessage;
+                        });
+                    } else {
+<span class="cstat-no" title="statement not covered" ></span>                        return rnMessage;
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" ></span>                    this.bundleLoaded = Q.defer&lt;void&gt;();
+                    // When packager asks worker to load bundle we download that bundle and
+                    // then set url field to point to that downloaded bundle, so the worker
+                    // will take our modified bundle
+<span class="cstat-no" title="statement not covered" >                    if (rnMessage.url) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                        const packagerUrl = url.parse(rnMessage.url);
+<span class="cstat-no" title="statement not covered" ></span>                        packagerUrl.host = `${this.packagerAddress}:${this.packagerPort}`;
+<span class="cstat-no" title="statement not covered" ></span>                        rnMessage = {
+                            ...rnMessage,
+                            url: url.format(packagerUrl),
+                        };
+<span class="cstat-no" title="statement not covered" ></span>                        logger.verbose(`Packager requested runtime to load script from ${rnMessage.url}`);
+<span class="cstat-no" title="statement not covered" ></span>                        return this.scriptImporter.downloadAppScript(&lt;string&gt;rnMessage.url, this.projectRootPath)
+                            .then((downloadedScript: DownloadedScript) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                                this.bundleLoaded.resolve(void 0);
+<span class="cstat-no" title="statement not covered" ></span>                                return Object.assign({}, rnMessage, { url: downloadedScript.filepath });
+                            });
+                    } else {
+<span class="cstat-no" title="statement not covered" ></span>                        throw ErrorHelper.getInternalError(InternalErrorCode.RNMessageWithMethodExecuteApplicationScriptDoesntHaveURLProperty);
+                    }
+                }
+            });
+<span class="cstat-no" title="statement not covered" ></span>        promise.done(
+            (message: RNAppMessage) =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (this.debuggeeProcess) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    this.debuggeeProcess.send({ data: message });
+                }
+            },
+            (reason) =&gt; <span class="cstat-no" title="statement not covered" >printDebuggingError(ErrorHelper.getInternalError(InternalErrorCode.CouldntImportScriptAt, rnMessage.url), reason));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return promise;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

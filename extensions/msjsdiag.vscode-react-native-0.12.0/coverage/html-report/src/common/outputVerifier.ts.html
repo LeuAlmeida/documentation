@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\common\outputVerifier.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/common/</a> outputVerifier.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as Q from "q";
+import {ISpawnResult} from "./node/childProcess";
+<span class="cstat-no" title="statement not covered" ></span>import { ErrorHelper } from "./error/errorHelper";
+<span class="cstat-no" title="statement not covered" ></span>import { InternalErrorCode } from "./error/internalErrorCode";
+&nbsp;
+export type PatternToFailure = {
+    pattern: string | RegExp,
+    errorCode: number
+};
+&nbsp;
+/* This class transforms a spawn process to only succeed if all defined success patterns
+   are found on stdout, and none of the failure patterns were found on stderr */
+<span class="cstat-no" title="statement not covered" ></span>export class OutputVerifier {
+    private generatePatternsForSuccess: () =&gt; Q.Promise&lt;string[]&gt;;
+    private generatePatternToFailure: () =&gt; Q.Promise&lt;PatternToFailure[]&gt;;
+    private platformName: string;
+&nbsp;
+    private <span class="cstat-no" title="statement not covered" ></span>output = "";
+    private <span class="cstat-no" title="statement not covered" ></span>errors = "";
+&nbsp;
+<span class="fstat-no" title="function not covered" >    constructor(generatePatternsForSuccess: () =&gt; Q.Promise&lt;string[]&gt;, generatePatternToFailure: () =&gt; Q.Promise&lt;PatternToFailure[]&gt;, platformName: string)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        this.generatePatternsForSuccess = generatePatternsForSuccess;
+<span class="cstat-no" title="statement not covered" ></span>        this.generatePatternToFailure = generatePatternToFailure;
+<span class="cstat-no" title="statement not covered" ></span>        this.platformName = platformName;
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >process(spawnResult: ISpawnResult)</span>: Q.Promise&lt;void&gt; {
+        // Store all output
+<span class="cstat-no" title="statement not covered" ></span>        this.store(spawnResult.stdout, new_content =&gt;
+<span class="cstat-no" title="statement not covered" >            this.output += new_content);</span>
+<span class="cstat-no" title="statement not covered" ></span>        this.store(spawnResult.stderr, new_content =&gt;
+<span class="cstat-no" title="statement not covered" >            this.errors += new_content);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return spawnResult.outcome // Wait for the process to finish
+            .then(this.generatePatternToFailure) // Generate the failure patterns to check
+            .then(patterns =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>                const failureErrorCode = this.findAnyFailurePattern(patterns);
+<span class="cstat-no" title="statement not covered" >                if (failureErrorCode) {</span>
+<span class="cstat-no" title="statement not covered" >                    return Q.reject&lt;string[]&gt;(ErrorHelper.getInternalError(failureErrorCode)); // If at least one failure happened, we fail</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    return this.generatePatternsForSuccess(); // If not we generate the success patterns</span>
+                }
+            }).then(successPatterns =&gt; {
+<span class="cstat-no" title="statement not covered" >                if (!this.areAllSuccessPatternsPresent(successPatterns)) { // If we don't find all the success patterns, we also fail</span>
+<span class="cstat-no" title="statement not covered" ></span>                    return Q.reject&lt;void&gt;(ErrorHelper.getInternalError(InternalErrorCode.NotAllSuccessPatternsMatched, this.platformName, this.platformName));
+                } // else we found all the success patterns, so we succeed
+<span class="cstat-no" title="statement not covered" ></span>                return Q.resolve(void 0);
+            });
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >store(stream: NodeJS.ReadableStream, append: (new_content: string) =&gt; void)</span> {
+<span class="cstat-no" title="statement not covered" ></span>        stream.on("data", (data: Buffer) =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            append(data.toString());
+        });
+    }
+&nbsp;
+    // We check the failure patterns one by one, to see if any of those appeared on the errors. If they did, we return the associated error
+    private <span class="fstat-no" title="function not covered" >findAnyFailurePattern(patterns: PatternToFailure[])</span>: number | null {
+<span class="cstat-no" title="statement not covered" ></span>        const errorsAndOutput = this.errors + this.output;
+<span class="cstat-no" title="statement not covered" ></span>        const patternThatAppeared = patterns.find(pattern =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            return pattern.pattern instanceof RegExp ?
+                (pattern.pattern as RegExp).test(errorsAndOutput) :
+                errorsAndOutput.indexOf(pattern.pattern as string) !== -1;
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return patternThatAppeared ? patternThatAppeared.errorCode : null;
+    }
+&nbsp;
+    // We check that all the patterns appeared on the output
+    private <span class="fstat-no" title="function not covered" >areAllSuccessPatternsPresent(successPatterns: string[])</span>: boolean {
+<span class="cstat-no" title="statement not covered" ></span>        return successPatterns.every(pattern =&gt; {
+<span class="cstat-no" title="statement not covered" ></span>            let patternRe = new RegExp(pattern, "i");
+<span class="cstat-no" title="statement not covered" ></span>            return patternRe.test(this.output);
+        });
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\debugger\sourceMapsCombinator.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/debugger/</a> sourceMapsCombinator.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>2/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.08% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>2/49</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+&nbsp;
+/// &lt;reference path="./../typings/debugger/sourceMapsCombinator.d.ts" /&gt;
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>import * as fs from "fs";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import { SourceMapConsumer, RawSourceMap, SourceMapGenerator, MappingItem, Mapping, Position, NullableMappedPosition } from "source-map";
+<span class="cstat-no" title="statement not covered" ></span>import sourceMapResolve = require("source-map-resolve");
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>const DISK_LETTER_RE: RegExp = /^(?:[a-z]{2,}:\/\/\/)?[a-z]:/i;
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class SourceMapsCombinator {
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >convert(rawBundleSourcemap: RawSourceMap)</span>: RawSourceMap {
+&nbsp;
+        // Find user files from bundle files list
+<span class="cstat-no" title="statement not covered" ></span>        const consumers: { [key: string]: SourceMapConsumer } = rawBundleSourcemap.sources
+            .reduce((result: { [key: string]: SourceMapConsumer }, file) =&gt; {
+                // Skip files inside node_modules
+<span class="cstat-no" title="statement not covered" >                if (file.indexOf("node_modules") &gt;= 0) <span class="cstat-no" title="statement not covered" ></span>r</span>eturn result;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    let consumer: SourceMapConsumer | null = this.getSourceMapConsumerFrom(file);
+<span class="cstat-no" title="statement not covered" >                    if (consumer)</span>
+<span class="cstat-no" title="statement not covered" ></span>                        result[file] = consumer;
+                } finally {
+<span class="cstat-no" title="statement not covered" ></span>                    return result;
+                }
+            }, {});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (Object.keys(consumers).length === 0) {</span>
+            // Sourcemaps not found, so return original bundle sourcemap
+<span class="cstat-no" title="statement not covered" ></span>            return rawBundleSourcemap;
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        const generator = new SourceMapGenerator();
+<span class="cstat-no" title="statement not covered" ></span>        const bundleConsumer = new SourceMapConsumer(rawBundleSourcemap);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        bundleConsumer.eachMapping((item: MappingItem) =&gt; {
+<span class="cstat-no" title="statement not covered" >            if (item.source === null) {</span>
+                // Some mappings in react native bundle have no sources
+<span class="cstat-no" title="statement not covered" ></span>                return;
+            }
+&nbsp;
+            // Copy mappings
+<span class="cstat-no" title="statement not covered" ></span>            let mapping: Mapping = {
+                generated: { line: item.generatedLine, column: item.generatedColumn },
+                original: { line: item.originalLine, column: item.originalColumn },
+                source: item.source,
+                name: item.name,
+            };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (consumers[item.source]) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                let jsPosition: Position = { line: item.originalLine, column: item.originalColumn };
+<span class="cstat-no" title="statement not covered" ></span>                let tsPosition: NullableMappedPosition = consumers[item.source].originalPositionFor(jsPosition);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (tsPosition.source === null) {</span>
+                    // Some positions from react native generated bundle can not translate to TS source positions
+                    // skip them
+<span class="cstat-no" title="statement not covered" ></span>                    return;
+                }
+&nbsp;
+                // Resolve TS source path to absolute because it might be relative to generated JS
+                // (this depends on whether "sourceRoot" option is specified in tsconfig.json)
+<span class="cstat-no" title="statement not covered" >                if (!tsPosition.source.match(DISK_LETTER_RE)) { // This check for Windows tests which were run on MacOs</span>
+<span class="cstat-no" title="statement not covered" ></span>                    tsPosition.source = path.resolve(
+                        &lt;string&gt;rawBundleSourcemap.sourceRoot,
+                        path.dirname(item.source),
+                        tsPosition.source
+                    );
+                }
+&nbsp;
+                // Update mapping w/ mapped position values
+<span class="cstat-no" title="statement not covered" ></span>                mapping.source = tsPosition.source;
+<span class="cstat-no" title="statement not covered" ></span>                mapping.name = tsPosition.name || mapping.name;
+<span class="cstat-no" title="statement not covered" >                if (tsPosition.line !== null &amp;&amp; tsPosition.column !== null) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                    mapping.original = { line: tsPosition.line, column: tsPosition.column};
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" ></span>                generator.addMapping(mapping);
+            } catch (err) {
+&nbsp;
+            }
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return generator.toJSON();
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >getSourceMapConsumerFrom(generatedFile: string)</span>: SourceMapConsumer | null {
+<span class="cstat-no" title="statement not covered" ></span>        let code = fs.readFileSync(generatedFile);
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        let consumer = this.readSourcemap(generatedFile, code.toString());
+<span class="cstat-no" title="statement not covered" ></span>        return consumer;
+    }
+&nbsp;
+    private <span class="fstat-no" title="function not covered" >readSourcemap(file: string, code: string)</span>: SourceMapConsumer | null {
+<span class="cstat-no" title="statement not covered" ></span>        let result = sourceMapResolve.resolveSync(code, file, readFileSync.bind(null, getDiskLetter(file)));
+<span class="cstat-no" title="statement not covered" >        if (result === null) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return null;
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return new SourceMapConsumer(result.map);
+    }
+}
+&nbsp;
+// Hack for source-map-resolve and cutted disk letter
+// https://github.com/lydell/source-map-resolve/issues/9
+<span class="fstat-no" title="function not covered" >function readFileSync(diskLetter: string, filePath: string)</span> {
+<span class="cstat-no" title="statement not covered" >    if (filePath.match(DISK_LETTER_RE)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>        return fs.readFileSync(filePath);
+    } else {
+<span class="cstat-no" title="statement not covered" ></span>        return fs.readFileSync(`${diskLetter}${filePath}`);
+    }
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function getDiskLetter(filePath: string)</span>: string {
+<span class="cstat-no" title="statement not covered" ></span>    const matched = filePath.match(DISK_LETTER_RE);
+<span class="cstat-no" title="statement not covered" ></span>    return matched ? matched[0] : "";
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 07 2019 11:35:37 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

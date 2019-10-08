@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src\extension\settingsHelper.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">src/extension/</a> settingsHelper.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/41</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/41</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for details.
+<span class="cstat-no" title="statement not covered" ></span>import * as vscode from "vscode";
+<span class="cstat-no" title="statement not covered" ></span>import * as path from "path";
+<span class="cstat-no" title="statement not covered" ></span>import {ConfigurationReader} from "../common/configurationReader";
+<span class="cstat-no" title="statement not covered" ></span>import {Packager} from "../common/packager";
+<span class="cstat-no" title="statement not covered" ></span>import {LogLevel} from "./log/LogHelper";
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>export class SettingsHelper {
+    /**
+     * We get the packager port configured by the user
+     */
+    public <span class="fstat-no" title="function not covered" >static getPackagerPort(fsPath: string)</span>: number {
+<span class="cstat-no" title="statement not covered" ></span>        const projectRoot = SettingsHelper.getReactNativeProjectRoot(fsPath);
+<span class="cstat-no" title="statement not covered" ></span>        let uri = vscode.Uri.file(projectRoot);
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceConfiguration = vscode.workspace.getConfiguration("react-native.packager", uri);
+<span class="cstat-no" title="statement not covered" >        if (workspaceConfiguration.has("port")) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return ConfigurationReader.readInt(workspaceConfiguration.get("port"));
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return Packager.DEFAULT_PORT;
+    }
+&nbsp;
+    /**
+     * Get logLevel setting
+     */
+    public <span class="fstat-no" title="function not covered" >static getLogLevel(</span>): LogLevel {
+        // Ideally, we should read this from settings.json but we ignore it for now instead.
+        // In future we should support it as well.
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceConfiguration = vscode.workspace.getConfiguration("react-native-tools", null);
+<span class="cstat-no" title="statement not covered" >        if (workspaceConfiguration.has("logLevel")) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            let logLevelString: string = ConfigurationReader.readString(workspaceConfiguration.get("logLevel"));
+<span class="cstat-no" title="statement not covered" ></span>            return &lt;LogLevel&gt;parseInt(LogLevel[&lt;any&gt;logLevelString], 10);
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return LogLevel.Info;
+    }
+&nbsp;
+    /**
+     * Get the React Native project root path
+     */
+    public <span class="fstat-no" title="function not covered" >static getReactNativeProjectRoot(fsPath: string)</span>: string {
+<span class="cstat-no" title="statement not covered" ></span>        const uri = vscode.Uri.file(fsPath);
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceFolder = &lt;vscode.WorkspaceFolder&gt;vscode.workspace.getWorkspaceFolder(uri);
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceConfiguration = vscode.workspace.getConfiguration("react-native-tools", uri);
+<span class="cstat-no" title="statement not covered" >        if (workspaceConfiguration.has("projectRoot")) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            let projectRoot: string = ConfigurationReader.readString(workspaceConfiguration.get("projectRoot"));
+<span class="cstat-no" title="statement not covered" >            if (path.isAbsolute(projectRoot)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>                return projectRoot;
+            } else {
+<span class="cstat-no" title="statement not covered" ></span>                return path.resolve(workspaceFolder.uri.fsPath, projectRoot);
+            }
+        }
+<span class="cstat-no" title="statement not covered" ></span>        return workspaceFolder.uri.fsPath;
+    }
+&nbsp;
+    /**
+     * Get command line run arguments from settings.json
+     */
+    public <span class="fstat-no" title="function not covered" >static getRunArgs(platform: string, target: "device" | "simulator", uri: vscode.Uri)</span>: string[] {
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceConfiguration: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("react-native", uri);
+<span class="cstat-no" title="statement not covered" ></span>        const configKey: string = `${platform}.runArguments.${target}`;
+<span class="cstat-no" title="statement not covered" >        if (workspaceConfiguration.has(configKey)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return ConfigurationReader.readArray(workspaceConfiguration.get(configKey));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return [];
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static getEnvArgs(platform: string, target: "device" | "simulator", uri: vscode.Uri)</span>: any {
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceConfiguration: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("react-native", uri);
+<span class="cstat-no" title="statement not covered" ></span>        const configKey: string = `${platform}.env.${target}`;
+<span class="cstat-no" title="statement not covered" >        if (workspaceConfiguration.has(configKey)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return ConfigurationReader.readObject(workspaceConfiguration.get(configKey));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return {};
+    }
+&nbsp;
+    public <span class="fstat-no" title="function not covered" >static getEnvFile(platform: string, target: "device" | "simulator", uri: vscode.Uri)</span>: string {
+<span class="cstat-no" title="statement not covered" ></span>        const workspaceConfiguration: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("react-native", uri);
+<span class="cstat-no" title="statement not covered" ></span>        const configKey: string = `${platform}.envFile.${target}`;
+<span class="cstat-no" title="statement not covered" >        if (workspaceConfiguration.has(configKey)) {</span>
+<span class="cstat-no" title="statement not covered" ></span>            return ConfigurationReader.readString(workspaceConfiguration.get(configKey));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ></span>        return "";
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 26 2019 09:04:01 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
