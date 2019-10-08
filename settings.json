@@ -1,19 +1,23 @@
 {
-    "window.zoomLevel": 0,
-    "[javascript]": {
-        "editor.defaultFormatter": "lonefy.vscode-JS-CSS-HTML-formatter"
-    },
-    "workbench.iconTheme": "material-icon-theme",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Dracula",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true,
-    // Emmet
-    "emmet.syntaxProfiles": {
-        "javascript": "jsx",
-    },
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact",
-    }
+	"workbench.iconTheme": "material-icon-theme",
+	"editor.rulers": [80, 120],
+	"editor.renderLineHighlight": "gutter",
+	"editor.tabSize": 2,
+	"terminal.integrated.fontSize": 14,
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"workbench.colorTheme": "Dracula",
+	"editor.fontFamily": "Fira Code",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 14,
+	"emmet.syntaxProfiles": {
+			"javascript": "jsx",
+	},
+	"emmet.includeLanguages": {
+			"javascript": "javascriptreact",
+	},
+	"javascript.updateImportsOnFileMove.enabled": "never",
+	"editor.parameterHints.enabled": false,
+	"breadcrumbs.enabled": true,
+	"javascript.suggest.autoImports": false
 }
