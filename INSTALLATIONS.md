@@ -11,8 +11,11 @@
 - Prettier
 - Rocketseat Extensions
 
-### Yarn: https://yarnpkg.com/lang/en/docs/install/#debian-stable
-### NodeJS (NVM): https://github.com/nvm-sh/nvm
+### Yarn
+https://yarnpkg.com/lang/en/docs/install/#debian-stable
+
+### NodeJS (NVM)
+https://github.com/nvm-sh/nvm
 
 
 
@@ -24,7 +27,9 @@
 - Dracula: https://draculatheme.com/
 - Oh My Zsh Spaceship: https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh
 
+
 <hr/>
+
 
 ## Extras
 
@@ -42,7 +47,7 @@ https://devdocs.egoist.moe/
 
 
 
-
 ## Dependências para o React Native
-# Template Rocketseat React Native
+
+### Template Rocketseat React Native
 https://github.com/Rocketseat/react-native-template-rocketseat-basic
