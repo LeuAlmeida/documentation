@@ -3,7 +3,6 @@
 ## :x: Dependências para Desenvolvimento em NodeJS
 
 ### VScode
-
 #### Extensões
 - Color Highlight
 - Dracula Official
@@ -11,6 +10,9 @@
 - Material Icons
 - Prettier
 - Rocketseat Extensions
+
+### Yarn: https://yarnpkg.com/lang/en/docs/install/#debian-stable
+### NodeJS (NVM): https://github.com/nvm-sh/nvm
 
 
 
