@@ -22,9 +22,15 @@
 - Dracula: https://draculatheme.com/
 - Oh My Zsh Spaceship: https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh
 
-
+<hr/>
 
 ## Extras
+
+### Docker CE
+https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+### Postbird (Postgrhttps://electronjs.org/apps/postbirdeSQL Client)
+https://electronjs.org/apps/postbird
 
 ### Insomnia (Testes HTTP)
 https://insomnia.rest/
