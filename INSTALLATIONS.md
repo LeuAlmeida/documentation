@@ -1,6 +1,6 @@
-# Utilitários para Desenvolver
+# :computer: Utilitários para Desenvolver
 
-## Dependências para desenvolvimento
+## :x: Dependências para Desenvolvimento em NodeJS
 
 ### VScode
 
@@ -13,6 +13,7 @@
 - Rocketseat Extensions
 
 
+
 ## Terminal Personalizado
 *Acompanhar em: https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/*
 
@@ -21,15 +22,19 @@
 - Dracula: https://draculatheme.com/
 - Oh My Zsh Spaceship: https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh
 
-# Insomnia (Testes HTTP)
+
+
+## Extras
+
+### Insomnia (Testes HTTP)
 https://insomnia.rest/
 
-# Dev Docs App
+### Dev Docs App
 https://devdocs.egoist.moe/
 
-# Hyper (Terminal)
-https://hyper.is/#installation
 
 
+
+## Dependências para o React Native
 # Template Rocketseat React Native
 https://github.com/Rocketseat/react-native-template-rocketseat-basic
