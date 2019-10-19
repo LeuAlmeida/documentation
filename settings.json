@@ -4,6 +4,7 @@
 	"editor.renderLineHighlight": "gutter",
 	"editor.tabSize": 2,
 	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.shell.osx": "/bin/zsh",
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"workbench.colorTheme": "Dracula",
