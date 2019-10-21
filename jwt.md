@@ -1,6 +1,6 @@
 # Autenticação JWT
 
-POST http://api.com/*sessions*
+POST http://api.com/**sessions**
 
 ```json
 {
@@ -15,3 +15,5 @@ POST http://api.com/*sessions*
 * Primeira parte: **Headers (tipo de token, algorítmo)**
 * Segunda parte: **Payload (Dados adicionais)**
 * Terceira parte: **Assinatura**
+
+`yarn add jsonwebtoken` para instalar a dependência
