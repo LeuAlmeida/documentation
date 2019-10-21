@@ -71,5 +71,7 @@ O comando `yarn eslint --fix src --ext .js` fará a correção em todos os arqui
 
 `yarn add pg pg-hstore` essas duas dependências são necessárias para integrar o Sequelize com o Postgres
 
-#### Criando uma migration com o Sequelize
+#### Criando e rodando uma migration com o Sequelize
 `yarn sequelize-cli migration:create --name=create-users` irá criar uma migration com o nome *create-users* de forma pré-definida.
+
+`yarn sequelize db:migrate` serve para gerar esse banco de dados
