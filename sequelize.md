@@ -80,3 +80,23 @@ module.expots = {
   * O controller é o ponto de entrada das requisições da nossa aplicação, uma rota geralmente está associada diretamente com um método do controller. Podemos incluir a grande parte das regras de negócio da aplicação nos controllers (conforme a aplicação cresce podemos isolar as regras).
 * View
   * A view é o retorno ao cliente, em aplicações que não utilizando o modelo de API REST isso pode ser um HTML, mas no nosso caso, a view é apenas nosso *JSON* que será retornado ao front-end e depois manipulado pelo *ReactJS* ou *React Native*
+
+  #### A face de um Controller
+* Classes;
+* Sempre retorna um JSON;
+* Não chama outro controller/método;
+* Quando criar um novo Controller:
+  * Apenas 5 métodos;
+  * Estou falando da mesma *entidade*?
+
+##### Métodos:
+
+```js
+class UserController {
+  index() { }   // Listagem de usuários
+  show() { }    // Exibir um único usuário
+  store() { }   // Cadastrar usuário
+  update() { }  // Alterar usuário
+  delete() { }  // Remover usuário
+}
+```
