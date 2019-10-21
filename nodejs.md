@@ -65,13 +65,3 @@ Após isso, será iniciado um *package-lock.json* que deverá ser excluído e ro
 O comando `yarn eslint --fix src --ext .js` fará a correção em todos os arquivos .js dentro da pasta *src* (corrigir com o nome da pasta) e a extensão .js
 
 :warning: A configuração do ESLint está no arquivo *.eslintrc.js*
-
-### Postgres + Sequelize
-`yarn add sequelize` e `yarn add sequelize-cli` instalará as dependências necessárias para rodar o Sequelize
-
-`yarn add pg pg-hstore` essas duas dependências são necessárias para integrar o Sequelize com o Postgres
-
-#### Criando e rodando uma migration com o Sequelize
-`yarn sequelize-cli migration:create --name=create-users` irá criar uma migration com o nome *create-users* de forma pré-definida.
-
-`yarn sequelize db:migrate` serve para gerar esse banco de dados
