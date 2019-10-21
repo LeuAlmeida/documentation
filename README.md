@@ -10,6 +10,7 @@
 - Material Icons
 - Prettier
 - Rocketseat Extensions
+- ESlint
 
 ### Yarn
 https://yarnpkg.com/lang/en/docs/install/#debian-stable
