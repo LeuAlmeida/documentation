@@ -138,9 +138,33 @@ module.exports = {
 }
 ```
 
-#### Criando e rodando uma migration com o Sequelize
+### Criando e rodando uma migration com o Sequelize
 `yarn sequelize-cli migration:create --name=create-users` irá criar uma migration com o nome *create-users* de forma pré-definida.
 
 `yarn sequelize db:migrate` serve para gerar esse banco de dados
 
 `yarn sequelize db:migrate:undo` para dar *undo* na última migration ou `yarn sequelize db:migrate:undo:all` para dar undo em todas as migrations
+
+### Criação de uma Model
+Padrão de Exemplo:
+```js
+import Sequelize, { Model } from 'sequelize';
+
+class User extends Model {
+  static init(sequelize) {
+    super.init(  // O primeiro parâmetro são os valores que o usuário pode receber no momento de criação ou edição
+      {
+        name: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password_hash: Sequelize.STRING,
+        provider: Sequelize.BOOLEAN,
+      },
+      {
+        sequelize, // O segundo parâmetro é o sequelize passado no init, mas poderia ser passadas outras configurações.
+      }
+    );
+  }
+}
+
+export default User;
+```
