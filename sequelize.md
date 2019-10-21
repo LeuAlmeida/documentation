@@ -146,7 +146,10 @@ module.exports = {
 `yarn sequelize db:migrate:undo` para dar *undo* na última migration ou `yarn sequelize db:migrate:undo:all` para dar undo em todas as migrations
 
 ### Criação de uma Model
-Padrão de Exemplo:
+*src/app/models/User.js*
+
+Modelo de Exemplo:
+
 ```js
 import Sequelize, { Model } from 'sequelize';
 
