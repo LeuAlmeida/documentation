@@ -1,10 +1,28 @@
 {
 	"workbench.iconTheme": "material-icon-theme",
 	"editor.rulers": [80, 120],
+	"eslint.autoFixOnSave": true,
+	"eslint.validate": [
+		{
+			"language": "javascript",
+			"autoFix": true
+		},
+		{
+			"language": "javascriptreact",
+			"autoFix": true
+		},
+		{
+			"language": "typescript",
+			"autoFix": true
+		},
+		{
+			"language": "typescriptreact",
+			"autoFix": true
+		}
+	],
 	"editor.renderLineHighlight": "gutter",
 	"editor.tabSize": 2,
 	"terminal.integrated.fontSize": 14,
-	"terminal.integrated.shell.osx": "/bin/zsh",
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"workbench.colorTheme": "Dracula",
@@ -20,5 +38,12 @@
 	"javascript.updateImportsOnFileMove.enabled": "never",
 	"editor.parameterHints.enabled": false,
 	"breadcrumbs.enabled": true,
-	"javascript.suggest.autoImports": false
+	"javascript.suggest.autoImports": false,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"git.enableSmartCommit": true
 }
