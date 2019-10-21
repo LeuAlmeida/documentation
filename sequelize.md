@@ -110,3 +110,5 @@ class UserController {
 `yarn sequelize-cli migration:create --name=create-users` irá criar uma migration com o nome *create-users* de forma pré-definida.
 
 `yarn sequelize db:migrate` serve para gerar esse banco de dados
+
+`yarn sequelize db:migrate:undo` para dar *undo* na última migration ou `yarn sequelize db:migrate:undo:all` para dar undo em todas as migrations
