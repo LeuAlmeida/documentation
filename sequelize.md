@@ -12,7 +12,7 @@
 * Apenas código JavaScript;
 
 #### Exemplo de SQL:
-```
+```sql
 INSERT INTO Users (name, email)
   VALUES (
     "Leonardo Almeida",
@@ -21,7 +21,7 @@ INSERT INTO Users (name, email)
 ```
 
 #### Exemplo de JavaScript:
-```
+```js
   User.create({
     name: 'Leonardo ALmeida',
     email: 'leo@webid.net.br',
@@ -36,18 +36,18 @@ INSERT INTO Users (name, email)
 * :warning: A partir do momento em que a migration for passada para outro(s) desenvolvedor(es) ou para o ambiente de produção, ela não deve mais ser editada. Para isso, cria-se novas migrations.
 
 #### Exemplo de migration:
-```
+```js
 module.expots = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users', {
+    return queryInterface.createTable('users', { // Introdução para criar uma nova tabela.
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        allowNull: false,
+      name: {                                   // Criação do primeiro campo com suas prioridades.
+        allowNull: false,                       // O ID é a chave primária e auto incremental.
         type: Sequelize.STRING
       },
       email: {
@@ -58,7 +58,7 @@ module.expots = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users')
+    return queryInterface.dropTable('users')    // Instrução para deletar a tabela caso haja um rollback.
   }
 }
 ```
