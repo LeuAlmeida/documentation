@@ -11,6 +11,7 @@
 - Prettier
 - Rocketseat Extensions
 - ESlint
+- EditorConfig for VS Code
 
 ### Yarn
 https://yarnpkg.com/lang/en/docs/install/#debian-stable
