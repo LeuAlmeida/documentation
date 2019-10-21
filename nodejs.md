@@ -61,3 +61,7 @@ Ao executar o Eslint, aparecerá as seguintes janelas com as seguintes respostas
 ? What format do you want your config file to be in? JavaScript
 ```
 Após isso, será iniciado um *package-lock.json* que deverá ser excluído e rodado um `yarn` na pasta.
+
+#### Eslint + Prettier
+`yarn add prettier eslint-config-prettier eslint-plugin-prettier -D` para instalar as dependências de desenvolvimento<br/>
+Realizar as configurações existentes no arquivo [.eslintrc.js](.eslintrc.js)
