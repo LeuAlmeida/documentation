@@ -28,9 +28,10 @@ Fará com que server (função importada através do express) ouça a porta 3000
 O nodemon serve para atualizar automaticamente a aplicação, quando for salva.
 `yarn add nodemon -D` para instalar a dependência apenas no ambiente de desenvolvimento
 
-### Rotas
+<hr/>
 
-Exemplo de rotas
+### Exemplo básico de rotas
+
 ```js
 import { Router } from 'express';   // Importa as rotas do Express
 
@@ -42,3 +43,21 @@ routes.get('/', (req, res) => {
 
 export default routes;              // Exporta as rotas usando o Sucrase
 ```
+
+<hr/>
+
+### Eslint
+`yarn add eslint -D` serve para verificação de padrões de código no ambiente de desenvolvimento. <br/>
+`yarn eslint --init` para iniciar as verificações de sintaxes.<br/>
+Ao executar o Eslint, aparecerá as seguintes janelas com as seguintes respostas:
+```
+? How would you like to use ESLint? To check syntax, find problems, and enforce code style
+? What type of modules does your project use? JavaScript modules (import/export)
+? Which framework does your project use? None of these
+? Does your project use TypeScript? No
+? Where does your code run? Node
+? How would you like to define a style for your project? Use a popular style guide
+? Which style guide do you want to follow? Airbnb (https://github.com/airbnb/javascript)
+? What format do you want your config file to be in? JavaScript
+```
+Após isso, será iniciado um *package-lock.json* que deverá ser excluído e rodado um `yarn` na pasta.
