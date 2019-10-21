@@ -61,3 +61,7 @@ Ao executar o Eslint, aparecerá as seguintes janelas com as seguintes respostas
 ? What format do you want your config file to be in? JavaScript
 ```
 Após isso, será iniciado um *package-lock.json* que deverá ser excluído e rodado um `yarn` na pasta.
+
+O comando `yarn eslint --fix src --ext .js` fará a correção em todos os arquivos .js dentro da pasta *src* (corrigir com o nome da pasta) e a extensão .js
+
+:warning: A configuração do ESLint está no arquivo *.eslintrc.js*
