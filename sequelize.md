@@ -72,3 +72,11 @@ module.expots = {
 * Executável apenas por código;
 * Jamais será utilizado em produção;
 * Caso sejam dados que precisam ir para produção, a própria migration pode manipular dados das tabelas;
+
+### Arquitetura MVC
+* Model
+  * O model armazena a abstração do banco, utilizado para manipular os dados contidos nas tabelas do banco. Não possuem responsabilidade sobre a regra de negócio da nossa aplicação
+* Controller
+  * O controller é o ponto de entrada das requisições da nossa aplicação, uma rota geralmente está associada diretamente com um método do controller. Podemos incluir a grande parte das regras de negócio da aplicação nos controllers (conforme a aplicação cresce podemos isolar as regras).
+* View
+  * A view é o retorno ao cliente, em aplicações que não utilizando o modelo de API REST isso pode ser um HTML, mas no nosso caso, a view é apenas nosso *JSON* que será retornado ao front-end e depois manipulado pelo *ReactJS* ou *React Native*
