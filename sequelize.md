@@ -65,3 +65,10 @@ module.expots = {
 * É possível desfazer uma migração se errarmos algo enquanto estivermos desenvolvendo a feature;
 * Depois que a migration foi enviada para outros devs ou para ambiente de produção, ela *JAMAIS* poderá ser alterada, uma nova deve ser criada;
 * Cada migration deve realizar alterações em apenas uma tabela, você pode criar migrations para alterações maiores;
+
+### Seeds
+* População da base de dados para desenvolvimento;
+* Muito utilizado para popular dados para testes;
+* Executável apenas por código;
+* Jamais será utilizado em produção;
+* Caso sejam dados que precisam ir para produção, a própria migration pode manipular dados das tabelas;
