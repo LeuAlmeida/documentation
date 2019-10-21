@@ -1,7 +1,7 @@
 # Introdução ao Sequelize
 
 ### ORM
-* Abstração do banco de dados
+* Abstração do banco de dados;
 * Tabelas viram models
   * users :arrow_right: User.js
   * companies :arrow_right: Company.js
@@ -24,3 +24,9 @@
     `name: 'Leonardo ALmeida',`<br/>
     `email: 'leo@webid.net.br',`<br/>
   `})`
+
+### Migrations
+* Controle de versão para base de dados;
+* Cada arquvo contém instruções para criação, alteração ou remoção de tabelas ou colunas;
+* Mantém a base atualizada entre todos desenvolvedores do time e também no ambiente de produção;
+* Cada arquivo é uma migration e sua ordenação ocorre por data
