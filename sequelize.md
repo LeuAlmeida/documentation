@@ -10,23 +10,54 @@
 ### Manipulação dos Dados
 * Sem SQL *(na maioria das vezes)*;
 * Apenas código JavaScript;
-  * Exemplo de SQL:
 
-`INSERT INTO Users (name, email)`<br/>
-  `VALUES (`<br/>
-    `"Leonardo Almeida",`<br/>
-    `"leo@webid.net.br"`<br/>
-  `)`
+#### Exemplo de SQL:
+```
+INSERT INTO Users (name, email)
+  VALUES (
+    "Leonardo Almeida",
+    "leo@webid.net.br"
+  )
+```
 
-  * Exemplo de JavaScript:
-
-  `User.create({`<br/>
-    `name: 'Leonardo ALmeida',`<br/>
-    `email: 'leo@webid.net.br',`<br/>
-  `})`
+#### Exemplo de JavaScript:
+```
+  User.create({
+    name: 'Leonardo ALmeida',
+    email: 'leo@webid.net.br',
+  })
+  ```
 
 ### Migrations
 * Controle de versão para base de dados;
 * Cada arquvo contém instruções para criação, alteração ou remoção de tabelas ou colunas;
 * Mantém a base atualizada entre todos desenvolvedores do time e também no ambiente de produção;
 * Cada arquivo é uma migration e sua ordenação ocorre por data
+
+#### Exemplo de migration:
+```
+module.expots = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('users', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      name: {
+        allowNull: false,
+        type: Sequelize.STRING
+      },
+      email: {
+        allowNull: false,
+        unique: true,
+        type: Sequelize.STRING
+      }
+    })
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('users')
+  }
+}
+```
