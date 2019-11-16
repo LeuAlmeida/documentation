@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias plone-ead='cd ~/Plone/buildout-cache/eggs/plonetheme.barceloneta-2.1.4-py2.7.egg/plonetheme/barceloneta/theme'
+# alias plone-ead='cd ~/Plone/buildout-cache/eggs/plonetheme.barceloneta-2.1.4-py2.7.egg/plonetheme/barceloneta/theme'
 alias dormir='systemctl suspend'
 
 SPACESHIP_PROMPT_ORDER=(
