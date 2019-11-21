@@ -1,5 +1,7 @@
 # Nodemailer
 
+### Estrutura Funcional
+
 #### 1. Instalação
 `yarn add nodemailer`
 
@@ -67,3 +69,5 @@ await Mail.sendMail({
       text: 'Você tem um novo cancelamento.',
     });
 ```
+
+### Template Engines para o corpo do e-mail
