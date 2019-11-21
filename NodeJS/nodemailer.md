@@ -15,10 +15,10 @@ As informações abaixos, caso obtidos pelo **mailtrap** encontram-se em SMTP Se
 
 ```js
 export default {
-  host: '',
-  port: '',
-  secure: false,
-  auth: {
+  host: '',           // Host do e-mail.        Exemplo: smtp.mailtrap.io
+  port: '',           // Porta do e-mail.       Padrão: 2525
+  secure: false,      // Segurança do e-mail.
+  auth: {             // Login para autenticar
     user: '',
     pass: '',
   },
@@ -26,4 +26,26 @@ export default {
     from: 'Equipe GoBarber <noreply@gobarber.com>',
   },
 };
+```
+#### 4. Arquivo de configurações src/lib/Mail.js
+Arquivo de configurações gerais do NodeMailer
+
+```js
+import nodemailer from 'nodemailer';
+import mailConfig from '../config/mail';
+
+class Mail {
+  constructor() {
+    const { host, port, secure, auth } = mailConfig;
+
+    this.transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure,
+      auth: auth.user ? auth : null,
+    });
+  }
+}
+
+export default new Mail();
 ```
