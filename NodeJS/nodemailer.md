@@ -57,4 +57,13 @@ class Mail {
 export default new Mail();
 ```
 
-#### 5. Importação do Mail.js nos Controllers
+#### 5. Importação do Mail.js nos Controllers (exemplo)
+```js
+import Mail from '../../lib/Mail';        // Importação da lib Mail
+
+await Mail.sendMail({
+      to: `${appointment.provider.name} <${appointment.provider.email}>`,
+      subject: 'Agendamento cancelado',
+      text: 'Você tem um novo cancelamento.',
+    });
+```
