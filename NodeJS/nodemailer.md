@@ -46,7 +46,7 @@ class Mail {
     });
   }
 
-  sendmail(message) {
+  sendMail(message) {
     return this.transporter.sendMail({
       ...mailConfig.default,
       ...message,
@@ -56,3 +56,5 @@ class Mail {
 
 export default new Mail();
 ```
+
+#### 5. Importação do Mail.js nos Controllers
