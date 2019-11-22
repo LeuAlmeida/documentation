@@ -1,18 +1,18 @@
 # Nodemailer
 
-### Estrutura Funcional
+## 1. Estrutura Funcional
 
-#### 1. Instalação
-`yarn add nodemailer`
+#### 1.1 Instalação
+`$ yarn add nodemailer`
 
-#### 2. Provedores de e-mail
+#### 1.2 Provedores de e-mail
 * Amazon SES **(o melhor)**
 * Mailgun
 * Sparkpost
 * Mandril (Mailchimp)
 * Mailtrap **(ambientes de desenvolvimento)**
 
-#### 3. Arquivo de configurações src/config/mail.js
+#### 1.3 Arquivo de configurações src/config/mail.js
 As informações abaixos, caso obtidos pelo **mailtrap** encontram-se em SMTP Settings
 
 ```js
@@ -29,7 +29,7 @@ export default {
   },
 };
 ```
-#### 4. Arquivo de configurações src/lib/Mail.js
+#### 1.4 Arquivo de configurações src/lib/Mail.js
 Arquivo de configurações gerais do NodeMailer
 
 ```js
@@ -59,7 +59,7 @@ class Mail {
 export default new Mail();
 ```
 
-#### 5. Importação do Mail.js nos Controllers (exemplo)
+#### 1.5 Importação do Mail.js nos Controllers (exemplo)
 ```js
 import Mail from '../../lib/Mail';        // Importação da lib Mail
 
@@ -70,4 +70,21 @@ await Mail.sendMail({
     });
 ```
 
-### Template Engines para o corpo do e-mail
+## 2. Template Engines para o corpo do e-mail
+
+#### 2.1 Instalação
+`$ yarn add express-handlebars nodemailer-express-handlebars `
+
+#### 2.2 Integração com o src/lib/Mail.js
+
+Importações
+```js
+import { resolve } from 'path';
+import exphbs from 'express-handlebars';
+import nodemailerhbs from 'nodemailer-express-handlebars';
+```
+
+Chamada dentro do método **constructor()**
+```js
+
+```
