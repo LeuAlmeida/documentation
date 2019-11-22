@@ -103,3 +103,21 @@ await Queue.add(CancellationMail.key, {
       appointment,
     });
 ```
+
+##### 5. Arquivos para processamento da fila em outro Node
+
+**Arquivo ./src/queue.js**
+
+```js
+import Queue from './lib/Queue';
+
+Queue.processQueue();
+```
+
+**Arquivo package.json**
+
+```json
+"scripts": {
+  "queue": "nodemon src/queue.js",
+}
+```
