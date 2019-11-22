@@ -66,9 +66,9 @@ class CancellationMail {
       context: {                                                                    // AppointmentController.js
         provider: appointment.provider.name,                                        //
         user: appointment.user.name,                                                // Aqui será tratado
-        date: format(appointment.date, "'dia' dd 'de' MMMM', às' H:mm'h'", {        // a fila.
-          locale: pt,                                                               //
-        }),                                                                         //
+        date: format(appointment.date, "'dia' dd 'de' MMMM', às' H:mm'h'", {        // a fila para envio de
+          locale: pt,                                                               // e-mail referente a
+        }),                                                                         // um cancelamento.
       },                                                                            //
     });                                                                             //
   }
