@@ -85,3 +85,21 @@ class CancellationMail {
 export default new CancellationMail();
 
 ```
+
+##### 4. Mudanças no Controller
+
+**Arquivo src/app/controllers/AppointmentControllers.js**
+
+```js
+
+// Importação dos arquivos referentes à fila
+import CancellationMail from '../jobs/CancellationMail';
+import Queue from '../../lib/Queue';
+
+// [...] Dentro do método necessário...
+
+// Adicionar o métood à fila
+await Queue.add(CancellationMail.key, {
+      appointment,
+    });
+```
