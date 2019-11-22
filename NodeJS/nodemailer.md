@@ -66,11 +66,21 @@ import Mail from '../../lib/Mail';        // Importação da lib Mail
 await Mail.sendMail({
       to: `${appointment.provider.name} <${appointment.provider.email}>`,
       subject: 'Agendamento cancelado',
+      // O text é para enviar apenas um texto.
       text: 'Você tem um novo cancelamento.',
+      // Caso utilizar o nodemailer hbs, utilizar OS DOIS métodos abaixo.
+      template: 'cancellation', // Não utiliza o .hbs
+      context: {
+        provider: appointment.provider.name,
+        user: appointment.user.name,
+        date: format(appointment.date, "'dia' dd 'de' MMMM', às' H:mm'h'", {
+          locale: pt,
+        }),
+      },
     });
 ```
 
-## 2. Template Engines para o corpo do e-mail
+## 2. Template Engines com HBS para o corpo do e-mail
 
 #### 2.1 Instalação
 `$ yarn add express-handlebars nodemailer-express-handlebars `
@@ -119,4 +129,4 @@ Criação e estrutura de pastas para configurações do layout:
       * layouts
         * **default.hbs** <- Arquivo  de layout default
       * partials
-      * **cancellation.hbs** <- Arquivo de e-mail para cancelamentos
+      * **cancellation.hbs** <- Arquivo de e-mail para cancelamentos *(exemplo)*
