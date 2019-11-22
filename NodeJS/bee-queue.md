@@ -121,3 +121,21 @@ Queue.processQueue();
   "queue": "nodemon src/queue.js",
 }
 ```
+
+##### 6. Prevenção contra erros
+
+**Arquivo src/lib/Queue.js**
+
+**Alterações no processamento com o método `.on('failed', this.handleFailure)`**
+
+```js
+bee.on('failed', this.handleFailure).process(handle);
+```
+
+**Criação do método handleFailure**
+
+```js
+handleFailure(job, err) {
+    console.log(`Queue ${job.queue.name}: FAILED`, err);
+  }
+```
