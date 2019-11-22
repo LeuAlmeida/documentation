@@ -9,6 +9,38 @@ Ferramenta para perfomatizar filas de tarefas com NodeJS
 
 **Arquivo src/lib/Queue.js**
 
+```js
+import Bee from 'bee-queue';
+import CancellationMail from '../app/jobs/CancellationMail';
+import redisConfig from '../config/redis';
+
+const jobs = [CancellationMail];
+
+class Queue {
+  constructor() {
+    this.queues = {};
+
+    this.init();
+  }
+
+  init() {
+    jobs.forEach(({ key, handle }) => {
+      this.queues[key] = {
+        bee: new Bee(key, {
+          redis: redisConfig,
+        }),
+        handle,
+      };
+    });
+  }
+
+  add(queue, job) {
+    return this.queues[queue].bee.createJob(job).save();
+  }
+}
+
+export default new Queue();
+```
 
 #### 3. Arquivo de filas
 
