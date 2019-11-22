@@ -86,5 +86,37 @@ import nodemailerhbs from 'nodemailer-express-handlebars';
 
 Chamada dentro do método **constructor()**
 ```js
-
+this.configureTemplates();
 ```
+
+Chamada fora do método **constructor()**
+```js
+configureTemplates() {
+    const viewPath = resolve(__dirname, '..', 'app', 'views', 'emails');
+
+    this.transporter.use(
+      'compile',
+      nodemailerhbs({
+        viewEngine: exphbs.create({
+          layoutsDir: resolve(viewPath, 'layouts'),
+          partialsDir: resolve(viewPath, 'partials'),
+          defaultLayout: 'default',
+          extname: '.hbs',
+        }),
+        viewPath,
+        extName: '.hbs',
+      })
+    );
+  }
+```
+
+#### 2.3 Configurações do Nodemailer Express Handlebars
+Criação e estrutura de pastas para configurações do layout:
+
+* src
+  * views
+    * emails
+      * layouts
+        * **default.hbs** <- Arquivo  de layout default
+      * partials
+      * **cancellation.hbs** <- Arquivo de e-mail para cancelamentos
