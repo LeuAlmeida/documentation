@@ -45,5 +45,6 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"git.enableSmartCommit": true
+	"git.enableSmartCommit": true,
+	"window.zoomLevel": 0
 }
