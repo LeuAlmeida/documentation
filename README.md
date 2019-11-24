@@ -52,6 +52,10 @@ https://devdocs.egoist.moe/
 
 
 
+## Dependências para o ReactJS
+
+Incoming...
+
 ## Dependências para o React Native
 
 ### Template Rocketseat React Native
