@@ -41,7 +41,7 @@ https://docs.docker.com/install/linux/docker-ce/ubuntu/
 ### MongoDB Compass
 https://www.mongodb.com/products/compass
 
-### Postbird (Postgrhttps://electronjs.org/apps/postbirdeSQL Client)
+### Postbird (Postgres Client)
 https://electronjs.org/apps/postbird
 
 ### Insomnia
