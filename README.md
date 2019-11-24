@@ -38,13 +38,16 @@ https://github.com/nvm-sh/nvm
 ### Docker CE
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
+### MongoDB Compass
+https://www.mongodb.com/products/compass
+
 ### Postbird (Postgrhttps://electronjs.org/apps/postbirdeSQL Client)
 https://electronjs.org/apps/postbird
 
-### Insomnia (Testes HTTP)
+### Insomnia
 https://insomnia.rest/
 
-### Dev Docs App
+### Dev Docs
 https://devdocs.egoist.moe/
 
 
