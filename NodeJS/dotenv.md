@@ -43,3 +43,27 @@ import 'dotenv/config';
 require('dotenv/config');
 ```
 
+#### 3. Utilizando as variáveis ambientes
+
+**Antes:**
+
+```js
+url: {
+  type: Sequelize.VIRTUAL,
+  get() {
+    return `http://localhost:3333/files/${this.path}`;
+  },
+},
+```
+
+**Depois:**
+
+```js
+url: {
+    type: Sequelize.VIRTUAL,
+    get() {
+      return `${process.env.APP_URL}/files/${this.path}`;
+    },
+  },
+},
+```
