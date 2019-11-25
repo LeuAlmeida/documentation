@@ -124,9 +124,10 @@ configureTemplates() {
 Criação e estrutura de pastas para configurações do layout:
 
 * src
-  * views
-    * emails
-      * layouts
-        * **default.hbs** <- Arquivo  de layout default
-      * partials
-      * **cancellation.hbs** <- Arquivo de e-mail para cancelamentos *(exemplo)*
+  * app
+    * views
+      * emails
+        * layouts
+          * **default.hbs** <- Arquivo  de layout default
+        * partials
+        * **cancellation.hbs** <- Arquivo de e-mail para cancelamentos *(exemplo)*
