@@ -1,2 +1,72 @@
 # :milky_way: Sentry
-## Reportes de Erros
+## Tratativa de Erros
+
+#### 1. Instalação
+
+Instalável em **www.sentry.io** utilizando `$ yarn add @sentry/node@5.9.0`
+
+#### 2. Configurações
+
+
+**Arquivo src/config/sentry.js**
+
+```js
+export default {
+  dsn: 'https://8460b38d962b466eb3baa45bb44d211b@sentry.io/1831449',
+};
+```
+
+#### 3. Instalação no servidor
+
+**Arquivo src/app.js**
+
+```js
+import * as Sentry from '@sentry/node';       // Importação do pacote do Sentry
+import sentryConfig from './config/sentry';   // Importação das configurações num arquivo externo
+
+class App {
+  constructor() {
+    this.server = express();                  // Códigos já existentes no arquivo
+
+    Sentry.init(sentryConfig);                // Dentro do método constructor, chamar o init do dsn presente nas configurações
+
+    this.server.use(Sentry.Handlers.requestHandler()); // Deverá estar antes de todas as chamadas do servidor, por exemplo middlewares e rotas
+
+    this.server.use(Sentry.Handlers.requestHandler()); // MUITA ATENÇÃO! Este código deve ser o último a ser chamado na ordem das rotas e middlewares, de preferência estar após as rotas
+
+  }
+```
+
+#### 4. Sentry vs Express
+
+Instalação do pacote `$ yarn add express-async-errors`
+
+**Arquivo src/app.js**
+
+Importar **após** o express:
+
+```js
+import 'express-async-errors'
+```
+
+#### 5. Retornando um erro para o usuário
+
+Instalação do pacote `$ yarn add youch`
+
+**Arquivo src/app.js**
+
+```js
+// Dentro do método constructor, após as rotas
+this.exceptionHandler();
+```
+
+```js
+// Fora do método constructor, como um middleware
+exceptionHandler() {
+    this.server.use(async (err, req, res, next) => {
+      const errors = await new Youch(err, req).toJSON();
+
+      return res.status(500).json(errors);
+    });
+  }
+  ```

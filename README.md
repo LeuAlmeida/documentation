@@ -38,16 +38,23 @@ https://github.com/nvm-sh/nvm
 ### Docker CE
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-### Postbird (Postgrhttps://electronjs.org/apps/postbirdeSQL Client)
+### MongoDB Compass
+https://www.mongodb.com/products/compass
+
+### Postbird (Postgres Client)
 https://electronjs.org/apps/postbird
 
-### Insomnia (Testes HTTP)
+### Insomnia
 https://insomnia.rest/
 
-### Dev Docs App
+### Dev Docs
 https://devdocs.egoist.moe/
 
 
+
+## Dependências para o ReactJS
+
+Incoming...
 
 ## Dependências para o React Native
 
