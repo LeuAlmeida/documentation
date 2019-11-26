@@ -22,7 +22,6 @@ DB_NAME=gobarber
 
 MONGO_URL=mongodb://localhost:27017/gobarber
 
-# Redis
 ```
 
 #### 2. Setando as variáveis
