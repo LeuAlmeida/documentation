@@ -1,4 +1,5 @@
 # :milky_way: Sentry
+
 ## Tratativa de Erros
 
 #### 1. Instalação
@@ -7,12 +8,11 @@ Instalável em **www.sentry.io** utilizando `$ yarn add @sentry/node@5.9.0`
 
 #### 2. Configurações
 
-
 **Arquivo src/config/sentry.js**
 
 ```js
 export default {
-  dsn: 'https://8460b38d962b466eb3baa45bb44d211b@sentry.io/1831449',
+  dsn: "https://8460b38d962b466eb3baa45bb44d211b@sentry.io/1831449"
 };
 ```
 
@@ -46,7 +46,7 @@ Instalação do pacote `$ yarn add express-async-errors`
 Importar **após** o express:
 
 ```js
-import 'express-async-errors'
+import "express-async-errors";
 ```
 
 #### 5. Retornando um erro para o usuário
@@ -57,7 +57,7 @@ Instalação do pacote `$ yarn add youch`
 
 ```js
 // Importação do Youch entre o express e o Sentry
-import Youch from 'youch';
+import Youch from "youch";
 ```
 
 ```js
@@ -74,19 +74,34 @@ exceptionHandler() {
       return res.status(500).json(errors);
     });
   }
-  ```
+```
 
-  ## Visão geral das importações do src/app.js
+**QUANDO UTILIZAR .ENV, USAR O EXCEPTIONHANDLER() ABAIXO**
 
 ```js
-import 'dotenv/config';
+exceptionHandler() {
+    this.server.use(async (err, req, res, next) => {
+      if (process.env.NODE_ENV === 'development') {
+        const errors = await new Youch(err, req).toJSON();
 
-import express from 'express';
-import Youch from 'youch';
-import * as Sentry from '@sentry/node';
-import 'express-async-errors';
-import routes from './routes';
-import sentryConfig from './config/sentry';
+        return res.status(500).json(errors);
+      }
+      return res.status(500).json({ error: 'Internal server error.' });
+    });
+  }
+```
 
-import './database';
+## Visão geral das importações do src/app.js
+
+```js
+import "dotenv/config";
+
+import express from "express";
+import Youch from "youch";
+import * as Sentry from "@sentry/node";
+import "express-async-errors";
+import routes from "./routes";
+import sentryConfig from "./config/sentry";
+
+import "./database";
 ```
