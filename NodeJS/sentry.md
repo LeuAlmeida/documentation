@@ -56,6 +56,11 @@ Instalação do pacote `$ yarn add youch`
 **Arquivo src/app.js**
 
 ```js
+// Importação do Youch entre o express e o Sentry
+import Youch from 'youch';
+```
+
+```js
 // Dentro do método constructor, após as rotas
 this.exceptionHandler();
 ```
@@ -70,3 +75,18 @@ exceptionHandler() {
     });
   }
   ```
+
+  ## Visão geral das importações do src/app.js
+
+```js
+import 'dotenv/config';
+
+import express from 'express';
+import Youch from 'youch';
+import * as Sentry from '@sentry/node';
+import 'express-async-errors';
+import routes from './routes';
+import sentryConfig from './config/sentry';
+
+import './database';
+```
