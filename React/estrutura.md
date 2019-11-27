@@ -45,14 +45,28 @@ module.exports = {
     ]
   }
 };
-
 ```
-##### Arquivo package.json
+
+### Webpack Dev Server
+
+Instalar o pacote `$ yarn add webpack-dev-server -D `
+
+#### Arquivo package.json
 
 Inserir o script para o build da aplicação:
 ```json
 "scripts": {
-  "build": "webpack --mode development"
-},
+    "build": "webpack --mode development",
+    "dev": "webpack-dev-server --mode development",
+  },
 ```
 
+Rodar o build do webpack: `$ yarn dev`
+
+#### Arquivo public/index.html
+
+**Importação do arquivo bundle.js**
+
+```html
+<script src="./bundle.js"></script>
+```
