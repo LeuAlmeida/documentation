@@ -1,6 +1,7 @@
 # Introdução ao React
 
 ### O que é React?
+
 * Biblioteca para construção de interfaces;
 * Utilizado para construção de SPA (Single-Page Applications);
 * Podemos chamar de framework? **SIM**
@@ -31,11 +32,15 @@ function Button() {
 
 ### Vantagens
 
-* **Organização do código**;
+* Organização do código;
   * Componentização;
-* **Divisão de responsabilidaeds**;
+* Divisão de responsabilidaeds;
   * Back-end: Regra de negócio
   * Front-end: Interface
-* **Uma API, múltiplos clientes**;
-* **Programação declarativa**;
+* Uma API, múltiplos clientes;
+* Programação declarativa;
 
+### JSX
+
+* Escrever HTML dentro do JavaScript;
+* Com React podemos criar nossos próprios elementos
