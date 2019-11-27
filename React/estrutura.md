@@ -59,9 +59,7 @@ Inserir o script para o build da aplicação:
     "build": "webpack --mode development",
     "dev": "webpack-dev-server --mode development",
   },
-```
-
-Rodar o build do webpack: `$ yarn dev`
+```Appdev`
 
 #### Arquivo public/index.html
 
@@ -69,4 +67,23 @@ Rodar o build do webpack: `$ yarn dev`
 
 ```html
 <script src="./bundle.js"></script>
+```
+
+### Compilando CSS
+
+```console
+$ yarn add style-loader css-loader -D
+```
+
+**Arquivo webpack.config.js**
+
+Criar uma nova *rule*:
+```js
+{
+  test: /\.css$/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader' },
+  ]
+}
 ```
