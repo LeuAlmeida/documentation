@@ -45,4 +45,14 @@ module.exports = {
     ]
   }
 };
+
 ```
+##### Arquivo package.json
+
+Inserir o script para o build da aplicação:
+```json
+"scripts": {
+  "build": "webpack --mode development"
+},
+```
+
