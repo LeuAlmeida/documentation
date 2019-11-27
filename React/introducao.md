@@ -44,3 +44,12 @@ function Button() {
 
 * Escrever HTML dentro do JavaScript;
 * Com React podemos criar nossos próprios elementos
+
+### Babel / Webpack
+
+* O browser não entende todo esse código;
+* O Babel converte o código JS de uma forma que o browser entenda;
+* O Webpack possui várias funções:
+  * Criação do bundle, arquivo com todo código da aplicação;
+  * Ensinar ao JavaScript como importar arquivos CSS, imagens e etc;
+  Live reload com Webpack Dev Server
