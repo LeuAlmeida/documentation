@@ -105,3 +105,16 @@ Criar uma nova *rule*:
   }
 }
 ```
+
+### Uso de estados da aplicação
+
+Necessita da dependência `$ yarn add @babel/plugin-proposal-class-properties -D`
+
+**Arquivo babel.config.js**
+
+Adicionar os plugins:
+```js
+plugins: [
+  '@babel/plugin-proposal-class-properties'
+]
+```
