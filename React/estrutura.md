@@ -9,3 +9,14 @@ $ yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli
 ```console
 $ yarn add react react-dom
 ```
+
+#### Arquivo babel.config.js
+
+```js
+module.exports = {
+  presets: [
+    "@babel/preset-env",
+    "@babel/preset-react",
+  ],
+}
+```
