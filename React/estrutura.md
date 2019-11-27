@@ -131,6 +131,22 @@ import App from './App';
 render(<App />, document.getElementById('app'));
 ```
 
+### Arquivo src/App.js
+
+É o componente que renderizará a aplicação. Exemplo:
+```js
+import React from 'react';
+import './App.css';
+
+import TechList from './components/TechList';
+
+function App() {
+  return <TechList />
+}
+
+export default App;
+```
+
 ### Prop Types
 
 Instalar a dependência `$ yarn add prop-types`
