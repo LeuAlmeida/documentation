@@ -119,6 +119,18 @@ plugins: [
 ]
 ```
 
+### Arquivo src/index.js
+
+Geralmente possui a arquitetura abaixo.
+```js
+import React from 'react';
+import { render } from 'react-dom'
+
+import App from './App';
+
+render(<App />, document.getElementById('app'));
+```
+
 ### Prop Types
 
 Instalar a dependência `$ yarn add prop-types`
