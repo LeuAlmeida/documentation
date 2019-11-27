@@ -20,3 +20,29 @@ module.exports = {
   ],
 }
 ```
+#### Arquivo webpack.config.js
+
+Instalar o babel-loader como dependência de desenvolvimento: `$ yarn add babel-loader -D`
+
+```js
+const path = require('path');
+
+module.exports = {
+  entry: path.resolve(__dirname, 'src', 'index.js'),
+  output: {
+    path: path.resolve(__dirname, 'public'),
+    filename: 'bundle.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        }
+      }
+    ]
+  }
+};
+```
