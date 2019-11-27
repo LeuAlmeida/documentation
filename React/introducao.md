@@ -28,3 +28,14 @@ function Button() {
   )
 }
 ```
+
+### Vantagens
+
+* **Organização do código**;
+  * Componentização;
+* **Divisão de responsabilidaeds**;
+  * Back-end: Regra de negócio
+  * Front-end: Interface
+* **Uma API, múltiplos clientes**;
+* **Programação declarativa**;
+
