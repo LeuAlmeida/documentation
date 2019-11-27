@@ -118,3 +118,20 @@ plugins: [
   '@babel/plugin-proposal-class-properties'
 ]
 ```
+
+### Prop Types
+
+Instalar a dependência `$ yarn add prop-types`
+
+Importando dentro do componente
+```js
+import PropTypes from 'prop-types';
+```
+
+Definindo uma PropType
+```js
+TechItem.propTypes = {
+  tech: PropTypes.string,
+  onDelete: PropTypes.func.isRequired,
+}
+```
