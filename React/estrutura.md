@@ -51,6 +51,16 @@ module.exports = {
 
 Instalar o pacote `$ yarn add webpack-dev-server -D `
 
+**Arquivo webpack.config.sj**
+
+Inserir o comando `devServer`:
+
+```js
+devServer: {
+  contentBase: path.resolve(__dirname, 'public'),
+},
+```
+
 #### Arquivo package.json
 
 Inserir o script para o build da aplicação:
