@@ -2,11 +2,11 @@
 
 ### Configurações iniciais
 
-```console
+```powershell
 $ yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli -D
 ```
 
-```console
+```powershell
 $ yarn add react react-dom
 ```
 
@@ -59,7 +59,7 @@ Inserir o script para o build da aplicação:
     "build": "webpack --mode development",
     "dev": "webpack-dev-server --mode development",
   },
-```Appdev`
+```
 
 #### Arquivo public/index.html
 
@@ -71,7 +71,7 @@ Inserir o script para o build da aplicação:
 
 ### Compilando CSS
 
-```console
+```powershell
 $ yarn add style-loader css-loader -D
 ```
 
@@ -85,5 +85,23 @@ Criar uma nova *rule*:
     { loader: 'style-loader' },
     { loader: 'css-loader' },
   ]
+}
+```
+
+### Importação de imagens
+
+```powershell
+$ yarn add file-loader -D
+```
+
+**Arquivo webpack.config.js**
+
+Criar uma nova *rule*:
+```js
+{
+  test: /\.*\.(gif|png|jpe?g)$/i,
+  use: {
+    loader: 'file-loader'
+  }
 }
 ```
