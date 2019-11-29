@@ -102,7 +102,7 @@ class UserController {
 ```
 
 ### Postgres + Sequelize
-`yarn add sequelize` e `yarn add sequelize-cli` instalará as dependências necessárias para rodar o Sequelize
+`yarn add sequelize` e `yarn add sequelize-cli -D` instalará as dependências necessárias para rodar o Sequelize
 
 `yarn add pg pg-hstore` essas duas dependências são necessárias para integrar o Sequelize com o Postgres
 
