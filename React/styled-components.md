@@ -29,3 +29,13 @@ export default function Main() {
   return <Title>Main</Title>;
 }
 ```
+
+#### 2. Função baseada em propriedades
+
+**Arquivo styles.js**
+
+Caso haja a propriedade "Erro" dentro da tag, retornará uma condicional ternário para cores.
+
+```js
+color: ${props => (props.error ? 'red' : '#7159c1')};
+```
