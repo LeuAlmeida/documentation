@@ -144,10 +144,10 @@ export const List = styled.ul`
 
   li {
     padding: 15px 0;
-  }
 
-  & + li {
+    & + li {
     ... Toda estilização que ocorrer aqui dentro não acontecerá no primeiro elemento LI
-  }
+    }
+  }  
 `
 ```
