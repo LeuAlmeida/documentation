@@ -130,3 +130,24 @@ css`
   }
 `}
 ```
+
+#### 6. Seletores do Styled Components
+
+**Adicionar estilização em todos os elementos, exceto no primeiro**
+
+Exemplo:
+
+```js
+export const List = styled.ul`
+  list-style: none;
+  margin-top: 30px;
+
+  li {
+    padding: 15px 0;
+  }
+
+  & + li {
+    ... Toda estilização que ocorrer aqui dentro não acontecerá no primeiro elemento LI
+  }
+`
+```
