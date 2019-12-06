@@ -85,3 +85,14 @@ function App() {
 
 export default App;
 ```
+
+#### 4. Acessando as propriedades de um objeto
+
+Exemplo de uso:
+
+```js
+export const SubmitButton = styled.button.attrs(props => ({
+  type: 'submit',
+  disabled: props.loading,
+}))`
+```
