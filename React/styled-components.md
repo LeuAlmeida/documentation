@@ -96,3 +96,37 @@ export const SubmitButton = styled.button.attrs(props => ({
   disabled: props.loading,
 }))`
 ```
+
+#### 5. Keyframes e variáveis
+
+**Importação**
+
+```js
+import styled, { keyframes, css } from 'styled-components';
+```
+
+**Uso do keyframe**
+
+```js
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+```
+
+**Uso de variáveis**
+
+```js
+${props =>
+props.loading &&
+css`
+  svg {
+    animation: ${rotate} 2s linear infinite;
+  }
+`}
+```
