@@ -27,3 +27,7 @@ if (__DEV__) {
   tron.clear(); // Não obrigatório
 }
 ```
+
+#### 3. Prevenção contra erros
+
+Caso não haja atividade, uma solução é rodar novamente o `$ react-native start --reset-cache` juntamente com o `$ adb reverse tcp:9090 tcp:9090`
