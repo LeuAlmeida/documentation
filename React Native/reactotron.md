@@ -30,4 +30,7 @@ if (__DEV__) {
 
 #### 3. Prevenção contra erros
 
-Caso não haja atividade, uma solução é rodar novamente o `$ react-native start --reset-cache` juntamente com o `$ adb reverse tcp:9090 tcp:9090`
+Caso não haja atividade, uma solução é rodar novamente o `$ react-native start --reset-cache` juntamente com o `$ adb reverse tcp:9090 tcp:9090` ou incluir o host em `.configure({host: 'NUMERODOIP'});`
+
+Para descobrir o IP, basta rodar:
+`$ hostname -I | cut -d' ' -f1`
