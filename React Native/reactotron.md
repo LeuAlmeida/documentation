@@ -23,5 +23,7 @@ if (__DEV__) {
     .connect();
 
   console.tron = tron;
+
+  tron.clear(); // Não obrigatório
 }
 ```
