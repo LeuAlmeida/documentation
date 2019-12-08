@@ -8,7 +8,25 @@
 
 `$ react-native run-android`
 
-#### 3. ESlint + Prettier
+#### 3. Comandos úteis
+
+**Instalar o react-native**
+
+`$ npm i -g react-native`
+
+**Iniciar o projeto**
+
+`$ react-native start`
+
+**Rodar no dispositivo**
+
+`$ react-native run-android`
+
+**Resetar cache do celular**
+
+`$ react-native start --reset-cache`
+
+#### 4. ESlint + Prettier
 
 1. Deletar o arquivo .eslintrc e instalar o ESLint `$yarn add eslint -D`
 
