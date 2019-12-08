@@ -85,3 +85,69 @@ function App() {
 
 export default App;
 ```
+
+#### 4. Acessando as propriedades de um objeto
+
+Exemplo de uso:
+
+```js
+export const SubmitButton = styled.button.attrs(props => ({
+  type: 'submit',
+  disabled: props.loading,
+}))`
+```
+
+#### 5. Keyframes e variáveis
+
+**Importação**
+
+```js
+import styled, { keyframes, css } from 'styled-components';
+```
+
+**Uso do keyframe**
+
+```js
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+```
+
+**Uso de variáveis**
+
+```js
+${props =>
+props.loading &&
+css`
+  svg {
+    animation: ${rotate} 2s linear infinite;
+  }
+`}
+```
+
+#### 6. Seletores do Styled Components
+
+**Adicionar estilização em todos os elementos, exceto no primeiro**
+
+Exemplo:
+
+```js
+export const List = styled.ul`
+  list-style: none;
+  margin-top: 30px;
+
+  li {
+    padding: 15px 0;
+
+    & + li {
+    ... Toda estilização que ocorrer aqui dentro não acontecerá no primeiro elemento LI
+    }
+  }  
+`
+```
