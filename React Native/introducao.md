@@ -33,9 +33,9 @@ module.exports = {
     es6: true,
   },
   extends: [
-    'prettier',
-    'prettier/react',
     'airbnb',
+    'prettier',
+    'prettier/react'
   ],
   globals: {
     Atomics: 'readonly',
@@ -51,17 +51,24 @@ module.exports = {
   },
   plugins: [
     'react',
-    'prettier',
+    'prettier'
   ],
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       'warn',
-      {
-        extensions: ['.jsx', '.js']
-      }
+      { extensions: ['.jsx', '.js'] }
     ],
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
   },
 };
+```
+
+4. **Arquivo .prettierrc**
+
+```json
+{
+  "singleQuote": true,
+  "trailingComma": "es5"
+}
 ```
