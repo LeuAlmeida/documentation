@@ -12,3 +12,17 @@
 
 ### Arquitetura Flux
 
+Exemplo gráfico
+
+**CATÁLOGO** -> Action
+
+Exemplo da Action:
+
+```js
+{
+  type: "ADD_TO_CART",
+  product: { ... }
+}
+```
+
+Action -> Redux Store (Reducers)
