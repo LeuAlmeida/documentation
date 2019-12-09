@@ -9,3 +9,6 @@
   * Meu estado é manipulado por mais componentes?
   * As ações do usuário causam efeitos colaterais nos dados?
 * Exemplos: Carrinho de compras, dados do usuário, player de música, etc;
+
+### Arquitetura Flux
+
