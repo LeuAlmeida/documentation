@@ -167,7 +167,7 @@ handleAddProduct = product => {
   const { dispatch } = this.props;
 
   dispatch({
-    type: 'ADD_TO_CART',
+    type: 'ADD_TO_CART',          // O dispatch é quem dispara a função e é acessível graças ao connect
     product,
   });
 };
@@ -185,4 +185,32 @@ export default function cart(state = [], action) {  // Estado inicial e a ação
       return state;                         // Reducer ignorando outras actions que não sejam pertinentes
   }
 }
+```
+
+#### 3.3 Recebendo estado de outros componentes
+
+Exemplo de um cabeçalho de e-commerce. <br/>
+
+Importação do *connect*
+
+```js
+import { connect } from 'react-redux';
+```
+
+Passando um objeto na função para conectá-lo com o componente
+
+```js
+function Header({ cart }) {
+  return (
+    ...
+  )
+}
+```
+
+Exportar com o connect passando o estado como um objeto
+
+```js
+export default connect(state => ({ 
+  cart: state.cart,         // O cart de "state.cart" é o cart declarado no rootReducer
+}))(Header);
 ```
