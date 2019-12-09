@@ -38,6 +38,8 @@ export default function cart(state = [], action) {
       return state;
   }
 }
-
 ```
 
+##### 2.1 ESLint
+
+Ao utilizar o draft, o ESLint reclamará que o draft não foi definido. Para solucionar isso, basta adicionar a regra `'no-param-reassign': 'off',` no *.eslintrc.js*
