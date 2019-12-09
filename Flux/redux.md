@@ -1,6 +1,8 @@
 # Redux
 
-### O que é Redux?
+## 1. Conceitos
+
+#### 1.1 O que é Redux?
 
 * Biblioteca que implementa a Arquitetura Flux;
 * Controle de estados globais;
@@ -10,7 +12,7 @@
   * As ações do usuário causam efeitos colaterais nos dados?
 * Exemplos: Carrinho de compras, dados do usuário, player de música, etc;
 
-### Arquitetura Flux
+#### 1.2 Arquitetura Flux
 
 Exemplo gráfico
 
@@ -27,7 +29,7 @@ Exemplo da Action:
 
 Action -> Redux Store (Reducers) -> Mutação no estado
 
-### Princípios
+#### 1.3 Princípios
 
 * Toda action deve possuir um *type*;
 * O estado do Redux é o único ponto de verdade;
@@ -35,3 +37,8 @@ Action -> Redux Store (Reducers) -> Mutação no estado
 * As actions e reducers são funções puras, ou seja, *não lidam com side-effects assíncronos*;
 * Qualquer lógica síncrona para regras de negócio *deve ficar no reducer e nunca na action*;
 * **Nem toda aplicação precisa do Redux, inicie sem ele e sinta a necessidade depois**;
+
+## 2 Instalação
+
+Instalação do Redux no React
+`$ yarn add redux react-redux`
