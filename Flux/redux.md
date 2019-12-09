@@ -38,7 +38,65 @@ Action -> Redux Store (Reducers) -> Mutação no estado
 * Qualquer lógica síncrona para regras de negócio *deve ficar no reducer e nunca na action*;
 * **Nem toda aplicação precisa do Redux, inicie sem ele e sinta a necessidade depois**;
 
-## 2 Instalação
+## 2. Uso do Redux
+
+#### 2.1 Instalação
 
 Instalação do Redux no React
 `$ yarn add redux react-redux`
+
+#### 2.2 Configuração
+
+**Arquivo /src/store/index.js**
+
+```js
+import { createStore } from 'redux';
+
+const store = createStore();
+
+export default store;
+```
+
+**Arquivo src/App.js**
+
+Importação do *Provider* do *react-redux* e do método *store criado anteriormente*
+
+```js
+import { Provider } from 'react-redux';
+
+import store from './store';
+```
+
+Envolver todos os componentes com o método *Provider* passando o atributo *store*
+
+```js
+function App() {
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header />
+        <Routes />
+        <GlobalStyle />
+      </BrowserRouter>
+    </Provider>
+  );
+}
+```
+
+**ATENÇÃO!**
+
+O arquivo src/store/index.js necessita de um reducer para funcionar.
+
+**Exemplo do arquivo store com com um Reducer**
+
+```js
+import { createStore } from 'redux';
+
+function cart() {
+  return [];
+}
+
+const store = createStore(cart);
+
+export default store;
+```
