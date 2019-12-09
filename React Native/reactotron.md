@@ -4,7 +4,7 @@
 
 **Instalação da versão desktop:**
 
-https://github.com/infinitered/reactotron/releases
+https://github.com/infinitered/reactotron/releases (Arquivo .deb)
 
 **Instalação no projeto**
 
