@@ -31,4 +31,7 @@ Action -> Redux Store (Reducers) -> Mutação no estado
 
 * Toda action deve possuir um *type*;
 * O estado do Redux é o único ponto de verdade;
-* Não podemos mutar o estado do Redux sem uma action;
+* Não podemos *mutar o estado do Redux sem uma action*;
+* As actions e reducers são funções puras, ou seja, *não lidam com side-effects assíncronos*;
+* Qualquer lógica síncrona para regras de negócio *deve ficar no reducer e nunca na action*;
+* **Nem toda aplicação precisa do Redux, inicie sem ele e sinta a necessidade depois**;
