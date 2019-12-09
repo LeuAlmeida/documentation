@@ -132,3 +132,57 @@ const store = createStore(rootReducer);
 
 export default store;
 ```
+
+## 3. Conexões e Uso Prático
+
+#### 3.1 Importação em uma página com componentes
+
+Importação do connect do react-redux
+
+```js
+import { connect } from 'react-redux';
+```
+
+**Novo modelo de exportação**
+
+```js
+export default connect()(Home);
+```
+
+#### 3.2 Adicionando uma action em um componente
+
+**O botão:**
+
+```js
+<button
+  type="button"
+  onClick={() => this.handleAddProduct(product)}
+>
+```
+
+**A função handleAddProduct():**
+
+```js
+handleAddProduct = product => {
+  const { dispatch } = this.props;
+
+  dispatch({
+    type: 'ADD_TO_CART',
+    product,
+  });
+};
+```
+
+**O reducer:**
+
+```js
+export default function cart(state = [], action) {  // Estado inicial e a ação executada como parâmetro
+  
+  switch (action.type) {
+    case 'ADD_TO_CART':                     // Reducer sendo chamado apenas caso seja o ADD_TO_CART
+      return [...state, action.product];    // Retornando o estado inicial + o produto chamado naquela action
+    default:                
+      return state;                         // Reducer ignorando outras actions que não sejam pertinentes
+  }
+}
+```
