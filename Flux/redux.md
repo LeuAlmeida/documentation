@@ -87,16 +87,22 @@ function App() {
 
 O arquivo src/store/index.js necessita de um reducer para funcionar.
 
+**Criação do Reducer em src/store/modules/cart/reducer.js**
+
+```js
+export default function cart() {
+  return [];
+}
+```
+
 **Exemplo do arquivo store com com um Reducer**
 
 ```js
 import { createStore } from 'redux';
 
-function cart() {
-  return [];
-}
+import reducer from './modules/cart/reducer';
 
-const store = createStore(cart);
+const store = createStore(reducer);
 
 export default store;
 ```
