@@ -106,3 +106,29 @@ const store = createStore(reducer);
 
 export default store;
 ```
+
+#### 2.3 Múltiplos reducers
+
+**Arquivo src/store/modules/rootReducer.js**
+
+```js
+import { combineReducers } from 'redux';
+
+import cart from './cart/reducer';
+
+export default combineReducers({
+  cart,
+});
+```
+
+**Arquivo src/store/index.js**
+
+```js
+import { createStore } from 'redux';
+
+import rootReducer from './modules/rootReducer';
+
+const store = createStore(rootReducer);
+
+export default store;
+```
