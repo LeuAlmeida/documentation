@@ -25,4 +25,10 @@ Exemplo da Action:
 }
 ```
 
-Action -> Redux Store (Reducers)
+Action -> Redux Store (Reducers) -> Mutação no estado
+
+### Princípios
+
+* Toda action deve possuir um *type*;
+* O estado do Redux é o único ponto de verdade;
+* Não podemos mutar o estado do Redux sem uma action;
