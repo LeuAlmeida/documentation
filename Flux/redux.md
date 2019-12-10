@@ -214,3 +214,107 @@ export default connect(state => ({
   cart: state.cart,         // O cart de "state.cart" é o cart declarado no rootReducer
 }))(Header);
 ```
+
+
+## 4. MapStateToProps
+
+Recebe o estado da aplicação e adiciona uma propriedade. Exemplo:
+
+```js
+const mapStateToProps = state => ({
+  cart: state.cart,
+});
+```
+
+A função deve se parecer com:
+
+```js
+function Cart({ cart }) {
+  ...
+}
+```
+
+Exportação:
+
+```js
+export default connect(mapStateToProps)(Cart); 
+```
+
+## 5. MapDispatchToProps
+
+Faz o disparo de uma action e **armazena nas propriedades do estado da aplicação**.
+
+```js
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+```
+
+O `bindActionCreators` é importado do **redux** e o CartActions segue o modelo exemplificado na sessão *5.1*.
+
+
+Exportação:
+
+```js
+export default connect(mapStateToProps, mapDispatchToProps)(Cart); // Caso não possua StateToProps, deve ser passado um valor sendo "null"
+```
+
+#### 5.1 bindActionCreators
+
+O bindActionCreators serve para **organizar melhor o dispatch de actions**. Sua importação vem do Redux
+
+```js
+import bindActionCreators from 'redux';
+```
+
+É uma função que recebe como primeiro parâmetro as actions e o segundo dispatch:
+
+```js
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+```
+
+## 6. Organização de Actions
+
+**Exemplo de um arquivo em src/store/modules/cart/actions**
+
+Aqui pode ser organizado todas as actions que anteriormente eram enviadas através de uma função dentro do próprio componente.
+
+```js
+export function addToCart(product) {
+  return {
+    type: '@cart/ADD',
+    product,
+  };
+}
+
+export function removeFromCart(id) {
+  return { type: '@cart/REMOVE', id };
+}
+
+export function updateAmount(id, amount) {
+  return {
+    type: '@cart/UPDATE_AMOUNT',
+    id,
+    amount,
+  };
+}
+```
+
+#### 6.1 Utilização
+
+Nos exemplos acima são utilizados essas actions com o nome 'CartActions'
+
+**Importação**
+
+```js
+import * as CartActions from '../../store/modules/cart/actions';
+```
+
+Dentro dos parâmetros da função, são passadas as actions existentes no arquivo **actions.js** que necessitam ser usadas (funções exemplificadas acima):
+
+```js
+function Cart({ cart, removeFromCart, updateAmount }) {
+...
+}
+```
+
