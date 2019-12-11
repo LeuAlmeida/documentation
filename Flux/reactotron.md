@@ -1,6 +1,6 @@
 # Reactotron
 
-#### 1. Instalação
+## 1. Instalação
 
 **Instalação da versão desktop:**
 
@@ -33,7 +33,7 @@ if (process.env.NODE_ENV === 'development') {
 'no-console': ["error", { allow: ["tron"]}]
 ```
 
-#### 2. Configurações
+## 2. Configurações
 
 **Importação (após as importações de módulos) do Reactotron no arquivo src/App.js**
 
@@ -52,7 +52,7 @@ const enhancer =
 const store = createStore(rootReducer, enhancer);
 ```
 
-#### 3. Redux Saga + Reactotron
+## 3. Redux Saga + Reactotron
 
 **Mudanças no enhancer do arquivo src/store/index.js (também anotado no arquivo redux-saga.md)**
 
@@ -63,6 +63,31 @@ const enhancer =
     : applyMiddleware(sagaMiddleware);
 ```
 
-###### 3.1 Instalação
+##### 3.1 Instalação
 
 `$ yarn add reactotron-redux-saga`
+
+##### 3.2 Configurações
+
+**Arquivo src/config/ReactotronConfig.js**
+
+Importação do reactotronSaga
+
+```js
+import reactotronSaga from 'reactotron-redux-saga';
+```
+
+Uso do reactotronSaga na variável *tron*
+
+```js
+if (process.env.NODE_ENV === 'development') {
+  const tron = Reactotron.configure()
+    .use(reactotronRedux())
+    .use(reactotronSaga())
+    .connect();
+
+  tron.clear();
+
+  console.tron = tron;
+}
+```
