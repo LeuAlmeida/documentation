@@ -91,3 +91,17 @@ if (process.env.NODE_ENV === 'development') {
   console.tron = tron;
 }
 ```
+
+**Arquivo src/store/index.js**
+
+Criação da variável `sagaMonitor` em ambientes de desenvolvimento e configurando ele no `createSagaMiddleware()`.
+
+```js
+const sagaMonitor =
+  process.env.NODE_ENV === 'development'
+    ? console.tron.createSagaMonitor()
+    : null;
+const sagaMiddleware = createSagaMiddleware({
+  sagaMonitor,
+});
+```
