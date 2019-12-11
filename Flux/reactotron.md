@@ -33,6 +33,8 @@ if (process.env.NODE_ENV === 'development') {
 'no-console': ["error", { allow: ["tron"]}]
 ```
 
+#### 2. Configurações
+
 **Importação (após as importações de módulos) do Reactotron no arquivo src/App.js**
 
 ```js
@@ -49,3 +51,18 @@ const enhancer =
 
 const store = createStore(rootReducer, enhancer);
 ```
+
+#### 3. Redux Saga + Reactotron
+
+**Mudanças no enhancer do arquivo src/store/index.js (também anotado no arquivo redux-saga.md)**
+
+```js
+const enhancer =
+  process.env.NODE_ENV === 'development'
+    ? compose(console.tron.createEnhancer(), applyMiddleware(sagaMiddleware))
+    : applyMiddleware(sagaMiddleware);
+```
+
+###### 3.1 Instalação
+
+`$ yarn add reactotron-redux-saga`
