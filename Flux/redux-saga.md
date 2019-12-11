@@ -1,10 +1,10 @@
 # Redux Saga
 
-#### 1. Instalação
+## 1. Instalação
 
 `$ yarn add redux-saga`
 
-#### 2. Modelo de Configuração
+## 2. Modelo de Configuração
 
 **Arquivo exemplo src/store/modules/cart/sagas.js**
 
@@ -24,7 +24,7 @@ function* addToCart({ id }) {
 export default all([takeLatest('@cart/ADD_REQUEST', addToCart)]);
 ```
 
-#### 2. Arquivo de configuração do Redux
+## 2. Arquivo de configuração do Redux
 
 **Arquivo src/store/index.js**
 
@@ -47,4 +47,44 @@ const store = createStore(rootReducer, enhancer);
 sagaMiddleware.run(rootSaga);
 
 export default store;
+```
+
+## 3. Navegação
+
+#### 3.1 History
+
+Instalação
+
+`$ yarn add history`
+
+**Arquivo service/history.js**
+
+```js
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
+
+export default history;
+```
+
+**Arquivo App.js**
+
+A importação BrowserRouter vira apenas `Router`
+
+```js
+import { Router } from 'react-router-dom';
+```
+
+Importação da configuração de serviço do history
+
+```js
+import history from './services/history';
+```
+
+Substituição dos BrowserRouter por `router` passando o parâmetro history
+
+```js
+<Router history={history}>
+...
+</Router>
 ```
