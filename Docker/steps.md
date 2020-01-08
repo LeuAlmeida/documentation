@@ -19,3 +19,7 @@ COPY . .
 EXPOSE 3333
 CMD ["yarn", "dev" ; "yarn", "queue"]
 ```
+
+**Arquivo .dockerignore**
+
+`node_modules/`
