@@ -15,8 +15,8 @@ import api from '../../../services/api';
 
 import { addToCartSuccess } from './actions';
 
-function* addToCart({ id }) {
-  const response = yield call(api.get, `/products/${id}`);
+function* addToCart({ id }) {   // O asterisco seria como um "async function addToCart"
+  const response = yield call(api.get, `/products/${id}`); // O yield seria como um "await call"
 
   yield put(addToCartSuccess(response.data));
 }
