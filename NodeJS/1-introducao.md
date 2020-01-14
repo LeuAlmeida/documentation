@@ -65,3 +65,16 @@ Após isso, será iniciado um *package-lock.json* que deverá ser excluído e ro
 O comando `yarn eslint --fix src --ext .js` fará a correção em todos os arquivos .js dentro da pasta *src* (corrigir com o nome da pasta) e a extensão .js
 
 :warning: A configuração do ESLint está no arquivo *.eslintrc.js*
+
+### Arquivo nodemon.json
+
+```json
+
+```
+
+### Scripts do Nodemon
+
+
+```json
+
+```
