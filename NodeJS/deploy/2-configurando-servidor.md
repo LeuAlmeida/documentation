@@ -15,3 +15,10 @@ Para acessar o servidor criado, basta digitar o comando `$ ssh root@IPDIGITALOCE
 6. Alterar propritário do authorized_keys de root para deploy executando `$ chown deploy:deploy /home/deploy/.ssh/authorized_keys`
 7. Testar executando `$ exit` e na sequência acessando com `$ ssh deploy@IPDIGITALOCEAN`
 
+### Instalação do Node
+
+1. Acessar o site https://nodejs.org/en/
+2. Em **Other Downloads** selecionar a opção **Installing Node.js via package manager** e selecionar a opção **Ubuntu**, onde levará para um link externo.
+3. Neste link externo, procurar pela versão LTS (10.x), onde deve-se copiar o código e colar no SSH.
+4. Executar o comando `$ sudp apt-get install -y nodejs`
+5. Testar a instalação com `$ node -v` e `$ npm -v`
