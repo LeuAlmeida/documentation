@@ -1,18 +1,18 @@
 # MongoDB
 
-#### Criação de um cluster
+##### Criação de um cluster
 
 É necessário criar um novo projeto e na sequência um novo cluster para obter o acesso gratuito (em projetos pequenos).
 
-#### Criação de um usuário
+##### Criação de um usuário
 
 Security -> Database Access -> ADD NEW USER --> Criar um nome de usuário e senha -> Read and write to any database -> Add User
 
-#### Acessos Externos
+##### Acessos Externos
 
 Security -> Network Access -> ADD IP ADDRESS
 
-### Conectando a aplicação
+##### Conectando a aplicação
 
 Atlas -> Clusters -> Connect -> Connect Your Application -> Node.js -> 3.0 or later -> Copiar o código disponibilizado -> Seguir os próximos passos no código JavaScript
 
@@ -25,6 +25,40 @@ mongoose.connect('Código do MongoDB', {
 app.use(express.json())
 ```
 
-### Verificação de porta:
+##### Verificação de porta:
 
 http://portquiz.net:27017 (porta do MongoDB)
+
+# Operators
+
+Lista de operadores: https://docs.mongodb.com/manual/reference/operator/
+
+### Fazendo uma pesquisa na tabela em cima de uma informação ($in)
+
+**Exemplo de uma pesquisa**
+
+Neste caso, *Dev* é a model, *find()* é a função que busca dentro do MongoDB e o **operador** `$in` pesquisa se as tecnologias (em um array) existem dentro de `techs`.
+
+```js
+const devs = await Dev.find({
+      techs: {
+        $in: techsArray,
+      },
+    });
+```
+
+### Fazendo uma pesquisa baseado em proximidade ($near)
+
+Neste caso, a localização se baseará em cima das coordenadas passadas anteriormente (em *longitude* e *latitude*) com uma distância máxima de *10km* (setado em `$maxDistance: 10000`) e listará os usuários pertos dessa localização (utilizando o operador `$near`)
+
+```js
+location: {
+  $near: {
+    $geometry: {
+      type: 'Point',
+      coordinates: [longitude, latitude],
+    },
+    $maxDistance: 10000,
+  },
+},
+```
