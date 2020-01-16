@@ -2,7 +2,7 @@
 
 #### 1. Instalação
 
-```js
+```console
 yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
 ```
 
