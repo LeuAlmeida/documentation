@@ -60,3 +60,23 @@ Main.navigationOptions = {
 }; 
 
 ```
+
+# Navegando entre páginas
+
+Importar a propriedade de navegação dentro o componente. Exemplo:
+
+```js
+function Main({ navigation }) {
+  // ..
+}
+```
+
+Para navegar entre páginas, basta utilizar a função (utilizando a propriedade *navigation* citada anteriormente):
+
+```js
+<Callout // Componente apenas para exemplificar
+  onPress={() => { // Função navegável
+    navigation.navigate('Profile', { github_username: 'LeuAlmeida' }); // Navegando para a página Profile passando o github_username para a próxima página
+  }}
+>
+```
