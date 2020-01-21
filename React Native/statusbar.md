@@ -1,13 +1,8 @@
 # Configuração da Statusbar
 
-Exemplo do uso:
+Exemplo do uso **(Arquivo App.js)**:
 
 ```js
-import React from 'react';
-import { StatusBar } from 'react-native';
-
-import './config/ReactotronConfig';
-import Routes from './routes';
 
 export default function App() {
   return (
@@ -17,4 +12,42 @@ export default function App() {
     </>
   );
 }
+```
+
+# Configuração das opções da navegação
+
+Exemplo do uso **(arquivo routes.js)**:
+
+```js
+
+const Routes = createAppContainer(
+  createStackNavigator(
+    {
+      Main: {
+        screen: Main,
+        navigationOptions: {
+          title: 'DevRadar',
+        },
+        Profile: {
+          screen: Profile,
+          navigationOptions: {
+            title: 'Perfil no Github',
+          },
+        },
+      },
+      Profile,
+    },
+    {
+      defaultNavigationOptions: {
+        headerTintColor: '#FFF',
+        headerStyle: {
+          backgroundColor: '#7159c1',
+        },
+        headerTitleAlign: 'center',
+      },
+    }
+  )
+);
+
+export default Routes;
 ```
