@@ -80,3 +80,23 @@ Para navegar entre páginas, basta utilizar a função (utilizando a propriedade
   }}
 >
 ```
+
+
+### Pegando atributos passados por outra página
+
+Numa hipótese em que o **github_username** foi passado através da navegação (como no exemplo anterior), para se obter esse conteúdo dentro da página **Profile** basta fazer o seguinte:
+
+```js
+function Profile({ navigation }) {                                // Obtendo as propriedades de navegação
+  const githubUsername = navigation.getParam('github_username');  // Definindo a variável através do parâmetro passado na página anterior
+
+  return (
+    <WebView
+      style={{ flex: 1 }}
+      source={{ uri: `https://github.com/${githubUsername}` }} // Utilizando a variável anterior
+    />
+  );
+}
+
+export default Profile;
+```
