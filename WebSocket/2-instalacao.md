@@ -22,3 +22,38 @@ const server = http.Server(app);
 ```js
 server.listen(3333);
 ```
+
+### Organização dos arquivos
+
+**Arquivo src/websocket.js**
+```js
+const socketio = require('socket.io');      // Importa o pacote instalado anteriormente
+
+exports.setupWebSocket = (server) => {      // Exporta a instalação do WebSocket (não como padrão) recebendo o server como parâmetro
+  const io = socketio(server);              // Cria a variável setando o server como objeto do socket
+
+  io.on('connection', (socket) => {         // Assim que o servidor for conectado, ele recebe o socket e dispara uma função
+    console.log(socket.id);
+  });
+};
+```
+
+**Arquivo src/index.js**
+
+```js
+// require('dotenv/config');
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const cors = require('cors');
+const http = require('http');                       // Importação do HTTP citado anteriormente
+
+// const routes = require('./routes');
+const { setupWebSocket } = require('./websocket');  // Importação da configuração do WebSocket
+
+// const app = express();
+// const server = http.Server(app);
+
+setupWebSocket(server);                             // Instanciando como servidor do websocket e enviando para o arquivo de configurações externo
+
+// ...
+```
