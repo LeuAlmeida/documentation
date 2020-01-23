@@ -84,3 +84,32 @@ function disconnect() {
 export { connect, disconnect };
 
 ```
+
+### Arquivo em que será utilizado o websocket, neste caso o src/pages/Main.js
+
+```js
+// ...
+import { connect, disconnect } from '../services/socket';
+// ...
+
+function setupWebsocket() {
+  connect();
+}
+
+// ...
+
+async function loadDevs() {
+    // const { latitude, longitude } = currentRegion;
+
+    // const response = await api.get('/search', {
+    //   params: {
+    //     latitude,
+    //     longitude,
+    //     techs: techs.toLowerCase(),
+    //   },
+    // });
+
+    // setDevs(response.data.devs);
+    setupWebsocket();
+  }
+```
