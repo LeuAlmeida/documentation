@@ -5,3 +5,55 @@ Com o WebSocket utilizando o *socket.io*, é possível enviar mensagens do Backe
 ### No Backend
 
 **Arquivo src/websocket.js**
+
+```js
+const socketio = require('socket.io');  // Importa  o Socket.io
+
+let io;                                 // Seta a variável do Socket.io
+const connections = [];                 // Cria um array vazio para armazenar as conexões (geralmente usa-se algum banco de dados)
+
+exports.setupWebSocket = (server) => {  // Cria as configurações do WebSocket
+  io = socketio(server);                // Conecta o servidor com o Socket.io
+
+  io.on('connection', (socket) => {     // Quando o usuário conecta, envia uma função
+    const { latitude, longitude, techs } = socket.handshake.query;   // Pega as informações obtidas no frontend
+
+    connections.push({                  // Armazena no array
+      id: socket.id,                    // Id do socket obtido
+      coordinates: {
+        latitude: Number(latitude),
+        longitude: Number(longitude),
+      },
+      techs: parseStringAsArray(techs),
+    });
+  });
+};
+
+// Recebe as coordenadas e tecnologias como parâmetro da primeira função e realiza um filtro que a cada conexão, calcula as distacia e caso seja menor de 10km && haja um item ativo sendo pesquisado no Frontend/Mobile.
+exports.findConnections = (coordinates, techs) => connections.filter((connection) => calculateDistance(coordinates, connections.coordinates) < 10 && connection.techs.some((item) => techs.includes(item)));
+
+exports.sendMessage = (to, message, data) => {  // A função recebe como parâmetro o destino, a mensagem e os dados.
+  to.forEach((connection) => {                  // Realiza um forEach recebendo a conexão como parâmetro
+    io.to(connection.id).emit(message, data);   // Envia para o id conectado a mensagem e os dados
+  });
+};
+```
+
+**Arquivo do Controller**
+
+```js
+const { findConnections, sendMessage } = require('../websocket');
+
+// ...
+
+// Filtrar as conexões que estão a no máximo 10km de distância e que o
+// novo dev tenha pelo menos uma das tecnologias filtradas
+
+const sendSocketMessageTo = findConnections({
+  latitude, longitude,
+}, techsArray);
+
+sendMessage(sendSocketMessageTo, 'new-dev', dev);
+
+// ...
+```
