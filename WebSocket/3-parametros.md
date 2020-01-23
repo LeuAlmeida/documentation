@@ -1,4 +1,4 @@
-# Enviando parâmetros do frontend para o backend
+# Lidando com parâmetros do Frontend para o Backend
 
 ### No Frontend
 
@@ -27,8 +27,8 @@ exports.setupWebSocket = (server) => {
   const io = socketio(server);
 
   io.on('connection', (socket) => {
-    console.log(socket.id);
-    console.log(socket.handshake.query);
+    console.log(socket.id);               // Retorna o ID da sessão do usuário
+    console.log(socket.handshake.query);  // Retorna os parâmetros enviados pelo frontend
   });
 };
 ```
