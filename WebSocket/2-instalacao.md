@@ -57,3 +57,30 @@ setupWebSocket(server);                             // Instanciando como servido
 
 // ...
 ```
+
+# WebSocket no Cliente (Front/Mobile)
+
+Para instalar as dependências do Client (tanto no frontend quanto no mobile), basta rodar o comando `$ yarn add socket.io-client`
+
+**Arquivo src/services/socket.js**
+
+```js
+import socketio from 'socket.io-client';
+
+const socket = socketio('http://UrlDoBackend:PortaDoBackend', {
+  autoConnect: false,
+});
+
+function connect() {
+  socket.connect();
+}
+
+function disconnect() {
+  if (socket.connected) {
+    socket.disconnect();
+  }
+}
+
+export { connect, disconnect };
+
+```
