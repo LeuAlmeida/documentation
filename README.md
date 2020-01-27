@@ -3,6 +3,7 @@
 ## :x: Dependências para Desenvolvimento em NodeJS
 
 ### VScode
+https://code.visualstudio.com/download
 #### Extensões
 - Color Highlight
 - Dracula Official
@@ -13,7 +14,7 @@
 - ESlint
 - EditorConfig for VS Code
 
-## Chocolatey
+### Chocolatey
 https://chocolatey.org/install
 
 ### NodeJS (NVM)
