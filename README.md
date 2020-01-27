@@ -13,12 +13,16 @@
 - ESlint
 - EditorConfig for VS Code
 
-### Yarn
-https://yarnpkg.com/lang/en/docs/install/#debian-stable
+## Chocolatey
+https://chocolatey.org/install
 
 ### NodeJS (NVM)
+cinst nodejs
 https://github.com/nvm-sh/nvm
 
+### Yarn
+choco install yarn
+https://yarnpkg.com/lang/en/docs/install/#debian-stable
 
 
 ## Terminal Personalizado
