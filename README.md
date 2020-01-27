@@ -17,6 +17,8 @@ https://github.com/TTamosauskas/personal.settings/blob/master/settings.json
 
 ### GIT
 https://git-scm.com/downloads
+git clone
+git config credential.helper store
 
 ### Chocolatey
 https://chocolatey.org/install
