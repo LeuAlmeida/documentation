@@ -14,6 +14,9 @@ https://code.visualstudio.com/download
 - ESlint
 - EditorConfig for VS Code
 
+### GIT
+https://git-scm.com/downloads
+
 ### Chocolatey
 https://chocolatey.org/install
 
