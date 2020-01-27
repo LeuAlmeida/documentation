@@ -31,13 +31,6 @@ https://github.com/nvm-sh/nvm
 choco install yarn
 https://yarnpkg.com/lang/en/docs/install/#debian-stable
 
-#### Instalação base para desenvolvimento
-- yarn add nodemon
-- yarn add express
-- yarn add mongoose
-- yarn add routes
-- yarn add react
-
 
 ## Terminal Personalizado
 *Acompanhar em: https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/*
