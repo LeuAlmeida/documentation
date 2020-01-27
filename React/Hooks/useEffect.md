@@ -9,16 +9,3 @@ useEffect(() => {}, []);
 // () => {} é uma função que será executada
 // [] é o array que determina quando esse useEffect deve ser executado
 ```
-
-```js
-import React, { useEffect } from 'react'
-
-// ...
-
-function App() {
-  // ...
-
-  useEffect(() => {}, [])
-
-  // ...
-}
