@@ -13,3 +13,17 @@ useEffect(() => {
 ```
 
 No exemplo acima, será armazenado a variável **tech** com o nome (em string) `'tech'` convertida em um objeto *JSON* sempre que houver uma mutação no estado de **tech**.
+
+### Obtendo informações do Local Storage
+
+Exemplo utilizando um React Hook
+
+```js
+useEffect(() => {
+  const storageTech = localStorage.getItem('tech'); // Seta os itens existentes  no localStorage em uma variável
+
+  if (storageTech) {            // Caso o storageTech não esteja vazio
+    setTech(JSON.parse(storageTech)); // Seta as tecnologias com as informações existentes vindas de um JSON em um estado
+  }
+}, []);
+```
