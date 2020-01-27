@@ -5,6 +5,7 @@
 ### VScode
 https://code.visualstudio.com/download
 #### Extensões
+https://github.com/TTamosauskas/personal.settings/blob/master/settings.json
 - Color Highlight
 - Dracula Official
 - Live Server
