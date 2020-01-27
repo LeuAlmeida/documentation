@@ -19,6 +19,8 @@ https://git-scm.com/downloads
 
 ### Chocolatey
 https://chocolatey.org/install
+How to use
+https://jcutrer.com/windows/install-chocolatey-choco-windows10
 
 ### NodeJS (NVM)
 cinst nodejs
