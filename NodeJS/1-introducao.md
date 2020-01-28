@@ -69,12 +69,20 @@ O comando `yarn eslint --fix src --ext .js` fará a correção em todos os arqui
 ### Arquivo nodemon.json
 
 ```json
-
+{
+  "execMap": {
+    "js": "node -r sucrase/register"
+  }
+}
 ```
 
 ### Scripts do Nodemon
 
 
 ```json
-
+// ...
+"scripts": {
+  "dev": "nodemon src/server.js"
+},
+// ..
 ```
