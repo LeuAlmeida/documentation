@@ -41,6 +41,8 @@ Rodar o `$ yarn eslint --init`
 ? Which style guide do you want to follow? **Airbnb: https://github.com/airbnb/javascript**  
 ? What format do you want your config file to be in? **JavaScript**  
 
+1.5. Apagar o package.lock.json e rodar o yarn
+
 2. Instalar o prettier e demais dependências `$ yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D`
 
 3. **Arquivo .eslintrc.js**
