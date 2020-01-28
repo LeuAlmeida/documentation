@@ -101,6 +101,8 @@ class UserController {
 }
 ```
 
+# Instalação do Sequelize
+
 ### Postgres + Sequelize
 `yarn add sequelize` e `yarn add sequelize-cli -D` instalará as dependências necessárias para rodar o Sequelize
 
@@ -172,38 +174,30 @@ class User extends Model {
 export default User;
 ```
 
-## Bcrypt
-`yarn add bcryptjs` Utilizado para criptografar senhas
+**Arquivo src/database/index.js**
 
-### Exemplo de uso do bcrypt nas models
 ```js
-import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs'; // Importação do bcrypt
+import Sequelize from 'sequelize';
 
-class User extends Model {
-  static init(sequelize) {
-    super.init(
-      {
-        name: Sequelize.STRING,
-        email: Sequelize.STRING,
-        password: Sequelize.VIRTUAL, // VIRTUAL significa que não será passado para o banco de dados
-        password_hash: Sequelize.STRING,
-        provider: Sequelize.BOOLEAN,
-      },
-      {
-        sequelize,
-      }
-    );
+import User from '../app/models/User';
 
-    this.addHook('beforeSave', async user => { // Hook executado antes de salvar (before save)
-      if (user.password) { // Caso a senha tenha sido 
-        user.password_hash = await bcrypt.hash(user.password, 8); // Definindo senha ao adicionar o hash do bcrypt em user.password, com força de nível 8
-      }
-    });
+import databaseConfig from '../config/database';
 
-    return this;
+const models = [User];
+
+class Database {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.connection = new Sequelize(databaseConfig);
+
+    models
+      .map(model => model.init(this.connection))
+      .map(model => model.associate && model.associate(this.connection.models));
   }
 }
 
-export default User;
+export default new Database();
 ```
