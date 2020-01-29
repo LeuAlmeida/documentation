@@ -20,7 +20,7 @@ export default Main;
 
 ### Instalação
 
-Utilizando Expo, o comando a ser executado é o `$ expo install explo-location`
+Utilizando Expo, o comando a ser executado é o `$ expo install expo-location`
 
 ### Importações
 

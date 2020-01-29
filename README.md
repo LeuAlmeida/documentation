@@ -3,7 +3,9 @@
 ## :x: Dependências para Desenvolvimento em NodeJS
 
 ### VScode
+https://code.visualstudio.com/download
 #### Extensões
+https://github.com/TTamosauskas/personal.settings/blob/master/settings.json
 - Color Highlight
 - Dracula Official
 - Live Server
@@ -13,12 +15,23 @@
 - ESlint
 - EditorConfig for VS Code
 
-### Yarn
-https://yarnpkg.com/lang/en/docs/install/#debian-stable
+### GIT
+https://git-scm.com/downloads
+git clone
+git config credential.helper store
+
+### Chocolatey
+https://chocolatey.org/install
+How to use
+https://jcutrer.com/windows/install-chocolatey-choco-windows10
 
 ### NodeJS (NVM)
+cinst nodejs
 https://github.com/nvm-sh/nvm
 
+### Yarn
+choco install yarn
+https://yarnpkg.com/lang/en/docs/install/#debian-stable
 
 
 ## Terminal Personalizado
