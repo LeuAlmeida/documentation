@@ -4,8 +4,8 @@
 
 ### VScode
 https://code.visualstudio.com/download
+
 #### Extensões
-https://github.com/TTamosauskas/personal.settings/blob/master/settings.json
 - Color Highlight
 - Dracula Official
 - Live Server
@@ -16,21 +16,35 @@ https://github.com/TTamosauskas/personal.settings/blob/master/settings.json
 - EditorConfig for VS Code
 
 ### GIT
-https://git-scm.com/downloads
-git clone
+https://git-scm.com/downloads  
+git clone  
 git config credential.helper store
 
 ### Chocolatey
-https://chocolatey.org/install
-How to use
+https://chocolatey.org/install  
+
+#### Manual de uso:  
 https://jcutrer.com/windows/install-chocolatey-choco-windows10
 
 ### NodeJS (NVM)
-cinst nodejs
+
+Download do Node usando o Chocolatey:
+
+```shell
+$ cinst nodejs
+```
+
 https://github.com/nvm-sh/nvm
 
 ### Yarn
+
+Download do Yarn usando o Chocolatey:
+
+```shell
 choco install yarn
+```
+
+Link de download do Yarn (Debian)  
 https://yarnpkg.com/lang/en/docs/install/#debian-stable
 
 
