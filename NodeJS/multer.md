@@ -27,3 +27,24 @@ export default {
   }),
 };
 ```
+
+**Arquivo src/routes.js**
+
+Importar as configurações
+```js
+import multer from 'multer';
+import multerConfig from './config/multer';
+```
+
+Definir após `const routes`:
+
+```js
+const upload = multer(multerConfig);
+```
+
+Rota com upload utilizando o Multer:
+
+```js
+routes.post('/files', upload.single('file'), FileController.store);
+```
+
