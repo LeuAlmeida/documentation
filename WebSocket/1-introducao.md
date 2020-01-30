@@ -1,5 +1,5 @@
 # WebSocket
-Uma forma do backend enviar respostas para o front-end em tempo real
+Socket.io é um uma biblioteca para construção de aplicações real-time com comunicação bi-direcional entre cliente e servidor.
 
 ## Método de requisições HTTP
 
