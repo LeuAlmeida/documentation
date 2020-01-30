@@ -14,7 +14,7 @@ No mesmo arquivo em que se importa as rotas, cors e afins (podendo ser o App ou 
 const http = require('http');
 
 // ....
-
+const express = require('express');
 const app = express();
 const server = http.Server(app);
 ```
