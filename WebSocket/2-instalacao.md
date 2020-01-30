@@ -2,7 +2,7 @@
 
 Para instalar o socket, basta rodar o comando `$ yarn add socket.io`
 
-Também o express será necessário `yarn add express`
+Também o express será necessário `$ yarn add express`
 
 **Arquivo index.js**
 
