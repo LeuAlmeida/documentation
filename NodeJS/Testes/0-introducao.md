@@ -1,0 +1,29 @@
+# Testes & TDD
+
+### Por que testar?
+* Garantir que tudo vai estar funcionando;
+* **Projeto pequeno** (até 20 models/controllers) vs **Projeto grande** (mais de 20 models/controllers)
+
+* Exemplo:
+  * E-mail de boas-vindas exibe o endereço do usuário;
+  * Após um tempo, o usuário agora pode ter mais de um endereço;
+
+### Tipos de testes
+* Testes unitários
+  * Testam uma função mínima e pura, que não realiza efeitos colaterais como acessos a bancos ou integrações externas;
+* Testes de integração
+  * Os principais testes do back-end, testam funcionalidades completas como acesso à rotas até o retorno do controller;
+* Testes E2E
+  * Testes de interface que simulam o acesso do usuário;
+
+## TDD (Test Driven Development)
+* Criar o teste antes da funcionalidade;
+* Facilita visualização das regras de negócio;
+* **RED ❯ GREEN ❯ REFACTOR**
+  * RED: O teste vai falhar
+  * GREEN: O teste vai passar
+  * REFACTOR: A funcionalidade será refatorada
+
+### Code Coverage
+* O que testar? Testei o suficiente? Falta algo?
+* Code Covarega coleta informações das linhas de código que seus testes atuais não alcançaram;
