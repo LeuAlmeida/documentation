@@ -34,9 +34,10 @@ module.exports = {
 
 **Arquivo src/bootstrap.js**
 ```js
-import dotenv from 'dotenv';
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
+});
 
-dotenv.config({ path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env' });
 ```
 
 **Arquivos que importam o 'dotenv/config'**
