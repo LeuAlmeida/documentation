@@ -62,6 +62,9 @@ https://yarnpkg.com/lang/en/docs/install/#debian-stable
 
 ## Extras
 
+## JSON Viewer
+https://chrome.google.com/webstore/detail/json-viewer/
+
 ### Docker CE
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
