@@ -33,12 +33,14 @@ module.exports = {
 
   collectCoverageFrom: ['src/app/**/*.js'], // Pasta onde estão os arquivos a serem testados
 
+  coverageDirectory: '__tests__/coverage', // Pasta onde será renderizado os Coverages
+
   coverageReporters: ['text', 'lcov'],
 
-  testMatch: ['__tests__/**/*.test.js'],
+  testMatch: ['**/__tests__/**/*.test.js'], // Arquivos a serem testados
   
   transform: {
-    '.(js|jsx|ts|tsx)': '@sucrase/jest-plugin',
+    '.(js|jsx|ts|tsx)': '@sucrase/jest-plugin', // Permitir a sintaxe do ES6 ao invés do CommaJS
   },
   // ...
 }
