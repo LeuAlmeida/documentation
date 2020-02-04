@@ -77,8 +77,8 @@ class CancellationMail {
         date: format(appointment.date, "'dia' dd 'de' MMMM', às' H:mm'h'", {        // a fila para envio de
           locale: pt,                                                               // e-mail referente a
         }),                                                                         // um cancelamento.
-      },                                                                            //
-    });                                                                             //
+      },                                                                            
+    });                                                                             
   }
 }
 
