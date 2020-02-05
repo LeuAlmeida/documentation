@@ -33,7 +33,6 @@ Download do Node usando o Chocolatey:
 ```shell
 $ cinst nodejs
 ```
-
 https://github.com/nvm-sh/nvm
 
 ### Yarn
@@ -69,10 +68,17 @@ https://chrome.google.com/webstore/detail/json-viewer/
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
 https://docs.docker.com/docker-for-windows/install/
 
+#### PostgreSQL
+```shell
+$ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+```
+
+
 ### MongoDB Compass
 https://www.mongodb.com/products/compass
 
 ### Postbird (Postgres Client)
+
 https://electronjs.org/apps/postbird
 
 ### Insomnia
