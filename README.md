@@ -70,9 +70,8 @@ https://docs.docker.com/docker-for-windows/install/
 
 #### PostgreSQL
 ```shell
-$ docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+$ docker run --name [NOME DA BASE] -d POSTGRES_PASSWORD=[SENHA DO BANCO] -p [PORTA]:[PORTA] -d postgres
 ```
-
 
 ### MongoDB Compass
 https://www.mongodb.com/products/compass
