@@ -20,7 +20,7 @@ https://git-scm.com/downloads
 git clone  
 git config credential.helper store
 
-### Chocolatey
+### Chocolatey (windows)
 https://chocolatey.org/install  
 
 #### Manual de uso:  
@@ -67,6 +67,7 @@ https://chrome.google.com/webstore/detail/json-viewer/
 
 ### Docker CE
 https://docs.docker.com/install/linux/docker-ce/ubuntu/
+https://docs.docker.com/docker-for-windows/install/
 
 ### MongoDB Compass
 https://www.mongodb.com/products/compass
