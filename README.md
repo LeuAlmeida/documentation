@@ -30,13 +30,14 @@
 
 <h3>ToDo</h3>
 
-[ ] i18n EN  
-[ ] i18n DE  
-[ ] Gatsby Documentation  
-[ ] Next.js Documentation  
-[ ] ReactJS Introduction  
-[ ] First Steps Documentation
-[ ] Resolve `content` rightbar bug
+[ ] i18n EN;  
+[ ] i18n DE;  
+[ ] Gatsby Documentation;  
+[ ] Next.js Documentation;  
+[ ] ReactJS Introduction;  
+[ ] First Steps Documentation;  
+[ ] Resolve `content` rightbar bug;  
+[ ] Resolve console warnings;
 
 <hr />
 
