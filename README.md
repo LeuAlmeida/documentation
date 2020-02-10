@@ -37,7 +37,7 @@
 [ ] ReactJS Introduction;  
 [ ] First Steps Documentation;  
 [ ] Resolve `content` rightbar bug;  
-[ ] Resolve console warnings;
+[ ] Resolve console warnings;   
 
 <hr />
 
