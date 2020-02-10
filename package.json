@@ -59,7 +59,12 @@
     "build": "gatsby build --prefix-paths"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
     "gatsby-plugin-remove-trailing-slashes": "^2.1.17",
+    "husky": "^4.2.1",
     "prism-react-renderer": "^1.0.2"
   }
 }
