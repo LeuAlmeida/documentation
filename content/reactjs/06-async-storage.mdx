@@ -1,0 +1,42 @@
+---
+title: "Async Storage"
+metaTitle: "Async Storage com ReactJS"
+metaDescription: "Armazenamento em cache utilizando o Async Storage com ReactJS"
+---
+
+## Instalação
+
+```bash
+$ yarn add @react-native-community/async-storage
+```
+
+## Exemplo de armazenamento
+
+Importação:
+
+```js
+import AsyncStorage from '@react-native-community/async-storage';
+```
+
+Modelo de armazenamento no Async Storage:
+
+```js
+
+async componentDidMount() {
+  // Obtém os dados do Async Storage
+  const users = await AsyncStorage.getItem('users');
+
+    if (users) {
+      this.setState({ users: JSON.parse(users) });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    const { users } = this.state;
+
+    if (prevState.users !== users) {
+    // Seta os dados do Async Storage
+      AsyncStorage.setItem('users', JSON.stringify(users));
+    }
+  }
+```

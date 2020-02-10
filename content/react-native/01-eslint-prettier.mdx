@@ -1,0 +1,76 @@
+---
+title: "ESLint e Prettier"
+metaTitle: "ESLint e Prettier no React Native"
+metaDescription: "Configurações do ESLint e do Prettier em projetos React Native"
+---
+
+## ESlint
+
+Caso haja um arquivo **.eslintrc** previamente existente, deve-se remover este arquivo e instalar o ESLint rodando `$yarn add eslint -D`.
+
+Executar o comando o `$ yarn eslint --init`
+
+```bash
+? How would you like to use ESLint? # To check syntax, find problems, and enforce code style
+? What type of modules does your project use? # JavaScript modules (import/export)
+? Which framework does your project use? # React
+? Does your project use TypeScript? # No
+? Where does your code run? # NENHUM
+? How would you like to define a style for your project? # Use a popular style guide
+? Which style guide do you want to follow? # Airbnb: https://github.com/airbnb/javascript
+? What format do you want your config file to be in? # JavaScript
+```
+Apagar o package.lock.json e rodar o `$ yarn`
+
+## Prettier
+
+Instalar o prettier e demais dependências `$ yarn add prettier eslint-config-prettier eslint-plugin-prettier babel-eslint -D`
+
+**`Arquivo .eslintrc.js`**
+
+```js
+module.exports = {
+  env: {
+    es6: true,
+  },
+  extends: [
+    'airbnb',
+    'prettier',
+    'prettier/react'
+  ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    __DEV__: 'readonly'
+  },
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  plugins: [
+    'react',
+    'prettier'
+  ],
+  rules: {
+    'prettier/prettier': 'error',
+    'react/jsx-filename-extension': [
+      'warn',
+      { extensions: ['.jsx', '.js'] }
+    ],
+    'import/prefer-default-export': 'off',
+  },
+};
+```
+
+**`Arquivo .prettierrc`**
+
+```json
+{
+  "singleQuote": true,
+  "trailingComma": "es5"
+}
+```

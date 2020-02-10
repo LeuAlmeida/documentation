@@ -1,0 +1,69 @@
+---
+title: "React Router"
+metaTitle: "React Router"
+metaDescription: "Criação de rotas navegáveis no ReactJS com o React Router"
+---
+
+## Instalação
+
+Executar o comando
+
+```bash
+$ yarn add react-router-dom
+```
+
+Criação do arquivo **src/routes.js**
+
+Exemplo do modelo:
+```js
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
+import Main from './pages/Main';
+import Repository from './pages/Repository';
+
+export default function Routes() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Main} />
+        <Route path="/repository" component={Repository} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+```
+
+### Importação das rotas no src/App.js
+
+Exemplo:
+
+```js
+import React from 'react';
+
+import Routes from './routes';
+
+function App() {
+  return (
+    <>
+      <Routes />
+    </>
+  );
+}
+
+export default App;
+```
+
+### Usando links através das rotas
+
+Importação
+
+```js
+import { Link } from 'react-router-dom';
+```
+
+Uso das rotas
+
+```js
+<Link to="/repository">Caminho do Repositório</Link>
+```

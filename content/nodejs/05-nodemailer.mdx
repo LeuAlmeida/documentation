@@ -1,0 +1,141 @@
+---
+title: "Nodemailer"
+metaTitle: ""
+metaDescription: ""
+---
+
+## 1. 📩 Estrutura Funcional
+
+#### 1.1 Instalação
+```bash
+$ yarn add nodemailer
+```
+
+#### 1.2 Provedores de e-mail
+* Amazon SES **(o melhor)**
+* Mailgun
+* Sparkpost
+* Mandril (Mailchimp)
+* Mailtrap **(ambientes de desenvolvimento)**
+
+#### 1.3 Arquivo de configurações src/config/mail.js
+As informações abaixos, caso obtidos pelo **mailtrap** encontram-se em SMTP Settings
+
+```js
+export default {
+  host: '',           // Host do e-mail.        Exemplo: smtp.mailtrap.io
+  port: '',           // Porta do e-mail.       Padrão: 2525
+  secure: false,      // Segurança do e-mail.
+  auth: {             // Login para autenticar
+    user: '',
+    pass: '',
+  },
+  default: {
+    from: 'Equipe GoBarber <noreply@gobarber.com>',
+  },
+};
+```
+#### 1.4 Arquivo de configurações src/lib/Mail.js
+Arquivo de configurações gerais do NodeMailer
+
+```js
+import nodemailer from 'nodemailer';
+import mailConfig from '../config/mail';
+
+class Mail {
+  constructor() {
+    const { host, port, secure, auth } = mailConfig;
+
+    this.transporter = nodemailer.createTransport({
+      host,
+      port,
+      secure,
+      auth: auth.user ? auth : null,
+    });
+  }
+
+  sendMail(message) {
+    return this.transporter.sendMail({
+      ...mailConfig.default,
+      ...message,
+    });
+  }
+}
+
+export default new Mail();
+```
+
+#### 1.5 Importação do Mail.js nos Controllers (exemplo)
+```js
+import Mail from '../../lib/Mail';        // Importação da lib Mail
+
+await Mail.sendMail({
+      to: `${appointment.provider.name} <${appointment.provider.email}>`,
+      subject: 'Agendamento cancelado',
+      // O text é para enviar apenas um texto.
+      text: 'Você tem um novo cancelamento.',
+      // Caso utilizar o nodemailer hbs, utilizar OS DOIS métodos abaixo.
+      template: 'cancellation', // Não utiliza o .hbs
+      context: {
+        provider: appointment.provider.name,
+        user: appointment.user.name,
+        date: format(appointment.date, "'dia' dd 'de' MMMM', às' H:mm'h'", {
+          locale: pt,
+        }),
+      },
+    });
+```
+
+## 2. 💅 Template Engines com HBS para o corpo do e-mail
+
+#### 2.1 Instalação
+```bash
+$ yarn add express-handlebars nodemailer-express-handlebars
+```
+
+#### 2.2 Integração com o src/lib/Mail.js
+
+Importações
+```js
+import { resolve } from 'path';
+import exphbs from 'express-handlebars';
+import nodemailerhbs from 'nodemailer-express-handlebars';
+```
+
+Chamada dentro do método **constructor()**
+```js
+this.configureTemplates();
+```
+
+Chamada fora do método **constructor()**
+```js
+configureTemplates() {
+    const viewPath = resolve(__dirname, '..', 'app', 'views', 'emails');
+
+    this.transporter.use(
+      'compile',
+      nodemailerhbs({
+        viewEngine: exphbs.create({
+          layoutsDir: resolve(viewPath, 'layouts'),
+          partialsDir: resolve(viewPath, 'partials'),
+          defaultLayout: 'default',
+          extname: '.hbs',
+        }),
+        viewPath,
+        extName: '.hbs',
+      })
+    );
+  }
+```
+
+#### 2.3 Configurações do Nodemailer Express Handlebars
+Criação e estrutura de pastas para configurações do layout:
+
+* src
+  * app
+    * views
+      * emails
+        * layouts
+          * **default.hbs** <- Arquivo  de layout default
+        * partials
+        * **cancellation.hbs** <- Arquivo de e-mail para cancelamentos *(exemplo)*

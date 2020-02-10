@@ -1,0 +1,66 @@
+---
+title: "Json Web Token (JWT)"
+metaTitle: ""
+metaDescription: ""
+---
+
+# 🔒 Autenticação JWT
+
+POST http://api.com/sessions
+
+```json
+{
+  "email": "leo@webid.net.br",
+  "password": "123456
+}
+```
+
+### Token JWT
+`EySAJDOSDJBASDdKNSDKNASJDBVOKKmsdj.2564DFAsdXX852nasdSMDKSNAMD.KMASDJBASDASKDASNDVJSD23123JNDMV79`
+
+* Primeira parte: **Headers (tipo de token, algorítmo)**
+* Segunda parte: **Payload (Dados adicionais)**
+* Terceira parte: **Assinatura**
+
+Instalar a dependência:
+
+```shell
+$ yarn add jsonwebtoken
+```
+
+**`Arquivo src/config/auth.js`**
+```js
+export default {
+  secret: 'CHAVE SECRETA GERADA COM MD5 ONLINE',
+  expiresIn: '7d',
+};
+```
+
+**`Arquivo src/app/middlewares/auth.js`**
+```js
+import jwt from 'jsonwebtoken';
+import { promisify } from 'util';
+
+import authConfig from '../../config/auth';
+
+export default async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({ error: 'Token not provided.' });
+  }
+
+  const [, token] = authHeader.split(' ');
+
+  try {
+    const decoded = await promisify(jwt.verify)(token, authConfig.secret);
+
+    req.userId = decoded.id;
+
+    return next();
+
+  } catch (err) {
+    return res.status(401).json({ error: 'Token invalid.' });
+  }
+};
+```
