@@ -148,7 +148,7 @@ const SidebarLayout = ({location}) => (
               edges={allMdx.edges}
             />
             <Divider />
-            <Colaborators>Colaboradores</Colaborators>
+            {/* <Colaborators>Colaboradores</Colaborators> */}
             {config.sidebar.links.map((link, key) => {
               if (link.link !== '' && link.text !== '') {
                 return (
