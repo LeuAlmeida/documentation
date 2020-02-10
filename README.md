@@ -27,3 +27,10 @@
   <a href="#-contributing">Contributing</a> •
   <a href="#memo-license">License</a> -->
 </p>
+
+<h3 align="center">Contributors</h3>
+<p align="center">
+<a href="https://github.com/leualmeida/documentation/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=leualmeida/documentation" />
+</a>
+</p>
