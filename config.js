@@ -1,13 +1,13 @@
 const config = {
   gatsby: {
-    pathPrefix: "/docs/",
-    siteUrl: "https://leunardo.dev/docs",
+    pathPrefix: "",
+    siteUrl: "https://docs.leunardo.dev",
     gaTrackingId: null
   },
   header: {
     logo:
       "https://leunardo.dev/docs/assets/img/icon.png",
-    logoLink: "https://leunardo.dev/docs",
+    logoLink: "https://docs.leunardo.dev",
     title: "GoStack Documentation",
     githubUrl: "https://github.com/LeuAlmeida/documentation",
     helpUrl: "https://github.com/LeuAlmeida/documentation/issues",
