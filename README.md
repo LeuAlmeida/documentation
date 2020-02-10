@@ -28,6 +28,18 @@
   <a href="#memo-license">License</a> -->
 </p>
 
+<h3>ToDo</h3>
+
+[ ] i18n EN  
+[ ] i18n DE  
+[ ] Gatsby Documentation  
+[ ] Next.js Documentation  
+[ ] ReactJS Introduction  
+[ ] First Steps Documentation
+[ ] Resolve `content` rightbar bug
+
+<hr />
+
 <h3 align="center">Contributors</h3>
 <p align="center">
 <a href="https://github.com/leualmeida/documentation/graphs/contributors">
