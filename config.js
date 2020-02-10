@@ -6,7 +6,7 @@ const config = {
   },
   header: {
     logo:
-      "http://leunardo.dev/docs/assets/img/icon.png",
+      "https://leunardo.dev/docs/assets/img/icon.png",
     logoLink: "https://leunardo.dev/docs",
     title: "GoStack Documentation",
     githubUrl: "https://github.com/LeuAlmeida/documentation",
