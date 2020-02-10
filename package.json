@@ -4,6 +4,17 @@
   "description": "Documentation, built with mdx",
   "author": "Praveen <praveen@hasura.io> (@praveenweb)",
   "version": "0.0.1",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.7.4",
     "@emotion/core": "^10.0.22",
