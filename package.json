@@ -4,17 +4,6 @@
   "description": "Documentation, built with mdx",
   "author": "Praveen <praveen@hasura.io> (@praveenweb)",
   "version": "0.0.1",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.7.4",
     "@emotion/core": "^10.0.22",
@@ -70,12 +59,7 @@
     "build": "gatsby build --prefix-paths"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "^3.1.0",
     "gatsby-plugin-remove-trailing-slashes": "^2.1.17",
-    "husky": "^4.2.1",
     "prism-react-renderer": "^1.0.2"
   }
 }
