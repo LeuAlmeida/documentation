@@ -1,16 +1,16 @@
 const config = {
   gatsby: {
     pathPrefix: "/docs/",
-    siteUrl: "https://leunardo.dev",
+    siteUrl: "https://leunardo.dev/docs",
     gaTrackingId: null
   },
   header: {
     logo:
-      "https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/favicon.png",
+      "http://leunardo.dev/docs/assets/img/icon.png",
     logoLink: "https://leunardo.dev/docs",
     title: "GoStack Documentation",
     githubUrl: "https://github.com/LeuAlmeida/documentation",
-    helpUrl: "https://github.com/LeuAlmeida/documentation/issues/new",
+    helpUrl: "https://github.com/LeuAlmeida/documentation/issues",
     tweetText: "",
     links: [{ text: "", link: "" }],
     search: {
