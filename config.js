@@ -25,8 +25,8 @@ const config = {
     forcedNavOrder: ["/utils", "/introduction", "/nodejs", "/reactjs", "/react-native", "/flux", "/websocket", "/tests"],
     collapsedNav: ["/utils", "/nodejs", "/reactjs", "/react-native", "/flux", "/websocket", "/tests"],
     links: [
-      { text: "Léu Almeida", link: "https://leunardo.dev" },
-      { text: "Thiago Tamosauskas", link: "https://github.com/TTamosauskas" }
+      // { text: "Léu Almeida", link: "https://leunardo.dev" },
+      // { text: "Thiago Tamosauskas", link: "https://github.com/TTamosauskas" }
     ],
     frontline: false,
     ignoreIndex: true
