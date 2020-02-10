@@ -1,0 +1,305 @@
+---
+title: "Deploy"
+metaTitle: "Deploy no Node.js"
+metaDescription: "Passo a passo para realizar o deploy de uma aplicação Node.js ou Express"
+---
+
+# 1. Criação do Servidor
+
+## Digital Ocean
+
+* Create Droplet
+  * Marketplace
+  * Docker
+  * Standard
+  * $ 5/mo
+  * New York
+* SSH keys
+  * New SSH Key
+    * No Linux, executar:
+    ```bash
+    $ ssh-keygen
+    # ou acessar
+    $ cd ~/.ssh/
+    ```
+    * Acessar o **id_rsa.pub** rodando o:
+    ```bash
+    $ cat id_rsa.pub
+    ```
+    * Copiar todo o conteúdo
+    * Colar na SSH Keys da Digital Ocean e setar um nome
+    * Após salvar, selecionar a chave
+* Choose a hostname com o nome do servidor
+* Create Droplet
+
+# 2. Configuração do Servidor
+
+## Acesso
+
+Para acessar o servidor criado, basta digitar o comando:
+```bash
+$ ssh root@IPDIGITALOCEAN
+```
+Caso utilizado o SSH Key não pedirá senha.
+
+## Passo a passo para configuração do servidor
+
+Atualizar o servidor
+```bash
+$ apt update
+```
+
+Dar upgrade no servidor
+```bash
+$ apt upgrade
+```
+
+Criar um novo usuário com e definir uma senha para ele na squência.
+```bash
+$ adduser deploy
+```
+
+Dar poder de administrador para o usuário
+```bash
+$ usermod -aG sudo deploy
+```
+
+Criar pasta SSH do usuário *deploy*
+```bash
+$ cd /home/deploy && mkdir .ssh
+```
+
+Permitir acesso por esse usuário
+```bash
+$ cp ~/.ssh/authorized_keys /home/deploy/.ssh
+```
+
+Alterar propritário do authorized_keys de root para deploy
+```bash
+$ chown deploy:deploy /home/deploy/.ssh/authorized_keys
+```
+
+Testar executando **`$ exit`** e na sequência acessando:
+```bash
+$ ssh deploy@IPDIGITALOCEAN
+```
+
+## Instalação do Node
+
+* Acessar o site https://nodejs.org/en/
+* Em **Other Downloads** selecionar a opção **Installing Node.js via package manager** e selecionar a opção **Ubuntu**, onde levará para um link externo.
+* Neste link externo, procurar pela versão LTS (10.x), onde deve-se copiar o código e colar no SSH.
+* Executar o comando:
+```bash
+$ sudp apt-get install -y nodejs
+```
+* Testar a instalação com **`$ node -v`** e **`$ npm -v`**
+
+# 3. Clonando a Aplicação
+
+* Clonar a aplicação no servidor
+* Entrar na pasta da aplicação e rodar:
+```bash
+$ npm install
+```
+* Configurar as variáveis ambientes rodando:
+```bash
+$ cp .env.example .env && $ nano .env
+```
+* Em *APP_URL*, o localhost deve virar o IP da máquina
+
+# 4. Criando Serviços
+
+## Docker
+
+Na DigitalOcean, ao selecionar o Docker no marketplace, ele já deve vir instalado. Entretanto, necessita permissões de *sudo*. Para solucionar isso, deve-se seguir os seguintes passos:
+
+```bash
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+```
+* Deslogar e logar novamente
+
+**Feito isso, todos os comando Docker Run podem ser executados.**
+
+## PostgreSQL
+
+Para criar o banco de dados do PostgreSQL sem utilizar o Postbird, deve-se seguir os seguintes passos:
+
+```bash
+$ docker exec -i -t NOMEDOCONTAINER /bin/sh
+$ su postgres
+$ psql
+$ CREATE DATABASE nomedadatabase
+$ \q
+$ exit
+$ exit
+```
+
+
+# 5. Rodando o Servidor
+
+## Gerando a build da aplicação
+
+No arquivo **package.json** (em ambiente de desenvolvimento, fora do servidor) deve-se adicionar os scripts *build* e *start*:
+
+```json
+{
+  // ...
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms import",
+    "start": "node dist/server.js"
+  },
+  // ...
+}
+```
+
+Testar executando o comando `$ yarn build` no ambiente de desenvolvimento
+
+Adicionar a pasta **dist** no arquivo `.gitignore`
+
+Dar um `$ git push` no ambiente de desenvolvimento e um `$ git pull` no ambiente de produção.
+
+## Firewall do Servidor
+
+Para acessar a porta requisitada, é necessário Liberando a porta utlizada na aplicação rodando o comando:
+
+```bash
+$ sudo ufw allow 3333
+```
+
+## Sequelize
+
+Os comandos para executar migrations e seeders do Sequelize em ambiente de produção utilizam o **NPX**.
+
+Exemplo:
+
+```bash
+$ npx sequelize db:migrate
+```
+
+# 6. Dicas do SSH
+
+## Encerrar uma porta
+
+1. Rodar o comando `$ lsof -i :3333` para obter o ID daquela porta
+
+2. Copiar o **PID** e executar o comando `$ kill -9 NUMERODOPID`
+
+## Setar timeout ilimitado
+
+1. Acessar à pasta `$ cd /etc/ssh` e editar o arquivo `$ sudo nano sshd_config`
+
+2. Incluir as configurações abaixo no final do arquivo:
+
+```zsh
+ClientAliveInterval 30
+TCPKeepAlive yes
+ClientAliveCountMax 99999
+```
+
+3. Reiniciar o serviço do SSH rodando `$ sudo service sshd restart`
+
+4. Sair e voltar do servidor
+
+# 7. Configurando o NGINX
+
+## Instalação
+
+1. Executar o comando `$ sudo apt install nginx`
+
+## Configuração
+
+1. Acessar a pasta `$ cd /etc/nginx/sites-available` e editar o arquivo `$ nano default`
+
+2. Remover os comentários
+
+3. Manter o **location / { ...** da seguinte forma:
+
+```zsh
+location / {
+  proxy_pass http://localhost:3333;
+  proxy_http_version 1.1;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection 'upgrade';
+  proxy_set_header Host $host;
+  proxy_cache_bypass $http_upgrade;
+}
+```
+
+Reiniciar o NGINX
+```bash
+$ sudo service nginx restart
+```
+
+# 8. Utilizando o PM2
+
+## Instalação
+
+A instalação é feita de forma global utilizando o comando `$ sudo npm install -g pm2`
+
+## Criação de um Serviço
+
+Para criar um serviço monitorado pelo PM2 deve-se executar o comando `$ pm2 start /home/deploy/umesp.api/dist/serr.js --name umesp.api`
+
+## Manter o PM2 rodando quando reiniciado
+
+Para manter o sistema do PM2 rodando mesmo quando reiniciado, deve-se rodar o comando `$ pm2 startup systemd` e com o retorno *sudo env PATH=$PATH.......* deve ser colado este código no SSH.
+
+## Comandos úteis do PM2
+
+Listar aplicações: `$ pm2 list` <br/>
+Visualizar monitor de logs: `$ pm2 monit` <br/>
+Parar um serviço: `$ pm2 stop <ID ou NOME>` <br/>
+Reiniciar um serviço `$ pm2 restart <ID ou NOME>`
+
+# 9. Integração Contínua
+
+### Buddy.works
+
+1. Criar um novo projeto
+
+2. Sincronizar com o repositório
+
+3. Criação da pipeline
+
+  3.1. Nomear
+
+  3.2. On push
+
+  3.3. Add new pipeline
+
+4. Pesquisar por `DigitalOcean` e selecionar a opção Droplet
+
+5. Setup:
+
+  5.1. Github Repository
+
+  5.1. Source path: /
+
+  5.2. Logar com a conta da DigitalOcean e selecionar o Droplet
+
+  5.3. Selecionar o login `deploy`
+
+  5.4. O `authentication mode` é Buddy's SSH Key
+
+  5.5. O código deve ser colado dentro do servidor
+
+  5.6. O `remote path` é o caminho em que está a aplicação. Exemplo: `~/mail.sender.api`
+
+6. `Execute SSH Commands on a remote server`
+
+  6.1. Colar os comandos SSH. Exemplo:
+
+```bash
+$ npm run build
+$ pm2 restart umesp.api
+```
+  6.2. em `Hostname & Port` entrará o IP da DigitalOcean
+
+  6.3. em login será `deploy`
+
+  6.4. O `Authentication mode` é Buddy's SSH Key
+
+  6.5 O `Working directory` será o mesmo caminho da aplicação `~/umesp.api`

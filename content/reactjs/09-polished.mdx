@@ -1,0 +1,33 @@
+---
+title: "Polished"
+metaTitle: "Polished com Styled Components no ReactJS"
+metaDescription: ""
+---
+
+## O que é
+
+Pacote que lida com cores no JavaScript (muito utilizado com [Styled Components](./styled-components))
+
+## Instalação
+
+```bash
+$ yarn add polished
+```
+
+## Escurecendo de cores
+
+Exemplo de um styled component
+
+**Importação**
+
+```js
+import { darken } from 'polished';
+```
+
+**Polished na prática (darken)**
+
+```js
+&:hover {
+  background: ${darken(0.03, '#7159c1')};
+}
+```

@@ -1,0 +1,75 @@
+---
+title: "Node.js"
+metaTitle: "Introdução ao Node.js"
+metaDescription: ""
+---
+
+## Express
+O express é uma lib do NodeJS que executa possibilidades incríveis como servidor.
+
+```javascript
+const express = require('express')
+```
+Importa o *express* para dentro do backend. O Express retorna uma função, portanto:
+
+```javascript
+const server = express();
+```
+Para chamar a função retornada pelo Express. O server é uma *instância do express*
+
+```javascript
+server.use(express.json())
+```
+Para autorizar o uso de dados *.json* pelo epxress
+
+```javascript
+server.listen(3000);
+```
+Fará com que server (função importada através do express) ouça a porta 3000. Geralmente inserida no final do código *index.js*
+
+
+## Nodemon e Sucrase
+O nodemon serve para atualizar automaticamente a aplicação, quando for salva. Instalar a dependência apenas no ambiente de desenvolvimento:
+
+```shell
+$ yarn add nodemon sucrase -D
+```
+
+<hr/>
+
+## Exemplo básico de rotas
+
+```javascript
+import { Router } from 'express';   // Importa as rotas do Express
+
+const routes = new Router();        // Cria uma instância de rotas
+
+routes.get('/', (req, res) => {
+  return res.json({ message: 'Hello World '});
+});
+
+export default routes;              // Exporta as rotas usando o Sucrase
+```
+
+<hr/>
+
+## Arquivo nodemon.json
+
+```javascripton
+{
+  "execMap": {
+    "js": "node -r sucrase/register"
+  }
+}
+```
+
+## Scripts do Nodemon
+
+
+```javascripton
+// ...
+"scripts": {
+  "dev": "nodemon src/server.js"
+},
+// ..
+```

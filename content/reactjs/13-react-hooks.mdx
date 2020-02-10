@@ -1,0 +1,172 @@
+---
+title: "React Hooks"
+metaTitle: "React Hooks"
+metaDescription: "Praticidade e performance utilizando os React Hooks"
+---
+
+## Introdução
+
+### ESLInt para utilização dos React Hooks
+
+**Instalação do plugin**
+
+```shell
+$ yarn add eslint-plugin-react-hooks -D
+```
+
+**`Arquivo .eslintrc`**
+
+Adicionar em **plugins** a linha *react-hooks* (depois do prettier):
+
+```js
+plugins: [
+    'react',
+    'prettier',
+    'react-hooks'
+  ],
+```
+
+Adicionar em **rules** as linhas:
+
+```js
+'react-hooks/rules-of-hooks': 'error',
+'react-hooks/exhaustive-deps': 'warn'
+```
+
+## useState
+
+### Explicação
+
+Este Hook possibilita a criação de estados em *componentes funcionais*.
+
+### Exemplo de useState
+
+```js
+import React, { useState } from 'react';
+
+// ...
+
+const [tech, setTech] = useState([
+    'ReactJS',
+    'React Native',
+    'Node.JS'
+  ]);
+// No array:
+// Primeira posição = Estado
+// Segunda posição = Função para atualizar as informações do estado
+
+// ...
+```
+
+### Exemplo de setState
+
+```js
+function handleAdd() {
+  setTech([...tech, 'Node.js']); // Função que seta o estado de Techs
+}                                // com o estado anterior (...techs) + a tecnologia Node.js
+
+// ...
+
+  <button type="button" onClick={handleAdd}> { /* Chama a função de adicionar tecnologia ao clicar */ }
+    Adicionar
+  </button>
+```
+
+## useEffect
+
+O useEffect é um efeito a ser executado em determinado momento do ciclo de vida da aplicação. Ele é escrito da seguinte forma:
+
+```js
+useEffect(() => {}, []);
+
+// Explicação:
+// () => {} é uma função que será executada
+// [] é o array que determina quando esse useEffect deve ser executado
+```
+
+## useMemo
+
+O useMemo serve para realizar cálculos ou verificações apenas quando uma variável sofrer alterações.
+
+### Exemplo do uso
+
+No exemplo abaixo, o `techSize` será modificado apenas quando a variável `tech` sofrer alterações, obtendo assim as informações contidas em `tech.length`.
+
+```js
+const techSize = useMemo(() => tech.length, [tech]);
+```
+
+## useCallback
+
+O `useCallback` é semelhante ao **useMemo**, mas ao invés de retornar um único valor, ele retorna uma função.
+
+### Exemplo de uma função que se torna um hook de useCallback
+
+**handleAdd anterior**
+```js
+function handleAdd() {
+  setTech([...tech, newTech]);
+  setNewTech('');
+}
+```
+
+**handleAdd utilizando o useCallback**
+```js
+const handleAdd = useCallback(() => { // Uma variável utilizando o useCallback que retorna uma função
+  setTech([...tech, newTech]);
+  setNewTech('');
+}, [newTech, tech]); // Array de dependências passando as novas tecnologias vindas do input como primeiro índice e as tecnologias no segundo índice do array
+```
+
+Com essas alterações, o estado não será montado toda vez que houver uma alteração, o que otimiza a performance da aplicação.
+
+
+## Hooks + Redux
+
+### Connect -> useSelector
+
+No Redux, é possível transformar propriedades como o `connect` em Hooks com o `useSelector`
+
+**Antes, com o connect**
+```js
+import { connect } from 'react-redux';
+
+// ...
+
+export default connect(state => ({
+  cartSize: state.cart.length,
+}))(Header);
+```
+
+**Exemplo utilizando o useSelector**
+```js
+import { useSelector } from 'react-redux';
+
+// ...
+
+export default function Header() {
+  const cartSize = useSelector(state => state.cart.length);
+
+// ...
+```
+
+### dispatch -> useDispatch
+
+**Antes, com o dispatch**
+```js
+function handleAddProduct(id) {
+    addToCartRequest(id);
+```
+
+**Utilizando o useDispatch**
+```js
+// Importação do useDispatch
+import { useDispatch } from 'react-redux'
+
+// No escopo da função do componente
+const dispatch = useDispatch();
+
+// Adicionando o dispatch à função anterior
+function handleAddProduct(id) {
+    dispatch(CartActions.addToCartRequest(id));
+```

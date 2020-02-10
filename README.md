@@ -1,98 +1,49 @@
-# :computer: Utilitários para Desenvolver
+<p align="center">
+  <img src="./assets/img/icon.svg" alt="A illustration of file that is the @rocketseat/gatsby-theme-docs logo" width="100">
+</p>
 
-## :x: Dependências para Desenvolvimento em NodeJS
+<h2 align="center">
+  GoStack Documentation
+</h2>
 
-### VScode
-https://code.visualstudio.com/download
+<p align="center">
+  A compilation of some knowledge obtained <a href="https://leunardo.dev">by me</a> over the course of some years of studies.
+</p>
 
-#### Extensões
-- Color Highlight
-- Dracula Official
-- Live Server
-- Material Icons
-- Prettier
-- Rocketseat Extensions
-- ESlint
-- EditorConfig for VS Code
+<p align="center">
+  <img src="https://img.shields.io/badge/PRs-welcome-%237159c1.svg" alt="PRs welcome!" />
 
-### GIT
-https://git-scm.com/downloads  
-git clone  
-git config credential.helper store
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-%237159c1">
 
-### Chocolatey (windows)
-https://chocolatey.org/install  
+  <a href="https://leunardo.dev">
+    <img alt="Made by Léu Almeida" src="https://img.shields.io/badge/made%20by-Léu%20Almeida-%237159c1">
+  </a>
+</p>
 
-#### Manual de uso:  
-https://jcutrer.com/windows/install-chocolatey-choco-windows10
+<p align="center">
+  <!-- <a href="#-features">Features</a> •
+  <a href="#%EF%B8%8F-getting-started">Getting started</a> •
+  <a href="#-docs">Docs</a> •
+  <a href="#-contributing">Contributing</a> •
+  <a href="#memo-license">License</a> -->
+</p>
 
-### NodeJS (NVM)
+<h3>ToDo</h3>
 
-Download do Node usando o Chocolatey:
+[ ] i18n EN;  
+[ ] i18n DE;  
+[ ] Gatsby Documentation;  
+[ ] Next.js Documentation;  
+[ ] ReactJS Introduction;  
+[ ] First Steps Documentation;  
+[ ] Resolve `content` rightbar bug;  
+[ ] Resolve console warnings;   
 
-```shell
-$ cinst nodejs
-```
-https://github.com/nvm-sh/nvm
+<hr />
 
-### Yarn
-
-Download do Yarn usando o Chocolatey:
-
-```shell
-choco install yarn
-```
-
-Link de download do Yarn (Debian)  
-https://yarnpkg.com/lang/en/docs/install/#debian-stable
-
-
-## Terminal Personalizado
-*Acompanhar em: https://blog.rocketseat.com.br/terminal-com-oh-my-zsh-spaceship-dracula-e-mais/*
-
-- Zsh: https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH
-- Oh My Zsh: https://ohmyz.sh/
-- Dracula: https://draculatheme.com/
-- Oh My Zsh Spaceship: https://github.com/denysdovhan/spaceship-prompt#oh-my-zsh
-
-
-<hr/>
-
-
-## Extras
-
-## JSON Viewer
-https://chrome.google.com/webstore/detail/json-viewer/
-
-### Docker CE
-https://docs.docker.com/install/linux/docker-ce/ubuntu/
-https://docs.docker.com/docker-for-windows/install/
-
-#### PostgreSQL
-```shell
-$ docker run --name [NOME DA BASE] -d POSTGRES_PASSWORD=[SENHA DO BANCO] -p [PORTA]:[PORTA] -d postgres
-```
-
-### MongoDB Compass
-https://www.mongodb.com/products/compass
-
-### Postbird (Postgres Client)
-
-https://electronjs.org/apps/postbird
-
-### Insomnia
-https://insomnia.rest/
-
-### Dev Docs
-https://devdocs.egoist.moe/
-
-
-
-## Dependências para o ReactJS
-
-Incoming...
-
-## Dependências para o React Native
-
-### Template Rocketseat React Native
-https://github.com/Rocketseat/react-native-template-rocketseat-basic
+<h3 align="center">Contributors</h3>
+<p align="center">
+<a href="https://github.com/leualmeida/documentation/graphs/contributors">
+  <img src="https://contributors-img.firebaseapp.com/image?repo=leualmeida/documentation" />
+</a>
+</p>

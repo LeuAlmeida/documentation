@@ -1,0 +1,115 @@
+---
+title: "Redux + Reactotron"
+metaTitle: "Redux + Reactotron"
+metaDescription: "Conectando o Reactotron com o Redux e Redux Saga"
+---
+
+## Instalação
+
+**Instalação da versão desktop:**
+
+https://github.com/infinitered/reactotron/releases (Arquivo .deb)
+
+**Instalação no projeto**
+
+```bash
+$ yarn add reactotron-react-js reactotron-redux
+```
+
+**`Arquivo src/config/ReactotronConfig.js`**
+
+```js
+import Reactotron from 'reactotron-react-js';
+import { reactotronRedux } from 'reactotron-redux';
+
+if (process.env.NODE_ENV === 'development') {
+  const tron = Reactotron.configure()
+    .use(reactotronRedux())
+    .connect();
+
+  tron.clear();
+
+  console.tron = tron;
+}
+```
+
+**Remoção do erro de console no .eslintrc.js**
+
+```js
+'no-console': ["error", { allow: ["tron"]}]
+```
+
+## Configurações
+
+**Importação (após as importações de módulos) do Reactotron no arquivo src/App.js**
+
+```js
+import './config/ReactotronConfig';
+```
+
+**`Arquivo src/store/index.js`**
+
+Alterações no store e adição da variável enhancer:
+
+```js
+const enhancer =
+  process.env.NODE_ENV === 'development' ? console.tron.createEnhancer() : null;
+
+const store = createStore(rootReducer, enhancer);
+```
+
+## Redux Saga + Reactotron
+
+**Mudanças no enhancer do arquivo src/store/index.js (também anotado no arquivo redux-saga.md)**
+
+```js
+const enhancer =
+  process.env.NODE_ENV === 'development'
+    ? compose(console.tron.createEnhancer(), applyMiddleware(sagaMiddleware))
+    : applyMiddleware(sagaMiddleware);
+```
+
+### Instalação
+
+```bash
+$ yarn add reactotron-redux-saga
+```
+
+### Configurações
+
+**`Arquivo src/config/ReactotronConfig.js`**
+
+Importação do reactotronSaga
+
+```js
+import reactotronSaga from 'reactotron-redux-saga';
+```
+
+Uso do reactotronSaga na variável *tron*
+
+```js
+if (process.env.NODE_ENV === 'development') {
+  const tron = Reactotron.configure()
+    .use(reactotronRedux())
+    .use(reactotronSaga())
+    .connect();
+
+  tron.clear();
+
+  console.tron = tron;
+}
+```
+
+**`Arquivo src/store/index.js`**
+
+Criação da variável `sagaMonitor` em ambientes de desenvolvimento e configurando ele no `createSagaMiddleware()`.
+
+```js
+const sagaMonitor =
+  process.env.NODE_ENV === 'development'
+    ? console.tron.createSagaMonitor()
+    : null;
+const sagaMiddleware = createSagaMiddleware({
+  sagaMonitor,
+});
+```
