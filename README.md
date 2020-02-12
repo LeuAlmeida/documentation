@@ -7,7 +7,7 @@
 </h2>
 
 <p align="center">
-  A compilation of some knowledge obtained <a href="https://leunardo.dev">by me</a> over the course of some years of studies.
+  A compilation of some knowledge obtained by me over the course of some years of studies.
 </p>
 
 <p align="center">
