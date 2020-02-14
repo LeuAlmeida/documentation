@@ -6,7 +6,7 @@ const config = {
   },
   header: {
     logo:
-      "https://leunardo.dev/docs/assets/img/icon.png",
+      "src/icon.png",
     logoLink: "https://docs.leunardo.dev",
     title: "Stack.mdx Documentation",
     githubUrl: "https://github.com/LeuAlmeida/documentation",
