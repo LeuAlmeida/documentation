@@ -34,7 +34,7 @@ const config = {
   siteMetadata: {
     title: "Stack.mdx Documentation",
     description: "Documentation built with mdx. Powering leunardo.dev ",
-    ogImage: null,
+    ogImage: "https://leunardo.dev/docs/site-preview.jpeg",
     docsLocation:
       "https://github.com/LeuAlmeida/documentation/tree/master/content",
     favicon: "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
