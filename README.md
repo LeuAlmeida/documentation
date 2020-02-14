@@ -30,6 +30,7 @@
 
 <h3>ToDo</h3>
 
+[ ] Collapse navbar;  
 [ ] i18n EN;  
 [ ] i18n DE;  
 [ ] Next.js Documentation;  
