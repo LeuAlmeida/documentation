@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./assets/img/icon.svg" alt="A illustration of file that is the @rocketseat/gatsby-theme-docs logo" width="100">
+  <img src="./src/logo.png" alt="A illustration of file that is the @rocketseat/gatsby-theme-docs logo" width="250">
 </p>
 
 <h2 align="center">
-  GoStack Documentation
+  Stack.mdx Documentation
 </h2>
 
 <p align="center">
@@ -30,13 +30,13 @@
 
 <h3>ToDo</h3>
 
-[ ] Collapse navbar;  
-[ ] i18n EN;  
-[ ] i18n DE;  
-[ ] Next.js Documentation;  
-[ ] ReactJS Introduction;  
-[ ] First Steps Documentation;  
-[ ] Resolve console warnings;   
+* [ ] Collapse navbar;  
+* [ ] i18n EN;  
+* [ ] i18n DE;  
+* [ ] Next.js Documentation;  
+* [ ] ReactJS Introduction;  
+* [ ] First Steps Documentation;  
+* [ ] Resolve console warnings;   
 
 <hr />
 
