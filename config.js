@@ -8,7 +8,7 @@ const config = {
     logo:
       "https://leunardo.dev/docs/assets/img/icon.png",
     logoLink: "https://docs.leunardo.dev",
-    title: "GoStack Documentation",
+    title: "Stack.mdx Documentation",
     githubUrl: "https://github.com/LeuAlmeida/documentation",
     helpUrl: "https://github.com/LeuAlmeida/documentation/issues",
     tweetText: "",
@@ -32,7 +32,7 @@ const config = {
     ignoreIndex: true
   },
   siteMetadata: {
-    title: "GoStack Documentation",
+    title: "Stack.mdx Documentation",
     description: "Documentation built with mdx. Powering leunardo.dev ",
     ogImage: null,
     docsLocation:
@@ -42,8 +42,8 @@ const config = {
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
-      name: "Gatsby Gitbook Starter",
-      short_name: "GitbookStarter",
+      name: "Stack.mdx Documentation",
+      short_name: "Stackmdx",
       start_url: "/",
       background_color: "#6b37bf",
       theme_color: "#6b37bf",
@@ -51,7 +51,7 @@ const config = {
       crossOrigin: "use-credentials",
       icons: [
         {
-          src: "src/pwa-512.png",
+          src: "src/icon.png",
           sizes: `512x512`,
           type: `image/png`
         }
