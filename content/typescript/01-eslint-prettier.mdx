@@ -1,0 +1,101 @@
+---
+title: "ESLint e Prettier"
+metaTitle: "ESLint e Prettier no NodeJS"
+metaDescription: "Configurações do ESLint e do Prettier em projetos Node.js"
+---
+
+## Instalações
+
+Comandos de instalações em ambiente de desenvolvimento:
+
+```shell
+$ yarn add prettier eslint eslint-config-airbnb-base eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+```
+
+## ESLint
+
+Arquivo de configurações (exemplo usando `.json`) **.eslintrc.json**
+
+```json
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-await-in-loop": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error", 
+      {
+        "devDependencies": [
+          "**/*.spec.ts",
+          "src/utils/tests/*.ts"
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  "settings": {
+    "import/extensions": [".ts", ".js"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".js"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
+  }
+}
+```
+
+## Prettier
+
+Arquivo de configurações **`prettier.config.js`**
+
+```js
+module.exports = {
+  singleQuote: true,
+  trailingComma: 'all',
+  arrowParens: 'avoid',
+};
+```
