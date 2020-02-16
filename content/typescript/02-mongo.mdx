@@ -1,0 +1,59 @@
+---
+title: "MongoDB"
+metaTitle: "MongoDB no Typescript"
+metaDescription: ""
+---
+
+## Instalação
+
+Instalação do Mongoose
+
+```shell
+$ yarn add Mongoose
+```
+
+Instalação do Mongoose para Typescript
+
+```shell
+$ yarn add @types/mongoose -D
+```
+
+## Schemas
+
+Exemplo de um Schema de mensagem:
+
+**`Arquivo src/schemas/Message.ts`**
+
+```ts
+import mongoose, { Document, Schema } from 'mongoose';
+
+type Message = Document & {};
+
+const MessageSchema = new Schema(
+  {
+    subject: {
+      type: String,
+      trim: true,
+      required: true,
+    },
+    body: {
+      type: String,
+      required: true,
+    },
+    completedAt: {
+      type: Date,
+    },
+    tags: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Tag',
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  },
+);
+
+export default mongoose.model<Message>('Message', MessageSchema);
+```
