@@ -1,0 +1,51 @@
+---
+title: "Jest"
+metaTitle: "Jest no TypeScript"
+metaDescription: ""
+---
+
+## Instalação
+
+Instalação do Jest:
+
+```shell
+$ yarn add jest -D
+```
+
+Instalações das tipagens do `Jest`:
+
+```shell
+$ yarn add ts-jest @types/jest -D
+```
+
+## Inicialização
+
+Iniciar rodando o comando `$ yarn jest --init` e as respostas:
+
+✔ Would you like to use Jest when running "test" script in "package.json"? **… yes**  
+✔ Choose the test environment that will be used for testing › **node**  
+✔ Do you want Jest to add coverage reports? **… yes**  
+✔ Automatically clear mock calls and instances between every test? **… yes**  
+
+**`Arquivo jest.config.js`** (Pode variar de acordo com cada projeto):
+
+```js
+module.exports = {
+  clearMocks: true,
+  collectCoverageFrom: [
+    "src/services/**/*.ts"
+  ],
+  coverageDirectory: "__tests__/coverage",
+  coverageReporters: [
+    "json",
+    "lcov",
+  ],
+  testEnvironment: "node",
+  testMatch: [
+    "<rootDir>/__tests__/**/*.spec.ts",
+  ],
+  transform: {
+    '^.+\\.ts$': 'ts-jest'
+  },
+};
+```
