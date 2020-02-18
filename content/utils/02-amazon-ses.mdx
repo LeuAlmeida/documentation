@@ -6,12 +6,67 @@ metaDescription: ""
 
 ## Configuração na Amazon
 
-1. URL: https://console.aws.amazon.com/ses/
+* URL: https://console.aws.amazon.com/ses/
+* Configuração de domínios em **Domains**
+* Configuração dos e-mails válios em **Email Addresses**
+* Configurações adicionais em **Configuration Sets**
+  * Create Configuration Sets + Escolher nome
+    * _A adicionar_
+* Gerenciamento de chaves usando o IAM da Amazon
 
-2. Configuração de domínios em **Domains**
+## Configurando o Projeto
 
-3. Configuração dos e-mails válios em **Email Addresses**
+Instalação:
 
-4. Configurações adicionais em **Configuration Sets**
-  4.1 Create Configuration Sets + Escolher nome
-    4.2 _A adicionar_
+```shell
+$ yarn add aws-sdk
+```
+
+**Exemplo de um arquivo `SendMessageService.ts`**
+
+```ts
+import SES from 'aws-sdk/clients/ses';
+
+class SendMessageService {
+  private client: SES;
+
+  constructor() {
+    this.client = new SES();
+  }
+
+  async run(): Promise<void> {
+    await this.client
+      .sendEmail({
+        Source: 'Leonardo Almeida <leo@webid.net.br>',
+        Destination: {
+          ToAddresses: ['Leonardo Almeida <leonardo.almeida@metodista.br>'],
+        },
+        Message: {
+          Subject: {
+            Data: 'Olá Mundo',
+          },
+          Body: {
+            Text: { Data: 'Envio de e-mail feito com sucesso.' },
+          },
+        },
+        ConfigurationSetName: 'Leads',
+      })
+      .promise();
+  }
+}
+
+export default SendMessageService;
+```
+
+Instalação do package `dotenv`:
+
+```bash
+$ yarn add dotenv
+```
+
+Configurações do arquivo `.env`:
+
+```bash
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+```
