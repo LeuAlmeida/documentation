@@ -1,0 +1,90 @@
+---
+title: 'Modulação de Paths'
+metaTitle: "Modulação de Paths no ReactJS"
+metaDescription: ""
+---
+
+## Instalação
+
+Como o Create React App capsula suas configurações, é necessária a instalação de dois pacotes como dependência de desenvolvimento: 
+
+```bash
+$ yarn add customize-cra react-app-rewired -D
+```
+
+Instalação do plugin para definir os roots dos repositórios:
+
+```bash
+$ yarn add babel-plugin-root-import
+```
+
+## Configurações
+
+**Arquivo `config-overrides.js` na raíz do projeto**
+
+Esse arquivo é escrito em Node.js, por este motivo possui a sintaxe do CommonJS.
+
+```js
+const { addBabelPlugin, override } = require('customize-cra');
+
+module.exports = override(
+  addBabelPlugin([
+    'babel-plugin-root-import',
+    {
+      rootPathSuffix: 'src',
+    },
+  ])
+);
+```
+
+**Arquivo `jsconfig.json` na raíz do projeto**
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "~/*": ["*"]
+    }
+  }
+}
+```
+
+## Refatoração
+
+**Arquivo `package.json`**
+
+Alterações nos scripts `start`, `build` e `test` para os seguintes scripts:
+
+```json
+{
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+}
+```
+
+## ESLint
+
+Para o ESLint interpretar o plugin juntamente ao Babel, deve-se instalar o plugin: 
+
+```bash
+$ yarn add eslint-import-resolver-babel-plugin-root-import -D
+```
+
+**Arquivo `.eslintrc.js`**
+
+Adicionar após as `rules`:
+
+```js
+settings: {
+  "import/resolver": {
+    "babel-plugin-root-import": {
+      rootPathSuffix: "src"
+    },
+  },
+},
+```
