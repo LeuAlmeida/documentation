@@ -11,7 +11,7 @@ Como o o javscript avança muito rápido os navegadores não conseguem acompanha
 
 ### Instalando o Babel
 ```bash
-$ yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli -D
+$ yarn add @babel/core @babel/preset-env @babel/preset-react -D
 $ yarn add react react-dom
 ```
 
@@ -34,8 +34,26 @@ Instalar o babel-loader como dependência de desenvolvimento:
 $ yarn add babel-loader -D
 ```
 
+### Arquivo public/index.html
+
+**`Importação do arquivo bundle.js`**
+
+```html
+<script src="./bundle.js"></script>
+```
+
+### WebPack Server
+
+Webpack Server é m serviço que nos permite trabalhar com vários arquivos em uma mesma aplicação usando import/export. No modo desenvolvimento também permite live reload, ou seja atualização automatica das alterações.
+
+### Instalando o webpack
+
+```bash
+$ yarn add webpack webpack-cli -D
+```
 ### Arquivo webpack.config.js
 
+Este arquivo deve estar na raiz do seu projeto.
 
 ```js
 const path = require('path');
@@ -60,7 +78,7 @@ module.exports = {
 };
 ```
 
-## Webpack Dev Server
+### Webpack Dev Server
 
 Instalar o pacote `$ yarn add webpack-dev-server -D `
 
@@ -82,14 +100,6 @@ Inserir o script para o build da aplicação:
     "build": "webpack --mode development",
     "dev": "webpack-dev-server --mode development",
   },
-```
-
-### Arquivo public/index.html
-
-**`Importação do arquivo bundle.js`**
-
-```html
-<script src="./bundle.js"></script>
 ```
 
 ## Compilando CSS
