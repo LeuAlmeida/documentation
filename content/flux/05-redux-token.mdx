@@ -1,7 +1,7 @@
 ---
-title: 'Login com Redux'
-metaTitle: "Login com React Redux e Tokens"
-metaDescription: "Login com Tokens armazenados utilizando o Redux"
+title: 'Autenticação'
+metaTitle: "Autenticação com React Redux e Tokens"
+metaDescription: "Autenticação com Tokens armazenados utilizando o Redux"
 ---
 
 # Configurações do Redux
@@ -183,3 +183,96 @@ export default App;
 ```
 
 # Autenticação do usuário
+
+### Criação das actions de Autenticação
+
+**Arquivo `src/store/modules/auth/actions.js`**
+
+```js
+export function signInRequest(email, password) {
+  return {
+    type: '@auth/SIGN_IN_REQUEST',
+    payload: { email, password },
+  };
+}
+
+export function signInSuccess(token, user) {
+  return {
+    type: '@auth/SIGN_IN_SUCCESS',
+    payload: { token, user },
+  };
+}
+
+export function signFailure() {
+  return {
+    type: '@auth/SIGN_FAILURE',
+  };
+}
+```
+
+Instalar o **Axios** com o comando `$ yarn add axios` e criar o arquivo **`src/services/api.js`**:
+
+```js
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: 'http://localhost:3333',
+});
+
+export default api;
+```
+
+### Implementação da tratativa de login com o Redux Saga
+
+**Arquivo `src/store/modules/auth/sagas.js`**
+
+```js
+import { takeLatest, call, put, all } from 'redux-saga/effects';
+
+import { signInSuccess } from './actions';
+
+import api from '~/services/api';
+import history from '~/services/history';
+
+export function* signIn({ payload }) {
+  const { email, password } = payload;
+
+  const response = yield call(api.post, 'sessions', {
+    email,
+    password,
+  });
+
+  const { token, user } = response.data;
+
+  if (!user.provider) {
+    console.tron.error('Usuário não é prestador');
+  }
+
+  yield put(signInSuccess(token, user));
+
+  history.push('/dashboard');
+}
+
+export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+```
+
+### Configurações da tela de Login
+
+**Arquivo `src/pages/SignIn/index.js`**
+
+Importação do useDispatch e da _Action_ de SignIn criada anteriormente:
+
+```js
+import { useDispatch } from 'react-redux';
+import { signInRequest } from '~/store/modules/auth/actions';
+```
+
+Criação da função de login dentro do componente (`function SignIn() {...}`):
+
+```js
+const dispatch = useDispatch();
+
+function handleSubmit({ email, password }) {
+  dispatch(signInRequest(email, password));
+}
+```
