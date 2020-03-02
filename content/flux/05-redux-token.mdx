@@ -276,3 +276,88 @@ function handleSubmit({ email, password }) {
   dispatch(signInRequest(email, password));
 }
 ```
+
+### Lidando com o token para redirecionar para a aplicação
+
+**Arquivo `src/store/modules/auth/reducer.js`**
+
+```js
+import produce from 'immer';
+
+const INITIAL_STATE = {
+  token: null,
+  signed: false,
+  loading: false,
+};
+
+export default function auth(state = INITIAL_STATE, action) {
+  switch (action.type) {
+    case '@auth/SIGN_IN_SUCCESS':
+      return produce(state, draft => {
+        draft.token = action.payload.token;
+        draft.signed = true;
+      });
+    default:
+      return state;
+  }
+}
+```
+
+### Alterações no arquivo de rotas
+
+**Arquivo `src/routes/Route.js`**
+
+Importação do arquivo _store_:
+
+```js
+import store from '~/store'
+```
+
+Alteração da variável `signed`:
+
+```js
+const { signed } = store.getState().auth;
+```
+
+# Armazenando os dados do usuário
+
+Criação dos arquivos referentes ao _Redux_ para o **user**:
+
+* src
+  * store
+    * modules
+      * user
+        * actions.js
+        * reducer.js
+        * sagas.js
+
+**Arquivo `src/store/modules/user/reducer.js`**
+
+```js
+import produce from 'immer';
+
+const INITIAL_STATE = {
+  profile: null,
+};
+
+export default function user(state = INITIAL_STATE, action) {
+  switch (action.type) {
+    case '@auth/SIGN_IN_SUCCESS':
+      return produce(state, draft => {
+        draft.profile = action.payload.user;
+      });
+    default:
+      return state;
+  }
+}
+```
+
+**Arquivo `src/store/modules/user/sagas.js`**
+
+```js
+import { all } from 'redux-saga/effects';
+
+export default all([]);
+```
+
+Importar o `user` no **rootSaga** e **rootReducer**
