@@ -4,9 +4,41 @@ metaTitle: "Introdução ao Node.js"
 metaDescription: ""
 ---
 
-## Express
-O express é uma lib do NodeJS que executa possibilidades incríveis como servidor.
 
+## Instalação do Node.js
+
+Instalação do Node.js via *Chocolatey* no Windows
+
+```shell
+# Utilizando o Chocolatey
+$ cinst nodejs
+```
+
+Instalação do Node.js via *NVM* em Linux/Mac
+
+`https://yarnpkg.com/lang/en/docs/install/#debian-stable`
+
+
+## Configurando Estrutura Inicial do Node.js
+
+```shell
+$ yarn init -y
+```
+
+Isso criará o package.json que cuidará das versões das dependencias da aplicação.
+
+
+## Express
+O express é uma lib do NodeJS que executa possibilidades para criar e administrar rotas e views.
+
+
+```shell
+# Instalação do express
+$ yarn add express
+```
+Isso adicionará uma nova dependencia no arquivo package.json
+
+### Exemplos de uso
 ```javascript
 const express = require('express')
 ```
@@ -29,7 +61,9 @@ Fará com que server (função importada através do express) ouça a porta 3000
 
 
 ## Nodemon e Sucrase
-O nodemon serve para atualizar automaticamente a aplicação, quando for salva. Instalar a dependência apenas no ambiente de desenvolvimento:
+O nodemon serve para atualizar automaticamente a aplicação, quando for salva. Já o Sucrase é uma alternativa ao Babel mais voltada para  backend permitindo um desenvolvimento mais rápido.
+
+Instalar a dependência apenas no ambiente de desenvolvimento:
 
 ```shell
 $ yarn add nodemon sucrase -D
