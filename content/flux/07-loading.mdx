@@ -1,0 +1,106 @@
+---
+title: 'Loading com Redux'
+metaTitle: "Loading com Redux"
+metaDescription: "Efeito de carregamento utilizando Redux"
+---
+
+Antes de tudo, o reducer deve possuir um estado `loading` que será definida como **true** no _Request_ e **false** em caso de sucesso ou erro.
+
+**Arquivo `src/store/modules/auth/reducer.js`**
+
+```js
+import produce from 'immer';
+
+const INITIAL_STATE = {
+  token: null,
+  signed: false,
+  loading: false,
+};
+
+export default function auth(state = INITIAL_STATE, action) {
+  return produce(state, draft => {
+    switch (action.type) {
+      case '@auth/SIGN_IN_REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@auth/SIGN_IN_SUCCESS': {
+        draft.token = action.payload.token;
+        draft.signed = true;
+        draft.loading = false;
+        break;
+      }
+      case '@auth/SIGN_FAILURE': {
+        draft.signed = true;
+        draft.loading = false;
+        break;
+      }
+
+      default:
+    }
+  });
+}
+```
+
+O arquivo `sagas` deverá possuir um retorno em caso de erro, para isso usa-se o `try/catch`.
+
+**Arquivo `src/store/modules/auth/sagas.js`**
+
+```js
+import { takeLatest, call, put, all } from 'redux-saga/effects';
+
+import { signInSuccess, signFailure } from './actions';
+
+import api from '~/services/api';
+import history from '~/services/history';
+
+export function* signIn({ payload }) {
+  try {
+    const { email, password } = payload;
+
+    const response = yield call(api.post, 'sessions', {
+      email,
+      password,
+    });
+
+    const { token, user } = response.data;
+
+    if (!user.provider) {
+      console.tron.error('Usuário não é prestador');
+    }
+
+    yield put(signInSuccess(token, user));
+
+    history.push('/dashboard');
+  } catch (err) {
+    yield put(signFailure());
+  }
+}
+
+export default all([takeLatest('@auth/SIGN_IN_REQUEST', signIn)]);
+```
+
+No arquivo de **SignIn** deve se importar o `useSelector` e criar a variável loading:
+
+Importação:
+
+```js
+import { useDispatch, useSelector } from 'react-redux';
+```
+
+Criação da variável dentro do componente:
+
+```js
+const loading = useSelector(state => state.auth.loading);
+```
+
+Implementação do efeito no botão:
+
+```js
+<button
+  style={loading ? { cursor: 'wait' } : { cursor: 'pointer' }}
+  type="submit"
+>
+  {loading ? 'Carregando...' : 'Acessar'}
+</button>
+```
