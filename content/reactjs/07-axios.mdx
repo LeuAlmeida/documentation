@@ -25,3 +25,14 @@ const api = axios.create({
 
 export default api;
 ```
+
+Exemplo de uso em um componente
+
+```js
+import api from '../../services/api'
+
+loadAPI = async () => {
+    const response = await api.get("/users");
+    
+    console.log(response.data.length)
+```
