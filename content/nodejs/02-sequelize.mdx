@@ -79,6 +79,43 @@ module.expots = {
 * Jamais será utilizado em produção;
 * Caso sejam dados que precisam ir para produção, a própria migration pode manipular dados das tabelas;
 
+Para criar um seed de user utilize o comando:
+
+```bash
+$ yarn sequelize seed:generate --name admin-user
+```
+
+No arquivo gerado na pasta `src/database/seeds` edite para conter todos os itens da entrada, por exemplo:
+
+```javascript
+    module.exports = {
+      up: QueryInterface => {
+        return QueryInterface.bulkInsert(
+          "users",
+          [
+            {
+              name: "Distribuidora FastFeet",
+              email: "admin@fastfeet.com",
+              password: "123456,
+              created_at: new Date(),
+              updated_at: new Date()
+            }
+          ],
+          {}
+        );
+      },
+
+      down: queryInterface => {
+      return queryInterface.dropTable('users');
+  }
+};
+```
+
+Por fim execute:
+```bash
+$ yarn sequelize db:seed:all
+```
+
 ### Arquitetura MVC
 * Model
   * O model armazena a abstração do banco, utilizado para manipular os dados contidos nas tabelas do banco. Não possuem responsabilidade sobre a regra de negócio da nossa aplicação
