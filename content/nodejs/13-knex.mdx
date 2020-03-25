@@ -10,3 +10,24 @@ Instalar rodando o comando `$ yarn add knex` e baixar o driver do Banco SQL que 
 
 ### Verificar as dependências:
 https://knexjs.org
+
+## Inicializando
+
+Para criar o arquivo de configurações de acesso ao banco de dados utilizando o **Knex**, deve-se rodar o comando:
+
+```bash
+$ npx knex init
+```
+
+**Arquivo `knexfile.js`**
+
+Configurar o banco de dados do ambiente de desenvolvimento na pasta _/src/database/_
+
+```js
+development: {
+  client: 'sqlite3',
+  connection: {
+    filename: './src/database/dev.sqlite3',
+  },
+},
+  ```
