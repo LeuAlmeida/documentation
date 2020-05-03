@@ -58,3 +58,40 @@ $ cinst nodejs
 Instalação do Node.js via *NVM* em Linux/Mac
 
 `https://yarnpkg.com/lang/en/docs/install/#debian-stable`
+
+# API Rest
+
+## Como funciona?
+
+* Fluxo de requisição e resposta;
+  * Requisição feita por um cliente;
+  * Resposta retornada através de uma estrutura de dados;
+  * Cliente recebe resposta e processa resultado;
+* As rotas utilizam métodos HTTP:
+  * **GET** - `http://minhaapi.com/users`
+  * **POST** - `http://minhaapi.com/users`
+  * **PUT** - `http://minhaapi.com/users/1`
+  * **DELETE** - `http://minhaapi.com/users/1`
+
+## Benefícios
+
+* Múltiuplos clientes (front-end), mesmo back-end;
+* Protocolo de comunicação padronizado;
+  * Mesma estrutura para web / mobile / API pública;
+  * Comunicação com serviços externos
+
+## HTTP Codes
+
+* **1xx**: Informational
+* **2xx**: Success
+  * 200: SUCCESS
+  * 201: CREATED
+* **3xx**: Redirection
+  * 301: MOVED PERMANENTLY
+  * 302: MOVED
+* **4xx**: Client Error
+  * 400: BAD REQUEST
+  * 401: UNAUTHORIZED
+  * 404: NOT FOUND
+* **5xx**: Server Error
+  * 500: INTERNAL SERVER ERRROR
