@@ -8,54 +8,54 @@ metaDescription: ""
 
 ## O que é Node.js ?
 
-* JavaScript no back-end;
-  * Não lidamos com eventos do usuário final;
-  * Rotas e integrações;
-* Plataforma (não linguagem);
-* Construída em cima da V8;
-* Comparável a PHP / Ruby / Python / Go;
+- JavaScript no back-end;
+  - Não lidamos com eventos do usuário final;
+  - Rotas e integrações;
+- Plataforma (não linguagem);
+- Construída em cima da V8;
+- Comparável a PHP / Ruby / Python / Go;
 
 ## O que é NPM?
 
-* Instalar bibliotecas de terceiros;
-* Fornecer bibliotecas;
-* Comparáveis:
-  * Composer do PHP;
-  * Gems do Ruby;
-  * PIP do Python;
+- Instalar bibliotecas de terceiros;
+- Fornecer bibliotecas;
+- Comparáveis:
+  - Composer do PHP;
+  - Gems do Ruby;
+  - PIP do Python;
 
 ## Características do Node
 
-* Arquitetura Event-loop
-  * Baseada em eventos (Rotas na maioria das vezes);
-  * Call Stack;
-* Node single-thread;
-  * C++ por trás com libuv;
-  * Background threads;
-* Non-blocking I/O;
+- Arquitetura Event-loop
+  - Baseada em eventos (Rotas na maioria das vezes);
+  - Call Stack;
+- Node single-thread;
+  - C++ por trás com libuv;
+  - Background threads;
+- Non-blocking I/O;
 
 ## Frameworks
 
-* ExpressJS como base:
-  * Sem opinião;
-  * Ótimo para iniciar;
-  * Micro-serviços
-* Frameworks opinados:
-  * AdonisJS;
-  * NestJS;
+- ExpressJS como base:
+  - Sem opinião;
+  - Ótimo para iniciar;
+  - Micro-serviços
+- Frameworks opinados:
+  - AdonisJS;
+  - NestJS;
 
 # Instalações e Configurações
 
 ## Instalação do Node.js
 
-Instalação do Node.js via *Chocolatey* no Windows
+Instalação do Node.js via _Chocolatey_ no Windows
 
 ```shell
 # Utilizando o Chocolatey
 $ cinst nodejs
 ```
 
-Instalação do Node.js via *NVM* em Linux/Mac
+Instalação do Node.js via _NVM_ em Linux/Mac
 
 `https://yarnpkg.com/lang/en/docs/install/#debian-stable`
 
@@ -63,49 +63,63 @@ Instalação do Node.js via *NVM* em Linux/Mac
 
 ## Como funciona?
 
-* Fluxo de requisição e resposta;
-  * Requisição feita por um cliente;
-  * Resposta retornada através de uma estrutura de dados;
-  * Cliente recebe resposta e processa resultado;
-* As rotas utilizam métodos HTTP:
-  * **GET** - `http://minhaapi.com/users`
-  * **POST** - `http://minhaapi.com/users`
-  * **PUT** - `http://minhaapi.com/users/1`
-  * **DELETE** - `http://minhaapi.com/users/1`
+- Fluxo de requisição e resposta;
+  - Requisição feita por um cliente;
+  - Resposta retornada através de uma estrutura de dados;
+  - Cliente recebe resposta e processa resultado;
+- As rotas utilizam métodos HTTP:
+  - **GET** - `http://minhaapi.com/users`
+  - **POST** - `http://minhaapi.com/users`
+  - **PUT** - `http://minhaapi.com/users/1`
+  - **DELETE** - `http://minhaapi.com/users/1`
 
 ## Benefícios
 
-* Múltiuplos clientes (front-end), mesmo back-end;
-* Protocolo de comunicação padronizado;
-  * Mesma estrutura para web / mobile / API pública;
-  * Comunicação com serviços externos
+- Múltiuplos clientes (front-end), mesmo back-end;
+- Protocolo de comunicação padronizado;
+  - Mesma estrutura para web / mobile / API pública;
+  - Comunicação com serviços externos
 
 ## HTTP Codes
 
-* **1xx**: Informational
-* **2xx**: Success
-  * 200: SUCCESS
-  * 201: CREATED
-* **3xx**: Redirection
-  * 301: MOVED PERMANENTLY
-  * 302: MOVED
-* **4xx**: Client Error
-  * 400: BAD REQUEST
-  * 401: UNAUTHORIZED
-  * 404: NOT FOUND
-* **5xx**: Server Error
-  * 500: INTERNAL SERVER ERRROR
+- **1xx**: Informational
+- **2xx**: Success
+  - 200: SUCCESS
+  - 201: CREATED
+- **3xx**: Redirection
+  - 301: MOVED PERMANENTLY
+  - 302: MOVED
+- **4xx**: Client Error
+  - 400: BAD REQUEST
+  - 401: UNAUTHORIZED
+  - 404: NOT FOUND
+- **5xx**: Server Error
+  - 500: INTERNAL SERVER ERRROR
 
 ## Métodos HTTP
 
-* GET: Buscar informações do back-end
-* POST: Criar uma informação no back-end
-* PUT: Alterar uma ou mais informações no back-end
-* PATCH: Alterar uma informação muito específica no back-end
-* DELETE: Deletar uma ou mais informações no back-end
+- GET: Buscar informações do back-end
+- POST: Criar uma informação no back-end
+- PUT: Alterar uma ou mais informações no back-end
+- PATCH: Alterar uma informação muito específica no back-end
+- DELETE: Deletar uma ou mais informações no back-end
 
 ## Tipos de Parâmetros
 
-* **QUERY PARAMS:** Filtros e Paginação
-* **ROUTE PARAMS:** Identificar recursos (Atualizar/Deletar)
-* **REQUEST BODY:** Conteúdo na hora de criar ou editar um recurso (JSON)
+- **QUERY PARAMS:** Filtros e Paginação
+- **ROUTE PARAMS:** Identificar recursos (Atualizar/Deletar)
+- **REQUEST BODY:** Conteúdo na hora de criar ou editar um recurso (JSON)
+
+## Middleware
+
+É um interceptador de requisições que pode interromper totalmente uma requisição ou alterar dados da requisição.
+
+**Formato de um middleware:**
+
+```js
+function middleware(request, response, next) {
+  // ...
+  // ...
+  next();
+}
+```
