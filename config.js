@@ -22,8 +22,8 @@ const config = {
     }
   },
   sidebar: {
-    forcedNavOrder: ["/utils", "/introduction", "/typescript", "/nodejs", "/reactjs", "/react-native", "/flux", "/websocket", "/tests"],
-    collapsedNav: ["/utils", "/typescript", "/nodejs", "/reactjs", "/react-native", "/flux", "/websocket", "/tests"],
+    forcedNavOrder: ["/utils", "/introduction", "/javascript", "/typescript", "/nodejs", "/reactjs", "/react-native", "/flux", "/websocket", "/tests"],
+    collapsedNav: ["/utils", "/introduction", "/javascript", "/typescript", "/nodejs", "/reactjs", "/react-native", "/flux", "/websocket", "/tests"],
     links: [
       // { text: "Léu Almeida", link: "https://leunardo.dev" },
       // { text: "Thiago Tamosauskas", link: "https://github.com/TTamosauskas" }
