@@ -3,3 +3,95 @@ title: "ReactJS"
 metaTitle: "Introdução ao ReactJS"
 metaDescription: ""
 ---
+
+# Conceitos
+
+## O que é React?
+
+- Biblioteca para construção de interfaces;
+- Utilizado para construção de Single-Page Applications;
+- O React é uma lib, mas por seu ecossistema pode ser considerado um **Framework**;
+- Tudo fica dentro do JavaScript;
+- React / ReactJS / React Native;
+  - **React:** Biblioteca de construção de interfaces e componentização;
+  - **ReactJS:** Comportamento do React no browser;
+  - **React Native:** Comportamento do React em dispositivos móveis/
+
+Exemplo do código ReactJS:
+
+```js
+import React from "react";
+
+import "./button.css";
+import icon from "./button.png";
+
+function Button() {
+  return (
+    <button>
+      <img src={icon} />
+    </button>
+  );
+}
+```
+
+## Vantagens
+
+- Organização do código;
+  - Componentização;
+- Divisão de responsabilidades;
+  - _Back-end:_ Regra de negócio
+  - _Front-end:_ Interface
+- Uma API, múltiplos clientes;
+- Programação Declarativa;
+  - Na programação imperativa, o desenvolvedor descreve ao computador cada passo que ele deve executar;
+  - Na programação declarativa, o desenvolvedor informa o resultado esperado de acordo com o estado;
+
+## JSX
+
+- Escrever HTML dentro do JavaScript;
+- Com React podemos criar nossos próprios elementos;
+
+**ANTES**
+
+```js
+function Button() {
+  return React.createElement(
+    "button",
+    { type: "button" },
+    React.createElement("span", { class: "icon" })
+  );
+}
+
+<button type="button">
+  <span class="icon"></span>
+</button>
+```
+
+**DEPOIS (Com JSX)**
+
+```js
+function Button() {
+  return (
+    <button type="button">
+      <span class="icon"></span>
+    </button>
+  )
+}
+```
+
+**Nossos próprios elementos (componentes)**
+
+```js
+function Header() {
+  return <Button />
+}
+```
+
+# Babel / Webpack
+
+- O browser não entende todo esse código;
+- O Babel converte o código `JS` de uma forma que o browser entenda;
+- O Webpack possui várias funções:
+  - Criação do bundle, arquivo com todo código da aplicação;
+  - Ensinar ao JavaScript como importar arquivos `CSS`, imagens, etc.
+  - Live reload com _Webpack Dev Server_;
