@@ -7,12 +7,19 @@ metaDescription: ""
 ## Configurações iniciais
 
 ### Babel
-Como o o javscript avança muito rápido os navegadores não conseguem acompanhar o rítmo. Por isso o babel é uma ferramenta que possibilita um pré-processamento do código e converte ele para uma forma que até os navegadores mais antigos podem entender.
+Como o javascript evolui muito rapidamente, os navegadores não conseguem acompanhar o ritmo. Com isso, o babel possibilita um pré-processamento do código e o converte para uma forma em que até os navegadores mais antigos possam entendê-lo.
 
-### Instalando o Babel
+**Resumo: Converter (transpilar) código do React para um código que o browser entenda**
+
+### Instalação do React
+
 ```bash
-$ yarn add @babel/core @babel/preset-env @babel/preset-react -D
 $ yarn add react react-dom
+```
+
+### Instalação do Babel e Webpack
+```bash
+$ yarn add @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli
 ```
 
 ### Arquivo babel.config.js
@@ -28,10 +35,10 @@ module.exports = {
 }
 ```
 
-Instalar o babel-loader como dependência de desenvolvimento:
+Instalar o babel-loader como dependência:
 
 ```bash
-$ yarn add babel-loader -D
+$ yarn add babel-loader
 ```
 
 ### Arquivo public/index.html
@@ -46,11 +53,8 @@ $ yarn add babel-loader -D
 
 Webpack é um serviço que nos permite trabalhar com vários arquivos em uma mesma aplicação usando import/export. No modo desenvolvimento também permite live reload, ou seja atualização automatica das alterações.
 
-### Instalando o webpack
+**Resumo: Pra cada tipo de arquivo (.js, .css, .png) irá converter o código de uma maneira diferente**
 
-```bash
-$ yarn add webpack webpack-cli -D
-```
 ### Arquivo webpack.config.js
 
 Este arquivo deve estar na raiz do seu projeto.
@@ -178,21 +182,4 @@ function App() {
 }
 
 export default App;
-```
-
-## Prop Types
-
-Instalar a dependência `$ yarn add prop-types`
-
-Importando dentro do componente
-```js
-import PropTypes from 'prop-types';
-```
-
-Definindo uma PropType
-```js
-TechItem.propTypes = {
-  tech: PropTypes.string,
-  onDelete: PropTypes.func.isRequired,
-}
 ```
