@@ -4,34 +4,90 @@ metaTitle: "Introdução ao React Native"
 metaDescription: ""
 ---
 
-### Recursos de desenvolvimento
+# Conceitos
+
+## O que é React Native?
+
+- Versão do React para desenvolvimento mobile;
+- Multiplataforma;
+- Podemos manipular cada plataforma de forma diferente;
+- Interface nativa;
+- Código não é transpilado;
+- Outras plataformas migrando, Microsoft com Windows;
+
+# Arquitetura
+
+JS -> Metro Bundler (packager) -> Bundle -> Bridge -> Android/iOS
+
+# Sintaxe
+
+- A declaração de componentes é igual ao web;
+- Não usamos HTML e sim componentes próprios do RN;
+- Aplicamos estilo sem classes ou ID's;
+- Todo texto é `<Text/>`, não existe estilização própria;
+
+**Exemplo:**
+
+```js
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+
+function Button() {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.text}>Enviar</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+```
+
+# Expo
+
+## O que é?
+
+- SDK com um conjunto de funcionalidades prontas para usar (câmera, vídeo, integrações);
+- Não é necessário configurar emulador;
+
+## Por que não utilizar?
+
+- Limitação sobre o controle do código nativo;
+- Várias bibliotecas não tem suporte para o Expo;
+- O Expo liberou seu conjunto de ferramentas prontas para serem utilizadas com projetos que não o utilizam;
+
+# Instalações
 
 - [Preparação do Ambiente de Desenvolvimento](https://docs.rocketseat.dev/ambiente-react-native/introducao)
 - [Template Rocketseat React Native](https://github.com/Rocketseat/react-native-template-rocketseat-basic)
 - [Expo](https://expo.io/learn)
 
-#### Instalação (windows)
+### Instalação (Windows)
 
 1. Instalar dependências
+
 ```bash
 choco install -y nodejs.install python2 jdk8
 ```
+
 2. Instalar globalmente o Cliente do React Native:
+
 ```bash
 yarn global add react-native-cli
 ```
 
-#### Inicializando um projeto
+### Inicializando um projeto
 
 ```bash
 $ npx react-native init NomeDoApp
 ```
 
-#### Rodando no emulador/celular
+### Rodando no emulador/celular
 
 ```bash
 $ react-native run-android
 ```
+
+<hr />
 
 ## Comandos úteis
 
