@@ -100,16 +100,18 @@ devServer: {
 
 Inserir o script para o build da aplicação:
 ```json
-"scripts": {
+{
+  "scripts": {
     "build": "webpack --mode development",
-    "dev": "webpack-dev-server --mode development",
+    "dev": "webpack-dev-server --mode development"
   },
+}
 ```
 
 ## Compilando CSS
 
 ```bash
-$ yarn add style-loader css-loader -D
+$ yarn add style-loader css-loader
 ```
 
 **`Arquivo webpack.config.js`**
