@@ -45,7 +45,7 @@ const plugins = [
       trackingId: config.gatsby.gaTrackingId,
       // Puts tracking script in the head instead of the body
       head: true,
-      // enable ip anonymization
+      // enable ip anonymization || pipe
       anonymize: false,
     },
   },
