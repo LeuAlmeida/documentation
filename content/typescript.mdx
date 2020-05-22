@@ -1,8 +1,28 @@
 ---
-title: "Typescript"
-metaTitle: "Typescript"
+title: "TypeScript"
+metaTitle: "TypeScript"
 metaDescription: ""
 ---
+
+# Conceitos
+
+## O que é?
+
+TypeScript é uma linguagem baseada em JavaScript em que adiciona tipagens em acesso das features mais recentes do JS.
+
+## Mitos e verdades
+
+- TypeScript diminui a produtividade
+  - No início a produtividade diminui, por se tratar de uma nova linguagem
+- TypeScript é transformar JavaScript em Java ou C#
+  - Não. O TypeScript é uma linguagem fracamente tipada.
+- O mercado não usa TypeScript?
+  - Não. O mercado está se adaptando ao TS.
+- TypeScript substitui o JavaScript por completo
+  - Não, ele complementa o JS.
+- TypeScript atrapalha quem é iniciante.
+  - Em partes, apenas cria dificuldades comuns no início do aprendizado.
+  - Ajuda com o autocomplete do IntelliSense
 
 ## Instalações iniciais do Typescript (configurações de servidor e afins)
 
@@ -23,7 +43,6 @@ $ yarn add typescript tsconfig-paths @types/express -D
 Arquivo **`nodemon.json`**
 
 ```json
- 
 {
   "watch": ["src"],
   "ext": ".ts,.js",
@@ -54,10 +73,7 @@ Arquivo **`tsconfig.json`**
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "src/@types"
-    ],
+    "typeRoots": ["node_modules/@types", "src/@types"],
     "paths": {
       "@config/*": ["config/*"],
       "@services/*": ["services/*"],
@@ -75,7 +91,7 @@ Arquivo **`tsconfig.json`**
 Arquivo **`src/app.ts`**
 
 ```ts
-import express from 'express';
+import express from "express";
 
 const app = express();
 
@@ -84,31 +100,28 @@ app.use(express.json());
 export default app;
 ```
 
-
 ## Configuração do servidor
 
 Arquivo **`src/server.ts`**
 
 ```ts
-import app from './app';
+import app from "./app";
 
 app.listen(3333, () => {
-  console.log('⚡️ Server listening on http://localhost:3333');
+  console.log("⚡️ Server listening on http://localhost:3333");
 });
-
 ```
 
-## Criação de Rotas 
+## Criação de Rotas
 
 No Typescript as rotas se comportam semelhantes ao JS.
 
 Exemplo de um arquivo **`routes.ts`**
 
 ```ts
-import { Router } from 'express';
+import { Router } from "express";
 
 const routes = Router();
 
 export default routes;
-
 ```
