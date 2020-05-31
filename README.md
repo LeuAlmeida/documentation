@@ -26,6 +26,13 @@
 
 <hr />
 
+<h4>
+ToDo:
+
+- [ ] English translation
+
+<hr />
+
 <h3 align="center">Contributors</h3>
 <p align="center">
 <a href="https://github.com/leualmeida/documentation/graphs/contributors">
