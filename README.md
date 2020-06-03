@@ -21,22 +21,15 @@
 </p>
 
 <p align="center">
-  <!-- <a href="#-features">Features</a> •
-  <a href="#%EF%B8%8F-getting-started">Getting started</a> •
-  <a href="#-docs">Docs</a> •
-  <a href="#-contributing">Contributing</a> •
-  <a href="#memo-license">License</a> -->
-</p>
+<img alt="Presentation" src="./github/screenshot.png" />
+</p>   
 
-<h3>ToDo</h3>
+<hr />
 
-* [ ] Collapse navbar;  
-* [ ] i18n EN;  
-* [ ] i18n DE;  
-* [ ] Next.js Documentation;  
-* [ ] ReactJS Introduction;  
-* [ ] First Steps Documentation;  
-* [ ] Resolve console warnings;   
+<h4>
+ToDo:
+
+- [ ] English translation
 
 <hr />
 
