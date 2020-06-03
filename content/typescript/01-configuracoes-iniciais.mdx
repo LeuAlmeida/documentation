@@ -4,3 +4,38 @@ metaTitle: "Configurações iniciais com TypeScript"
 metaDescription: "Configurações iniciais do servidor utilizando TypeScript"
 ---
 
+## Instalações iniciais
+
+Instalações de dependências de desenvolvimento
+
+```shell
+$ yarn add typescript -D
+```
+
+## Mantendo o servidor ligado
+
+Instalação do pacote:
+`$ yarn add ts-node-dev`
+
+**Script `dev` em `package.json`**:
+
+```json
+{
+  // ...
+  
+  "scripts": {
+    "dev": "ts-node-dev src/server.ts"
+  }
+
+  // ...
+}
+```
+
+## Configurando o TypeScript
+
+Para configurar o TS, basta rodar o comando `$ yarn tsc --init`.
+
+## Convertendo arquivos
+
+Os arquivos em `.ts` precisam ser convertidos para `.js` para serem interpretados pelo browser.
+Para fazer isso, basta rodar o comando `$ yarn tsc src/index.js` no terminal (index.js deve ser o arquivo a ser convertido)
