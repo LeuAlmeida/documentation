@@ -49,6 +49,10 @@ module.exports = {
   migrations: {
     directory: path.resolve(__dirname, "src", "database", "migrations"),
   },
+  seeds: {
+    directory: path.resolve(__dirname, "src", "database", "seeds"),
+  },
+  useNullAsDefault: true,
 };
 
 ```
@@ -57,11 +61,7 @@ module.exports = {
 
 ### Criação
 
-Para criar uma migration utilizando o Knex, deve-se rodar o comando:
-
-```bash
-$ npx knex migrate:make migration_name
-```
+Para criar uma migration utilizando o Knex, é recomendável usar números (por exemplo: **`src/database/migrations/01_create_users`**)
 
 ### Modelo de Migration:
 
@@ -93,6 +93,53 @@ Para executar as migrations, basta rodar o comando:
 
 ```bash
 $ npx knex migrate:latest
+```
+
+## Seeds
+
+### Criação
+
+Para criar uma seed utilizando o Knex, é recomendável usar números (por exemplo: **`src/database/seeds/01_generate_users`**)
+
+### Modelo de Migration:
+
+```ts
+import Knex from "knex";
+
+export async function up(knex: Knex) {
+  return knex.schema.createTable("points", (table) => {
+    table.increments("id").primary();
+    table.string("image").notNullable();
+    table.string("name").notNullable();
+    table.string("email").notNullable();
+    table.string("whatsapp").notNullable();
+    table.decimal("latitude").notNullable();
+    table.decimal("longitude").notNullable();
+    table.string("city").notNullable();
+    table.string("uf", 2).notNullable();
+  });
+}
+
+export async function down(knex: Knex) {
+  return knex.schema.dropTable("points");
+}
+```
+
+### Executando 
+
+Para executar as migrations, basta rodar o comando:
+
+```bash
+$ npx knex migrate:latest
+```
+
+## Scripts no package.json
+
+```json
+{
+  "knex:seed": "knex --knexfile knexfile.ts seed:run",
+  "knex:migrate": "knex --knexfile knexfile.ts migrate:latest"
+}
 ```
 
 ## Conexão
