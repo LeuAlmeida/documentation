@@ -1,0 +1,41 @@
+---
+title: "Mapas (Leaflet)"
+metaTitle: "Construção de mapas com Leaflet.js"
+metaDescription: ""
+---
+
+## O que é?
+
+O Leaflet é uma API de mapas Open Source como uma opção caso não seja possível utilizar o Google Maps.
+
+## Instalação
+
+Instalação dos pacotes rodando o comando:
+
+```bash
+$ yarn add leaflet react-leaflet
+```
+
+Inserção do arquivo css no arquivo **public/index.html**:
+[https://leafletjs.com/examples/quick-start/](https://leafletjs.com/examples/quick-start/)
+
+## Exemplo de uso
+
+Importação das dependências do mapas
+
+```js
+import { Map, TileLayer, Marker } from "react-leaflet";
+```
+
+Exemplo de uso
+
+```js
+<Map center={[-23.6544493, -46.5836981]} zoom={15}> {/* Latitude, longitude e zoom */}
+  <TileLayer
+    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+
+  <Marker position={[-23.6544493, -46.5836981]} /> {/* Marcação do Pointer */}
+</Map>
+```
