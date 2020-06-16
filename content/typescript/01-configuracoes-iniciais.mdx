@@ -22,9 +22,10 @@ Instalação do pacote:
 ```json
 {
   // ...
-  
+
   "scripts": {
-    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
+    "build": "tsc",
+    "dev:server": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts"
   }
 
   // ...
@@ -35,7 +36,13 @@ Instalação do pacote:
 
 Para configurar o TS, basta rodar o comando `$ yarn tsc --init`.
 
-## Convertendo arquivos
+**Arquivo `tsconfig.json`**:
 
-Os arquivos em `.ts` precisam ser convertidos para `.js` para serem interpretados pelo browser.
-Para fazer isso, basta rodar o comando `$ yarn tsc src/index.js` no terminal (index.js deve ser o arquivo a ser convertido)
+```json
+{
+  //...
+  "outDir": "./dist",
+  "rootDir": "./src"
+  //...
+}
+```
