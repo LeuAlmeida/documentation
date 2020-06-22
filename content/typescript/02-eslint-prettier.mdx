@@ -9,86 +9,100 @@ metaDescription: "Configurações do ESLint e do Prettier em projetos Node.js"
 Comandos de instalações em ambiente de desenvolvimento:
 
 ```shell
-$ yarn add prettier eslint eslint-config-airbnb-base eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+$ yarn add eslint -D
 ```
 
-## ESLint
+Responder às seguintes perguntas:
 
-Arquivo de configurações (exemplo usando `.json`) **.eslintrc.json**
+? How would you like to use ESLint? `To check syntax, find problems, and enforce code style`
+? What type of modules does your project use? `JavaScript modules (import/export)`
+? Which framework does your project use? `None of these`
+? Does your project use TypeScript? `Yes`
+? Where does your code run? `Node`
+? How would you like to define a style for your project? `Use a popular style guide`
+? Which style guide do you want to follow? `Airbnb: https://github.com/airbnb/javascript`
+? What format do you want your config file to be in? `JSON`
+
+**Não instalar usando NPM. Ao invés disso, copiar as dependências necessárias exibidas no terminal _exceto o próprio ESLInt_, e instalar utilizando o Yarn**
+
+Após a instalação dos plugins acima, instalar outras dependências:
+
+Para resolver a importação de módulos:
+
+```shell
+$ yarn add -D eslint-import-resolver-typescript
+```
+
+**Arquivo `.eslintrc.json`**
+
+Alterar o _rules_ e criar o _settings_:
 
 ```json
 {
-  "env": {
-    "es6": true,
-    "node": true,
-    "jest": true
-  },
-  "extends": [
-    "airbnb-base",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
-  },
-  "plugins": [
-    "@typescript-eslint",
-    "prettier"
-  ],
   "rules": {
-    "prettier/prettier": "error",
-    "no-underscore-dangle": "off",
-    "class-methods-use-this": "off",
-    "no-await-in-loop": "off",
-    "import/prefer-default-export": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
       {
         "ts": "never"
       }
-    ],
-    "import/no-extraneous-dependencies": [
-      "error", 
-      {
-        "devDependencies": [
-          "**/*.spec.ts",
-          "src/utils/tests/*.ts"
-        ]
-      }
     ]
   },
-  "overrides": [
-    {
-      "files": ["*.js"],
-      "rules": {
-        "@typescript-eslint/no-var-requires": "off"
-      }
-    }
-  ],
   "settings": {
-    "import/extensions": [".ts", ".js"],
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".js"]
-    },
     "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
+      "typescript": {}
     }
   }
 }
 ```
 
 ## Prettier
+
+Instalações dos pacotes:
+
+```shell
+$ yarn add prettier eslint-config-prettier eslint-plugin-prettier -Does
+```
+
+**Arquivo `.eslintrc.json`**
+
+Adicionar em _extends_:
+
+```json
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ]
+}
+```
+
+Adicionar em _plugins_:
+
+```json
+{
+  "plugins": ["@typescript-eslint", "prettier"]
+}
+```
+
+Adicionar o **"prettier/prettier": "error"** no _rules_:
+
+```json
+{
+  "rules": {
+    "prettier/prettier": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+  }
+}
+```
 
 Arquivo de configurações **`prettier.config.js`**
 
@@ -98,4 +112,12 @@ module.exports = {
   trailingComma: 'all',
   arrowParens: 'avoid',
 };
+```
+
+**Arquivo `.eslintignore`**
+
+```console
+/*.js
+node_modules
+dist
 ```
