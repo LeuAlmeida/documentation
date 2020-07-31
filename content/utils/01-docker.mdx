@@ -13,7 +13,7 @@ metaDescription: ""
 #### Principais conceitos
 * Imagem (serviço disponível, exemplo: SQL, Postgres, REdis)
 * Container (instância de uma imagem)
-* Docker REgistry (Docker Hub)
+* Docker Registry (Docker Hub)
 * Dockerfile:
   * Receita de uma imagem
 
@@ -101,4 +101,14 @@ services:
     networks:
       - portal-network
     command: yarn start # Comando executado para rodar o serviço
+```
+
+#### Arquivo `.dockerignore`
+
+Arquivo responsável para ignorar arquivos/pastas não requiridas para execução do projeto
+
+*Exemplo:*
+
+```.dockerignore
+node_modules
 ```
