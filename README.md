@@ -30,6 +30,7 @@
 ToDo:
 
 - [ ] English translation
+- [ ] JavaScript documentation
 
 <hr />
 
