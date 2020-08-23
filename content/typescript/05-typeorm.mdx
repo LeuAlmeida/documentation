@@ -6,7 +6,7 @@ metaDescription: ""
 
 ## Conceitos
 
-- O TypeORM é um ORM (Object Relational Mapping) que possui o intuito de abstrair a sintaxe já faciltiada de query builders.  
+- O TypeORM é um ORM (Object Relational Mapping) que possui o intuito de abstrair a sintaxe já faciltiada de query builders.
 - Permite a escrita de queries igualitária independente do banco de dados utilizado
 
 ## Configuração
@@ -30,4 +30,20 @@ Criação de arquivo de configurações
   "password": "docker", // Senha do banco
   "database": "banco_de_dados" // Database de acesso
 }
+```
+
+**Arquivo src/database/index.ts**
+
+```ts
+import { createConnection } from "typeorm";
+
+createConnection();
+```
+
+**Arquivo src/server.ts**
+
+Importação do arquivo do TypeORM
+
+```ts
+import "./database";
 ```
