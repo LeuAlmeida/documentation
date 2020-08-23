@@ -9,26 +9,62 @@ metaDescription: ""
 - O TypeORM é um ORM (Object Relational Mapping) que possui o intuito de abstrair a sintaxe já faciltiada de query builders.
 - Permite a escrita de queries igualitária independente do banco de dados utilizado
 
+## Glossário de Comandos
+
+### Migrations
+**⚠ IMPORTANTE: Os comandos abaixos estão disponíveis apenas após configurar o script _typeorm_ na seção subsequente**
+
+Criar migration
+`$ yarn typeorm migration: create -n NomeDaMigration`
+
+Rodar migrations
+`$ yarn typeorm migration:run`
+
+Reverter migrations
+`$ yarn typeorm migration:revert`
+
+Listar migrations já executadas
+`$ yarn typeorm migration:show`
+
+
 ## Configuração
 
 Instalação do typeorm + o driver específico do banco (verificar em [https://typeorm.io/#/connection-options](https://typeorm.io/#/connection-options)).
 
-**Exemplo com o PostgreSQL**
+_Exemplo com o PostgreSQL_
 
 `$ yarn add typeorm pg`
 
-Criação de arquivo de configurações
+**Arquivo package.json**
+
+Implementação do script do TypeORM
+
+```json
+{
+  "scripts": {
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+  }
+}
+```
 
 **Arquivo ormconfig.json**
+
+Criação de arquivo de configurações
 
 ```json
 {
   "type": "postgres", // Tipo do banco de dados
   "host": "localhost", // IP da máquina ou link do banco
   "port": 5432, // Porta do banco
-  "username": "docker", // Usuário do banco
+  "username": "postgres", // Usuário do banco
   "password": "docker", // Senha do banco
-  "database": "banco_de_dados" // Database de acesso
+  "database": "banco_de_dados", // Database de acesso
+  "migrations": [
+    "./src/database/migrations/*.ts" // Arquivos de migrations
+  ],
+  "cli": {
+    "migrationsDir": "./src/database/migrations" // Diretório das migrations para interface de linha de comando
+  }
 }
 ```
 
@@ -47,3 +83,51 @@ Importação do arquivo do TypeORM
 ```ts
 import "./database";
 ```
+
+
+## Migrations
+
+Após configurar os comandos acima, para **criar uma migration** basta rodar o comando `$ yarn typeorm migration:create -n CreateAppointments`
+
+**Exemplo de migration**
+
+```ts
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export default class CreateAppointments1598219914693
+  implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: 'appointments', // Nome da Tabela (separado por underline e no plural)
+        columns: [
+          {
+            name: 'id',
+            type: 'varchar',
+            isPrimary: true,
+            generationStrategy: 'uuid',
+          },
+          {
+            name: 'provider',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'date',
+            type: 'timestamp with time zone', // Caso não seja PostgreSQL, deve-se usar apenas timestamp
+            isNullable: false,
+          },
+        ],
+      }),
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('appointments');
+  }
+}
+```
+
+**Rodando as migrations**
+
+`$ yarn typeorm migration:run`  
