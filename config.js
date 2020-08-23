@@ -37,7 +37,7 @@ const config = {
     ogImage: "https://leunardo.dev/docs/site-preview.jpeg",
     docsLocation:
       "https://github.com/LeuAlmeida/documentation/tree/master/content",
-    favicon: "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg"
+    favicon: "https://leunardo.dev/docs/icon.png"
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
