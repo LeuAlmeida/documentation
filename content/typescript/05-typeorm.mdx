@@ -4,7 +4,30 @@ metaTitle: "TypeORM"
 metaDescription: ""
 ---
 
-# Conceitos
+## Conceitos
 
 - O TypeORM é um ORM (Object Relational Mapping) que possui o intuito de abstrair a sintaxe já faciltiada de query builders.  
 - Permite a escrita de queries igualitária independente do banco de dados utilizado
+
+## Configuração
+
+Instalação do typeorm + o driver específico do banco (verificar em [https://typeorm.io/#/connection-options](https://typeorm.io/#/connection-options)).
+
+**Exemplo com o PostgreSQL**
+
+`$ yarn add typeorm pg`
+
+Criação de arquivo de configurações
+
+**Arquivo ormconfig.json**
+
+```json
+{
+  "type": "postgres", // Tipo do banco de dados
+  "host": "localhost", // IP da máquina ou link do banco
+  "port": 5432, // Porta do banco
+  "username": "docker", // Usuário do banco
+  "password": "docker", // Senha do banco
+  "database": "banco_de_dados" // Database de acesso
+}
+```
