@@ -15,16 +15,28 @@ metaDescription: ""
 **⚠ IMPORTANTE: Os comandos abaixos estão disponíveis apenas após configurar o script _typeorm_ na seção subsequente**
 
 Criar migration
-`$ yarn typeorm migration: create -n NomeDaMigration`
+
+```bash
+$ yarn typeorm migration: create -n NomeDaMigration
+```
 
 Rodar migrations
-`$ yarn typeorm migration:run`
+
+```bash
+$ yarn typeorm migration:run
+```
 
 Reverter migrations
-`$ yarn typeorm migration:revert`
+
+```bash
+$ yarn typeorm migration:revert
+```
 
 Listar migrations já executadas
-`$ yarn typeorm migration:show`
+
+```bash
+$ yarn typeorm migration:show
+```
 
 
 ## Configuração
@@ -33,7 +45,9 @@ Instalação do typeorm + o driver específico do banco (verificar em [https://t
 
 _Exemplo com o PostgreSQL_
 
-`$ yarn add typeorm pg`
+```bash
+$ yarn add typeorm pg
+```
 
 **Arquivo package.json**
 
