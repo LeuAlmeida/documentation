@@ -44,10 +44,21 @@ $ yarn typeorm migration:show
 
 Instalação do typeorm + o driver específico do banco (verificar em [https://typeorm.io/#/connection-options](https://typeorm.io/#/connection-options)).
 
-_Exemplo com o PostgreSQL_
-
 ```bash
-$ yarn add typeorm pg
+$ yarn add typeorm reflect-metadata
+```
+
+_Exemplo com o PostgreSQL_
+```bash
+$ yarn add pg
+```
+
+**Arquivo src/server.ts**
+
+Importação do reflect-metadata antes de tudo
+
+```ts
+import 'reflect-metadata';
 ```
 
 **Arquivo package.json**
@@ -74,6 +85,9 @@ Criação de arquivo de configurações
   "username": "postgres", // Usuário do banco
   "password": "docker", // Senha do banco
   "database": "banco_de_dados", // Database de acesso
+  "entities": [
+    "./src/models/*.ts" // Pasta onde armazenará as entidades
+  ],
   "migrations": [
     "./src/database/migrations/*.ts" // Arquivos de migrations
   ],
@@ -99,6 +113,26 @@ Importação do arquivo do TypeORM
 import "./database";
 ```
 
+**Versão final do arquivo tsconfig.json**
+
+```json
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "strictPropertyInitialization": false,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+    }
+  }
+  ```
+
 
 ## Migrations
 
@@ -121,6 +155,7 @@ export default class CreateAppointments1598219914693
             type: 'varchar',
             isPrimary: true,
             generationStrategy: 'uuid',
+            default: 'uuid_generate_v4()', // Apenas para PostgreSQL
           },
           {
             name: 'provider',
@@ -146,3 +181,97 @@ export default class CreateAppointments1598219914693
 **Rodando as migrations**
 
 `$ yarn typeorm migration:run`  
+
+## Models
+
+Exemplo de Model
+
+**Arquivo src/models/Appointment.ts**
+
+```ts
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
+@Entity('appointments') // Definição de entidade para a tabela "appointments"
+class Appointment { // A entidade deve, obrigatóriamente, estar "colada" com a classe para funcionar
+  @PrimaryGeneratedColumn('uuid') // Coluna primária com uuid
+  id: string;
+
+  @Column() // Coluna padrão
+  provider: string;
+
+  @Column('timestamp with time zone') // Coluna com formato específico para PostgreSQL. No caso de outros bancos como MySQL, deve-se usar apenas "timestamp" (esse formato não é habilitado para os demais banco de dados relacionais)
+  date: Date;
+}
+
+export default Appointment;
+
+```
+
+## Repositórios
+
+Exemplo de Repositório
+
+```ts
+import { EntityRepository, Repository } from 'typeorm';
+
+import Appointment from '../models/Appointment';
+
+@EntityRepository(Appointment) // Declaração do repositório (passando a model como parâmetro)
+class AppointmentsRepository extends Repository<Appointment> { // Criação da classe do repositório, extendendo do "Repository" importado do typeorm e passando a model tambem como parâmetro
+  public async findByDate(date: Date): Promise<Appointment | null> { // Criação da função de buscar por data (exemplo), onde o retorno dessa função é uma promise que contem A) o appointment ou B) null
+    const findAppointment = await this.findOne({ // Sintaxe de busca da tabela (findOne)
+      where: {
+        date,
+      },
+    });
+
+    return findAppointment || null;
+  }
+}
+
+export default AppointmentsRepository;
+```
+
+### Exemplo de serviço para criar dados
+
+**Arquivo src/services/CreateAppointmentService.ts**
+
+```ts
+import { startOfHour } from 'date-fns';
+import { getCustomRepository } from 'typeorm'; // Importação para obter um repositório personalizado (exemplificado acima)
+
+import Appointment from '../models/Appointment';
+import AppointmentsRepository from '../repositories/AppointmentsRepository';
+
+interface RequestDTO {
+  provider: string;
+  date: Date;
+}
+
+class CreateAppointmentService {
+  public async execute({ provider, date }: RequestDTO): Promise<Appointment> { // Função assíncrona onde retorna uma promise que, como parâmetro, recebe a model de Appointment
+    const appointmentsRepository = getCustomRepository(AppointmentsRepository); // Criação da variável que obtem os dados do repositório
+
+    const appointmentDate = startOfHour(date);
+
+    const findAppointmentInSameDate = appointmentsRepository.findByDate( // Função recuperada do repositório
+      appointmentDate,
+    );
+
+    if (findAppointmentInSameDate) {
+      throw Error('This appointment is already booked.');
+    }
+
+    const appointment = appointmentsRepository.create({ // Criação da instância (antes de salvar no banco de dados)
+      provider,
+      date: appointmentDate,
+    });
+
+    await appointmentsRepository.save(appointment); // Método para salvar no banco de dados
+
+    return appointment;
+  }
+}
+
+export default CreateAppointmentService;
+```
