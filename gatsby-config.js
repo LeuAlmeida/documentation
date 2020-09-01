@@ -11,7 +11,6 @@ const plugins = [
     }
   },
   'gatsby-plugin-emotion',
-  'gatsby-plugin-remove-trailing-slashes',
   'gatsby-plugin-react-helmet',
   {
     resolve: "gatsby-source-filesystem",
@@ -45,7 +44,7 @@ const plugins = [
       trackingId: config.gatsby.gaTrackingId,
       // Puts tracking script in the head instead of the body
       head: true,
-      // enable ip anonymization || pipe
+      // enable ip anonymization
       anonymize: false,
     },
   },
@@ -77,6 +76,12 @@ if (config.pwa && config.pwa.enabled && config.pwa.manifest) {
 } else {
   plugins.push('gatsby-plugin-remove-serviceworker');
 }
+
+// check and remove trailing slash
+if (config.gatsby && !config.gatsby.trailingSlash) {
+  plugins.push('gatsby-plugin-remove-trailing-slashes');
+}
+
 module.exports = {
   pathPrefix: config.gatsby.pathPrefix,
   siteMetadata: {
