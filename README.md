@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./src/logo.png" alt="A illustration of file that is the @rocketseat/gatsby-theme-docs logo" width="250">
+  <img src="./src/logo.png">
 </p>
 
 <h2 align="center">
