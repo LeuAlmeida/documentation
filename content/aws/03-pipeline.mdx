@@ -14,10 +14,10 @@ metaDescription: ""
 6. Colar a pasta __cloudformation__ e os arquivos __appspec.yml__, __buildspec.yml__ e __taskdef.json__ dentro do projeto
 7. Renomear os arquivos dentro do __cloudformation__ para os nomes referenciados a este projeto
 8. Copiar os comandos exibidos no __View push commands__ (passo 5)
-9. Colar no terminal em que estiver rodando o repositório: `aws ecr get-login-password --region us-east-1 --profile RESPECTIVOPERFIL | docker login --username AWS --password-stdin XXXXXX.dkr.ecr.us-east-1.amazonaws.com` (atentar-se ao --profile )
+9. Colar no terminal em que estiver rodando o repositório: `aws ecr get-login-password --region ... --profile RESPECTIVOPERFIL | docker login --username AWS --password-stdin XXXXXX.dkr.ecr...amazonaws.com` (atentar-se ao --profile )
 10. __Comando 1:__ Buildar a aplicação `docker build -t NOMEDAIMAGEM .`
-11. __Comando 2:__ Tagear a imagem com o comando obtido na AWS `docker tag NOMEDAIMAGEM:latest XXXXXX.dkr.ecr.us-east-1.amazonaws.com/NOMEDAIMAGEM:latest`
-12. __Comando 3:__ Enviar a imagem com o comando obtido na AWS `docker push XXXXXX.dkr.ecr.us-east-1.amazonaws.com/NOMEDAIMAGEM:latest`
+11. __Comando 2:__ Tagear a imagem com o comando obtido na AWS `docker tag NOMEDAIMAGEM:latest XXXXXX.dkr.ecr...amazonaws.com/NOMEDAIMAGEM:latest`
+12. __Comando 3:__ Enviar a imagem com o comando obtido na AWS `docker push XXXXXX.dkr.ecr...amazonaws.com/NOMEDAIMAGEM:latest`
 
 # Cloudformation
 
@@ -28,28 +28,21 @@ metaDescription: ""
 5. No cloudformation, ir até __Create Stack__ -> __With new resources (standart)__ -> __Next__ -> __Upload a template file__ -> Importar o arquivo .yml editado anteriormente
 6. __Stack Name__: ecs-service-`NOMEDOSERVICO`-qas
 7. Next
-8. Tags do projeto:
-  - app: portalEmpresas
-  - environment: QAS
-  - module: telecoms-gateway-api
-9. Next
+9. Tagear o projeto
 10. Check `I acknowledge that AWS CloudFormation might create IAM resources with custom names.` -> Next
 
 # Pipeline
 
-1. Editar o arquivo `CodePipelineTelecomsGateway.yml`
+1. Editar o arquivo _CodePipeline-...yml_
   - ApplicationName (Nome da Pipeline da aplicação)
   - EcsStackName (Nome dado ao ECS anteriormente)
   - CodeCommitRepository (Nome do repositório no CodeCommit)
   - SourceBranch (Branch padrão)
   - EcrImageRepo (Nome do repositório no ECR)
 2. [Acessar o CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1)
-3. No cloudformation, ir até __Create Stack__ -> __With new resources (standart)__ -> __Next__ -> __Upload a template file__ -> Importar o arquivo __CodePipelineTelecomsGateway.yml__ editado anteriormente
+3. No cloudformation, ir até __Create Stack__ -> __With new resources (standart)__ -> __Next__ -> __Upload a template file__ -> Importar o arquivo __CodePipeline-....yml__ editado anteriormente
 4. __Stack Name__: codepipeline-ecs-`NOMEDOSERVICO`-qas
 5. Next
-6. Tags do projeto:
-  - app: portalEmpresas
-  - environment: QAS
-  - module: telecoms-gateway-api
+6. Tagear o projeto
 7. Next
 8. Check `I acknowledge that AWS CloudFormation might create IAM resources with custom names.` -> Next
