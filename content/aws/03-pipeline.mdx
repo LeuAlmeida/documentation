@@ -1,0 +1,37 @@
+
+---
+title: "Criação de Pipelines"
+metaTitle: "Criação de Pipelines"
+metaDescription: ""
+---
+
+## ECR - Criação do Repositório
+
+1. Acessar o ECR (https://console.aws.amazon.com/ecr/repositories)
+2. Clicar em __Create Repository__
+3. Setar apenas o nome -> clicar em __Create Repository__
+4. Entrar no repositório
+5. Clicar em __View push commands__
+6. Colar a pasta __cloudformation__ e os arquivos __appspec.yml__, __buildspec.yml__ e __taskdef.json__ dentro do projeto
+7. Renomear os arquivos dentro do __cloudformation__ para os nomes referenciados a este projeto
+8. Copiar os comandos exibidos no __View push commands__ (passo 5)
+9. Colar no terminal em que estiver rodando o repositório: `aws ecr get-login-password --region us-east-1 --profile RESPECTIVOPERFIL | docker login --username AWS --password-stdin XXXXXX.dkr.ecr.us-east-1.amazonaws.com` (atentar-se ao --profile )
+10. __Comando 1:__ Buildar a aplicação `docker build -t NOMEDAIMAGEM .`
+11. __Comando 2:__ Tagear a imagem com o comando obtido na AWS `docker tag NOMEDAIMAGEM:latest XXXXXX.dkr.ecr.us-east-1.amazonaws.com/NOMEDAIMAGEM:latest`
+12. __Comando 3:__ Enviar a imagem com o comando obtido na AWS `docker push XXXXXX.dkr.ecr.us-east-1.amazonaws.com/NOMEDAIMAGEM:latest`
+
+## Cloudformation
+
+1. https://console.aws.amazon.com/cloudformation/home?region=us-east-1
+2. Em `cloudformation/development/ecs/ecs-Service-...-.yml` editar a __Description__:
+3. Alterar a __Image__ pela imagem criada/URL no ECR _(linha 30)_
+4. Alterar o __ServiceName__ para o mesmo nome do repositório
+5. No cloudformation, ir até __Create Stack__ -> __With new resources (standart)__ -> __Next__ -> __Upload a template file__ -> Importar o arquivo .yml editado anteriormente
+6. __Stack Name__: ecs-service-`NOMEDOSERVICO`-qas
+7. Next
+8. Tags do projeto:
+  - app: portalEmpresas
+  - environment: QAS
+  - module: telecoms-gateway-api
+9. Next
+10. Check `I acknowledge that AWS CloudFormation might create IAM resources with custom names.` -> Next
