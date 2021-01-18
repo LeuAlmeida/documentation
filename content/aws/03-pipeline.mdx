@@ -4,7 +4,7 @@ metaTitle: "Criação de Pipelines"
 metaDescription: ""
 ---
 
-# ECR - Criação do Repositório
+# 1. ECR - Criação do Repositório
 
 1. [Acessar o ECR](https://console.aws.amazon.com/ecr/repositories)
 2. Clicar em __Create Repository__
@@ -19,7 +19,7 @@ metaDescription: ""
 11. __Comando 2:__ Tagear a imagem com o comando obtido na AWS `docker tag NOMEDAIMAGEM:latest XXXXXX.dkr.ecr...amazonaws.com/NOMEDAIMAGEM:latest`
 12. __Comando 3:__ Enviar a imagem com o comando obtido na AWS `docker push XXXXXX.dkr.ecr...amazonaws.com/NOMEDAIMAGEM:latest`
 
-# Cloudformation
+# 2. Cloudformation
 
 1. [Acessar o CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1)
 2. Em _cloudformation/development/ecs/ecs-Service-...-.yml_ editar a __Description__:
@@ -31,7 +31,7 @@ metaDescription: ""
 9. Tagear o projeto
 10. Check `I acknowledge that AWS CloudFormation might create IAM resources with custom names.` -> Next
 
-# Pipeline
+# 3. Pipeline
 
 1. Editar o arquivo _CodePipeline-...yml_
   - ApplicationName (Nome da Pipeline da aplicação)
@@ -46,3 +46,7 @@ metaDescription: ""
 6. Tagear o projeto
 7. Next
 8. Check `I acknowledge that AWS CloudFormation might create IAM resources with custom names.` -> Next
+
+<hr />
+
+# 4. [Redirecionar DNS](./04-redirecionament-dns.mdx)
