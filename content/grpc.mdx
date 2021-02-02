@@ -32,10 +32,33 @@ gRPC é um framework desenvolvido pela Google que tem o objetivo de facilitar o 
 ![RPC - Remote Procedure Call](./grpc/rpc-example.png "RPC - Remote Procedure Call")
 
 # Protocol Buffers
-### _"Protocol Buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data - think XML, but smaller, faster and simpler."_
+_"Protocol Buffers are Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data - think XML, but smaller, faster and simpler."_
+
+Arquivo **.proto**
+
+<img alt="Protocol Buffers Syntax" title="Protocol Buffers Syntax" src="./grpc/protocol-buffers-syntax.png" width="300px" />
+
+<!-- ![Protocol Buffers Syntax]( "Protocol Buffers Syntax") -->
 
 # Protocol Buffers vs JSON
 - Arquivos binários > JSON
 - Processo de serialização é mais leve (CPU) do que JSON
 - Gasta menos recursos de rede
 - Processo é mais veloz
+
+# HTTP 2
+
+- Nome original criado pela Google era SPDY
+- Lançado em 2015
+- Dados trafegados são binários e não texto como no HTTP 1.1
+- Utiliza a mesma conexão TCP para enviar e recebr dados do cliente e do servidor (Multiplex)
+- Server Push
+- Headers são comprimidos
+- Gasta menos recursos de rede
+- Processo é mais veloz
+
+# gRPC - API unary
+![gRPC - API unary](./grpc/grpc-api-unary.png "gRPC - API unary")
+
+# gRPC - API Server streaming
+![gRPC - API Server streaming](./grpc/grpc-api-unary.png "gRPC - API Server streaming")

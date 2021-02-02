@@ -58,8 +58,14 @@
     "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
-    "lint": "eslint --fix \"src/**/*.{js,jsx}\""
-  },
+    "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
+    "pre-commit": "npm run format && npm run build"
+    },
+    "husky": {
+      "hooks": {
+        "pre-commit": "npm run pre-commit"
+      }
+    },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
@@ -69,6 +75,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "gatsby-plugin-remove-trailing-slashes": "^2.1.17",
+    "husky": "^4.3.8",
     "prettier": "^1.19.1",
     "prism-react-renderer": "^1.0.2"
   }
