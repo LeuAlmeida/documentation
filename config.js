@@ -10,25 +10,10 @@ const config = {
     logoLink: 'https://docs.leunardo.dev',
     title:
       "<a href='https://docs.leunardo.dev'><span>Stack.mdx Documentation</span></a>",
-      // "",
     githubUrl: 'https://github.com/LeuAlmeida/documentation',
     helpUrl: 'https://github.com/LeuAlmeida/documentation/issues',
     tweetText: '',
     social:
-    // `<li>
-		//     <a href="https://twitter.com/hasurahq" target="_blank" rel="noopener">
-		//       <div class="twitterBtn">
-		//         <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/twitter-brands-block.svg' alt={'Discord'}/>
-		//       </div>
-		//     </a>
-		//   </li>
-		// 	<li>
-		//     <a href="https://discordapp.com/invite/hasura" target="_blank" rel="noopener">
-		//       <div class="discordBtn">
-		//         <img src='https://graphql-engine-cdn.hasura.io/learn-hasura/assets/homepage/discord-brands-block.svg' alt={'Discord'}/>
-		//       </div>
-		//     </a>
-    //   </li>`,
     "",
     links: [{ text: '', link: '' }],
     search: {
@@ -43,12 +28,13 @@ const config = {
     forcedNavOrder: [
       '/utils',
       '/aws',
-      '/introduction',
+      '/grpc',
       '/javascript',
       '/typescript',
       '/nodejs',
       '/reactjs',
       '/react-native',
+      '/golang',
       '/flux',
       '/websocket',
       '/tests',
@@ -56,12 +42,13 @@ const config = {
     collapsedNav: [
       '/utils',
       '/aws',
-      '/introduction',
+      '/grpc',
       '/javascript',
       '/typescript',
       '/nodejs',
       '/reactjs',
       '/react-native',
+      '/golang',
       '/flux',
       '/websocket',
       '/tests',
