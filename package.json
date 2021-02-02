@@ -60,12 +60,12 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
     "pre-commit": "npm run format && npm run build"
-    },
-    "husky": {
-      "hooks": {
-        "pre-commit": "npm run pre-commit"
-      }
-    },
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit"
+    }
+  },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
