@@ -71,19 +71,12 @@ Arquivo **.proto**
 
 ### Rest
 
-- Texto / JSON
-- Unidirecional
-- Alta latência
-- Sem contrato (maior change de erros)
-- Sem suporte a streaming (Request / Response)
-- Design pré-definido
-- Bibliotecas de terceiro
-
-### gRPC
-- Protocol Buffers
-- Bidirecional e Assíncrono
-- Baixa latência
-- Contrato definido (.proto)
-- Suporte e streaming
-- Design é livre
-- Geração de código
+| REST                                         | gRPC                       |
+|----------------------------------------------|----------------------------|
+| Texto / JSON                                 | Protocol Buffers           |
+| Unidirecional                                | Bidirecional e Assíncrono  |
+| Alta latência                                | Baixa latência             |
+| Sem contrato (maior change de erros)         | Contrato definido (.proto) |
+| Sem suporte a streaming (Request / Response) | Suporte e streaming        |
+| Design pré-definido                          | Design é livre             |
+| Bibliotecas de terceiros                     | Geração de código          |
