@@ -38,6 +38,7 @@ const config = {
       '/flux',
       '/websocket',
       '/tests',
+      '/elixir',
     ],
     collapsedNav: [
       '/utils',
@@ -52,6 +53,7 @@ const config = {
       '/flux',
       '/websocket',
       '/tests',
+      '/elixir',
     ],
     links: [{ text: 'Léu Almeida', link: 'https://leunardo.dev' }],
     frontline: false,
