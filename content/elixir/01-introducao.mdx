@@ -1,0 +1,110 @@
+---
+title: "Introdução"
+metaTitle: "Introdução ao Elixir"
+metaDescription: "Introdução ao Elixir"
+---
+# Rotas
+
+As rotas são mantidas no arquivo `lib/..._web/router.ex`.
+
+```elixir
+# router.ex
+
+scope "/api", RocketpayWeb do
+    pipe_through :api
+    get "/", WelcomeController, :index
+  end
+```
+
+# Controllers
+
+Os controllers são mantidos dentro de `lib/..._web/controllers`
+
+Exemplo de um controller:
+
+```elixir
+# welcome_controller.ex
+
+defmodule RocketpayWeb.WelcomeController do
+  use RocketpayWeb, :controller
+
+  def index(conn, _params) do
+    text(conn, 'Welcome to the Rocketpay API')
+  end
+end
+```
+
+# Interação com o Elixir
+
+Para interagir com o Elixir via terminal, basta rodar:
+
+```bash
+iex -S mix
+```
+
+# Pattern Matching
+
+No Elixir, o sinal de `=` não realiza, necessariamente, atribuições como em outras linguagens, e sim faz validações e avalia se a condição dá um _match_ conforme esperado.
+
+```elixir
+# lib/rocketpay/numbers.ex
+
+defmodule Rocketpay.Numbers do # Definição do módulo "Numbers"
+  def sum_from_file(filename) do # Função que realiza a soma de acordo com um arquivo
+    file = File.read("#{filename}.csv") # Atribuição de leitura de arquivo numa variável "file"
+    handle_file(file) # Função que lida com este arquivo, setada abaixo
+  end
+
+  defp handle_file({:ok, file}), do: file # Caso a tupla retorne um parâmetro "ok" seguido do conteúdo do arquivo, cairá nessa condição
+  defp handle_file({:error, _reason}), do: {:error, "Invalid file"} ## Caso a tupla retorne um parâmetro "erro" seguido do erro, cairá nessa condição
+end
+```
+
+# Pipe Operator
+
+Com o Pipe Operator, é possível realizar o mesmo bloco de código com uma sintaxe mais elegante.
+
+```elixir
+# lib/rocketpay/numbers.ex
+
+defmodule Rocketpay.Numbers do
+  def sum_from_file(filename) do
+    "#{filename}.csv" # Obtém a string do nome do arquivo
+    |>File.read() # Lê o arquivo. Com o Pipe Operator, o primeiro argumento da função é implicito e será atribuido o valor acima
+    |>handle_file() # Função que lida com o arquivo, também com o primeiro argumento sendo implicito
+  end
+
+  defp handle_file({:ok, file}), do: file
+  defp handle_file({:error, _reason}), do: {:error, "Invalid file"}
+end
+```
+
+# Testes
+
+```elixir
+# test/rocketpay/numbers_test.exs
+
+defmodule Rocketpay.NumbersTest do # Nome do módulo sequenciado por "Test"
+  use ExUnit.Case # Explicitar que é um teste
+
+  alias Rocketpay.Numbers # Apelido do módulo
+
+  describe "sum_from_file/1" do # Nome da função testada / Número de argumentos que a função recebe
+    test "When there is a file with the given name, returns the sum of numbers" do # Descrição do teste
+      response = Numbers.sum_from_file("numbers")
+
+      expected_response = {:ok, %{result: 37}}
+
+      assert response == expected_response
+    end
+
+    test "When there is no file with the given name, returns an error" do
+      response = Numbers.sum_from_file("error")
+
+      expected_response = {:error, %{message: "Invalid file"}}
+
+      assert response == expected_response
+    end
+  end
+end
+```

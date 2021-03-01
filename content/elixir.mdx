@@ -87,34 +87,3 @@ mix phx.server
 ## Testando aplicação rodando
 
 A API estará disponível em [http://localhost:4000](http://localhost:4000) e pode ser monitorada através do dashboard em [http://localhost:4000/dashboard](http://localhost:4000/dashboard)
-
-# Rotas
-
-As rotas são mantidas no arquivo `lib/..._web/router.ex`.
-
-```elixir
-# router.ex
-
-scope "/api", RocketpayWeb do
-    pipe_through :api
-    get "/", WelcomeController, :index
-  end
-```
-
-# Controllers
-
-Os controllers são mantidos dentro de `lib/..._web/controllers`
-
-Exemplo de um controller:
-
-```elixir
-# welcome_controller.ex
-
-defmodule RocketpayWeb.WelcomeController do
-  use RocketpayWeb, :controller
-
-  def index(conn, _params) do
-    text(conn, 'Welcome to the Rocketpay API')
-  end
-end
-```
