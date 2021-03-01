@@ -34,11 +34,11 @@ const config = {
       '/nodejs',
       '/reactjs',
       '/react-native',
+      '/elixir',
       '/golang',
       '/flux',
       '/websocket',
       '/tests',
-      '/elixir',
     ],
     collapsedNav: [
       '/utils',
