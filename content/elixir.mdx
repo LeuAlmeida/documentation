@@ -18,3 +18,103 @@ mix archive.install hex phx_new 1.5.7
 ```
 
 [Você pode também acompanhar isso na documentação do Phoenix](https://hexdocs.pm/phoenix/installation.html#phoenix)
+
+# Extensões do VSCode
+
+- ElixirLS
+- ElixirLint
+
+# Configurações iniciais
+
+## Criando um novo projeto
+
+Rodar o comando abaixo:
+
+```bash
+mix phx.new --no-webpack --no-html
+```
+
+Fetch and install dependencies: **Y**
+
+## Testes de dependência
+
+Basta rodar o comando:
+
+```bash
+mix ecto.setup
+```
+
+## ElixirLint
+
+Incluir o **Credo** nas dependências do projeto, editando o arquivo `mix.exs`:
+
+```elixir
+defp deps do
+    [
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+    ]
+  end
+```
+
+## Baixando as dependências de uma aplicação
+
+Para baixar as dependências de uma aplicação, basta rodar o comando abaixo:
+
+```bash
+mix deps.get
+```
+
+## Configurando o lint
+
+```bash
+mix credo gen.config
+```
+
+Editar o arquivo `.credo.exs`, na linha que corresponde ao **ModuleDoc**:
+
+```elixir
+{Credo.Check.Readability.ModuleDoc, false}
+```
+
+## Rodando o servidor
+
+Para rodar a aplicaão, basta rodar o comando:
+
+```bash
+mix phx.server
+```
+
+## Testando aplicação rodando
+
+A API estará disponível em [http://localhost:4000](http://localhost:4000) e pode ser monitorada através do dashboard em [http://localhost:4000/dashboard](http://localhost:4000/dashboard)
+
+# Rotas
+
+As rotas são mantidas no arquivo `lib/..._web/router.ex`.
+
+```elixir
+# router.ex
+
+scope "/api", RocketpayWeb do
+    pipe_through :api
+    get "/", WelcomeController, :index
+  end
+```
+
+# Controllers
+
+Os controllers são mantidos dentro de `lib/..._web/controllers`
+
+Exemplo de um controller:
+
+```elixir
+# welcome_controller.ex
+
+defmodule RocketpayWeb.WelcomeController do
+  use RocketpayWeb, :controller
+
+  def index(conn, _params) do
+    text(conn, 'Welcome to the Rocketpay API')
+  end
+end
+```
