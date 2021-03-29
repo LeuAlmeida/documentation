@@ -14,7 +14,7 @@ Para utilizar o serviço, é necessário autorizar um usuário a ter todas as pe
 import AWS from 'aws-sdk';
 
 class SendSMS {
-   public async execute(code: string, phone: string) {
+   public async execute(phone: string) {
       const Message = 'Envio de SMS teste!';
 
       const parsedPhone = phone.length === 11 ? `55${phone}` : phone;
