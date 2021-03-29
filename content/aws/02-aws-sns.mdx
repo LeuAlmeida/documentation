@@ -1,0 +1,38 @@
+---
+title: "Amazon SES"
+metaTitle: "Amazon SES"
+metaDescription: ""
+---
+
+## Configuração na Amazon
+
+Para utilizar o serviço, é necessário autorizar um usuário a ter todas as permissões do SNS através do **IAM**.
+
+## Envio de SMS
+
+```typescript
+import AWS from 'aws-sdk';
+
+class SendSMS {
+   public async execute(code: string, phone: string) {
+      const Message = 'Envio de SMS teste!';
+
+      const parsedPhone = phone.length === 11 ? `55${phone}` : phone;
+
+      const SNSParams = {
+         Message,
+         PhoneNumber: `+${parsedPhone}`,
+         MessageAttributes: {
+            'AWS.SNS.SMS.SenderID': {
+               DataType: 'String',
+               StringValue: 'portal',
+            },
+         },
+      };
+
+      new AWS.SNS({ apiVersion: '2010-03-31' }).publish(SNSParams).promise();
+   }
+}
+
+export default new SendSMS();
+```
