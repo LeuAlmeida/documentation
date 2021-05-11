@@ -1,0 +1,53 @@
+---
+title: "Swagger"
+metaTitle: "Swagger"
+metaDescription: "Documentação utilizando o Swagger.io"
+---
+
+# Instalação
+
+Instalação do pacote
+
+```bash
+yarn add swagger-ui-express
+```
+
+Instalação das tipagens
+
+```bash
+yarn add @types/swagger-ui-express -D
+```
+
+# Configuração do Servidor
+
+```json
+// src/swagger.json
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Documentation",
+    "description": "",
+    "version": "1.0.0",
+    "contact": "leo@webid.net.br"
+  }
+}
+
+```
+
+```typescript
+// src/app.ts
+import swaggerUi from 'swagger-ui-express';
+
+import swaggerFile from './swagger.json';
+
+class App {
+  // ...
+
+   constructor() {
+      // ...
+      this.express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+   }
+
+ // ...
+ ```
