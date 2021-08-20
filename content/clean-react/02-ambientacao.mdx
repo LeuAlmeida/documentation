@@ -1,0 +1,140 @@
+---
+title: "Ambientação"
+metaTitle: "Ambientação seguindo o Clean Architecture"
+metaDescription: "Ambientação seguindo o Clean Architecture no ReactJS"
+---
+
+1. Inicio do projeto criando a pasta do projeto e rodando o `yarn init -y`
+2. Instalação do Commit Linter rodando o comando `yarn add git-commit-msg-linter -D`
+3. Instalação do Typescript e tipagem do Node.js rodando `yarn add typescript @types/node -D`
+4. Configuração do arquivo `tsconfig.json`
+
+```json
+// tsconfig.json
+
+{
+    "compilerOptions": {
+      "target": "es6",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "esModuleInterop": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "jsx": "react",
+      "rootDir": "src",
+      "baseUrl": "src",
+      "allowJs": true,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "isolatedModules": false,
+      "noEmit": true
+    },
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "src/main/test/cypress"
+    ]
+  }
+```
+
+5. Instalação do ESLint rodando o comando `yarn add eslint eslint-config-standard-with-typescript@11 eslint-plugin-import eslint-plugin-promise eslint-plugin-standard @typescript-eslint/eslint-plugin eslint-plugin-node -D`
+
+6. Criação do arquivo `.eslintrc.json`
+
+```json
+// .eslintrc.json
+
+{
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "extends": [
+      "standard-with-typescript",
+      "plugin:react/recommended",
+      "plugin:cypress/recommended"
+    ],
+    "env": {
+      "cypress/globals": true
+    },
+    "plugins": [
+      "react",
+      "cypress"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "rules": {
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/comma-spacing": "off",
+      "@typescript-eslint/return-await": "off",
+      "@typescript-eslint/no-namespace": "off",
+      "no-redeclare": "off",
+      "import/export": "off",
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error"
+    }
+  }
+```
+
+7. Instalação das dependências lint-staged husky rodando o comando `yarn add lint-staged husky -D`
+
+8. Arquivo de configurações `.lintstagedrc.json`
+
+```json
+// .lintstagedrc.json
+
+{
+  "*.{tsx,tsx}": [
+    "eslint 'src/**' --fix"
+  ]
+}
+```
+
+9. Arquivo de configurações `.huskyrc.json`
+
+```json
+// .huskyrc.json
+
+{
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+}
+```
+
+10. Instalação dos arquivos necessários para funcionamento do Jest rodando o comando `yarn add jest @types/jest ts-jest -D`
+
+11. Configuração do arquivo `jest.config.js`
+
+```js
+
+```
+
+12. Configurações adicionais:
+
+```json
+// package.json (script de test)
+
+"scripts": {
+  "test": "jest"
+},
+```
+
+```
+# Arquivo .eslintignore
+
+node_modules
+coverage
+```
+
