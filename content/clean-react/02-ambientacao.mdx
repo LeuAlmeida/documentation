@@ -118,6 +118,17 @@ metaDescription: "Ambientação seguindo o Clean Architecture no ReactJS"
 11. Configuração do arquivo `jest.config.js`
 
 ```js
+// jest.config.js
+
+module.exports = {
+  roots: ["<rootDir>/src"],
+  collectCoverageFrom: ["<rootDir>/src/**/*.{ts,tsx}"],
+  coverageDirectory: "coverage",
+  testEnvironment: "node",
+  transform: {
+    ".+\\.ts$": "ts-jest",
+  },
+};
 
 ```
 
