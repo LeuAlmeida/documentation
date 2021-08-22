@@ -1,0 +1,45 @@
+---
+title: "Scripts de Testes"
+metaTitle: "Scripts de Testes"
+metaDescription: ""
+---
+
+Antes de iniciar o desenvolvimento com TDD, é interessante usar um pattern de testes para garantir a integridade do sistema.
+
+### Scripts de teste
+
+```json
+// package.json
+"scripts": {
+  "test": "jest --passWithNoTests",
+  "test:watch": "npm test -- --watch",
+  "test:staged": "npm test -- --findRelatedTests",
+  "test:ci": "npm test -- --coverage"
+},
+```
+
+### Arquivo .huskyrc.json
+
+```json
+// .huskyrc.json
+
+{
+  "hooks": {
+    "pre-commit": "lint-staged",
+    "pre-push": "npm run test:ci"
+  }
+}
+```
+
+### Arquivo .lintstagedrc.json
+
+```json
+// .lintstagedrc.json
+
+{
+  "*.{ts,tsx}": [
+    "eslint 'src/**' --fix",
+    "npm run test:staged"
+  ]
+}
+```

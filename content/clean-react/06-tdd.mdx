@@ -1,0 +1,96 @@
+---
+title: "TDD"
+metaTitle: "Test Driven Development"
+metaDescription: "Boas práticas de TDD no React"
+---
+
+## Spy
+
+Serve como um _dublê_ de métodos, isto é, cria requisições e métodos fakes de forma que possibilite o teste real da aplicação sem causar impacto na prática.
+
+Exemplo de um Spy:
+
+```ts
+// src/data/test/mock-http-client.ts
+
+import { HttpPostClient } from '../protocols/http/http-post-client'
+
+export class HttpPostClientSpy implements HttpPostClient {
+  url?: string;
+
+  async post (url: string): Promise<void> {
+    this.url = url
+
+    return Promise.resolve()
+  }
+}
+
+```
+
+## Faker
+
+Biblioteca para criação de dados fake. Instalado rodando o comando `yarn add -D faker @types/faker`
+
+- Geração de link fake: `faker.internet.url()`
+- Geração de email fake: `faker.internet.email()`
+- Geração de senha fake: `faker.internet.password()`
+
+## Teste de Exceções
+
+### Arquivo de teste
+
+```ts
+import { UnexpectedError } from '@/domain/errors'
+
+// src/data/usecases/remote-authentication.spec.ts
+
+test('Should throw UnexpectedError if HttpPostClient does returns 400', async () => {
+  const { sut, httpPostClientSpy } = makeSut()
+  httpPostClientSpy.response = {
+    statusCode: HttpStatusCode.badRequest
+  }
+  const promise = sut.auth(mockAuthentication())
+  await expect(promise).rejects.toThrow(new UnexpectedError())
+})
+```
+
+### Arquivo de produção
+
+```ts
+// src/data/usecases/remote-authentication.ts
+
+import { HttpPostClient, HttpStatusCode } from '@/data/protocols/http'
+import { InvalidCredentialsError, UnexpectedError } from '@/domain/errors'
+import { AccountModel } from '@/domain/models'
+import { Authentication, AuthenticationParams } from '@/domain/usecases'
+
+export class RemoteAuthentication implements Authentication {
+  constructor (
+    private readonly url: string,
+    private readonly httpPostClient: HttpPostClient<AuthenticationParams, AccountModel>
+  ) {}
+
+  async auth (params: AuthenticationParams): Promise<AccountModel> {
+    const httpResponse = await this.httpPostClient.post({ url: this.url, body: params })
+
+    switch (httpResponse.statusCode) {
+      case HttpStatusCode.ok: return httpResponse.body
+      case HttpStatusCode.unauthorized: throw new InvalidCredentialsError()
+      default: throw new UnexpectedError()
+    }
+  }
+}
+```
+
+### Arquivo de Exceção
+
+```ts
+// src/domain/errors/unexpected-error.ts
+
+export class UnexpectedError extends Error {
+  constructor () {
+    super('Algo de errado aconteceu. Tente novamente em breve.')
+    this.name = 'UnexpectedError'
+  }
+}
+```

@@ -1,0 +1,27 @@
+---
+title: "Module Alias"
+metaTitle: "Module Alias"
+metaDescription: "Criação de Module Alias para criação de atalhos de path"
+---
+
+# Configuração
+
+Inclusão do parâmetro `paths` <mark>abaixo de **baseUrl**</mark> no `tsconfig.json`.
+
+```json
+// tsconfig.json
+
+"paths": {
+  "@/*": ["*"]
+},
+```
+
+Inclusão do parâmetro `moduleNameMapper` no arquivo `jest.config.js`
+
+```js
+// jest.config.js
+
+moduleNameMapper: {
+  '@/(.*)': '<rootDir>/src/$1'
+}
+```
