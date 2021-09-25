@@ -1,0 +1,26 @@
+---
+title: "Git"
+metaTitle: "Git"
+metaDescription: "Atalhos do Git"
+---
+
+### Atalhos do Git
+
+git config --global core.editor code
+git config --global --edit
+
+```conf
+[user]
+	name = Léu Almeida
+	email = leo@webid.net.br
+[core]
+	editor = code --wait
+[push]
+	followTags = true
+[alias]
+	c = !git add --all && git commit -m
+	s = !git status -s
+	l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+	amend = !git add --all && git commit --amend --no-edit
+	count = !git shortlog -s --grep
+  ```
