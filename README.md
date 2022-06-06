@@ -3,7 +3,7 @@
 </p>
 
 <h2 align="center">
-  Stack.mdx Documentation
+  Leunardo.dev Documentation
 </h2>
 
 <p align="center">
@@ -22,7 +22,7 @@
 
 <p align="center">
 <img alt="Presentation" src="./github/screenshot.png" />
-</p>   
+</p>
 
 <hr />
 

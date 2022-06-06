@@ -9,7 +9,7 @@ const config = {
     logo: 'https://leunardo.dev/docs/icon.png',
     logoLink: 'https://docs.leunardo.dev',
     title:
-      "<a href='https://docs.leunardo.dev'><span>Stack.mdx Documentation</span></a>",
+      "<a href='https://docs.leunardo.dev'><span>Leunardo.dev Documentation</span></a>",
     githubUrl: 'https://github.com/LeuAlmeida/documentation',
     helpUrl: 'https://github.com/LeuAlmeida/documentation/issues',
     tweetText: '',
@@ -61,10 +61,10 @@ const config = {
     frontline: false,
     ignoreIndex: true,
     title:
-      "<a href='https://docs.leunardo.dev'>stack</a><div class='greenCircle'></div><a href='https://leunardo.dev'>mdx</a>",
+      "<a href='https://docs.leunardo.dev'>Leunardo</a><div class='greenCircle'></div><a href='https://leunardo.dev'>.dev</a>",
   },
   siteMetadata: {
-    title: 'Stack.mdx Documentation',
+    title: 'Leunardo.dev Documentation',
     description: 'Documentation built with mdx. Powering leunardo.dev ',
     ogImage: 'https://leunardo.dev/docs/site-preview.jpeg',
     docsLocation: 'https://github.com/LeuAlmeida/documentation/tree/master/content',
@@ -73,8 +73,8 @@ const config = {
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
     manifest: {
-      name: 'Stack.mdx Documentation',
-      short_name: 'Stackmdx',
+      name: 'Leunardo.dev Documentation',
+      short_name: 'Leunardo.dev',
       start_url: '/',
       background_color: '#6b37bf',
       theme_color: '#6b37bf',
