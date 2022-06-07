@@ -6,6 +6,10 @@ metaDescription: "Conceitos e usos de Docker"
 
 ## Manual de Uso
 
+### O que é um container?
+
+"Um container é um padrão de unidade de software que empacota código e todas as dependências de uma aplicação, fazendo com que a mesma seja executada rapidamente de forma confiável de um ambiente computacional para outro." - _Fonte: docker.com_
+
 #### Como funciona?
 * Criação de ambientes isolados *(container)*;
 * Containers expõe portas para comunicação;
@@ -36,6 +40,60 @@ $ docker stop database
 Para iniciar um container parado, usa-se:
 ```bash
 $ docker start NOME_DO_CONTAINER
+```
+
+Para rodar um container
+```bash
+$ docker run --name nginx -d -p 8080:80 nginx
+
+# A flag -p serve para redirecionar a porta localhost para a porta do container
+# A flag -d significa detached, para que o container não fique preso ao terminal
+# A flag --name serve para nomear o container
+```
+## Acessando e alterando arquivos de um container
+
+```bash
+$ docker exec -it nginx bash
+
+# A flag -it representa a interação com o container
+# O comando "exec" representa a execução do comando para com o próprio container
+# O comando "bash" aponta que deverá rodar o bash dentro dele
+```
+
+## Bind mounts
+
+O bind mount serve para montar um container com arquivos pré definidos, por exemplo:
+Ao carregar um container Nginx, o exemplo abaixo montará o arquivo index.html (localhost:8080) com um arquivo index.html pré setado localmente:
+
+```bash
+$ docker run -d --name nginx -p 8080:80 -v ~/Desktop/PESSOAL/Cursos/fullcycle/docker/bind-mounts/:/usr/share/nginx/html nginx
+```
+De forma segura (sem criar a pasta localmente):
+
+```bash
+$ docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html nginx
+```
+
+## Trabalhando com volumes
+
+Para criar um volume:
+```bash
+$ docker volume create meuvolume
+```
+
+Para listar os volumes:
+```bash
+$ docker volume ls
+```
+
+Para inspecionar um volume:
+```bash
+$ docker volume inspect meuvolume
+```
+
+Para criar um container apontando para um volume em específico:
+```bash
+$ docker run --name nginx -d --mount type=volume,source=meuvolume,target=/app nginx
 ```
 
 #### Criando serviço de Banco de dados Postgres:
@@ -71,6 +129,8 @@ COPY --chown=node:node . .
 CMD ["yarn", "start"]
 EXPOSE 3001
 ```
+
+## Docker compose
 
 #### Arquivo docker-compose.yml
 
