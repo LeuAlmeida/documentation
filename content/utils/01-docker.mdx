@@ -94,6 +94,52 @@ $ docker volume inspect meuvolume
 Para criar um container apontando para um volume em específico:
 ```bash
 $ docker run --name nginx -d --mount type=volume,source=meuvolume,target=/app nginx
+
+# ou
+
+$ docker run --name nginx -d -v meuvolume:/app nginx
+```
+* Caso seja criado um  segundo container usando o mesmo volume, ele compartilhará as informações pré existentes
+
+Para limpar os volumes
+
+```bash
+$ docker volume prune
+```
+
+## Entendendo imagens e DockerHub
+
+As imagens ficam armazenadas no [Docker Registry, ou Docker Hub](https://hub.docker.com/). Lá contém as versões (sendo estas latest ou releases fixas).
+
+Para consultas as imagens existentes na máquina, deve rodar o comando:
+
+```bash
+$ docker images
+
+# OUTPUT:
+#
+# REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+# ubuntu        latest    a7870fd478f4   33 hours ago   69.2MB
+# nginx         latest    8f05d7383593   11 days ago    134MB
+# hello-world   latest    46331d942d63   2 months ago   9.14kB
+```
+
+Para baixar uma imagem para a máquina
+
+```bash
+$ docker pull php
+```
+
+Com uma tag específica
+
+```bash
+$ docker pull php:rc-alpine
+```
+
+Para excluir imagens
+
+```bash
+$ docker rmi php:latest # É necessário incluir a tag
 ```
 
 #### Criando serviço de Banco de dados Postgres:
@@ -115,7 +161,8 @@ Ao finalizar, exibirá o id do container
 **Exemplo:**
 
 ```dockerfile
-FROM node:lts-alpine
+# Imagem de referência
+FROM node:alpine
 
 RUN mkdir -p /home/node/api/node_modules && chown -R node:node /home/node/api
 WORKDIR /home/node/api
