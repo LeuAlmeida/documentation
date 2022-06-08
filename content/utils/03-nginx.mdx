@@ -1,0 +1,23 @@
+---
+title: "Nginx"
+metaTitle: "Publicando portas com nginx"
+metaDescription: "Publicando portas com nginx"
+---
+
+## Rodando o container do nginx e editando o index.html
+
+```bash
+$ docker run --name nginx -d -p 8080:80 nginx
+
+$ docker exec -it nginx bash
+
+cd /usr/share/nginx/html
+
+$ apt-get update
+$ apt-get install vim
+$ vim index.html
+
+# Modo de edição: I
+# Sair do modo de edição: Esc
+# Salvar: Dois pontos + W
+```
