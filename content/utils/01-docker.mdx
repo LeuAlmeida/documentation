@@ -142,6 +142,12 @@ Para excluir imagens
 $ docker rmi php:latest # É necessário incluir a tag
 ```
 
+Para publicar uma imagem no Dockerhub deve rodar o comando:
+
+```bash
+$ docker push nomedaimagem
+```
+
 #### Criando serviço de Banco de dados Postgres:
 `https://hub.docker.com/_/postgres`
 
@@ -157,6 +163,58 @@ Ao finalizar, exibirá o id do container
 #### Arquivo Dockerfile
 
 É o arquivo de configurações que executará os comandos iniciais do conteiner.
+
+<mark>Para rodar o Dockerfile, basta rodar o comando abaixo no terminal</mark>:
+
+```bash
+$ docker build -t usuario-no-dockerhub/nginx-com-vim:latest .
+# A flag -t representa Tag
+```
+
+## Tipos de network
+
+* Bridge
+* Host
+* Overlay
+* Maclan
+* None
+
+Para listar as networks:
+```bash
+$ docker network ls
+```
+
+Para matar as networks não utilizadas:
+```bash
+$ docker network prune
+```
+
+Para criar uma rede deve rodar o seguinte comando:
+```bash
+$ docker network create --driver bridge minharede
+```
+
+Criando um container com a rede criada
+```bash
+# Exemplo
+
+$ docker run -dit --name ubuntu1 --network minharede bash
+```
+
+Acessando o container e descobrindo o IP
+```bash
+$ docker exec -it ubuntu1 bash
+
+$ bash-5.1# ping ubuntu2 # Só funcionará com a rede previamente criada, caso contrário deve rodar: $ ip addr show
+```
+
+Conectando um container em uma rede
+```bash
+$ docker network connect minharede ubuntu3
+
+# minharede: Nome da rede
+# ubuntu3: Nome do container
+```
 
 **Exemplo:**
 
