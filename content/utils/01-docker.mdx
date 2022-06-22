@@ -216,6 +216,36 @@ $ docker network connect minharede ubuntu3
 # ubuntu3: Nome do container
 ```
 
+#### Criando um container com a network Host
+
+```bash
+$ docker run --rm -d --name nginx --network host nginx
+```
+
+#### Container acessando nossa maquina
+
+```bash
+$ docker run --rm -it --name ubuntu ubuntu bash
+
+# Dentro do container, pode rodar o comando abaixo para acessar a máquina local (exemplo utilizando o curl)
+$ curl http://host.docker.internal:8000
+```
+
+#### Criando aplicação Node sem o Node
+
+Com o Docker é possível rodar uma aplicação sem ter o framework instalado de fato. Com o exemplo abaixo, será replicado na pasta `pwd` _(current folder)_ o que acontece na pasta _usr/src/app_, ou seja, se lá dentro estiver rodando uma aplicação Node.js, assim será feito na pasta _./_ `(pwd)`.
+```bash
+$ docker run --rm -it -v $(pwd)/:/usr/src/app -p 3000:3000 node:15 bash
+```
+
+## Otimização utilizando Multistage Building
+
+Exemplo de um comando de build usando multistage (para produção)
+
+```bash
+$ docker build -t user_dockerhub/project:prod laravel -f folder/Dockerfile.prod
+```
+
 **Exemplo:**
 
 ```dockerfile
@@ -247,16 +277,16 @@ EXPOSE 3001
 version: '3.6'
 
 networks:
-  portal-network:
+  minhanetwork:
     driver: bridge
 
 services:
-  portal-backend: # Nome do conteiner
+  meubackend: # Nome do conteiner
     build:
       context: .
       dockerfile: Dockerfile
     image: nodejs
-    container_name: portal-backend # Chamada do conteiner
+    container_name: meubackend # Chamada do conteiner
     restart: unless-stopped
     env_file: .env
     ports:
@@ -264,8 +294,62 @@ services:
     volumes:
       - .:/home/node/api
     networks:
-      - portal-network
+      - minhanetwork
     command: yarn start # Comando executado para rodar o serviço
+```
+
+#### Criando banco de dados MySQL
+
+```yml
+# docker-compose.yml
+
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    volumes:
+      - ./mysql:var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOTPASSWORD=root
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
+```
+
+#### Dependência entre containers
+
+No `docker-compose.yml` é possível incluir o parâmetro `depends_on` e passar o nome de uma imagem de dependência. Além disso, é possível utilizar o [Dockerize](https://github.com/jwilder/dockerize) como comando para aguardar um container terminar de ser montado para um outro iniciar. Por exemplo:
+
+```yml
+# docker-compose.yml
+version: '3'
+
+services:
+  app:
+    build:
+      context: node
+    container_name: app
+    # Entrypoint usando o dockerize abaixo
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
+    networks:
+      - node-network
+    volumes:
+      - ./node:/usr/src/app
+    tty: true
+    ports:
+      - "3000:3000"
+    # Exemplo de depends_on abaixo
+    depends_on:
+       - db
 ```
 
 #### Arquivo .dockerignore
