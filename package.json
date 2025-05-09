@@ -49,13 +49,14 @@
     "react-instantsearch-dom": "^6.0.0",
     "react-live": "^2.2.2",
     "react-loadable": "^5.5.0",
+    "sharp": "0.27.2",
     "styled-components": "^4.4.1",
     "styled-icons": "^9.0.1"
   },
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "node --openssl-legacy-provider ./node_modules/.bin/gatsby develop",
     "build": "gatsby build --prefix-paths",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
