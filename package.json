@@ -57,7 +57,7 @@
   "main": "n/a",
   "scripts": {
     "start": "node --openssl-legacy-provider ./node_modules/.bin/gatsby develop",
-    "build": "gatsby build --prefix-paths",
+    "build": "node --max-old-space-size=4096 --openssl-legacy-provider ./node_modules/.bin/gatsby build --prefix-paths",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
     "lint": "eslint --fix \"src/**/*.{js,jsx}\"",
     "pre-commit": "npm run format && npm run build"
