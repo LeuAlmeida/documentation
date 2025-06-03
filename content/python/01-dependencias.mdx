@@ -1,0 +1,108 @@
+---
+title: "Configuração do Ambiente Python"
+metaTitle: "Configurando um ambiente de desenvolvimento Python"
+metaDescription: "Aprenda a configurar um ambiente de desenvolvimento Python com gerenciamento de dependências e ambientes virtuais"
+---
+
+## Configurações Iniciais
+
+### Python
+Python é a linguagem de programação que utilizaremos. É importante ter a versão mais recente instalada para garantir compatibilidade com as bibliotecas modernas.
+
+**Resumo: Linguagem de programação necessária para executar os projetos**
+
+Para verificar se o Python está instalado e sua versão:
+```shell
+$ python --version
+```
+
+### Pip
+Pip é o gerenciador de pacotes padrão do Python. Ele permite instalar e gerenciar bibliotecas e dependências do projeto.
+
+**Resumo: Gerenciador de pacotes que permite instalar bibliotecas Python**
+
+Para verificar se o Pip está instalado e sua versão:
+```shell
+$ pip --version
+```
+
+## Gerenciamento de Pacotes
+
+### Instalação de Pacotes
+Para instalar uma nova biblioteca:
+```shell
+$ pip install <nome-do-pacote>
+```
+
+### Atualização de Pacotes
+Para atualizar uma biblioteca existente:
+```shell
+$ pip install --upgrade <nome-do-pacote>
+```
+
+### Remoção de Pacotes
+Para remover uma biblioteca:
+```shell
+$ pip uninstall <nome-do-pacote>
+```
+
+## Ambientes Virtuais
+
+### Sobre Ambientes Virtuais
+Ambientes virtuais são espaços isolados onde você pode instalar dependências específicas para cada projeto, evitando conflitos entre versões de bibliotecas.
+
+**Resumo: Isola as dependências do projeto do sistema global**
+
+### Criando um Ambiente Virtual
+Para criar um novo ambiente virtual:
+```shell
+$ python -m venv <nome-do-ambiente>
+
+# Exemplo:
+$ python -m venv .venv
+```
+
+### Ativando o Ambiente Virtual
+Para começar a usar o ambiente virtual:
+```shell
+# No macOS e Linux:
+$ source <nome-do-ambiente>/bin/activate
+
+# Exemplo:
+$ source .venv/bin/activate
+```
+
+### Desativando o Ambiente Virtual
+Para sair do ambiente virtual:
+```shell
+$ deactivate
+```
+
+## Gerenciamento de Dependências
+
+### Arquivo de Requisitos
+O arquivo `requirements.txt` é usado para listar todas as dependências do projeto.
+
+### Criando arquivo de requisitos
+Para gerar um arquivo com todas as dependências instaladas:
+```shell
+$ pip freeze > requirements.txt
+```
+
+### Instalando dependências do projeto
+Para instalar todas as dependências listadas:
+```shell
+$ pip install -r requirements.txt
+```
+
+## Ferramentas Opcionais
+
+### Anaconda
+Distribuição Python focada em ciência de dados que inclui várias bibliotecas pré-instaladas.
+
+**Resumo: Ambiente completo para desenvolvimento em ciência de dados**
+
+### Jupyter Notebook
+Interface web para desenvolvimento Python interativo, especialmente útil para análise de dados e machine learning.
+
+**Resumo: Ambiente interativo para desenvolvimento e documentação de código**
