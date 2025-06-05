@@ -44,7 +44,7 @@ export default class MDXRuntimeTest extends Component {
           }
 
           if (prefix && forcedNavOrder.find(url => url === `/${prefix}`)) {
-            return { ...acc, [`/${prefix}`]: [...acc[`/${prefix}`], cur] };
+            return { ...acc, [`/${prefix}`]: [...(acc[`/${prefix}`] || []), cur] };
           } else {
             return { ...acc, items: [...acc.items, cur] };
           }

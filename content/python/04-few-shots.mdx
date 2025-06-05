@@ -4,7 +4,6 @@ metaTitle: "Few-shot Prompting para Langchain com Python"
 metaDescription: "Guia de estudos sobre few-shot prompting, uso de modelos HuggingFace, cache, templates e few-shot prompting em Python."
 ---
 
-import { Alert, Tabs, Tab } from '@theme-ui/components'
 
 # Few-shot Prompting
 
@@ -12,7 +11,7 @@ import { Alert, Tabs, Tab } from '@theme-ui/components'
 
 O few-shot prompting permite fornecer exemplos para o modelo antes da pergunta principal, melhorando a qualidade das respostas.
 
-<Alert variant="info">Você pode criar uma sequência de mensagens alternando entre perguntas e respostas para ensinar o modelo a seguir um padrão.</Alert>
+> **Dica:** Você pode criar uma sequência de mensagens alternando entre perguntas e respostas para ensinar o modelo a seguir um padrão.
 
 ```python
 from langchain_core.messages import HumanMessage, AIMessage
@@ -55,14 +54,13 @@ llm = HuggingFaceEndpoint(repo_id=modelo, task='text-generation')
 chat = ChatHuggingFace(llm=llm)
 ```
 
-<Alert variant="warning">Atenção: Algumas classes da integração HuggingFace estão depreciadas. Consulte sempre a documentação oficial para atualizações.</Alert>
+> **Atenção:** Algumas classes da integração HuggingFace estão depreciadas. Consulte sempre a documentação oficial para atualizações.
 
 ## Cache de Respostas
 
 O LangChain permite cachear respostas para acelerar execuções repetidas.
 
-<Tabs>
-  <Tab label="Memória">
+### Cache em Memória
 
 ```python
 from langchain.cache import InMemoryCache
@@ -70,8 +68,8 @@ from langchain.globals import set_llm_cache
 
 set_llm_cache(InMemoryCache())
 ```
-  </Tab>
-  <Tab label="SQLite">
+
+### Cache SQLite
 
 ```python
 from langchain.cache import SQLiteCache
@@ -79,8 +77,6 @@ from langchain.globals import set_llm_cache
 
 set_llm_cache(SQLiteCache(database_path='./arquivos/langchain_cache_db.sqlite'))
 ```
-  </Tab>
-</Tabs>
 
 ## Prompt Templates
 
@@ -195,9 +191,7 @@ print(prompt.format(input='Quem fez mais gols, Romário ou Pelé?'))
 
 ## Dicas e Boas Práticas
 
-<Alert variant="success">
-<strong>Dica:</strong> Use o MDX para inserir componentes interativos, abas, alertas e outros recursos visuais para enriquecer seu material de estudo!
-</Alert>
+> **Dica:** Use o MDX para inserir componentes interativos, abas, alertas e outros recursos visuais para enriquecer seu material de estudo!
 
 ---
 
