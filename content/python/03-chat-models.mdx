@@ -1,0 +1,104 @@
+---
+title: "Chat Models"
+metaTitle: "Chat Models para Langchain com Python"
+metaDescription: "Guia de estudos sobre variáveis de ambiente, LLMs e ChatModels em Python com exemplos práticos."
+---
+
+# Chat Models
+
+## Configurações de variáveis ambiente
+
+Para carregar variáveis de ambiente em Python, utilize a biblioteca `dotenv`:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+## Instanciando uma LLM
+
+Exemplo de como instanciar um modelo de linguagem (LLM) usando a biblioteca `langchain_openai`:
+
+```python
+from langchain_openai import OpenAI
+
+llm = OpenAI()
+```
+
+## Chamando a LLM
+
+Você pode fazer perguntas diretamente ao modelo:
+
+```python
+pergunta = 'Conte uma história breve sobre a jornada de aprender a programar'
+llm.invoke(pergunta)
+```
+
+### Resposta em stream
+
+Para receber a resposta em partes (stream):
+
+```python
+pergunta = 'Conte uma história breve sobre a jornada de aprender a programar'
+for trecho in llm.stream(pergunta):
+    print(trecho, end='')
+```
+
+### Chamadas simultâneas
+
+É possível enviar várias perguntas ao mesmo tempo:
+
+```python
+perguntas = [
+    'O que é o céu?',
+    'O que é a terra?',
+    'O que é o mar?'
+]
+
+llm.batch(perguntas)
+```
+
+## ChatModels
+
+ChatModels são modelos de linguagem que utilizam mensagens de chat como entrada e saída. O LangChain possui integrações com vários provedores e expõe uma interface padrão para interagir com esses modelos.
+
+### Exemplo de uso
+
+```python
+from langchain_openai import ChatOpenAI
+
+chat = ChatOpenAI(model='gpt-3.5-turbo-0125')
+```
+
+### Mensagens de chat
+
+```python
+from langchain_core.messages import HumanMessage, SystemMessage
+
+mensagens = [
+    SystemMessage(content='Você é um assistente que conta piadas'),
+    HumanMessage(content='Quanto é 1 + 1?')
+]
+
+resposta = chat.invoke(mensagens)
+print(resposta.content)
+```
+
+### Resposta em stream
+
+```python
+for trecho in chat.stream(mensagens):
+    print(trecho.content, end='')
+```
+
+### Tipos de mensagens
+
+- `HumanMessage`: Representa uma mensagem do usuário.
+- `AIMessage`: Representa uma mensagem do modelo.
+- `SystemMessage`: Mensagem do sistema, indicando ao modelo como se comportar.
+- `FunctionMessage`: Resultado de uma chamada de função.
+- `ToolMessage`: Resultado de uma chamada de ferramenta.
+
+---
+
+Este guia resume os principais conceitos e exemplos práticos apresentados na aula 02 sobre uso de LLMs e ChatModels em Python.

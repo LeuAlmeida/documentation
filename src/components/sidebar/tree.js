@@ -95,6 +95,17 @@ const calculateTreeData = edges => {
         prevItems = tmp.items;
       }
     }
+    
+    // Ensure the accumulator is properly initialized with empty arrays
+    if (!accu.items) {
+      accu.items = [];
+    }
+    
+    // Ensure each prefix in the accumulator has items initialized as an array
+    const prefix = parts[0];
+    if (prefix && accu[prefix] && !Array.isArray(accu[prefix])) {
+      accu[prefix] = [];
+    }
     // sort items alphabetically.
     prevItems.map(item => {
       item.items = item.items.sort(function(a, b) {

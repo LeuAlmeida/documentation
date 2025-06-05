@@ -1,0 +1,46 @@
+## Criando chaves na OpenAI
+
+
+[Criar chave na OpenAI](http://platform.openai.com/api-keys)
+
+## Instalando o OpenAI
+
+
+
+
+## Acessando um LLM
+
+
+### Instalando as dependências
+```shell
+$ pip install ipykernel langchain langchain-community langchain-openai openai huggingface_hub transformers jinja2 tiktoken pypdf yt_dlp pydub beautifulsoup4 google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+
+```shell
+ipykernel
+langchain
+langchain-community
+langchain-openai
+openai
+huggingface_hub
+transformers
+jinja2
+tiktoken
+pypdf
+yt_dlp
+pydub
+beautifulsoup4
+google-api-python-client
+google-auth-httplib2
+google-auth-oauthlib
+```
+
+
+
+```python
+from langchain_openai import OpenAI
+
+llm = OpenAI()
+
+llm.invoke("Hello, how are you?")
+```

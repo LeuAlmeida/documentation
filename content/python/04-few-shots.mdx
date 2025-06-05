@@ -1,0 +1,204 @@
+---
+title: "Few-shot Prompting"
+metaTitle: "Few-shot Prompting para Langchain com Python"
+metaDescription: "Guia de estudos sobre few-shot prompting, uso de modelos HuggingFace, cache, templates e few-shot prompting em Python."
+---
+
+import { Alert, Tabs, Tab } from '@theme-ui/components'
+
+# Few-shot Prompting
+
+## Conceito
+
+O few-shot prompting permite fornecer exemplos para o modelo antes da pergunta principal, melhorando a qualidade das respostas.
+
+<Alert variant="info">Você pode criar uma sequência de mensagens alternando entre perguntas e respostas para ensinar o modelo a seguir um padrão.</Alert>
+
+```python
+from langchain_core.messages import HumanMessage, AIMessage
+
+mensagens = [
+   HumanMessage(content='Quanto é 1 + 1?'),
+   AIMessage(content='2'),
+   HumanMessage(content='Quanto é 10 * 5?'),
+   AIMessage(content='50'),
+   HumanMessage(content='Quanto é 10 + 3?'),
+]
+
+chat.invoke(mensagens)
+```
+
+**Equivalente na API da OpenAI:**
+
+```python
+mensagens = [
+    {'role': 'user', 'content': 'Quanto é 1 + 1'},
+    {'role': 'assistant', 'content': '2'},
+    {'role': 'user', 'content': 'Quanto é 10 * 5'},
+    {'role': 'assistant', 'content': '50'},
+    {'role': 'user', 'content': 'Quanto é 10 + 3'},
+]
+```
+
+## Utilizando outros modelos
+
+### HuggingFace
+
+Você pode usar modelos da HuggingFace com LangChain:
+
+```python
+from langchain_community.chat_models.huggingface import ChatHuggingFace
+from langchain_community.llms.huggingface_endpoint import HuggingFaceEndpoint
+
+modelo = 'mistralai/Mixtral-8x7B-Instruct-v0.1'
+llm = HuggingFaceEndpoint(repo_id=modelo, task='text-generation')
+chat = ChatHuggingFace(llm=llm)
+```
+
+<Alert variant="warning">Atenção: Algumas classes da integração HuggingFace estão depreciadas. Consulte sempre a documentação oficial para atualizações.</Alert>
+
+## Cache de Respostas
+
+O LangChain permite cachear respostas para acelerar execuções repetidas.
+
+<Tabs>
+  <Tab label="Memória">
+
+```python
+from langchain.cache import InMemoryCache
+from langchain.globals import set_llm_cache
+
+set_llm_cache(InMemoryCache())
+```
+  </Tab>
+  <Tab label="SQLite">
+
+```python
+from langchain.cache import SQLiteCache
+from langchain.globals import set_llm_cache
+
+set_llm_cache(SQLiteCache(database_path='./arquivos/langchain_cache_db.sqlite'))
+```
+  </Tab>
+</Tabs>
+
+## Prompt Templates
+
+Um prompt template é um conjunto de instruções parametrizadas para o modelo.
+
+```python
+from langchain.prompts import PromptTemplate
+
+prompt_template = PromptTemplate.from_template('''
+Responda a seguinte pergunta do usuário:
+{pergunta}
+''')
+
+print(prompt_template.format(pergunta='O que é um buraco negro?'))
+```
+
+### Templates com múltiplos parâmetros
+
+```python
+prompt_template = PromptTemplate.from_template('''
+Responda a seguinte pergunta do usuário em até {n_palavras} palavras:
+{pergunta}
+''')
+
+prompt_template.format(n_palavras=10, pergunta='O que é um buraco negro?')
+```
+
+## Compondo Prompts
+
+Você pode unir múltiplos templates para criar prompts mais complexos:
+
+```python
+from langchain.prompts import PromptTemplate
+
+template_world_count = PromptTemplate.from_template('''
+Responda a pergunta em até {n_palavras} palavras.
+''')
+
+template_lingua = PromptTemplate.from_template('''
+Retorne a resposta no idioma {lingua}.
+''')
+
+template_final = (
+    template_world_count
+    + template_lingua
+    + "Responda a pergunta seguinte seguindo as instruções: {pergunta}"
+)
+
+prompt = template_final.format(n_palavras=10, lingua='inglês', pergunta='O que é uma estrela?')
+llm.invoke(prompt)
+```
+
+## Templates para Chat
+
+```python
+from langchain.prompts import ChatPromptTemplate
+
+chat_template = ChatPromptTemplate.from_template('Essa é a minha dúvida: {duvida}')
+chat_template.format_messages(duvida='Quem sou eu?')
+```
+
+### Chat com múltiplas mensagens
+
+```python
+chat_template = ChatPromptTemplate.from_messages([
+    ('system', 'Você é um assistente engraçado e se chama {nome_assistente}.'),
+    ('human', 'Olá, como vai?'),
+    ('ai', 'Melhor agora! Como posso ajudá-lo?'),
+    ('human', '{pergunta}')
+])
+
+chat_template.format_messages(nome_assistente='Rubens', pergunta='Qual o seu nome?')
+```
+
+## Few-shot Prompting para Chat
+
+Você pode fornecer exemplos de perguntas e respostas para o modelo aprender o padrão desejado:
+
+```python
+from langchain.prompts.few_shot import FewShotPromptTemplate
+from langchain.prompts.prompt import PromptTemplate
+
+exemplos = [
+  {
+    "pergunta": "Quem viveu mais tempo, Muhammad Ali ou Alan Turing?",
+    "resposta": """
+São necessárias perguntas de acompanhamento aqui: Sim.
+Pergunta de acompanhamento: Quantos anos Muhammad Ali tinha quando morreu?
+Resposta intermediária: Muhammad Ali tinha 74 anos quando morreu.
+Pergunta de acompanhamento: Quantos anos Alan Turing tinha quando morreu?
+Resposta intermediária: Alan Turing tinha 41 anos quando morreu.
+Então a resposta final é: Muhammad Ali
+"""
+  },
+  // ... outros exemplos ...
+]
+
+example_prompt = PromptTemplate(
+    input_variables=['pergunta', 'resposta'],
+    template='Pergunta {pergunta}\n{resposta}'
+)
+
+prompt = FewShotPromptTemplate(
+    examples=exemplos,
+    example_prompt=example_prompt,
+    suffix='Pergunta: {input}',
+    input_variables=['input']
+)
+
+print(prompt.format(input='Quem fez mais gols, Romário ou Pelé?'))
+```
+
+## Dicas e Boas Práticas
+
+<Alert variant="success">
+<strong>Dica:</strong> Use o MDX para inserir componentes interativos, abas, alertas e outros recursos visuais para enriquecer seu material de estudo!
+</Alert>
+
+---
+
+Este guia resume os principais conceitos e exemplos práticos apresentados na aula 03, aproveitando o poder do MDX para destacar dicas e organizar o conteúdo de forma interativa e didática.
