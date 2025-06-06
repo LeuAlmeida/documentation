@@ -1,22 +1,34 @@
-## Criando chaves na OpenAI
+---
+title: "LLMs"
+metaTitle: "Trabalhando com LLMs em Python"
+metaDescription: "Guia de estudos sobre configuração e uso de Large Language Models (LLMs) com Python, incluindo exemplos práticos com OpenAI."
+---
 
+# Trabalhando com LLMs
 
-[Criar chave na OpenAI](http://platform.openai.com/api-keys)
+## Configuração Inicial
 
-## Instalando o OpenAI
+Para começar a trabalhar com LLMs, precisamos primeiro configurar nosso ambiente e obter as credenciais necessárias.
 
+### Criando chaves na OpenAI
 
+Para utilizar os modelos da OpenAI, você precisa criar uma chave de API:
 
-
-## Acessando um LLM
-
+1. Acesse [platform.openai.com/api-keys](http://platform.openai.com/api-keys)
+2. Faça login ou crie uma conta
+3. Crie uma nova chave de API
+4. Guarde a chave em um local seguro
 
 ### Instalando as dependências
-```shell
-$ pip install ipykernel langchain langchain-community langchain-openai openai huggingface_hub transformers jinja2 tiktoken pypdf yt_dlp pydub beautifulsoup4 google-api-python-client google-auth-httplib2 google-auth-oauthlib
-```
+
+Para trabalhar com LLMs no Python, precisamos instalar algumas bibliotecas. Execute o seguinte comando:
 
 ```shell
+pip install ipykernel langchain langchain-community langchain-openai openai huggingface_hub transformers jinja2 tiktoken pypdf yt_dlp pydub beautifulsoup4 google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+
+Lista completa de dependências:
+```text
 ipykernel
 langchain
 langchain-community
@@ -35,12 +47,36 @@ google-auth-httplib2
 google-auth-oauthlib
 ```
 
+## Acessando um LLM
 
+Para começar a usar um LLM, primeiro precisamos importar e configurar o modelo:
 
 ```python
 from langchain_openai import OpenAI
 
 llm = OpenAI()
 
+# Fazendo uma chamada simples ao modelo
 llm.invoke("Hello, how are you?")
 ```
+
+## Boas Práticas
+
+1. **Segurança**:
+   - Nunca compartilhe suas chaves de API
+   - Use variáveis de ambiente para armazenar chaves
+   - Mantenha suas dependências atualizadas
+
+2. **Otimização**:
+   - Cache respostas quando possível
+   - Use o modelo mais apropriado para cada tarefa
+   - Monitore o uso de tokens
+
+3. **Desenvolvimento**:
+   - Sempre trate erros de API
+   - Implemente timeouts adequados
+   - Mantenha logs das interações
+
+---
+
+Este guia apresenta os conceitos básicos para começar a trabalhar com LLMs usando Python e a biblioteca LangChain.
