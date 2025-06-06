@@ -1,0 +1,125 @@
+---
+title: "Output Parsers"
+metaTitle: "Output Parsers para Langchain com Python"
+metaDescription: "Guia de estudos sobre formatação de saídas, StrOutputParser, Chains e saídas estruturadas em Python com exemplos práticos."
+---
+
+# Output Parsers – Formatando saídas
+
+## Como retornar dados estruturados de um modelo?
+
+É frequentemente útil que um modelo retorne uma saída que corresponda a um esquema específico. Um caso de uso comum é a extração de dados de um texto para inseri-los em um banco de dados ou utilizá-los em algum outro sistema subsequente. Nesta aula abordaremos algumas estratégias para obter saídas estruturadas de um modelo.
+
+## Estruturando saídas de chat – StrOutputParser
+
+O formatador mais simples do LangChain é o StrOutputParser. Ele é utilizado para convertermos saídas do modelo no formato de conversação para formato texto. É uma atividade bem comum, levando em consideração que maior parte das llms que utilizamos com LangChain são acessadas através dos ChatModels.
+
+### Configurando o ambiente
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+### Criando um template de chat
+
+```python
+from langchain.prompts import ChatPromptTemplate
+
+chat_template = ChatPromptTemplate.from_messages([
+    ('system', 'Você é um assistente engraçado e se chama {nome_assistente}.'),
+    ('human', '{pergunta}')
+])
+
+chat_template.format_messages(nome_assistente='Sandro', pergunta='Qual o seu nome?')
+```
+
+### Invocando o modelo
+
+```python
+from langchain_openai.chat_models import ChatOpenAI
+
+chat = ChatOpenAI()
+
+prompt = chat_template.invoke({'nome_assistente': 'Sandro', 'pergunta': 'Qual o seu nome?'})
+resposta = chat.invoke(prompt)
+```
+
+### Usando StrOutputParser
+
+```python
+from langchain_core.output_parsers import StrOutputParser
+
+output_parser = StrOutputParser()
+output_parser.invoke(resposta)
+```
+
+## Chains
+
+Você pode combinar templates, modelos e parsers em uma única chain:
+
+```python
+chain = chat_template | chat | output_parser
+
+chain.invoke({'nome_assistente': 'Sandro', 'pergunta': 'Qual o seu nome?'})
+```
+
+## Utilizando .with_structured_output()
+
+Esta é a maneira mais fácil e confiável de obter saídas estruturadas. O método `.with_structured_output()` é implementado para modelos que fornecem APIs nativas para estruturar saídas, como chamadas de ferramentas/funções ou modo JSON, e aproveita essas capacidades internamente.
+
+Este método recebe um esquema como entrada, que especifica os nomes, tipos e descrições dos atributos desejados na saída. Ele retorna um objeto similar a um Runnable, exceto que, em vez de gerar strings ou mensagens, produz objetos correspondentes ao esquema fornecido. O esquema pode ser especificado como uma classe TypedDict, um JSON Schema ou uma classe Pydantic.
+
+### Exemplo com Pydantic
+
+```python
+from typing import Optional
+from pydantic import BaseModel, Field
+
+class Piada(BaseModel):
+    """Piada para contar ao usuário"""
+    introducao: str = Field(description='A introdução da piada')
+    punchline: str = Field(description='A conclusão da piada')
+    avaliacao: Optional[int] = Field(description='O quão engraçada é a piada de 1 a 10')
+
+llm_estruturada = chat.with_structured_output(Piada)
+resposta = llm_estruturada.invoke('Conte uma piada sobre gatinhos')
+```
+
+Você pode acessar os campos individualmente:
+
+```python
+resposta.introducao  # 'Por que os gatinhos são tão bons em matemática?'
+```
+
+## Um exemplo mais prático
+
+Digamos que temos a seguinte review de um produto:
+
+> "Este soprador de folhas é bastante incrível. Ele tem quatro configurações: sopro de vela, brisa suave, cidade ventosa e tornado. Chegou em dois dias, bem a tempo para o presente de aniversário da minha esposa. Acho que minha esposa gostou tanto que ficou sem palavras. Até agora, fui o único a usá-lo, e tenho usado em todas as manhãs alternadas para limpar as folhas do nosso gramado. É um pouco mais caro do que os outros sopradores de folhas disponíveis no mercado, mas acho que vale a pena pelas características extras."
+
+E queremos que o modelo de linguagem processe esta review para estruturá-la em um formato específico:
+
+```python
+from typing import Optional
+from pydantic import BaseModel, Field
+
+class AvaliacaoReview(BaseModel):
+    """Avalia review do cliente"""
+    presente: bool = Field(description='True se foi para presente e False se não foi')
+    dias_entrega: int = Field(description='Quantos dias para entrega do produto')
+    percepcao_valor: list[str] = Field(description='Extraia qualquer frase sobre o valor ou preço do produto. Retorne uma lista.')
+
+llm_estruturada = chat.with_structured_output(AvaliacaoReview)
+resposta = llm_estruturada.invoke(review_cliente)
+```
+
+O resultado será um objeto estruturado com os campos especificados:
+
+```python
+# AvaliacaoReview(presente=True, dias_entrega=2, percepcao_valor=['incrível', 'bem a tempo', 'mais caro', 'vale a pena'])
+```
+
+---
+
+Este guia resume os principais conceitos e exemplos práticos sobre Output Parsers no LangChain, demonstrando como estruturar e formatar as saídas dos modelos de linguagem de forma eficiente.

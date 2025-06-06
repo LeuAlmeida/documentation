@@ -1,0 +1,87 @@
+---
+title: "Chains Complexas e LangSmith"
+metaTitle: "Chains Complexas e LangSmith com Python"
+metaDescription: "Guia de estudos sobre criação de chains complexas, composição de múltiplas chains e observabilidade com LangSmith em Python."
+---
+
+# Criando Chains mais complexas
+
+Agora que sabemos criar chains simples com LCEL, podemos começar a nos aventurar em chains mais complexas e compreender o verdadeiro poder do LangChain.
+
+Podemos utilizar a capacidade de compor chains para criar chains de chains. Isso mesmo, podemos acoplar pequenos blocos de chains, domando-os para criar aplicações bem mais complexas e, consequentemente, mais poderosas.
+
+A capacidade de um modelo de linguagem aumenta drasticamente conforme mais específica for nossa chamada, e é isso que buscamos fazer ao quebrar uma aplicação em múltiplas cadeias.
+
+## Configurando o ambiente
+
+```python
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
+```
+
+## Somando chains
+
+Primeiro, vamos criar uma chain para gerar curiosidades:
+
+```python
+from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
+chat = ChatOpenAI()
+
+prompt = ChatPromptTemplate.from_template('Fale uma curiosidade sobre o assunto: {assunto}')
+chain_curiosidade = prompt | chat | StrOutputParser()
+```
+
+Em seguida, criamos uma chain para gerar histórias baseadas em fatos:
+
+```python
+prompt = ChatPromptTemplate.from_template('Crie uma história sobre o seguinte fato curioso: {assunto}')
+chain_historia = prompt | chat | StrOutputParser()
+```
+
+### Combinando as chains
+
+Podemos combinar as duas chains para criar uma chain mais complexa:
+
+```python
+chain = chain_curiosidade | chain_historia
+
+finalChain = chain.invoke({'assunto': 'atibaia'})
+```
+
+## Como entender o que está acontecendo?
+
+Para isso, podemos utilizar o [LangSmith](https://www.langsmith.com). O LangSmith é uma espécie de observabilidade para LangChain, incluindo as chaves e valores de configuração.
+
+### Exemplo com saída estruturada
+
+Podemos usar o LangSmith junto com saídas estruturadas para analisar os resultados:
+
+```python
+from typing import Optional
+from pydantic import BaseModel, Field
+
+class AvaliacaoReview(BaseModel):
+    """Avalia a qualidade da história"""
+    personas: int = Field(description='Enumera a quantidade de personas envolvidas na história')
+    local: Optional[str] = Field(description='Extraia a localização onde aconteceu a história')
+    nota_historia: int = Field(description='Dê uma nota de 0 a 10 para a história criada')
+
+llm_estruturada = chat.with_structured_output(AvaliacaoReview)
+resposta = llm_estruturada.invoke(finalChain)
+```
+
+## Benefícios do LangSmith
+
+O LangSmith oferece várias funcionalidades importantes:
+
+1. **Observabilidade**: Acompanhe todas as chamadas e respostas do modelo
+2. **Depuração**: Identifique onde as chains podem estar falhando
+3. **Otimização**: Analise o desempenho e faça ajustes conforme necessário
+4. **Monitoramento**: Acompanhe o uso e a qualidade das respostas em produção
+
+---
+
+Este guia demonstra como criar chains mais complexas combinando múltiplas chains simples e como usar o LangSmith para monitorar e depurar suas aplicações LangChain.

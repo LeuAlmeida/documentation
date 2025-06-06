@@ -1,0 +1,102 @@
+---
+title: "Chains com LCEL"
+metaTitle: "LangChain Expression Language (LCEL) com Python"
+metaDescription: "Guia de estudos sobre LCEL, criação de chains declarativas e composição de chains em Python com exemplos práticos."
+---
+
+# LangChain Expression Language (LCEL)
+
+A Linguagem de Expressão LangChain, ou LCEL, é uma forma declarativa de compor cadeias de maneira fácil. A LCEL foi projetada desde o primeiro dia para suportar a colocação de protótipos em produção, sem a necessidade de alterações no código.
+
+## Principais características do LCEL:
+
+- Suporte a streaming de primeira classe: menor tempo possível para saída do primeiro token produzido
+- Suporte assíncrono: Qualquer cadeia construída com a LCEL pode ser chamada tanto com a API síncrona
+- Execução paralela otimizada: Sempre que suas cadeias LCEL tiverem etapas que podem ser executadas em paralelo
+- Retentativas e fallbacks: Maneira de tornar suas cadeias mais confiáveis em grande escala
+- Acessar resultados intermediários: auxiliando na depuração de uma cadeia
+
+## Configurando o ambiente
+
+```python
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
+```
+
+## Criando uma chain simples
+
+Primeiro, vamos importar e configurar o modelo:
+
+```python
+from langchain_openai import ChatOpenAI
+
+model = ChatOpenAI()
+```
+
+Em seguida, criamos um template de prompt:
+
+```python
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt = ChatPromptTemplate.from_template('Crie uma frase sobre o seguinte assunto: {assunto}')
+```
+
+### Criando a chain com LCEL
+
+Com LCEL, podemos criar chains de forma declarativa usando o operador pipe (|):
+
+```python
+chain = prompt | model
+chain.invoke({ 'assunto': 'futebol' })
+```
+
+## Adicionando mais elementos à chain
+
+Podemos adicionar um parser de saída para formatar o resultado:
+
+```python
+from langchain_core.output_parsers import StrOutputParser
+
+chain = prompt | model | StrOutputParser()
+chain.invoke({ 'assunto': 'futebol' })
+```
+
+## Como seria com chains clássicas? (Defasado)
+
+Para comparação, veja como seria usando o método antigo de chains:
+
+```python
+from langchain.chains.llm import LLMChain
+from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
+model = ChatOpenAI(model='gpt-3.5-turbo')
+prompt = ChatPromptTemplate.from_template('Crie uma frase sobre o seguinte assunto: {assunto}')
+output_parser = StrOutputParser()
+
+chain = LLMChain(
+    llm=model,
+    prompt=prompt,
+    output_parser=output_parser
+)
+
+chain.invoke({ 'assunto': 'border collie' })
+```
+
+## Entendendo a ordem dos componentes
+
+Para não errar a ordem dos componentes na chain, é importante entender que cada componente recebe um tipo de entrada e gera um tipo de saída específico:
+
+| Component | Tipo de Entrada | Tipo de Saída |
+|-----------|----------------|---------------|
+| Prompt | Dicionário | PromptValue |
+| ChatModel | String única, lista de mensagens de chat ou PromptValue | Mensagem de Chat |
+| LLM | String única, lista de mensagens de chat ou PromptValue | String |
+| OutputParser | A saída de um LLM ou ChatModel | Depende do parser |
+| Retriever | String única | Lista de Documentos |
+| Tool | String única ou dicionário | Depende da ferramenta |
+
+---
+
+Este guia apresenta os conceitos fundamentais do LCEL e como utilizá-lo para criar chains de forma mais eficiente e declarativa no LangChain.
