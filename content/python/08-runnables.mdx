@@ -1,0 +1,210 @@
+---
+title: "Runnables"
+metaTitle: "Runnables em LangChain com LCEL"
+metaDescription: "Guia completo sobre Runnables no LangChain Expression Language (LCEL), métodos de execução e composição paralela de chains."
+---
+
+# Runnables
+
+## Métodos dos Runnables de LCEL
+
+A interface padrão de LCEL inclui métodos essenciais para executar chains de diferentes formas:
+
+**Resumo: Interface unificada para executar chains com diferentes estratégias de processamento**
+
+### Métodos Síncronos
+- **stream**: transmitir de volta fragmentos da resposta
+- **invoke**: chamar a cadeia com um input
+- **batch**: chamar a cadeia com uma lista de inputs
+
+### Métodos Assíncronos
+Métodos correspondentes que devem ser usados com a sintaxe `asyncio` `await` para concorrência:
+
+- **astream**: transmitir de volta fragmentos da resposta de forma assíncrona
+- **ainvoke**: chamar a cadeia com um input de forma assíncrona
+- **abatch**: chamar a cadeia com uma lista de inputs de forma assíncrona
+
+## Configuração Básica
+
+### Criando uma Chain Simples
+```python
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+
+model = ChatOpenAI()
+prompt = ChatPromptTemplate.from_template("Crie uma frase sobre o assunto {assunto}")
+
+chain = prompt | model
+```
+
+## Método Invoke
+
+O invoke é o método básico para inserir uma input na cadeia e receber uma resposta.
+
+**Resumo: Execução síncrona padrão para um único input**
+
+### Usando Dicionário (Recomendado)
+```python
+chain.invoke({"assunto": "border collie"})
+```
+
+### Usando String Simples
+```python
+chain.invoke('cachorrinhos')
+```
+
+**Note:** Quando existe apenas uma input no prompt, pode ser usado como string simples, mas a forma recomendada é especificar o nome da input através de um dicionário.
+
+## Método Stream
+
+Para receber uma saída conforme ela é gerada pelo modelo em tempo real.
+
+**Resumo: Recebe tokens de resposta em tempo real conforme são gerados**
+
+```python
+for stream in chain.stream('cachorrinhos'):
+    print(stream.content, end='')
+```
+
+### Vantagens do Stream
+- Menor tempo para primeira resposta
+- Melhor experiência do usuário
+- Útil para respostas longas
+
+## Método Batch
+
+Para fazer múltiplas requisições em paralelo de forma eficiente.
+
+**Resumo: Executa múltiplas requisições simultaneamente para melhor performance**
+
+```python
+chain.batch([
+    {"assunto": "gatinhos"},
+    {"assunto": "cachorrinhos"},
+    {"assunto": "cavalinhos"}
+], config={'max_concurrency': 2})
+```
+
+### Configurações do Batch
+- `max_concurrency`: controla quantas requisições rodam simultaneamente
+- Otimizado para throughput em múltiplos inputs
+
+## Runnables Especiais
+
+### RunnableParallel - Execução Paralela
+
+Permite executar múltiplas chains em paralelo e combinar os resultados.
+
+**Resumo: Executa branches diferentes simultaneamente e combina resultados**
+
+```
+        Input
+         /  \
+        /    \
+    Branch 1 Branch 2
+        \    /
+         \  /
+        Combine
+```
+
+#### Exemplo Prático
+```python
+from langchain_core.runnables import RunnableParallel
+from langchain_core.output_parsers import StrOutputParser
+
+# Chain para criar nome do produto
+model = ChatOpenAI()
+prompt_nome = ChatPromptTemplate.from_template(
+    "Crie um nome para o seguinte produto: {produto}"
+)
+chain_nome = prompt_nome | model | StrOutputParser()
+
+# Chain para identificar clientes potenciais
+prompt_clientes = ChatPromptTemplate.from_template(
+    "Descreva o cliente potencial para o seguinte produto: {produto}"
+)
+chain_clientes = prompt_clientes | model | StrOutputParser()
+
+# Executando em paralelo
+parallel = RunnableParallel({
+    'nome_produto': chain_nome,
+    'publico': chain_clientes
+})
+
+resultado = parallel.invoke({'produto': 'Um copo inquebrável'})
+```
+
+### RunnableLambda - Funções Customizadas
+
+Converte funções Python comuns em Runnables compatíveis com LCEL.
+
+**Resumo: Integra funções Python personalizadas ao pipeline de LCEL**
+
+```python
+from langchain_core.runnables import RunnableLambda
+
+def cumprimentar(nome):
+    return f'Olá, {nome}!'
+
+runnable_cumprimentar = RunnableLambda(cumprimentar)
+resultado = runnable_cumprimentar.invoke('Leonardo')
+print(resultado)  # Output: Olá, Leonardo!
+```
+
+### RunnablePassthrough - Propagação de Dados
+
+Passa dados através da chain enquanto permite processamento adicional.
+
+**Resumo: Mantém dados originais enquanto adiciona informações processadas**
+
+```python
+from langchain_core.runnables import RunnablePassthrough
+
+# Mantém o input original e adiciona processamentos
+parallel = RunnablePassthrough().assign(**{
+    'nome_produto': chain_nome,
+    'publico': chain_clientes
+})
+
+chain = parallel | prompt | ChatOpenAI() | StrOutputParser()
+resultado = chain.invoke({'produto': 'Um copo inquebrável'})
+```
+
+## Casos de Uso Avançados
+
+### Pipeline Completo com Parallelismo
+```python
+# Prompt para o anúncio final
+prompt_anuncio = ChatPromptTemplate.from_template("""
+Dado o produto com o seguinte nome e seguinte público potencial,
+desenvolva um anúncio para o produto.
+
+Nome do produto: {nome_produto}
+Público: {publico}
+""")
+
+# Chain completa: paralelo + geração de anúncio
+chain_completa = parallel | prompt_anuncio | model | StrOutputParser()
+anuncio = chain_completa.invoke({'produto': 'Um copo inquebrável'})
+```
+
+## Vantagens dos Runnables
+
+### Performance
+- Execução paralela otimizada
+- Controle de concorrência
+- Streaming em tempo real
+
+### Flexibilidade
+- Composição declarativa
+- Reutilização de componentes
+- Integração com funções customizadas
+
+### Debugging
+- Interface consistente
+- Rastreamento de execução
+- Facilita testes e manutenção
+
+---
+
+Os Runnables fornecem uma interface poderosa e flexível para construir e executar chains complexas de forma eficiente no LangChain.
