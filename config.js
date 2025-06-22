@@ -6,7 +6,7 @@ const config = {
     trailingSlash: false,
   },
   header: {
-    logo: 'https://leunardo.dev/docs/icon.png',
+    logo: '/logo.png',
     logoLink: 'https://docs.leunardo.dev',
     title:
       "<a href='https://docs.leunardo.dev'><span>Leunardo.dev Documentation</span></a>",
@@ -70,7 +70,7 @@ const config = {
     description: 'Documentation built with mdx. Powering leunardo.dev ',
     ogImage: 'https://leunardo.dev/docs/site-preview.jpeg',
     docsLocation: 'https://github.com/LeuAlmeida/documentation/tree/master/content',
-    favicon: 'https://leunardo.dev/docs/icon.png',
+    favicon: '/logo.png',
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
@@ -84,7 +84,7 @@ const config = {
       crossOrigin: 'use-credentials',
       icons: [
         {
-          src: 'src/icon.png',
+          src: '/logo.png',
           sizes: `512x512`,
           type: `image/png`,
         },
