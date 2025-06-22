@@ -1,0 +1,250 @@
+---
+title: "Roteamento de Chains"
+metaTitle: "Roteamento Dinâmico em LangChain com LCEL"
+metaDescription: "Aprenda a implementar roteamento inteligente de chains em LangChain usando categorizadores e structured output para direcionar perguntas automaticamente."
+---
+
+# Roteamento de Chains
+
+## O que é Roteamento?
+
+O roteamento permite direcionar diferentes tipos de entrada para chains especializadas, criando um sistema inteligente que escolhe automaticamente a melhor abordagem para cada situação.
+
+**Resumo: Sistema que direciona inputs para chains especializadas baseado em critérios de categorização**
+
+## Configuração das Chains Especializadas
+
+### Criando Chains por Área de Conhecimento
+
+Primeiro, criamos chains especializadas para diferentes domínios:
+
+```python
+from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+
+model = ChatOpenAI(model="gpt-4o-mini")
+
+# Chain para matemática
+prompt_matematica = ChatPromptTemplate.from_template('''Você é um professor de matemática de ensino fundamental
+capaz de dar respostas muito detalhadas e didáticas. Responda a seguinte pergunta de um aluno:
+Pergunta: {pergunta}''')
+chain_matematica = prompt_matematica | model
+
+# Chain para física
+prompt_fisica = ChatPromptTemplate.from_template('''Você é um professor de física de ensino fundamental
+capaz de dar respostas muito detalhadas e didáticas. Responda a seguinte pergunta de um aluno:
+Pergunta: {pergunta}''')
+chain_fisica = prompt_fisica | model
+
+# Chain para história
+prompt_historia = ChatPromptTemplate.from_template('''Você é um professor de história de ensino fundamental
+capaz de dar respostas muito detalhadas e didáticas. Responda a seguinte pergunta de um aluno:
+Pergunta: {pergunta}''')
+chain_historia = prompt_historia | model
+
+# Chain para outras áreas
+prompt_outro = ChatPromptTemplate.from_template('''Você é um professor de outras áreas de conhecimento de ensino fundamental
+capaz de dar respostas muito detalhadas e didáticas. Responda a seguinte pergunta de um aluno:
+Pergunta: {pergunta}''')
+chain_outro = prompt_outro | model
+```
+
+## Sistema de Categorização
+
+### Definindo o Categorizador com Pydantic
+
+Utilizamos structured output para categorizar automaticamente as perguntas:
+
+**Resumo: Classifica perguntas automaticamente usando structured output e Pydantic**
+
+```python
+from pydantic import BaseModel, Field
+
+class Categorizador(BaseModel):
+    """Categoriza as perguntas de alunos do ensino fundamental"""
+    area_conhecimento: str = Field(
+        description="A área de conhecimento da pergunta feita pelo aluno. "
+        "Deve ser 'física', 'matemática' ou 'história'. "
+        "Caso não se encaixe em nenhuma das três, responda 'outro'."
+    )
+
+# Prompt para categorização
+prompt_categorizacao = ChatPromptTemplate.from_template(
+    'Você deve categorizar a seguinte pergunta de um aluno do ensino fundamental: {pergunta}'
+)
+
+# Model com saída estruturada
+model_estruturado = prompt_categorizacao | model.with_structured_output(Categorizador)
+```
+
+### Testando o Categorizador
+
+```python
+# Exemplo de categorização
+resultado = model_estruturado.invoke({"pergunta": "Qual a fórmula da aceleração?"})
+print(resultado)  # Output: Categorizador(area_conhecimento='física')
+```
+
+## Implementando o Roteamento
+
+### Adicionando Categorização ao Pipeline
+
+Primeiro, adicionamos a categorização mantendo a pergunta original:
+
+**Resumo: Mantém dados originais while adiciona categoria para roteamento**
+
+```python
+from langchain_core.runnables import RunnablePassthrough
+
+# Adiciona categoria mantendo a pergunta original
+chain_com_categoria = RunnablePassthrough.assign(categoria=model_estruturado)
+
+resultado = chain_com_categoria.invoke({"pergunta": "Qual a fórmula da aceleração?"})
+```
+
+**Resultado:**
+```python
+{
+    'pergunta': 'Qual a fórmula da aceleração?',
+    'categoria': Categorizador(area_conhecimento='física')
+}
+```
+
+### Função de Roteamento
+
+Criamos uma função que decide qual chain usar baseada na categoria:
+
+**Resumo: Função que seleciona a chain apropriada baseada na categorização**
+
+```python
+def route(input):
+    """Roteia a pergunta para a chain apropriada baseada na categoria"""
+    if input['categoria'].area_conhecimento == 'física':
+        return chain_fisica
+    elif input['categoria'].area_conhecimento == 'matemática':
+        return chain_matematica
+    elif input['categoria'].area_conhecimento == 'história':
+        return chain_historia
+    else:
+        return chain_outro
+```
+
+## Sistema Completo de Roteamento
+
+### Chain Final com Roteamento Automático
+
+Combinamos categorização e roteamento em uma única chain:
+
+```python
+# Chain completa: categorização + roteamento
+chain_completa = RunnablePassthrough.assign(categoria=model_estruturado) | route
+```
+
+### Exemplos de Uso
+
+#### Pergunta de História
+```python
+resposta = chain_completa.invoke({
+    'pergunta': 'Quando foi o ano da independência do Brasil?'
+})
+```
+
+**Fluxo de execução:**
+1. Pergunta é categorizada como "história"
+2. Roteamento direciona para `chain_historia`
+3. Professor de história responde detalhadamente
+
+#### Pergunta de Matemática
+```python
+resposta = chain_completa.invoke({
+    'pergunta': 'Qual o valor exato de pi?'
+})
+```
+
+**Fluxo de execução:**
+1. Pergunta é categorizada como "matemática"
+2. Roteamento direciona para `chain_matematica`
+3. Professor de matemática responde com detalhes técnicos
+
+## Fluxo de Roteamento
+
+```
+Pergunta do Usuário
+        ↓
+    Categorização
+   (Structured Output)
+        ↓
+   Função de Route
+        ↓
+    ┌─────────────────┐
+    │ Física?         │ → Chain Física
+    │ Matemática?     │ → Chain Matemática
+    │ História?       │ → Chain História
+    │ Outro?          │ → Chain Genérica
+    └─────────────────┘
+        ↓
+    Resposta Especializada
+```
+
+## Vantagens do Roteamento
+
+### Especialização
+- Respostas mais precisas e contextualizadas
+- Prompts otimizados para cada domínio
+- Melhor experiência do usuário
+
+### Flexibilidade
+- Fácil adição de novas categorias
+- Modificação de critérios de roteamento
+- Extensível para diferentes casos de uso
+
+### Eficiência
+- Processamento direcionado
+- Reduz ambiguidade nas respostas
+- Otimiza uso de tokens
+
+## Casos de Uso Avançados
+
+### Roteamento Múltiplo
+```python
+class CategorizadorAvancado(BaseModel):
+    """Categorização mais detalhada"""
+    area_principal: str = Field(description="Área principal da pergunta")
+    nivel_complexidade: str = Field(description="Básico, intermediário ou avançado")
+    requer_calculo: bool = Field(description="Se a pergunta requer cálculos")
+```
+
+### Roteamento Condicional
+```python
+def route_avancado(input):
+    """Roteamento baseado em múltiplos critérios"""
+    categoria = input['categoria']
+
+    if categoria.requer_calculo:
+        return chain_matematica_avancada
+    elif categoria.nivel_complexidade == 'avançado':
+        return chain_especializada
+    else:
+        return route_basico(input)
+```
+
+## Boas Práticas
+
+### Design de Categorias
+- Categorias mutuamente exclusivas
+- Critérios claros de classificação
+- Categoria padrão para casos não cobertos
+
+### Manutenção
+- Monitorar acurácia da categorização
+- Ajustar prompts baseado em feedback
+- Testar com diferentes tipos de entrada
+
+### Performance
+- Cache de categorizações frequentes
+- Otimização de prompts especializados
+- Monitoramento de latência
+
+---
+
+O roteamento de chains permite criar sistemas inteligentes que adaptam automaticamente suas respostas baseadas no contexto e tipo da pergunta, proporcionando experiências mais personalizadas e eficazes.
