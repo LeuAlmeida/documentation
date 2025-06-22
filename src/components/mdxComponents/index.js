@@ -9,25 +9,61 @@ const StyledPre = styled('pre')`
   background: ${props => props.theme.colors.preFormattedText};
 `;
 
+// Helper function to safely extract text content for IDs
+const getTextContent = (children) => {
+  if (typeof children === 'string') {
+    return children.replace(/\s+/g, '').toLowerCase();
+  }
+  if (React.isValidElement(children)) {
+    return React.Children.toArray(children.props.children)
+      .map(child => typeof child === 'string' ? child : '')
+      .join('')
+      .replace(/\s+/g, '')
+      .toLowerCase();
+  }
+  if (Array.isArray(children)) {
+    return children
+      .map(child => typeof child === 'string' ? child : '')
+      .join('')
+      .replace(/\s+/g, '')
+      .toLowerCase();
+  }
+  return '';
+};
+
+/* eslint-disable jsx-a11y/heading-has-content */
+const Heading1 = props => (
+  <h1 className="heading1" id={getTextContent(props.children)} {...props} />
+);
+
+const Heading2 = props => (
+  <h2 className="heading2" id={getTextContent(props.children)} {...props} />
+);
+
+const Heading3 = props => (
+  <h3 className="heading3" id={getTextContent(props.children)} {...props} />
+);
+
+const Heading4 = props => (
+  <h4 className="heading4" id={getTextContent(props.children)} {...props} />
+);
+
+const Heading5 = props => (
+  <h5 className="heading5" id={getTextContent(props.children)} {...props} />
+);
+
+const Heading6 = props => (
+  <h6 className="heading6" id={getTextContent(props.children)} {...props} />
+);
+/* eslint-enable jsx-a11y/heading-has-content */
+
 export default {
-  h1: props => (
-    <h1 className="heading1" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h2: props => (
-    <h2 className="heading2" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h3: props => (
-    <h3 className="heading3" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h4: props => (
-    <h4 className="heading4" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h5: props => (
-    <h5 className="heading5" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
-  h6: props => (
-    <h6 className="heading6" id={props.children.replace(/\s+/g, '').toLowerCase()} {...props} />
-  ),
+  h1: Heading1,
+  h2: Heading2,
+  h3: Heading3,
+  h4: Heading4,
+  h5: Heading5,
+  h6: Heading6,
   p: props => <p className="paragraph" {...props} />,
   pre: props => (
     <StyledPre>
