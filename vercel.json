@@ -1,0 +1,16 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "public"
+      }
+    }
+  ],
+  "functions": {
+    "src/pages/api/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
